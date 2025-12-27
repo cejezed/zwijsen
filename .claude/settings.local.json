@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ren \"vrijstaande moderne villa architect bouwgrond kavel zandvoort .jpg\" \"vrijstaande moderne villa architect bouwgrond kavel zandvoort.jpg\")",
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)",
+      "Bash(pkill:*)",
+      "Bash(powershell:*)",
+      "Bash(timeout 3 tail:*)",
+      "Bash(curl:*)",
+      "Bash(dir:*)"
+    ]
+  }
+}

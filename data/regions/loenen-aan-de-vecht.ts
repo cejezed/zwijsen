@@ -1,0 +1,202 @@
+import type { RegioConfig } from '../types';
+
+export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
+  seoTitle: "Architect Loenen aan de Vecht | Nieuwbouw, Verbouw en verduurzaming Architectenbureau Jules Zwijsen",
+  metaDescription: "Architect in Loenen aan de Vecht voor nieuwbouw, verbouw en monumenten. Jules Zwijsen ontwerpt woningen met oog voor locatie, regelgeving en detail.",
+
+  // Hero slides - optioneel per regio
+  heroSlides: [
+    {
+      url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",
+      title: "ARCHITECT IN LOENEN AAN DE VECHT",
+      subtitle: "Nieuwbouw, verbouw en monumentenzorg in de Vechtstreek"
+    },
+    {
+      url: "/images/loenen/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
+      title: "VAN EERSTE SCHETS TOT OPLEVERING",
+      subtitle: "Ontwerpen met oog voor de karakteristieke omgeving"
+    },
+    {
+      url: "/images/loenen/modern-interieur-houten-spanten-sfeervol-nieuwbouw-woning.webp",
+      title: "VAKMANSCHAP EN AANDACHT",
+      subtitle: "Begeleiding bij vergunningen en contact met gemeente Stichtse Vecht"
+    }
+  ],
+
+  // Werkwijze stappen - optioneel: alleen eerste stap aangepast voor regio
+  // Je kunt alle stappen overschrijven of alleen specifieke stappen aanpassen
+  processSteps: [
+    {
+      id: "01",
+      title: "Kennismaking in Loenen aan de Vecht",
+      subtitle: "Wensen & Levensritme",
+      duration: "1-2 weken",
+      description: "Een persoonlijk gesprek in Loenen aan de Vecht waarin ik uw wensen, stijl en levensritme leer kennen. Ter plaatse voel ik wat de kavel of bestaande woning vraagt. De start van uw ontwerp op maat – na dit gesprek weet u precies waar u aan toe bent en of er een klik is.",
+      deliverables: ["Intakegesprek", "Locatie-analyse", "Budgetindicatie"],
+      img: "/images/kennismaking_architect_werkwijze_kosten.jpg"
+    },
+    {
+      id: "02",
+      title: "Schetsontwerp",
+      subtitle: "Inspiratie & Concept",
+      duration: "4-6 weken",
+      description: "Ik vertaal uw woonwensen naar een krachtig concept dat functioneert én inspireert. Een ontwerp waar u blij van wordt en wat energie geeft! Duidelijke schetsen en 3D visualisaties helpen u het eindresultaat al te ervaren.",
+      deliverables: ["3D visualisaties", "Plattegronden", "Materiaalkeuze"],
+      img: "/images/schetsontwerp_architect_moderne_villa_zandvoort_duinen.jpg"
+    },
+    {
+      id: "03",
+      title: "Voorlopig Ontwerp",
+      subtitle: "Prijsvorming & Regie",
+      duration: "3-4 weken",
+      description: "De eerste set werkbare tekeningen gaat naar aannemers, constructeurs en installatie adviseurs. Ik regel de offertes en eventueel vooroverleg met de gemeente. Zo weet u tijdig wat het écht gaat kosten – en kunnen we bijsturen voordat het te laat is.",
+      deliverables: ["Bouwtekeningen", "Offerteaanvraag", "Kostenraming"],
+      img: "/images/bouwkundige_tekening_patio_villa_achterhoek.jpg"
+    },
+    {
+      id: "04",
+      title: "Definitief Ontwerp",
+      subtitle: "Alles sluitend",
+      duration: "2-3 weken",
+      description: "Alle details worden uitgetekend: constructie, installaties, materialen en afwerkingen. Deze fase vertaalt het concept naar uitvoerbare bouwplannen die geen vragen openlaten.",
+      deliverables: ["Constructietekeningen", "Installatieplan", "Detailtekeningen"],
+      img: "/images/tekening_uitvoering_bouwvergunning_modern_landhuis.jpg"
+    },
+    {
+      id: "05",
+      title: "Vergunning & Uitvoering",
+      subtitle: "Van Papier naar Werkelijkheid",
+      duration: "Varieert",
+      description: "De vergunningsaanvraag wordt ingediend en ik begeleid het bouwproces. Van de eerste schop in de grond tot de laatste verfstreek – u kunt op mij rekenen voor toezicht, overleg met de aannemer en kwaliteitscontrole.",
+      deliverables: ["Omgevingsvergunning", "Bouwbegeleiding", "Oplevering"],
+      img: "/images/begeleiding_uitvoering_modern_landhuis_realisatie.jpg"
+    }
+  ],
+
+  // Portfolio projecten specifiek voor deze regio
+  projects: [
+    {
+      id: 1,
+      title: "Moderne Rietkapvilla",
+      location: "'t Gooi",
+      slug: "moderne-rietkapvilla-het-gooi",
+      image: "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg",
+      size: "wide" as const,
+      year: "2025",
+      area: "450m²",
+      tag: "Nieuwbouw",
+      description: "Een strakke interpretatie van de Gooise villa: tijdloze klasse, maximale lichtbeleving en een discreet geïntegreerd souterrain.",
+      gallery: [
+        "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg",
+        "https://www.zwijsen.net/wp-content/uploads/2025/11/modern-interieur-villa-architect-interieur-luxe-villa-vide-hoog-plafond-hout.jpg",
+        "https://www.zwijsen.net/wp-content/uploads/2025/11/uitkragende-rietkapvilla-sousterrain-garage.jpg"
+      ]
+    },
+    {
+      id: 2,
+      title: "Levensloopbestendige Seniorenwoningen",
+      location: "Loenen aan de Vecht",
+      slug: "levensloopbestendige-seniorenwoningen-loenen-aan-de-vecht",
+      image: "https://www.zwijsen.net/wp-content/uploads/2025/12/circulair-gebouwde-houten-schuurwoning-gevel.jpg",
+      size: "portrait" as const,
+      year: "2025",
+      area: "9 woningen",
+      tag: "Nieuwbouw",
+      description: "Transformatie van 12 recreatiewoningen naar 9 energieneutrale, circulaire seniorenwoningen. Architectuur met tijdloze klasse.",
+      gallery: [
+        "https://www.zwijsen.net/wp-content/uploads/2025/12/circulair-gebouwde-houten-schuurwoning-gevel.jpg",
+        "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-schuurwoning-eikenhouten-constructie.jpg",
+        "https://www.zwijsen.net/wp-content/uploads/2025/12/levensloopbestendig-woningbouw-project-overzicht.jpg"
+      ]
+    }
+  ],
+
+  regio: {
+    name: "Loenen aan de Vecht",
+    collageImages: [
+      {
+        url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",
+        alt: "Verbouw woning aan de Vecht met nieuw bijgebouw aan de Mijndensedijk, ontwerp architect Loenen aan de Vecht"
+      },
+      {
+        url: "/images/loenen/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
+        alt: "Renovatie van karakteristieke woning Kickestein in Loenen aan de Vecht door architectenbureau Jules Zwijsen"
+      },
+      {
+        url: "/images/loenen/modern-interieur-houten-spanten-sfeervol-nieuwbouw-woning.webp",
+        alt: "Licht interieur met houten spanten in nieuwbouwwoning ontworpen door architect in Loenen aan de Vecht"
+      },
+      {
+        url: "/images/loenen/nieuwbouw-villa-cronenburgh-poortwoning-special-west8-moderne-woning.webp",
+        alt: "Moderne nieuwbouwvilla in Cronenburgh met grote glasgevel aan de tuinzijde, ontwerp architect Loenen aan de Vecht"
+      },
+      {
+        url: "/images/loenen/verbouw-wame-hand-zwemlust-herberg-renovatie-architect.webp",
+        alt: "Renovatie van karakteristiek pand bij voormalige herberg zwemlustlocatie, verbouw door architect in de Vechtstreek"
+      },
+      {
+        url: "/images/loenen/verbouw-woning-rijksstraatweg-loenen-aan-de-vecht-architect-villa-modern.webp",
+        alt: "Verbouwde villa aan de Rijksstraatweg in Loenen aan de Vecht met moderne uitbreiding door architect Jules Zwijsen"
+      }
+    ],
+    municipalLinks: [
+      {
+        title: "Bestemmingsplan / Omgevingsplan",
+        url: "https://www.ruimtelijkeplannen.nl/",
+        description: "Controleer wat er mag op uw locatie volgens het gemeentelijke bestemmingsplan."
+      },
+      {
+        title: "Welstandsnota Stichtse Vecht",
+        url: "https://raadsinformatie.stichtsevecht.nl/Vergaderingen/Commissie-Fysiek-Domein/2024/26-november/19:30/Reclamemast-De-Corridor-25/Bijlage-6-Welstandsnota-Stichtse-Vecht-2013.pdf",
+        description: "Inzicht in welstandscriteria en architectonische eisen voor uw bouwplan."
+      },
+      {
+        title: "Leges en tarieven omgevingsvergunning",
+        url: "https://lokaleregelgeving.overheid.nl/CVDR732544",
+        description: "Overzicht van gemeentelijke kosten voor vergunningaanvragen."
+      },
+      {
+        title: "Monumentenbeleid",
+        url: "https://www.monumenten.nl/gemeentes/stichtse-vecht#:~:text=Monumentenzorg%20Stichtse%20Vecht&text=De%20adviseurs%20stellen%20beleid%20op,en%20plichten%20met%20zich%20mee.",
+        description: "Specifieke regels voor monumentale panden in de Vechtstreek."
+      },
+      {
+        title: "Vooroverleg gemeente",
+        url: "https://www.stichtsevecht.nl/wonen-en-leefomgeving/bouwen-verbouwen-en-slopen",
+        description: "Neem vooraf contact op met de gemeente voor advies over uw plannen."
+      },
+      {
+        title: "Archief bouwtekeningen",
+        url: "https://www.stichtsevecht.nl/wonen-en-leefomgeving/bouwen-verbouwen-en-slopen/bouwdossier-bekijken",
+        description: "Bekijk in het archief of er tekeningen van de bestaande woning beschikbaar zijn, onmisbaar bij verbouw, renovatie, aanbouw of verduurzaming van uw woning in Loenen aan de Vecht."
+      }
+    ],
+    expertise: {
+      h2: "Wat doet een architect in Loenen aan de Vecht?",
+      paragraph: "Als architect in Loenen aan de Vecht richt Jules Zwijsen zich op het ontwerpen en verbouwen van woningen in en rond het dorp. Dat varieert van een compacte uitbouw aan een bestaande woning tot het zorgvuldig uitbreiden van een monumentaal pand of het ontwerpen van een nieuwe woning op een kavel in de Vechtstreek. Steeds met aandacht voor zichtlijnen, daglicht, materiaal en de relatie met tuin en straat.",
+      h3: "Architectonisch ontwerp en verbouw in de Vechtstreek",
+      h3_paragraph: "In de Vechtstreek speelt de samenhang tussen landschap, dorpsstructuur en bestaande architectuur een grote rol. Bij elk ontwerp wordt gekeken naar het straatbeeld, de maat en schaal van de omgeving en de regels van de gemeente Stichtse Vecht. Zo ontstaat een ontwerp dat ruim voelt, praktisch is in gebruik en vanzelfsprekend in de omgeving past.",
+      services: [
+        "Ontwerp van nieuwbouwwoningen in Loenen aan de Vecht en omgeving",
+        "Verduurzaming, Aanbouw en uitbouw van bestaande woningen in Loenen en Vreeland",
+        "Verbouw en herindeling van (monumentale) woningen",
+        "Begeleiding bij vergunningsaanvragen bij gemeente Stichtse Vecht",
+        "Gevestigd in Loenen aan de Vecht, actief in de gehele Vechtstreek"
+      ],
+      regionalProjects: [
+        {
+          title: "Dijkwoning Loenen",
+          description: "Karakteristieke verbouwing aan de Vecht"
+        },
+        {
+          title: "Landhuis Vreeland",
+          description: "Klassiek landhuis met hedendaagse twist"
+        },
+        {
+          title: "Villa Vechtstreek",
+          description: "Moderne nieuwbouw in groene omgeving"
+        }
+      ]
+    }
+  }
+};
