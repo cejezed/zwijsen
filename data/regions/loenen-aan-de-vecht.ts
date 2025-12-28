@@ -73,44 +73,6 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
     }
   ],
 
-  // Portfolio projecten specifiek voor deze regio
-  projects: [
-    {
-      id: 1,
-      title: "Moderne Rietkapvilla",
-      location: "'t Gooi",
-      slug: "moderne-rietkapvilla-het-gooi",
-      image: "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg",
-      size: "wide" as const,
-      year: "2025",
-      area: "450m²",
-      tag: "Nieuwbouw",
-      description: "Een strakke interpretatie van de Gooise villa: tijdloze klasse, maximale lichtbeleving en een discreet geïntegreerd souterrain.",
-      gallery: [
-        "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg",
-        "https://www.zwijsen.net/wp-content/uploads/2025/11/modern-interieur-villa-architect-interieur-luxe-villa-vide-hoog-plafond-hout.jpg",
-        "https://www.zwijsen.net/wp-content/uploads/2025/11/uitkragende-rietkapvilla-sousterrain-garage.jpg"
-      ]
-    },
-    {
-      id: 2,
-      title: "Levensloopbestendige Seniorenwoningen",
-      location: "Loenen aan de Vecht",
-      slug: "levensloopbestendige-seniorenwoningen-loenen-aan-de-vecht",
-      image: "https://www.zwijsen.net/wp-content/uploads/2025/12/circulair-gebouwde-houten-schuurwoning-gevel.jpg",
-      size: "portrait" as const,
-      year: "2025",
-      area: "9 woningen",
-      tag: "Nieuwbouw",
-      description: "Transformatie van 12 recreatiewoningen naar 9 energieneutrale, circulaire seniorenwoningen. Architectuur met tijdloze klasse.",
-      gallery: [
-        "https://www.zwijsen.net/wp-content/uploads/2025/12/circulair-gebouwde-houten-schuurwoning-gevel.jpg",
-        "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-schuurwoning-eikenhouten-constructie.jpg",
-        "https://www.zwijsen.net/wp-content/uploads/2025/12/levensloopbestendig-woningbouw-project-overzicht.jpg"
-      ]
-    }
-  ],
-
   regio: {
     name: "Loenen aan de Vecht",
 
