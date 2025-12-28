@@ -19,30 +19,81 @@ export const Navigation: React.FC<NavigationProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Detect if we're in a region page
+  const REGION_ROUTES = [
+    'hilversum', 'loenen-aan-de-vecht', 'loosdrecht', 'utrecht',
+    'bilthoven', 'breukelen', 'maarssen', 'stichtse-vecht',
+    'het-gooi', 'blaricum', 'laren', 'wijdemeren', 'kortenhoef', 'vreeland'
+  ];
+  const currentRegion = REGION_ROUTES.find(region =>
+    location.pathname === `/${region}` || location.pathname.startsWith(`/${region}/`)
+  );
+
   const handleLogoClick = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentRegion) {
+      // Als we in een regio zijn, ga naar die regio home
+      if (location.pathname === `/${currentRegion}`) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate(`/${currentRegion}`);
+      }
     } else {
-      navigate('/');
+      // Anders naar de algemene home
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
     }
   };
 
   const handleMenuLinkClick = (link: any) => {
     setIsMenuOpen(false);
+
     if (link.name === "Projecten") {
-      navigate('/projecten');
+      if (currentRegion) {
+        // Blijf in regio context - scroll naar portfolio sectie
+        if (location.pathname === `/${currentRegion}`) {
+          const element = document.querySelector('#portfolio');
+          element?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          navigate(`/${currentRegion}`);
+          setTimeout(() => {
+            const element = document.querySelector('#portfolio');
+            element?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
+      } else {
+        navigate('/projecten');
+      }
     } else if (link.name === "Regio's") {
       navigate('/regios');
     } else {
-      if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
+      // For anchor links (like #proces, #over-ons, etc.)
+      if (currentRegion) {
+        // Blijf in regio context
+        if (location.pathname === `/${currentRegion}`) {
           const element = document.querySelector(link.href);
           element?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        } else {
+          navigate(`/${currentRegion}`);
+          setTimeout(() => {
+            const element = document.querySelector(link.href);
+            element?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }
       } else {
-        const element = document.querySelector(link.href);
-        element?.scrollIntoView({ behavior: 'smooth' });
+        // Ga naar algemene home
+        if (location.pathname !== '/') {
+          navigate('/');
+          setTimeout(() => {
+            const element = document.querySelector(link.href);
+            element?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        } else {
+          const element = document.querySelector(link.href);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
