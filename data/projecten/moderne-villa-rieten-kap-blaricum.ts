@@ -66,7 +66,7 @@ export const moderneVillaRietenKapBlaricum: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-04-12-10.10.47_resize.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2025/04/2025-04-12-10.09.51_resizel.jpg",
     alt: "Moderne villa in Blaricum met rieten kap, witte gevel en hoogwaardige afwerking"
   },
 
@@ -175,37 +175,7 @@ export const moderneVillaRietenKapBlaricum: ProjectDetail = {
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Duurzaam, comfortabel en toekomstgericht",
-      content:
-        "De villa is ontworpen met oog voor de toekomst.\n\nDankzij hoogwaardige isolatie, triple beglazing en een stille bodemwarmtepomp is het binnenklimaat het hele jaar door comfortabel én energiezuinig.\n\nZowel in technische prestaties als esthetische kwaliteit voldoet deze woning aan de hoogste eisen van hedendaags luxe wonen.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-04-12-10.10.13_resize.jpg",
-        alt: "Moderne villa Blaricum – comfort, stijl en duurzaamheid in balans"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: true,
-      title: "Ambacht en architectuur in harmonie met Blaricum",
-      content:
-        "In dit ontwerp komen ambacht en moderne architectuur op een bijzondere manier samen.\n\nDe rieten kap is met vakmanschap aangebracht en vormt een eigentijdse interpretatie van een traditioneel materiaal, passend bij de landelijke sfeer van Blaricum.\n\nDe gekozen materialen — hout, pleisterwerk, glas en riet — zorgen voor een natuurlijke gelaagdheid in het ontwerp die zowel van dichtbij als van veraf de aandacht trekt. De villa voegt zich stijlvol in de omgeving en onderstreept hoe hoogwaardige architectuur niet alleen functioneel, maar ook verbindend en contextueel kan zijn.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/11/moderne-villa-rieten-kap-blaricum-te-koop-architect.jpg",
-        alt: "Moderne villa met rieten kap in Blaricum – contextueel en eigentijds"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
+     {
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -248,7 +218,39 @@ export const moderneVillaRietenKapBlaricum: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "lg" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Duurzaam, comfortabel en toekomstgericht",
+      content:
+        "De villa is ontworpen met oog voor de toekomst.\n\nDankzij hoogwaardige isolatie, triple beglazing en een stille bodemwarmtepomp is het binnenklimaat het hele jaar door comfortabel én energiezuinig.\n\nZowel in technische prestaties als esthetische kwaliteit voldoet deze woning aan de hoogste eisen van hedendaags luxe wonen.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-04-12-10.10.13_resize.jpg",
+        alt: "Moderne villa Blaricum – comfort, stijl en duurzaamheid in balans"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: true,
+      title: "Ambacht en architectuur in harmonie met Blaricum",
+      content:
+        "In dit ontwerp komen ambacht en moderne architectuur op een bijzondere manier samen.\n\nDe rieten kap is met vakmanschap aangebracht en vormt een eigentijdse interpretatie van een traditioneel materiaal, passend bij de landelijke sfeer van Blaricum.\n\nDe gekozen materialen — hout, pleisterwerk, glas en riet — zorgen voor een natuurlijke gelaagdheid in het ontwerp die zowel van dichtbij als van veraf de aandacht trekt. De villa voegt zich stijlvol in de omgeving en onderstreept hoe hoogwaardige architectuur niet alleen functioneel, maar ook verbindend en contextueel kan zijn.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/11/moderne-villa-rieten-kap-blaricum-te-koop-architect.jpg",
+        alt: "Moderne villa met rieten kap in Blaricum – contextueel en eigentijds"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+   
   ],
 
   cta: {

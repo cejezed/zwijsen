@@ -113,6 +113,19 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
 
   regio: {
     name: "Loenen aan de Vecht",
+
+    // Intro sectie - H1 + intro tekst direct onder hero
+    intro: {
+      h1: "Architect in Loenen aan de Vecht",
+      paragraph: "U zoekt een architect in Loenen aan de Vecht voor een verbouwing, aanbouw of nieuwbouwwoning. Vanuit Loenen aan de Vecht werkt Jules Zwijsen aan woningen en monumenten in het dorp en in Vreeland, met oog voor de bestaande bebouwing en de regels van de gemeente Stichtse Vecht. Het doel is een helder ontwerp dat goed voelt in het dagelijks gebruik en past in de omgeving."
+    },
+
+    // Footer intro - H2 + contacttekst in de footer
+    footerIntro: {
+      h2: "Architect in Loenen aan de Vecht nodig?",
+      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Loenen aan de Vecht of Vreeland en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak in Loenen aan de Vecht wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie."
+    },
+
     collageImages: [
       {
         url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",

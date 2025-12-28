@@ -11,7 +11,9 @@
       "Bash(powershell:*)",
       "Bash(timeout 3 tail:*)",
       "Bash(curl:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout 5 tail:*)"
     ]
   }
 }

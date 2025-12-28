@@ -39,7 +39,7 @@ export const moderneRietkapvillaHetGooi: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2025/11/moderne-rieten-kap-villa-architect-ontwerp-moderne-rietkap-woning-glazen-gevel-gezinsleven.jpg",
     alt: "Architect luxe rietkapvilla Het Gooi – uitkragend volume met souterrain"
   },
 

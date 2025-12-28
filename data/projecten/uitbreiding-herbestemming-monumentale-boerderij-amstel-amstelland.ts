@@ -185,39 +185,7 @@ export const monumentaleBoerderijAmstelAmstelland: ProjectDetail = {
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Tijdloos wonen met modern comfort",
-      content:
-        "Het interieur is eigentijds en warm, met duurzame materialen en een heldere plattegrond.\n\nDe combinatie van historische elementen — zoals bestaand metselwerk en traditionele dakvormen — met moderne architectonische ingrepen maakt dit project uniek.\n\nEr is volop ruimte gecreëerd voor wonen, werken en gasten, zonder afbreuk te doen aan de historische uitstraling van het erf.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2018/04/amsterdam-amstel-boerderij-verbouw-architect-2.jpg",
-        alt:
-          "Interieur – eigentijdse ruimtes met warme materialisatie en monumentale gelaagdheid"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: true,
-      title: "Duurzaamheid als vanzelfsprekendheid",
-      content:
-        "De woning is uitgerust met een geavanceerd installatiesysteem: een warmtepomp zorgt voor verwarming én koeling en wordt ondersteund door esthetisch geïntegreerde zonnepanelen in het dak.\n\nDe aluminium kozijnen in steel-look combineren een slank profiel met uitstekende isolatiewaarden.\n\nSamen met de hoge luchtdichtheid en bouwkwaliteit levert dit een energiezuinige woning op die klaar is voor de toekomst.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2018/04/amstelland-woonschuur-architect-verbouw-nieuwbouw-boerderijwoning-1.jpg",
-        alt:
-          "Steel-look kozijnen – slanke profielen met hoge isolatie, passend bij het ontwerp"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
+     {
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -260,7 +228,41 @@ export const monumentaleBoerderijAmstelAmstelland: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "lg" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Tijdloos wonen met modern comfort",
+      content:
+        "Het interieur is eigentijds en warm, met duurzame materialen en een heldere plattegrond.\n\nDe combinatie van historische elementen — zoals bestaand metselwerk en traditionele dakvormen — met moderne architectonische ingrepen maakt dit project uniek.\n\nEr is volop ruimte gecreëerd voor wonen, werken en gasten, zonder afbreuk te doen aan de historische uitstraling van het erf.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2018/04/amsterdam-amstel-boerderij-verbouw-architect-2.jpg",
+        alt:
+          "Interieur – eigentijdse ruimtes met warme materialisatie en monumentale gelaagdheid"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: true,
+      title: "Duurzaamheid als vanzelfsprekendheid",
+      content:
+        "De woning is uitgerust met een geavanceerd installatiesysteem: een warmtepomp zorgt voor verwarming én koeling en wordt ondersteund door esthetisch geïntegreerde zonnepanelen in het dak.\n\nDe aluminium kozijnen in steel-look combineren een slank profiel met uitstekende isolatiewaarden.\n\nSamen met de hoge luchtdichtheid en bouwkwaliteit levert dit een energiezuinige woning op die klaar is voor de toekomst.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2018/04/amstelland-woonschuur-architect-verbouw-nieuwbouw-boerderijwoning-1.jpg",
+        alt:
+          "Steel-look kozijnen – slanke profielen met hoge isolatie, passend bij het ontwerp"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+   
   ],
 
   cta: {

@@ -1,14 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { MoveLeft, ArrowUpRight, Plus, Filter, Info, MapPin, Hash } from 'lucide-react';
+import { ArrowUpRight, Plus, Filter, Hash, Home } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../data/projecten';
-
-interface PortfolioProps {
-  onBack: () => void;
-  onProjectClick: (slug: string) => void;
-  onInquiryOpen?: () => void;
-}
+import { Footer } from '../components';
 
 const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onClick: () => void }) => {
   return (
@@ -74,10 +69,25 @@ const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onC
   );
 };
 
-export const Portfolio: React.FC<PortfolioProps> = ({ onBack, onProjectClick, onInquiryOpen }) => {
+export const ProjectenOverzicht: React.FC = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('all');
+  const footerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { scrollYProgress } = useScroll();
-  const backgroundTextX = useTransform(scrollYProgress, [0, 1], [0, -200]);
+
+  // Footer scroll animations
+  const { scrollYProgress: footerScroll } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"]
+  });
+  const footerParallaxText = useTransform(footerScroll, [0, 1], [0, -1500]);
+  const footerOpacity = useTransform(footerScroll, [0, 0.4], [0, 1]);
 
   const allCategories = ['all', ...Array.from(new Set(PROJECTS_DETAIL.flatMap(p => p.categories || [])))];
   const filteredProjects = filter === 'all'
@@ -85,30 +95,22 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onBack, onProjectClick, on
     : PROJECTS_DETAIL.filter(p => p.categories?.includes(filter));
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="min-h-screen bg-stone-50 pt-24 pb-32 px-6 md:px-12 relative overflow-hidden selection:bg-amber-100"
     >
-      {/* Background Decorator */}
-      <motion.div 
-        style={{ x: backgroundTextX }}
-        className="fixed top-1/2 left-0 -translate-y-1/2 mono text-[20vw] font-black text-stone-200/30 whitespace-nowrap pointer-events-none z-0 select-none"
-      >
-        COLLECTIE // ARCHIEF
-      </motion.div>
-
-      {/* Top Navigation */}
-      <nav className="fixed top-0 left-0 w-full p-6 md:p-10 z-[500] flex justify-between items-center pointer-events-none">
-        <button 
-          onClick={onBack}
-          className="pointer-events-auto bg-black text-white px-8 py-4 rounded-full border border-white/10 hover:bg-amber-600 transition-all flex items-center gap-4 group shadow-2xl"
+      {/* Fixed Navigation Bar */}
+      <nav className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-4 pointer-events-none">
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-stone-200 px-6 py-4 rounded-full shadow-sm hover:bg-white transition-all pointer-events-auto group"
         >
-          <MoveLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="mono text-[10px] font-extrabold uppercase tracking-[0.4em]">Home</span>
+          <Home size={18} className="text-amber-600 group-hover:scale-110 transition-transform" />
+          <span className="mono text-[10px] font-black text-stone-700 uppercase tracking-[0.3em]">Home</span>
         </button>
-        
+
         <div className="hidden md:flex items-center gap-8 bg-white/80 backdrop-blur-xl border border-stone-200 px-8 py-4 rounded-full shadow-sm pointer-events-auto">
            <div className="flex items-center gap-3 mono text-[10px] font-black text-stone-400">
               <Hash size={12} className="text-amber-500" />
@@ -158,38 +160,38 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onBack, onProjectClick, on
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
-              <ProjectCard 
-                key={project.slug} 
-                project={project} 
-                idx={idx} 
-                onClick={() => onProjectClick(project.slug)} 
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                idx={idx}
+                onClick={() => navigate(`/projecten/${project.slug}`)}
               />
             ))}
           </AnimatePresence>
         </motion.div>
-
-        {filteredProjects.length === 0 && (
-          <div className="py-48 text-center space-y-10 border-2 border-dashed border-stone-200 rounded-3xl">
-            <Info size={48} className="mx-auto text-stone-200" />
-            <p className="text-2xl font-light italic text-stone-400">Er zijn momenteel geen dossiers gevonden in dit segment.</p>
-          </div>
-        )}
       </div>
 
       {/* Floating Action Button for Contact */}
-      <motion.div 
+      <motion.div
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         className="fixed bottom-10 right-10 z-[500]"
       >
         <button
-          onClick={() => onInquiryOpen?.()}
+          onClick={() => navigate('/#contact')}
           className="bg-black text-white px-10 py-6 rounded-full flex items-center gap-6 shadow-3xl hover:bg-amber-600 transition-all group"
         >
            <span className="mono text-[11px] font-black uppercase tracking-widest">Start uw dossier</span>
            <Plus size={20} className="group-hover:rotate-90 transition-transform" />
         </button>
       </motion.div>
+
+      {/* Footer */}
+      <Footer
+        footerRef={footerRef}
+        parallaxText={footerParallaxText}
+        opacity={footerOpacity}
+      />
     </motion.div>
   );
 };

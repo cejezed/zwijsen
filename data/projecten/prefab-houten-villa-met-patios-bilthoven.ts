@@ -128,36 +128,6 @@ export const prefabHoutenVillaMetPatiosBilthoven: ProjectDetail = {
     { type: "spacer", size: "md" },
 
     {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Een maatwerk oase van licht en hout",
-      content:
-        "Het interieur is een verlengstuk van de natuurlijke omgeving. Warm hout, strakke minimalistische afwerkingen en grote glasvlakken zorgen voor maximale lichtinval en een directe relatie met de omliggende bomen.\n\nDe open plattegrond stroomt van binnen naar buiten, met de patios als ‘hart’ van het woonhuis: perfect voor een rustige ochtend, een beschutte lunch of een diner met uitzicht.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/12/a-frame-architectuur-uitkragend-terras-houten-huis-prefab.jpg",
-        alt: "Moderne prefab villa met patio en houten gevelbekleding; zicht op eetruimte met maatwerk tafel."
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: false,
-      title: "Klaar voor de toekomst: energiezuinig en levensloopbestendig gedacht",
-      content:
-        "Deze woning is ontworpen met oog op de toekomst: energiezuinig, comfortabel en duurzaam. Het gebruik van verantwoord hout en de precisie van prefab bouw zorgen niet alleen voor een minimale ecologische voetafdruk, maar ook voor een hoogwaardig binnenklimaat.\n\nSlimme techniek en een doordachte opzet maken de villa tot een duurzame plek om te leven, met een vanzelfsprekende rust en kwaliteit die lang meegaat.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-prefab-villa-zwembad-buitenzicht.jpg",
-        alt: "Moderne A-frame prefab designvilla met overdekte patio en glazen gevel in groene omgeving."
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
       type: "gallery",
       layout: "grid",
       gallery: [
@@ -192,7 +162,39 @@ export const prefabHoutenVillaMetPatiosBilthoven: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "md" }
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Een maatwerk oase van licht en hout",
+      content:
+        "Het interieur is een verlengstuk van de natuurlijke omgeving. Warm hout, strakke minimalistische afwerkingen en grote glasvlakken zorgen voor maximale lichtinval en een directe relatie met de omliggende bomen.\n\nDe open plattegrond stroomt van binnen naar buiten, met de patios als ‘hart’ van het woonhuis: perfect voor een rustige ochtend, een beschutte lunch of een diner met uitzicht.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/12/a-frame-architectuur-uitkragend-terras-houten-huis-prefab.jpg",
+        alt: "Moderne prefab villa met patio en houten gevelbekleding; zicht op eetruimte met maatwerk tafel."
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: false,
+      title: "Klaar voor de toekomst: energiezuinig en levensloopbestendig gedacht",
+      content:
+        "Deze woning is ontworpen met oog op de toekomst: energiezuinig, comfortabel en duurzaam. Het gebruik van verantwoord hout en de precisie van prefab bouw zorgen niet alleen voor een minimale ecologische voetafdruk, maar ook voor een hoogwaardig binnenklimaat.\n\nSlimme techniek en een doordachte opzet maken de villa tot een duurzame plek om te leven, met een vanzelfsprekende rust en kwaliteit die lang meegaat.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-prefab-villa-zwembad-buitenzicht.jpg",
+        alt: "Moderne A-frame prefab designvilla met overdekte patio en glazen gevel in groene omgeving."
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    
   ],
 
   cta: {

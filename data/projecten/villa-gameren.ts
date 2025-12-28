@@ -38,7 +38,7 @@ export const villaGameren: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2025/11/luxe-villa-rietkap-modern-architectuur-gameren.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2025/11/moderne-villa-zwembad-architect-details.jpg",
     alt: "Villa Gameren – luxe moderne boerderij met rieten kap en maximale privacy"
   },
 
@@ -73,18 +73,7 @@ export const villaGameren: ProjectDetail = {
       }
     },
 
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: false,
-      title: "Projectdetails",
-      content:
-        "Type: Nieuwbouw villa / moderne boerderij\n\nLocatie: Gameren\n\nConcept: Gesloten naar straat, open naar binnentuin en landschap\n\nHoofdthema: Maximale privacy + optimale bezonning en uitzicht\n\nDakvorm: Rieten kap\n\nKavelstrategie: Ordening en 'kadering' van zichtlijnen met bijgebouwen/tuinmuren\n\nPlattegrond: Open begane grond: keuken, eetkamer, werkkamer en woonkamer\n\nLevensloopbestendig: Alle essentiële functies op begane grond + lift\n\nInstallaties: Warmtepomp, vloerverwarming, zonnepanelen\n\nExtra's: Kelder (omvang n.n.b.), mogelijkheid separate entree/aanleunfunctie\n\nAan te vullen: jaar, m², status, bouwsysteem en partners.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-kavel-analyse-inkijk-bezonningsplan.jpg",
-        alt: "Inkijk- en bezonningsanalyse voor Villa Gameren"
-      }
-    },
+    { type: "spacer", size: "md" },
 
     {
       type: "role",

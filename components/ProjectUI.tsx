@@ -34,16 +34,16 @@ export const MosaicItem: React.FC<{
         style={{ translateY: offsetY }}
       >
         <SafeImage
-          localSrc={imageLocal(getImageUrl(project.image))}
-          fallbackSrc={getImageUrl(project.image)}
-          alt={getImageAlt(project.image, project.title)}
+          localSrc={imageLocal(getImageUrl(project.image || project.featuredImage))}
+          fallbackSrc={getImageUrl(project.image || project.featuredImage)}
+          alt={getImageAlt(project.image || project.featuredImage, project.title)}
           className="w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-115"
         />
-        
+
         <div className="absolute inset-0 p-10 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-700 bg-black/50 backdrop-blur-[2px]">
           <div className="flex justify-between items-start">
-            <span className="mono text-[11px] text-white uppercase tracking-[0.4em] font-black bg-white/10 px-4 py-1.5">Archive_{project.id}</span>
-            <motion.div 
+            <span className="mono text-[11px] text-white uppercase tracking-[0.4em] font-black bg-white/10 px-4 py-1.5">Archive_{project.id || project.slug}</span>
+            <motion.div
               whileHover={{ scale: 1.1, rotate: 45 }}
               className="w-14 h-14 bg-amber-600 rounded-full flex items-center justify-center text-white shadow-2xl"
             >
@@ -52,7 +52,7 @@ export const MosaicItem: React.FC<{
           </div>
           <div>
             <h4 className="text-white text-5xl font-serif italic mb-2 leading-none tracking-tighter">{project.title}</h4>
-            <p className="mono text-[11px] text-amber-400 uppercase tracking-[0.3em] font-black">{project.location}</p>
+            <p className="mono text-[11px] text-amber-400 uppercase tracking-[0.3em] font-black">{project.location || project.locationLabel?.replace('Locatie: ', '') || ''}</p>
           </div>
         </div>
       </motion.div>

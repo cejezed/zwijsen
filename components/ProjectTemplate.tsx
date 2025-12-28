@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { MoveLeft, ArrowRight, X, Maximize2, ChevronLeft, ChevronRight, ArrowUpRight, Mail, Phone, ShieldCheck, Target, Layers, FileText, Users, PenTool } from 'lucide-react';
+import { MoveLeft, ArrowRight, X, Maximize2, ChevronLeft, ChevronRight, Mail, Phone, ShieldCheck, Target, Layers, FileText, Users, PenTool } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../data/projecten';
 import type { ProjectDetail, ProjectSection, ImageWithAlt } from '../data/types';
 import { BRAND_NAME, EMAIL, PHONE_NUMBER } from '../data';
 import { InquiryForm } from './Overlays';
 import { RotatingText } from './RotatingText';
+import { PortfolioSection } from './PortfolioSection';
+import { useNavigate } from 'react-router-dom';
 
 const Lightbox: React.FC<{ images: ImageWithAlt[]; initialIndex: number; onClose: () => void }> = ({ images, initialIndex, onClose }) => {
   const [index, setIndex] = useState(initialIndex);
@@ -560,9 +562,7 @@ const SectionRenderer: React.FC<{ section: ProjectSection; index: number }> = ({
 };
 
 const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({ project, onBack }) => {
-  // Use PROJECTS_DETAIL from imported data to determine next project
-  const currentIndex = PROJECTS_DETAIL.findIndex(p => p.slug === project.slug);
-  const nextProject = currentIndex !== -1 ? PROJECTS_DETAIL[(currentIndex + 1) % PROJECTS_DETAIL.length] : PROJECTS_DETAIL[0];
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -638,8 +638,8 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
       animate={{ opacity: 1 }}
       className="min-h-screen bg-white pb-0 selection:bg-amber-100 selection:text-amber-900"
     >
-      <nav className="fixed top-0 left-0 w-full p-6 md:p-10 z-[500] pointer-events-none">
-        <button 
+      <nav className="fixed bottom-0 left-0 p-6 md:p-10 z-[500] pointer-events-none">
+        <button
           onClick={onBack}
           className="pointer-events-auto bg-black text-white px-8 py-4 rounded-full border border-white/10 hover:bg-amber-600 transition-all shadow-2xl flex items-center gap-4 group"
         >
@@ -657,87 +657,57 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
           ))}
         </div>
 
-        {/* Cinematic 'Portal' to Next Project */}
-        {nextProject && (
-          <section className="mt-40 relative group overflow-hidden bg-stone-900 h-[80vh] flex items-center justify-center">
-             <div 
-               className="absolute inset-0 cursor-pointer overflow-hidden"
-               onClick={() => {
-                  const newUrl = new URL(window.location.href);
-                  newUrl.searchParams.set('project', nextProject.slug);
-                  window.location.href = newUrl.toString();
-               }}
-             >
-                <motion.img 
-                  src={nextProject.featuredImage?.url} 
-                  className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-110 opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-60" 
-                  alt="Next Project"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 opacity-60" />
-             </div>
-
-             <div className="relative z-10 w-full max-w-6xl px-6 text-center space-y-16 pointer-events-none">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="flex flex-col items-center gap-8"
-                >
-                   <span className="mono text-amber-500 text-[12px] font-extrabold tracking-[1em] uppercase bg-black/40 px-6 py-2 backdrop-blur-md">VOLGEND HOOFDSTUK</span>
-                   <h2 className="text-white text-6xl md:text-[10vw] font-serif italic tracking-tighter uppercase leading-[0.8] group-hover:scale-110 transition-transform duration-1000 ease-out drop-shadow-2xl">
-                     {nextProject.title}
-                   </h2>
-                   <div className="pt-12">
-                     <div className="inline-flex items-center gap-6 bg-white text-black px-16 py-7 rounded-full mono text-[11px] font-extrabold uppercase tracking-[0.5em] group-hover:bg-amber-600 group-hover:text-white transition-all duration-700 shadow-[0_0_60px_rgba(0,0,0,0.5)]">
-                       PROJECT DOSSIER INZIEN <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform duration-500" />
-                     </div>
-                   </div>
-                </motion.div>
-             </div>
-          </section>
-        )}
+        {/* Portfolio Section - Gerelateerde Projecten */}
+        <PortfolioSection
+          projects={PROJECTS_DETAIL}
+          onProjectClick={(selectedProject) => {
+            navigate(`/projecten/${selectedProject.slug}`);
+            window.scrollTo(0, 0);
+          }}
+        />
 
         {/* Improved Footer with High-Contrast Contact and Glass Form */}
-        <footer className="bg-[#050b1a] py-24 md:py-40 px-6 md:px-24 relative z-10 overflow-hidden text-white">
-           <div className="absolute inset-0 opacity-[0.05] pointer-events-none arch-grid" />
-           <motion.div 
+        <footer className="bg-white py-24 md:py-40 px-6 md:px-24 relative z-10 overflow-hidden">
+           <div className="absolute inset-0 opacity-[0.02] pointer-events-none arch-grid" />
+           <motion.div
              animate={{ top: ["-10%", "110%"] }}
              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
              className="absolute left-0 w-full h-px bg-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.3)] z-0"
            />
-           
+
            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-24 lg:gap-32 relative z-10">
               <div className="space-y-16 w-full lg:w-1/2">
                  <div className="space-y-10">
-                    <h3 className="text-6xl md:text-8xl font-serif italic text-white leading-[0.9] uppercase tracking-tighter">
+                    <h3 className="text-6xl md:text-8xl font-serif italic text-black leading-[0.9] uppercase tracking-tighter">
                        Vertaal uw <br/><span className="text-amber-500">visie.</span>
                     </h3>
-                    <p className="text-2xl md:text-3xl text-stone-400 font-light max-w-lg italic leading-relaxed">
+                    <p className="text-2xl md:text-3xl text-stone-600 font-light max-w-lg italic leading-relaxed">
                        Start vandaag het traject voor uw unieke woning samen met Jules Zwijsen.
                     </p>
                     <div className="pt-4">
                        <RotatingText />
                     </div>
                  </div>
-                 
+
                  <div className="space-y-12">
                     <div className="flex flex-col gap-10">
                        <a href={`mailto:${EMAIL}`} className="group flex items-center gap-8">
-                          <div className="p-6 bg-white/5 border border-white/10 rounded-full group-hover:bg-amber-600 transition-all duration-500">
-                            <Mail size={32} className="text-amber-500 group-hover:text-white" />
+                          <div className="p-6 bg-stone-50 border border-stone-200 rounded-full group-hover:bg-amber-600 transition-all duration-500">
+                            <Mail size={32} className="text-amber-600 group-hover:text-white" />
                           </div>
                           <div className="space-y-2">
                             <span className="mono text-[11px] uppercase font-extrabold text-stone-500 block tracking-[0.5em]">DIRECT CONTACT</span>
-                            <span className="text-3xl md:text-4xl font-bold text-white border-b-2 border-transparent group-hover:border-amber-500 transition-all duration-500">{EMAIL}</span>
+                            <span className="text-3xl md:text-4xl font-bold text-black border-b-2 border-transparent group-hover:border-amber-500 transition-all duration-500">{EMAIL}</span>
                           </div>
                        </a>
 
                        <a href={`tel:${PHONE_NUMBER.replace(/\s+/g, '')}`} className="group flex items-center gap-8">
-                          <div className="p-6 bg-white/5 border border-white/10 rounded-full group-hover:bg-amber-600 transition-all duration-500">
-                            <Phone size={32} className="text-amber-500 group-hover:text-white" />
+                          <div className="p-6 bg-stone-50 border border-stone-200 rounded-full group-hover:bg-amber-600 transition-all duration-500">
+                            <Phone size={32} className="text-amber-600 group-hover:text-white" />
                           </div>
                           <div className="space-y-2">
                             <span className="mono text-[11px] uppercase font-extrabold text-stone-500 block tracking-[0.5em]">BEL DE STUDIO</span>
-                            <span className="text-3xl md:text-4xl font-bold text-white border-b-2 border-transparent group-hover:border-amber-500 transition-all duration-500">{PHONE_NUMBER}</span>
+                            <span className="text-3xl md:text-4xl font-bold text-black border-b-2 border-transparent group-hover:border-amber-500 transition-all duration-500">{PHONE_NUMBER}</span>
                           </div>
                        </a>
                     </div>
@@ -745,29 +715,29 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
               </div>
 
               <div className="w-full lg:w-1/2 relative group">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1 }}
-                  className="bg-white/5 backdrop-blur-2xl p-12 md:p-16 rounded-[2.5rem] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.5)] relative overflow-hidden"
+                  className="bg-stone-50 backdrop-blur-2xl p-12 md:p-16 rounded-[2.5rem] border border-stone-200 shadow-[0_40px_100px_rgba(0,0,0,0.1)] relative overflow-hidden"
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-600/50 to-transparent" />
                   <div className="mb-12">
-                     <span className="mono text-[11px] font-extrabold uppercase text-amber-500 tracking-[0.6em] block mb-4">INITIALIZE DOSSIER</span>
-                     <h4 className="text-4xl font-serif italic text-white leading-none">Vorm uw plannen.</h4>
+                     <span className="mono text-[11px] font-extrabold uppercase text-amber-600 tracking-[0.6em] block mb-4">INITIALIZE DOSSIER</span>
+                     <h4 className="text-4xl font-serif italic text-black leading-none">Vorm uw plannen.</h4>
                   </div>
                   <div className="project-inquiry-form-wrapper">
-                    <InquiryForm inline dark />
+                    <InquiryForm inline />
                   </div>
                 </motion.div>
-                
+
                 <div className="absolute -top-6 -right-6 w-24 h-24 border-r border-t border-amber-500/30 rounded-tr-3xl pointer-events-none" />
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 border-l border-b border-amber-500/30 rounded-bl-3xl pointer-events-none" />
               </div>
            </div>
-           
-           <div className="mt-40 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 mono text-[10px] uppercase tracking-[0.6em] text-stone-600 font-extrabold">
-              <span className="text-stone-400 tracking-normal">{BRAND_NAME} © {new Date().getFullYear()}</span>
+
+           <div className="mt-40 pt-16 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-10 mono text-[10px] uppercase tracking-[0.6em] text-stone-600 font-extrabold">
+              <span className="text-stone-500 tracking-normal">{BRAND_NAME} © {new Date().getFullYear()}</span>
               <div className="flex flex-wrap justify-center gap-x-16 gap-y-6">
                  <a href="/" className="hover:text-amber-500 transition-colors">Home</a>
                  <a href="/?view=portfolio" className="hover:text-amber-500 transition-colors">Collectie</a>
@@ -780,23 +750,24 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
       <style>{`
         .project-inquiry-form-wrapper form textarea,
         .project-inquiry-form-wrapper form input {
-          color: white !important;
-          border-color: rgba(255,255,255,0.2) !important;
+          color: #1c1917 !important;
+          border-color: #e7e5e4 !important;
+          background-color: white !important;
         }
         .project-inquiry-form-wrapper form textarea:focus,
         .project-inquiry-form-wrapper form input:focus {
           border-color: #f59e0b !important;
         }
         .project-inquiry-form-wrapper form label {
-          color: #a8a29e !important;
+          color: #78716c !important;
         }
         .project-inquiry-form-wrapper form button {
           background-color: #f59e0b !important;
           color: white !important;
         }
         .project-inquiry-form-wrapper form button:hover {
-          background-color: white !important;
-          color: black !important;
+          background-color: #1c1917 !important;
+          color: white !important;
         }
       `}</style>
     </motion.div>

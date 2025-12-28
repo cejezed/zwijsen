@@ -12,16 +12,54 @@ export const InquiryForm: React.FC<FormProps> = ({ inline = false, onSubmitted }
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({ name: '', email: '', story: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    if (onSubmitted) setTimeout(onSubmitted, 3000);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setStep(1);
-      setFormData({ name: '', email: '', story: '' });
-    }, 5000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Send to Vercel serverless function
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.story,
+          subject: 'Nieuw contactverzoek via website',
+          region: window.location.pathname.includes('loenen') ? 'Loenen aan de Vecht' :
+                  window.location.pathname.includes('loosdrecht') ? 'Loosdrecht' : undefined
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Er ging iets mis');
+      }
+
+      // Success!
+      setIsSubmitted(true);
+      if (onSubmitted) setTimeout(onSubmitted, 3000);
+
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setStep(1);
+        setFormData({ name: '', email: '', story: '' });
+      }, 5000);
+
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Er ging iets mis. Probeer het opnieuw.');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => {

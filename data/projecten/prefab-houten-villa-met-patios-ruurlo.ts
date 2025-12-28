@@ -76,7 +76,7 @@ export const prefabHoutenVillaMetPatiosRuurlo: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2024/05/villa-ruurlo-nieuwbouw-woning-architect-achterhoek-1024x546.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2022/10/org_bf1a0713f4f51af1_1712487312000_resize.jpg",
     alt: "Prefab houten villa in Ruurlo met patio’s en sterke zichtlijnen naar het groen"
   },
 
@@ -173,37 +173,7 @@ export const prefabHoutenVillaMetPatiosRuurlo: ProjectDetail = {
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Stijlvol in detail en afwerking",
-      content:
-        "Materialisatie en detaillering onderstrepen de moderne vormentaal van de woning. Strakke wanden, subtiele overstekken en een hoogwaardige afwerking vormen de basis.\n\nElke ruimte is vormgegeven met oog voor tactiliteit, licht en context, passend bij een luxe woning in het groene buitengebied. Het maatwerk interieur houdt de visuele verbinding met de patio’s constant aanwezig — wat de beleving van ruimte en vrijheid versterkt.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-05-13-11.12.40_resize-1024x478.jpg",
-        alt: "Detail – strakke wanden, overstekken en lichtregie in de villa"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: true,
-      title: "Leefcomfort én architectonische beleving",
-      content:
-        "Deze moderne villa biedt niet alleen esthetisch vormgegeven woonruimte, maar is ook ontworpen met het oog op comfort en praktische leefbaarheid.\n\nLicht, ruimte en natuurlijk contact met groen spelen de hoofdrol — in elk vertrek. Van de keuze voor hoogwaardige materialen tot de slimme indeling die zon en wind optimaal benut: dit project is ontworpen om levenslang mee te gaan.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2024/05/villa-ruurlo-nieuwbouw-woning-architect-achterhoek-by-night.jpg",
-        alt: "Avondbeeld – comfort, sfeer en gelaagdheid in de villa"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
+     {
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -250,7 +220,39 @@ export const prefabHoutenVillaMetPatiosRuurlo: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "lg" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Stijlvol in detail en afwerking",
+      content:
+        "Materialisatie en detaillering onderstrepen de moderne vormentaal van de woning. Strakke wanden, subtiele overstekken en een hoogwaardige afwerking vormen de basis.\n\nElke ruimte is vormgegeven met oog voor tactiliteit, licht en context, passend bij een luxe woning in het groene buitengebied. Het maatwerk interieur houdt de visuele verbinding met de patio’s constant aanwezig — wat de beleving van ruimte en vrijheid versterkt.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-05-13-11.12.40_resize-1024x478.jpg",
+        alt: "Detail – strakke wanden, overstekken en lichtregie in de villa"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: true,
+      title: "Leefcomfort én architectonische beleving",
+      content:
+        "Deze moderne villa biedt niet alleen esthetisch vormgegeven woonruimte, maar is ook ontworpen met het oog op comfort en praktische leefbaarheid.\n\nLicht, ruimte en natuurlijk contact met groen spelen de hoofdrol — in elk vertrek. Van de keuze voor hoogwaardige materialen tot de slimme indeling die zon en wind optimaal benut: dit project is ontworpen om levenslang mee te gaan.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2024/05/villa-ruurlo-nieuwbouw-woning-architect-achterhoek-by-night.jpg",
+        alt: "Avondbeeld – comfort, sfeer en gelaagdheid in de villa"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+   
   ],
 
   cta: {

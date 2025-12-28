@@ -18,6 +18,10 @@ export { monumentaleBoerderijAmstelAmstelland } from './uitbreiding-herbestemmin
 export { prefabHoutenVillaMetPatiosRuurlo } from './prefab-houten-villa-met-patios-ruurlo';
 export { prefabHoutenVillaMetPatiosBilthoven } from './prefab-houten-villa-met-patios-bilthoven';
 export { rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek } from './rigoureuze-facelift-rietkapvilla-breukelen-vechtstreek';
+export { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebogen-gevel-gooi-en-vechtstreek';
+export { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
+export { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
+export { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
 
 // Importeer projecten voor de array
 import { levensloopbestendigeniorenwoningenLoenen } from './levensloopbestendige-seniorenwoningen-loenen';
@@ -34,28 +38,32 @@ import { monumentaleBoerderijAmstelAmstelland } from './uitbreiding-herbestemmin
 import { prefabHoutenVillaMetPatiosRuurlo } from './prefab-houten-villa-met-patios-ruurlo';
 import { prefabHoutenVillaMetPatiosBilthoven } from './prefab-houten-villa-met-patios-bilthoven';
 import { rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek } from './rigoureuze-facelift-rietkapvilla-breukelen-vechtstreek';
+import { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebogen-gevel-gooi-en-vechtstreek';
+import { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
+import { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
+import { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
 
 /**
  * Centrale export van alle project details
  * Voeg hier nieuwe projecten toe wanneer je ze aanmaakt
  */
 export const PROJECTS_DETAIL: ProjectDetail[] = [
-  levensloopbestendigeniorenwoningenLoenen,
-  moderneRietkapvillaHetGooi,
-  transparanteBosvillaRhenen,
-  villaGameren,
   verbouwLuxeVillaZandvoort,
+  moderneRietkapvillaHetGooi,
+  moderneVernieuwbouwvillaUitzichtGroenLelystad,
+  villaGameren,
+  moderneVillaRietenKapBlaricum,
+  levensloopbestendigeniorenwoningenLoenen,
+  transparanteBosvillaRhenen,
   luxeVillaUitzichtWaterrijkWoerden,
   modernPaviljoenWaterReeuwijk,
-  moderneVernieuwbouwvillaUitzichtGroenLelystad,
   herbestemmingBoerderijLaagKeppelAchterhoek,
-  moderneVillaRietenKapBlaricum,
   monumentaleBoerderijAmstelAmstelland,
   prefabHoutenVillaMetPatiosRuurlo,
   prefabHoutenVillaMetPatiosBilthoven,
   rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek,
-  // Voeg hier nieuwe projecten toe, bijvoorbeeld:
-  // moderneVillaZandvoort,
-  // rietgedekteVilla,
-  // etc.
+  moderneVillaGebogenGevelGooiEnVechtstreek,
+  nieuweRietkapvillaZandvoortBoulevard,
+  almereDuinKreekbosZuidAanDeKreekFase1,
+  moderneStacaravanMetSchuifpanelenAmeland,
 ];

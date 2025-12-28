@@ -3,8 +3,23 @@ import type { RegioConfig } from '../types';
 
 export const loosdrechtConfig: Partial<RegioConfig> = {
   seoTitle: "Architect Loosdrecht | Architectenbureau Jules Zwijsen",
+  metaDescription: "Architect in Loosdrecht voor nieuwbouw en verbouw aan de Loosdrechtse Plassen. Jules Zwijsen ontwerpt woningen met oog voor water en groene omgeving.",
+
   regio: {
     name: "Loosdrecht",
+
+    // Intro sectie - H1 + intro tekst direct onder hero
+    intro: {
+      h1: "Architect in Loosdrecht",
+      paragraph: "U zoekt een architect in Loosdrecht voor een verbouwing, aanbouw of nieuwbouwwoning aan de Loosdrechtse Plassen. Jules Zwijsen werkt aan woningen in Loosdrecht en omgeving, met oog voor de waterrijke en groene omgeving en de regels van de gemeente Wijdemeren. Het doel is een helder ontwerp dat optimaal gebruikmaakt van de unieke ligging en past in de omgeving."
+    },
+
+    // Footer intro - H2 + contacttekst in de footer
+    footerIntro: {
+      h2: "Architect in Loosdrecht nodig?",
+      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Loosdrecht aan de Loosdrechtse Plassen en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie in Loosdrecht en omgeving."
+    },
+
     municipalLinks: [
       {
         title: "Bestemmingsplan Wijdemeren",

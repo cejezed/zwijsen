@@ -37,7 +37,6 @@ const CollageItem: React.FC<{
 
 export const RegionSection: React.FC<{ regio: any }> = ({ regio }) => {
   // Hooks MOETEN voor alle early returns worden aangeroepen
-  const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -115,122 +114,7 @@ export const RegionSection: React.FC<{ regio: any }> = ({ regio }) => {
               </div>
             </div>
 
-            <div className="pt-12 space-y-6">
-              <span className="mono text-xs text-white/20 tracking-[0.4em] font-black uppercase">Referentie Projecten</span>
-              <div className="grid grid-cols-1 gap-6">
-                {data.regionalProjects.map((p: any, i: number) => {
-                  const isExpanded = expandedProject === i;
-                  return (
-                    <motion.div
-                      key={i}
-                      layout
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="group"
-                    >
-                      <div
-                        className={`relative border-2 border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl overflow-hidden hover:border-amber-600/50 transition-all cursor-pointer shadow-lg hover:shadow-2xl ${
-                          isExpanded ? 'border-amber-600/50' : ''
-                        }`}
-                        onClick={() => setExpandedProject(isExpanded ? null : i)}
-                      >
-                        {/* Floating Card Design */}
-                        <div className="relative p-6 md:p-8">
-                          {/* Header met nummer badge */}
-                          <div className="flex items-start justify-between gap-4 mb-4">
-                            <div className="flex items-center gap-4">
-                              {/* Nummer Badge - Floating */}
-                              <div className="relative">
-                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-xl">
-                                  <span className="mono text-lg md:text-xl font-black text-white">{i + 1}</span>
-                                </div>
-                                <div className="absolute inset-0 rounded-full bg-amber-500 blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
-                              </div>
-
-                              {/* Title */}
-                              <div className="flex-1">
-                                <h4 className="text-2xl md:text-3xl font-serif italic text-white group-hover:text-amber-400 transition-colors leading-tight">
-                                  {p.title}
-                                </h4>
-                              </div>
-                            </div>
-
-                            {/* Expand Icon */}
-                            <motion.div
-                              animate={{ rotate: isExpanded ? 180 : 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="flex-shrink-0"
-                            >
-                              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                                <ChevronDown size={20} className="text-white/60" />
-                              </div>
-                            </motion.div>
-                          </div>
-
-                          {/* Description */}
-                          <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed italic pl-16 md:pl-[4.5rem]">
-                            {p.description}
-                          </p>
-
-                          {/* Expanded Content */}
-                          <AnimatePresence>
-                            {isExpanded && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-                                className="overflow-hidden"
-                              >
-                                <div className="pt-6 mt-6 border-t border-white/10 space-y-6 pl-16 md:pl-[4.5rem]">
-                                  {/* Location Badge */}
-                                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600/10 border border-amber-600/20 rounded-full">
-                                    <MapPin size={14} className="text-amber-500" />
-                                    <span className="mono text-xs text-amber-400 uppercase tracking-wider font-black">
-                                      {regio.name}
-                                    </span>
-                                  </div>
-
-                                  {/* Extended Description */}
-                                  <p className="text-base text-slate-400 font-light leading-relaxed">
-                                    Dit project toont de expertise van architectenbureau Jules Zwijsen in {regio.name} en omgeving.
-                                    Van eerste schets tot eindoplevering, met aandacht voor detail en de lokale context.
-                                  </p>
-
-                                  {/* Project Details Grid */}
-                                  <div className="grid grid-cols-2 gap-4 pt-2">
-                                    <div className="space-y-1">
-                                      <span className="mono text-xs text-white/40 uppercase tracking-wider">Type</span>
-                                      <p className="text-sm text-white/80 font-serif italic">Nieuwbouw / Verbouw</p>
-                                    </div>
-                                    <div className="space-y-1">
-                                      <span className="mono text-xs text-white/40 uppercase tracking-wider">Status</span>
-                                      <p className="text-sm text-white/80 font-serif italic">Gerealiseerd</p>
-                                    </div>
-                                  </div>
-
-                                  {/* Close hint */}
-                                  <div className="flex items-center gap-2 text-xs text-amber-500/60 mono uppercase tracking-wider pt-2">
-                                    <Info size={12} />
-                                    <span>Klik nogmaals om te sluiten</span>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-
-                        {/* Hover Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/5 to-amber-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="pt-12 flex flex-col gap-2">
+            <div className="pt-20 flex flex-col gap-2">
               <div className="flex items-center gap-3 text-white/20 mono text-xs uppercase tracking-widest">
                 <MapPin size={14} className="text-amber-600" /> {regio.name}
               </div>

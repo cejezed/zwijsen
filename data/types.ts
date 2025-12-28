@@ -106,6 +106,14 @@ export interface RegioConfig {
   processSteps?: ProcessStep[];  // Werkwijze stappen (optioneel per regio)
   regio: {
     name: string;
+    intro?: {
+      h1: string;  // H1 titel, bijv. "Architect in Loenen aan de Vecht"
+      paragraph: string;  // Intro tekst direct onder de hero
+    };
+    footerIntro?: {
+      h2: string;  // H2 titel, bijv. "Architect in Loenen aan de Vecht nodig?"
+      paragraph: string;  // Korte contacttekst in de footer
+    };
     collageImages?: (string | ImageWithAlt)[];  // 6 afbeeldingen voor de collage
     municipalLinks?: MunicipalLink[];  // Handige links voor deze regio
     expertise: {

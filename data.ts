@@ -182,7 +182,7 @@ export const imageLocal = (value: string) => {
 
 export const PROJECTS = [
   {
-    id: 1,
+    id: 3,
     title: "Moderne Rietkapvilla",
     location: "'t Gooi",
     slug: "moderne-rietkapvilla-het-gooi",
@@ -216,7 +216,7 @@ export const PROJECTS = [
     ]
   },
   {
-    id: 3,
+    id: 1,
     title: "Transparante Bosvilla",
     location: "Rhenen",
     slug: "transparante-bosvilla-rhenen",
@@ -483,181 +483,7 @@ export const FAQS = [
 export const NAV_LINKS = [
   { name: "Nieuws", label: "De laatste ontwikkelingen", href: "#" },
   { name: "Projecten", label: "Gerealiseerde dromen", href: "#projects" },
+  { name: "Regio's", label: "Lokale expertise", href: "/regios" },
   { name: "Info", label: "Wie is Jules Zwijsen?", href: "#info" },
   { name: "Kavels", label: "Mogelijkheden op locatie", href: "#" }
 ];
-
-// ============================================
-// REGIO CONFIGURATIE SYSTEEM
-// ============================================
-
-// Type definitie voor regio configuratie
-export interface RegioConfig {
-  seoTitle: string;
-  heroSlides?: typeof HERO_SLIDES;
-  regio: {
-    name: string;
-    collageImages?: string[];  // 6 afbeeldingen voor de collage
-    expertise: {
-      h2: string;
-      paragraph: string;
-      h3: string;
-      h3_paragraph: string;
-      services: string[];
-      regionalProjects: Array<{ title: string; description: string }>;
-    };
-  };
-}
-
-// Default/Global configuratie (fallback voor alle regio's)
-const DEFAULT_CONFIG: RegioConfig = {
-  seoTitle: "Architectenbureau Jules Zwijsen | Architect voor uw droomwoning",
-  heroSlides: HERO_SLIDES,
-  regio: {
-    name: "Loenen aan de Vecht",
-    collageImages: [
-      IMAGES.blueprint,
-      IMAGES.facade_modern,
-      IMAGES.living_room,
-      IMAGES.window_view,
-      IMAGES.wood_detail,
-      IMAGES.villa_forest
-    ],
-    expertise: {
-      h2: "Wat doet een architect in Loenen aan de Vecht?",
-      paragraph: "Als architect in Loenen aan de Vecht richt Jules Zwijsen zich op het ontwerpen en verbouwen van woningen in en rond het dorp. Dat varieert van een compacte uitbouw aan een dijkhuis tot het zorgvuldig uitbreiden van een monumentaal pand of het ontwerpen van een nieuwe woning op een kavel in de Vechtstreek. Steeds met aandacht voor zichtlijnen, daglicht, materiaal en de relatie met tuin en straat.",
-      h3: "Architectonisch ontwerp en verbouw in de Vechtstreek",
-      h3_paragraph: "In de Vechtstreek speelt de samenhang tussen landschap, dorpsstructuur en bestaande architectuur een grote rol. Bij elk ontwerp wordt gekeken naar het straatbeeld, de maat en schaal van de omgeving en de regels van de gemeente Stichtse Vecht. Zo ontstaat een ontwerp dat ruim voelt, praktisch is in gebruik en vanzelfsprekend in de omgeving past.",
-      services: [
-        "Ontwerp van nieuwbouwwoningen in Loenen aan de Vecht en omgeving",
-        "Aanbouw en uitbouw van bestaande woningen in Loenen en Vreeland",
-        "Verbouw en herindeling van (monumentale) woningen",
-        "Begeleiding bij vergunningsaanvragen bij gemeente Stichtse Vecht",
-        "Overleg met aannemer tijdens de bouw"
-      ],
-      regionalProjects: [
-        {
-          title: "Dijkwoning Loenen",
-          description: "Karakteristieke verbouwing aan de Vecht"
-        },
-        {
-          title: "Landhuis Vreeland",
-          description: "Klassiek landhuis met hedendaagse twist"
-        },
-        {
-          title: "Villa Vechtstreek",
-          description: "Moderne nieuwbouw in groene omgeving"
-        }
-      ]
-    }
-  }
-};
-
-// Regio-specifieke configuraties
-export const PAGE_CONFIG: Record<string, Partial<RegioConfig>> = {
-  // Default config (homepage)
-  default: DEFAULT_CONFIG,
-
-  // Loenen aan de Vecht (expliciete slug)
-  "loenen-aan-de-vecht": DEFAULT_CONFIG,
-
-  // Utrecht
-  utrecht: {
-    seoTitle: "Architect Utrecht | Architectenbureau Jules Zwijsen",
-    regio: {
-      name: "Utrecht",
-      collageImages: [
-        IMAGES.facade_modern,    // Moderne gevel
-        IMAGES.blueprint,        // Blauwdruk
-        IMAGES.window_view,      // Uitzicht
-        IMAGES.living_room,      // Woonkamer
-        IMAGES.wood_detail,      // Houtdetail
-        IMAGES.villa_forest      // Villa (kan je later vervangen door Utrecht-specifieke foto)
-      ],
-      expertise: {
-        h2: "Wat doet een architect in Utrecht?",
-        paragraph: "Als architect in Utrecht combineert Jules Zwijsen moderne stedelijke architectuur met respect voor het rijke erfgoed van de stad. Van compacte stadsvilla's tot ruime gezinswoningen in de buitenwijken - elk ontwerp past bij de Utrechtse context.",
-        h3: "Architectonisch ontwerp in de Domstad",
-        h3_paragraph: "In Utrecht spelen de monumentale binnenstad, karakteristieke wijken en moderne uitbreidingen elk hun eigen rol. Bij elk ontwerp kijken we naar de stedelijke context, duurzaamheid en de unieke Utrechtse architectuur.",
-        services: [
-          "Ontwerp van nieuwbouwwoningen in Utrecht en omgeving",
-          "Verbouw van monumentale panden in de binnenstad",
-          "Aanbouw en uitbreiding van stedelijke woningen",
-          "Begeleiding bij vergunningsaanvragen gemeente Utrecht",
-          "Projectregie tijdens de bouw"
-        ],
-        regionalProjects: [
-          {
-            title: "Stadsvilla Utrecht Oost",
-            description: "Moderne gezinswoning met groene binnentuin"
-          },
-          {
-            title: "Herenhuis Binnenstad",
-            description: "Monumentale verbouwing met hedendaags comfort"
-          },
-          {
-            title: "Nieuwbouw Leidsche Rijn",
-            description: "Energieneutrale woning in nieuwbouwwijk"
-          }
-        ]
-      }
-    }
-  },
-
-  // Het Gooi
-  "het-gooi": {
-    seoTitle: "Architect Het Gooi | Architectenbureau Jules Zwijsen",
-    regio: {
-      name: "Het Gooi",
-      expertise: {
-        h2: "Wat doet een architect in Het Gooi?",
-        paragraph: "Als architect in Het Gooi ontwerpt Jules Zwijsen exclusieve villawoningen die harmoniëren met de bosrijke omgeving. Van klassieke landhuizen tot moderne architectuur - altijd met aandacht voor privacy, natuur en de bijzondere Gooise sfeer.",
-        h3: "Architectonisch ontwerp in de groene omgeving",
-        h3_paragraph: "In Het Gooi bepalen de bossen, heide en waterpartijen het karakter. Elk ontwerp respecteert de natuurlijke omgeving en de architectonische tradities van dorpen als Laren, Blaricum en Bussum.",
-        services: [
-          "Ontwerp van villawoningen in Het Gooi",
-          "Verbouw van karakteristieke Gooise woningen",
-          "Uitbreiding van landhuizen en villa's",
-          "Begeleiding bij vergunningen diverse Gooise gemeenten",
-          "Volledige projectregie en begeleiding"
-        ],
-        regionalProjects: [
-          {
-            title: "Villa Laren",
-            description: "Moderne villa tussen de bomen"
-          },
-          {
-            title: "Landhuis Blaricum",
-            description: "Klassieke verbouwing met luxe afwerking"
-          },
-          {
-            title: "Architectenwoning Bussum",
-            description: "Iconisch ontwerp in bosrijke setting"
-          }
-        ]
-      }
-    }
-  }
-};
-
-// Helper functie om configuratie op te halen met fallback
-export const getPageConfig = (region: string = 'default'): RegioConfig => {
-  const regionConfig = PAGE_CONFIG[region] || PAGE_CONFIG.default;
-
-  // Merge met default config voor ontbrekende velden
-  return {
-    ...DEFAULT_CONFIG,
-    ...regionConfig,
-    regio: {
-      ...DEFAULT_CONFIG.regio,
-      ...(regionConfig.regio || {}),
-      expertise: {
-        ...DEFAULT_CONFIG.regio.expertise,
-        ...(regionConfig.regio?.expertise || {})
-      }
-    }
-  };
-};
-
-// Backwards compatibility - exporteer oude REGIO_DATA
-export const REGIO_DATA = DEFAULT_CONFIG.regio;

@@ -129,6 +129,35 @@ export const rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek: ProjectDetail =
     { type: "spacer", size: "md" },
 
     {
+      type: "gallery",
+      layout: "grid",
+      gallery: [
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/luxe-architectenbureau-rietkapvilla-facelift-riet-hout-glas.jpg",
+          alt: "Voorgevel na facelift: riet, hout en glas in een luxe landhuis compositie."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-rigoureuze-facelift-rietkapvilla-noordgevel-uitzicht.jpg",
+          alt: "Noordgevel met glazen pui: constant licht en panoramisch uitzicht over de weilanden."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-facelift-rietkapvilla-ontwerp-dwarskap-extra-ruimte.jpg",
+          alt: "Dwarskap als entree-anker en ruimtewinner op de verdieping."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-rigoureuze-facelift-rietkapvilla-open-gevel-zon-contact.jpg",
+          alt: "Gevelopening en zon-contact: meer transparantie en betere relatie met buiten."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/aw1t12.jpg",
+          alt: "Interieur: maatwerk, licht en materialisering afgestemd op de nieuwe kaplijnen."
+        }
+      ]
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
       type: "split",
       layout: "image-left",
       fullWidth: false,
@@ -158,34 +187,7 @@ export const rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek: ProjectDetail =
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "gallery",
-      layout: "grid",
-      gallery: [
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/luxe-architectenbureau-rietkapvilla-facelift-riet-hout-glas.jpg",
-          alt: "Voorgevel na facelift: riet, hout en glas in een luxe landhuis compositie."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-rigoureuze-facelift-rietkapvilla-noordgevel-uitzicht.jpg",
-          alt: "Noordgevel met glazen pui: constant licht en panoramisch uitzicht over de weilanden."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-facelift-rietkapvilla-ontwerp-dwarskap-extra-ruimte.jpg",
-          alt: "Dwarskap als entree-anker en ruimtewinner op de verdieping."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/architect-rigoureuze-facelift-rietkapvilla-open-gevel-zon-contact.jpg",
-          alt: "Gevelopening en zon-contact: meer transparantie en betere relatie met buiten."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2025/12/aw1t12.jpg",
-          alt: "Interieur: maatwerk, licht en materialisering afgestemd op de nieuwe kaplijnen."
-        }
-      ]
-    },
-
-    { type: "spacer", size: "md" }
+    
   ],
 
   cta: {

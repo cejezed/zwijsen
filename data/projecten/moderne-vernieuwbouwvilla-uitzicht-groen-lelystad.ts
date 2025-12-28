@@ -168,38 +168,7 @@ export const moderneVernieuwbouwvillaUitzichtGroenLelystad: ProjectDetail = {
     },
 
     { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Wellness en multifunctionele ruimtes",
-      content:
-        "Op de begane grond ligt een luxe fitnessruimte die uitkijkt op een privé wellness-tuin.\n\nDeze ruimte is ontworpen met het oog op de toekomst: voorbereid om te functioneren als slaapkamer met badkamer. In de tuin zijn een sauna en hot tub geplaatst, waardoor buiten een verlengstuk wordt van het wooncomfort.\n\nDe ligging garandeert rust en privacy — ideaal voor ontspanning of inspanning.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/12_resize.jpg",
-        alt: "Begane grond – relatie met wellness-tuin en groene kavel"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: true,
-      title: "De kelder als licht en leefbare verdieping",
-      content:
-        "Waar een kelder normaal gesproken donker is, baadt deze in daglicht.\n\nDoor slimme raampartijen langs het verlaagde tuinpad dringt het licht diep het huis binnen. De ondergrondse ruimtes voelen daardoor als volwaardige leefverdiepingen.\n\nGecombineerd met de houten gevels — die mooi opwarmen in de zon — ontstaat een woning waarin architectuur, natuur en leefbaarheid in harmonie zijn.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/02_resize.jpg",
-        alt: "Ruimtelijkheid en daglicht – zichtlijnen en lichttoetreding in de woning"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
+{
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -243,6 +212,37 @@ export const moderneVernieuwbouwvillaUitzichtGroenLelystad: ProjectDetail = {
     },
 
     { type: "spacer", size: "md" },
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Wellness en multifunctionele ruimtes",
+      content:
+        "Op de begane grond ligt een luxe fitnessruimte die uitkijkt op een privé wellness-tuin.\n\nDeze ruimte is ontworpen met het oog op de toekomst: voorbereid om te functioneren als slaapkamer met badkamer. In de tuin zijn een sauna en hot tub geplaatst, waardoor buiten een verlengstuk wordt van het wooncomfort.\n\nDe ligging garandeert rust en privacy — ideaal voor ontspanning of inspanning.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/12_resize.jpg",
+        alt: "Begane grond – relatie met wellness-tuin en groene kavel"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: true,
+      title: "De kelder als licht en leefbare verdieping",
+      content:
+        "Waar een kelder normaal gesproken donker is, baadt deze in daglicht.\n\nDoor slimme raampartijen langs het verlaagde tuinpad dringt het licht diep het huis binnen. De ondergrondse ruimtes voelen daardoor als volwaardige leefverdiepingen.\n\nGecombineerd met de houten gevels — die mooi opwarmen in de zon — ontstaat een woning waarin architectuur, natuur en leefbaarheid in harmonie zijn.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/02_resize.jpg",
+        alt: "Ruimtelijkheid en daglicht – zichtlijnen en lichttoetreding in de woning"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    
 
     {
       type: "split",

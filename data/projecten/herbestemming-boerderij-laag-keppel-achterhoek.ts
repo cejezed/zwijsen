@@ -161,37 +161,7 @@ export const herbestemmingBoerderijLaagKeppelAchterhoek: ProjectDetail = {
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Materialisatie en duurzaamheid",
-      content:
-        "Voor de nieuwbouw is gekozen voor een helder contrast: lichtgrijs gekeimde gevels en een dak met zinken felsbanen.\n\nDeze eigentijdse materialen maken de uitbreiding herkenbaar als nieuw, maar passen tegelijk bij het landelijke karakter van de plek.\n\nDe woning is volledig verduurzaamd met hoogwaardige isolatie, nieuwe installaties en een doordacht ontwerp gericht op toekomstbestendig wonen.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/06/boerderij-uitbouw-moderne-architectuur4.jpg",
-        alt: "Materialisatie nieuwbouw – gekeimde gevels en zinken felsdak in landelijk landschap"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: true,
-      title: "Ambacht en ruimtelijkheid in het interieur",
-      content:
-        "De binnenzijde van de boerderij is volledig gestript en opnieuw opgebouwd.\n\nNieuwe eikenhouten gebinten, gemaakt volgens traditionele technieken, brengen de originele structuur terug in beeld. Samen met slimme ingrepen zoals daklichten ontstaat een indrukwekkende ruimtelijke beleving waarin historie en hedendaags comfort samensmelten.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/architect-achterhoek-luxe-verbouw-5.jpg",
-        alt: "Interieurbeleving – oud metselwerk zichtbaar, ruimtelijkheid en licht door daklichten"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
+     {
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -234,7 +204,39 @@ export const herbestemmingBoerderijLaagKeppelAchterhoek: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "lg" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Materialisatie en duurzaamheid",
+      content:
+        "Voor de nieuwbouw is gekozen voor een helder contrast: lichtgrijs gekeimde gevels en een dak met zinken felsbanen.\n\nDeze eigentijdse materialen maken de uitbreiding herkenbaar als nieuw, maar passen tegelijk bij het landelijke karakter van de plek.\n\nDe woning is volledig verduurzaamd met hoogwaardige isolatie, nieuwe installaties en een doordacht ontwerp gericht op toekomstbestendig wonen.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/06/boerderij-uitbouw-moderne-architectuur4.jpg",
+        alt: "Materialisatie nieuwbouw – gekeimde gevels en zinken felsdak in landelijk landschap"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-right",
+      fullWidth: true,
+      title: "Ambacht en ruimtelijkheid in het interieur",
+      content:
+        "De binnenzijde van de boerderij is volledig gestript en opnieuw opgebouwd.\n\nNieuwe eikenhouten gebinten, gemaakt volgens traditionele technieken, brengen de originele structuur terug in beeld. Samen met slimme ingrepen zoals daklichten ontstaat een indrukwekkende ruimtelijke beleving waarin historie en hedendaags comfort samensmelten.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/architect-achterhoek-luxe-verbouw-5.jpg",
+        alt: "Interieurbeleving – oud metselwerk zichtbaar, ruimtelijkheid en licht door daklichten"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+   
   ],
 
   cta: {

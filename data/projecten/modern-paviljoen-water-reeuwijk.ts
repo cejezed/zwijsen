@@ -161,21 +161,6 @@ export const modernPaviljoenWaterReeuwijk: ProjectDetail = {
     { type: "spacer", size: "md" },
 
     {
-      type: "split",
-      layout: "image-left",
-      fullWidth: false,
-      title: "Functionaliteit van de plattegrond: waterbeleving naar binnen",
-      content:
-        "De plattegrond is ontworpen om de waterbeleving letterlijk naar binnen te halen.\n\nHet hart van de woning wordt gevormd door een centrale glazen patio. Daaromheen zijn de leefruimtes georganiseerd, zodat er een continue wisselwerking ontstaat tussen licht, zichtlijnen en beschutting.\n\nWaterzijde-focus: de primaire leefruimtes en master bedroom zijn op het water gericht, met grote puien die de binnenruimte direct verbinden met het terras.\n\nZichtlijnen en privacy: stenen en houten elementen zijn strategisch geplaatst om waar nodig inkijk te temperen, zonder het open karakter te verliezen.\n\nDaarnaast is in het ontwerp rekening gehouden met een mogelijke afzonderlijke entree en leefruimte voor een aanleunwoning — flexibiliteit als onderdeel van het maatwerk.",
-      image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/11/Luxe-Villa-Aan-Het-Water-Architect-Waterkavel-5.jpg",
-        alt: "Zichtlijnen en ruimtelijkheid – transparante gevels en strategische afscherming"
-      }
-    },
-
-    { type: "spacer", size: "md" },
-
-    {
       type: "gallery",
       layout: "horizontal",
       gallery: [
@@ -203,6 +188,23 @@ export const modernPaviljoenWaterReeuwijk: ProjectDetail = {
     },
 
     { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: false,
+      title: "Functionaliteit van de plattegrond: waterbeleving naar binnen",
+      content:
+        "De plattegrond is ontworpen om de waterbeleving letterlijk naar binnen te halen.\n\nHet hart van de woning wordt gevormd door een centrale glazen patio. Daaromheen zijn de leefruimtes georganiseerd, zodat er een continue wisselwerking ontstaat tussen licht, zichtlijnen en beschutting.\n\nWaterzijde-focus: de primaire leefruimtes en master bedroom zijn op het water gericht, met grote puien die de binnenruimte direct verbinden met het terras.\n\nZichtlijnen en privacy: stenen en houten elementen zijn strategisch geplaatst om waar nodig inkijk te temperen, zonder het open karakter te verliezen.\n\nDaarnaast is in het ontwerp rekening gehouden met een mogelijke afzonderlijke entree en leefruimte voor een aanleunwoning — flexibiliteit als onderdeel van het maatwerk.",
+      image: {
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/11/Luxe-Villa-Aan-Het-Water-Architect-Waterkavel-5.jpg",
+        alt: "Zichtlijnen en ruimtelijkheid – transparante gevels en strategische afscherming"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    
 
     {
       type: "split",

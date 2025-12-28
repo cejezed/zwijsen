@@ -9,6 +9,10 @@ interface FooterProps {
   footerRef: React.RefObject<HTMLDivElement>;
   parallaxText: any;
   opacity: any;
+  regionFooterIntro?: {
+    h2: string;
+    paragraph: string;
+  };
 }
 
 // SEO-friendly content met logische structuur
@@ -69,7 +73,7 @@ const FOOTER_LINKS = {
   }
 };
 
-export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity }) => {
+export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity, regionFooterIntro }) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
@@ -78,6 +82,20 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
 
   return (
     <footer ref={footerRef} className="bg-white w-full relative z-10 overflow-hidden">
+
+      {/* Regio-specifieke intro sectie (optioneel) */}
+      {regionFooterIntro && (
+        <div className="bg-stone-50 border-t border-stone-200 py-20 md:py-32 px-6 md:px-12">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-black leading-tight">
+              {regionFooterIntro.h2}
+            </h2>
+            <p className="text-xl md:text-2xl text-stone-700 leading-relaxed">
+              {regionFooterIntro.paragraph}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Bestaande Footer Content */}
       <div className="py-64 px-12 md:px-32">

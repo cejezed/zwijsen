@@ -64,6 +64,8 @@ export const getPageConfig = (region: string = 'default'): RegioConfig => {
   return {
     ...DEFAULT_CONFIG,
     ...regionConfig,
+    seoTitle: regionConfig.seoTitle || DEFAULT_CONFIG.seoTitle,
+    metaDescription: regionConfig.metaDescription || DEFAULT_CONFIG.metaDescription,
     heroSlides: regionConfig.heroSlides || DEFAULT_CONFIG.heroSlides,
     projects: regionConfig.projects || DEFAULT_CONFIG.projects,
     processSteps: regionConfig.processSteps || DEFAULT_CONFIG.processSteps,

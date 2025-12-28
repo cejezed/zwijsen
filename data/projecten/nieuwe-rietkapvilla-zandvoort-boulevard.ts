@@ -101,11 +101,7 @@ export const nieuweRietkapvillaZandvoortBoulevard: ProjectDetail = {
         "Engineering: fundering en stabiliteit voor duinrandcondities",
         "Toekomst: domotica, energiezuinig bouwen en levensloopbestendige opties"
       ],
-      partners: [
-        { label: "Projecttype", value: "Nieuwbouw (vervanging bestaande woning)" },
-        { label: "Kernopgave", value: "Privacy vs. uitzicht, bezonning en vergezichten aan de kust" },
-        { label: "Architectuurtaal", value: "Riet, wit stucwerk en scherpe details; kap als zwevend element" }
-      ]
+     
     },
 
     { type: "spacer", size: "md" },
@@ -153,7 +149,7 @@ export const nieuweRietkapvillaZandvoortBoulevard: ProjectDetail = {
     {
       type: "split",
       layout: "image-right",
-      fullWidth: false,
+      fullWidth: true,
       title: "Duurzame fundering: discrete luxe in de duinrand",
       content:
         "Bouwen in de duinrand vraagt om gespecialiseerde kennis van fundering en stabiliteit. Met slimme engineering is een robuuste constructie gerealiseerd die bestand is tegen de elementen van de kust.\n\nDe villa is ontworpen met oog op levensloopbestendigheid en integratie van geavanceerde domotica. Daarmee is de woning niet alleen luxueus en comfortabel, maar ook klaar voor de toekomst: energiezuinig bouwen aan zee met een minimale ecologische voetafdruk.",
@@ -161,6 +157,39 @@ export const nieuweRietkapvillaZandvoortBoulevard: ProjectDetail = {
         url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-6.jpg",
         alt: "Duinvilla met rieten kap: tijdloze compositie en robuuste engineering passend bij kustcondities."
       }
+    },
+
+    { type: "spacer", size: "md" },
+
+     {
+      type: "gallery",
+      layout: "horizontal",
+      gallery: [
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-6.jpg",
+          alt: "Duinvilla Zandvoort met rieten kap: zichtlijnen, openingen en compositie aan de kust."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-5.jpg",
+          alt: "Zicht op de villa in duincontext: riet, wit stucwerk en scherpe detaillering."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-4.jpg",
+          alt: "Voorgevel: uitkragende rieten kap boven strak benedenvolume als sculptuur van contrast."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-3.jpg",
+          alt: "Zijaanzicht: verhoogde ligging en open plattegrond gericht op privacy en vergezichten."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-2.jpg",
+          alt: "Architectuur in de duinrand: rietkap als tijdloos element in kustarchitectuur."
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-1.jpg",
+          alt: "Duinvilla met rieten kap: balans tussen geslotenheid en transparantie richting duinen."
+        }
+      ]
     },
 
     { type: "spacer", size: "md" },
@@ -195,38 +224,7 @@ export const nieuweRietkapvillaZandvoortBoulevard: ProjectDetail = {
 
     { type: "spacer", size: "md" },
 
-    {
-      type: "gallery",
-      layout: "grid",
-      gallery: [
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-6.jpg",
-          alt: "Duinvilla Zandvoort met rieten kap: zichtlijnen, openingen en compositie aan de kust."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-5.jpg",
-          alt: "Zicht op de villa in duincontext: riet, wit stucwerk en scherpe detaillering."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-4.jpg",
-          alt: "Voorgevel: uitkragende rieten kap boven strak benedenvolume als sculptuur van contrast."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-3.jpg",
-          alt: "Zijaanzicht: verhoogde ligging en open plattegrond gericht op privacy en vergezichten."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-2.jpg",
-          alt: "Architectuur in de duinrand: rietkap als tijdloos element in kustarchitectuur."
-        },
-        {
-          url: "https://www.zwijsen.net/wp-content/uploads/2018/07/villa-zandvoort-architect-moderne-duinvilla-1.jpg",
-          alt: "Duinvilla met rieten kap: balans tussen geslotenheid en transparantie richting duinen."
-        }
-      ]
-    },
-
-    { type: "spacer", size: "md" }
+   
   ],
 
   cta: {

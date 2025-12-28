@@ -9,9 +9,11 @@ export { ContactBar } from './ContactBar';
 
 // Section components
 export { HeroSection } from './HeroSection';
+export { IntroSection } from './IntroSection';
 export { Navigation } from './Navigation';
 export { VisionSection } from './VisionSection';
 export { ProcessSection } from './ProcessSection';
+export { ProcessSectionCompact } from './ProcessSectionCompact';
 export { RegionSection } from './RegionSection';
 export { PainRegieSection } from './PainRegieSection';
 export { ServicesSection } from './ServicesSection';
@@ -19,6 +21,7 @@ export { TestimonialsSection } from './TestimonialsSection';
 export { ArchitectProfile } from './ArchitectProfile';
 export { Footer } from './Footer';
 export { PortfolioSection } from './PortfolioSection';
+export { QuickProjectsGrid } from './QuickProjectsGrid';
 export { FAQSection } from './FAQSection';
 
 // Project components

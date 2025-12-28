@@ -47,7 +47,7 @@ export const luxeVillaUitzichtWaterrijkWoerden: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-architect-woerden-waterrijk-special-villa.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2022/10/NL22-6_ABJ-ZWIJSEN_16-0009-COPYRIGHT-THE-ART-OF-LIVING-JURRIT-VAN-DER-WAAL.jpg",
     alt: "Architectuur luxe villa Waterrijk Woerden – special design op waterkavel"
   },
 
@@ -66,7 +66,7 @@ export const luxeVillaUitzichtWaterrijkWoerden: ProjectDetail = {
 
   heroImages: [
     {
-      url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-architect-woerden-waterrijk-special-villa.jpg",
+      url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-special-hoekkavel-waterrijk-woerden.jpg",
       alt: "Exterieur – luxe villa op prominente hoek aan het water (Waterrijk Woerden)"
     },
     {
@@ -90,7 +90,7 @@ export const luxeVillaUitzichtWaterrijkWoerden: ProjectDetail = {
       content:
         "Op het laatste eiland van Waterrijk Woerden, op een prominente hoek aan het water, werd de laatste kavel uitgegeven onder bijzondere voorwaarden.\n\nVoor deze plek was alleen een 'special' ontwerp toegestaan: een woning met een uitgesproken architectonische identiteit, zichtbaar in vorm, materiaalgebruik en uitstraling. Ook aan de keuze van de architect werden hoge eisen gesteld — enkel ontwerpers uit de voorhoede van de hedendaagse architectuur mochten hier ontwerpen.\n\nEen bijzondere eer om dit project te realiseren, zeker omdat wij ook aan de andere punt van het eiland al een woning hebben ontworpen.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-architect-woerden-waterrijk-special-villa.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-architect-woerden-rieten-dak-waterrijk-woerden.jpg",
         alt: "Special villa Waterrijk Woerden – prominent aan het water"
       }
     },
@@ -188,7 +188,7 @@ export const luxeVillaUitzichtWaterrijkWoerden: ProjectDetail = {
       content:
         "De noordzijde van de woning, grenzend aan een druk fietspad, is bewust grotendeels gesloten gehouden.\n\nDeze gevel is bekleed met traditioneel riet — passend bij het waterrijke landschap — en vormt een spannend contrast met de moderne, open zuidzijde.\n\nAan de waterkant zorgen grote glaspartijen en houten bekleding voor een warme, uitnodigende uitstraling, met veel zonlicht en een directe connectie met tuin en uitzicht.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/luxe-villa-architect-woerden-duurzaam-villaontwerp.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/06/luxe-villa-architect-woerden-duurzame-villa-ontwerp.jpg",
         alt: "Gevelbeeld – contrast tussen geborgen noordzijde en open zuidzijde"
       }
     },

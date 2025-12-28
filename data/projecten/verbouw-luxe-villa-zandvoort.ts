@@ -42,7 +42,7 @@ export const verbouwLuxeVillaZandvoort: ProjectDetail = {
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2022/10/moderne-villa-architect-art-of-living-verbouw-1.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2023/06/architect-villa-nieuwbouw-verbouw-woning-ontwerp-inspiratie-5.jpg",
     alt: "Verbouw luxe villa Zandvoort – moderne kustvilla na volledige transformatie"
   },
 

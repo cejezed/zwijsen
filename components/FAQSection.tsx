@@ -28,7 +28,10 @@ export const FAQSection: React.FC = () => {
     document.head.appendChild(script);
 
     return () => {
-      document.head.removeChild(script);
+      // Only remove if script is still in the DOM
+      if (script.parentNode === document.head) {
+        document.head.removeChild(script);
+      }
     };
   }, []);
 
