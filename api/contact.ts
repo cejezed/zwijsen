@@ -82,8 +82,8 @@ export default async function handler(
     // Optie 5: Google Sheets logging
     // await logToGoogleSheets(formData);
 
-    // Voor nu: simuleer success (vervang met echte email service)
-    await simulateEmailSend(formData);
+    // Send via WordPress Contact Form 7
+    await sendViaContactForm7(formData);
 
     return res.status(200).json({
       success: true,
@@ -98,17 +98,35 @@ export default async function handler(
   }
 }
 
-// Simulatie functie (vervang met echte implementatie)
-async function simulateEmailSend(data: ContactFormData): Promise<void> {
-  // In productie: vervang dit met echte email service
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('Email zou verzonden zijn naar: info@zwijsen.net');
-      console.log('Van:', data.name, data.email);
-      console.log('Bericht:', data.message);
-      resolve();
-    }, 1000);
+// Contact Form 7 WordPress Integration
+async function sendViaContactForm7(data: ContactFormData): Promise<void> {
+  const WORDPRESS_URL = process.env.WORDPRESS_URL || 'https://www.zwijsen.net';
+  const CF7_FORM_ID = process.env.CF7_FORM_ID || '123'; // Update this with your Form ID
+
+  console.log('Sending to WordPress CF7:', { url: WORDPRESS_URL, formId: CF7_FORM_ID });
+
+  const response = await fetch(`${WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_FORM_ID}/feedback`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      'your-name': data.name,
+      'your-email': data.email,
+      'your-phone': data.phone || '',
+      'your-message': data.message,
+      'regio': data.region || '',
+    }),
   });
+
+  const result = await response.json();
+
+  if (!response.ok || result.status === 'validation_failed' || result.status === 'mail_failed') {
+    console.error('CF7 Error:', result);
+    throw new Error(result.message || 'WordPress form submission failed');
+  }
+
+  console.log('CF7 Success:', result);
 }
 
 // Voorbeeld implementaties hieronder:
