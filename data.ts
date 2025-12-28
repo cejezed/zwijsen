@@ -481,9 +481,7 @@ export const FAQS = [
 ];
 
 export const NAV_LINKS = [
-  { name: "Nieuws", label: "De laatste ontwikkelingen", href: "#" },
   { name: "Projecten", label: "Gerealiseerde dromen", href: "#projects" },
   { name: "Regio's", label: "Lokale expertise", href: "/regios" },
-  { name: "Info", label: "Wie is Jules Zwijsen?", href: "#info" },
-  { name: "Kavels", label: "Mogelijkheden op locatie", href: "#" }
+  { name: "Info", label: "Wie is Jules Zwijsen?", href: "#info" }
 ];
