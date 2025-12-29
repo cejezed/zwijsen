@@ -42,6 +42,21 @@ export default {
       return modifiedResponse;
     }
 
+    // PRIORITEIT 1B: Vercel static assets (images folder)
+    // Deze zitten in de Vercel build en moeten naar Vercel
+    if (pathname.startsWith("/images/")) {
+      const vercelUrl = `https://${VERCEL_DOMAIN}${pathname}${url.search}`;
+      const vercelRequest = new Request(vercelUrl, {
+        method: request.method,
+        headers: request.headers,
+        redirect: "manual",
+      });
+      const response = await fetch(vercelRequest);
+      const modifiedResponse = new Response(response.body, response);
+      modifiedResponse.headers.set("X-Proxy-Target", "Vercel-Images");
+      return modifiedResponse;
+    }
+
     // PRIORITEIT 2: Check of dit een Vercel route is
     const shouldProxyToVercel = VERCEL_ROUTES.some(
       (route) => pathname === route || pathname.startsWith(route + "/")

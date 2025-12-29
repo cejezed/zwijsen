@@ -109,7 +109,7 @@ export const moderneVillaRietenKapBlaricum: ProjectDetail = {
       content:
         "De villa springt direct in het oog door de contrasterende combinatie van een moderne, witte pleistergevel en een ambachtelijk rieten dak.\n\nZwart gebeitst hout en aluminium lamellen geven extra diepte aan de gevels en versterken het spel tussen licht en schaduw. Strakke lijnen en een heldere vormentaal maken deze woning tot een subtiel maar uitgesproken verschijning in de bosrijke omgeving van Blaricum — een plek waar luxe wonen en architectonische kwaliteit samenkomen.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/2025-04-12-10.09.51_resize.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/04/2025-04-12-10.09.51_resizel.jpg",
         alt: "Architectuur met contrast – zwart hout, strak pleisterwerk en lamellen"
       }
     },
