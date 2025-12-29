@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
 
       {/* Bestaande Footer Content */}
       <div className="py-64 px-12 md:px-32">
-       <motion.div style={{ x: parallaxText, opacity }} className="absolute top-20 left-0 whitespace-nowrap pointer-events-none select-none z-0">
+       <motion.div style={{ x: parallaxText, opacity }} className="absolute top-48 md:top-64 left-0 whitespace-nowrap pointer-events-none select-none z-0">
           <span className="text-[20vw] font-serif italic text-stone-100/90 leading-none uppercase tracking-tighter">Licht • Ruimte • Materiaal • Visie • Balans • Ordening</span>
        </motion.div>
        <div className="max-w-screen-2xl mx-auto relative z-20 flex flex-col gap-48">

@@ -76,24 +76,38 @@ export const VisionSection: React.FC<{ onContactClick: () => void }> = ({ onCont
           ))}
 
           {/* De 5e Slide: Architect Jules Zwijsen Profile */}
-          <div className="h-screen w-screen flex-none relative overflow-hidden bg-stone-900 text-white flex flex-col md:flex-row-reverse">
-            <div className="w-full md:w-5/12 h-[40vh] md:h-full relative overflow-hidden">
+          <div className="h-screen w-screen flex-none relative overflow-hidden bg-stone-900 text-white">
+            {/* Mobiel: Foto als achtergrond met overlay */}
+            <div className="absolute inset-0 md:hidden">
+              <SafeImage
+                localSrc={IMAGES.portrait}
+                fallbackSrc={IMAGES.portrait}
+                className="w-full h-full object-cover grayscale-[0.2]"
+                alt="Jules Zwijsen"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/90 to-stone-900/60" />
+            </div>
+
+            {/* Desktop: Foto rechts */}
+            <div className="hidden md:block absolute top-0 right-0 w-5/12 h-full overflow-hidden">
               <SafeImage
                 localSrc={IMAGES.portrait}
                 fallbackSrc={IMAGES.portrait}
                 className="w-full h-full object-cover grayscale-[0.2] scale-105"
                 alt="Jules Zwijsen"
               />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-transparent to-stone-900/40" />
-              <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-20">
-                <div className="flex items-center gap-4 bg-amber-600 px-5 py-4 md:px-7 md:py-5 shadow-2xl">
-                  <Award size={18} />
-                  <span className="mono text-[11px] md:text-xs uppercase tracking-widest font-black">Geregistreerd Architect</span>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-stone-900/40" />
+            </div>
+
+            {/* Badge - altijd zichtbaar */}
+            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-30">
+              <div className="flex items-center gap-4 bg-amber-600 px-5 py-4 md:px-7 md:py-5 shadow-2xl">
+                <Award size={18} />
+                <span className="mono text-[11px] md:text-xs uppercase tracking-widest font-black">Geregistreerd Architect</span>
               </div>
             </div>
 
-            <div className="w-full md:w-7/12 p-8 md:p-24 flex flex-col justify-center relative">
+            <div className="relative w-full md:w-7/12 h-full p-8 md:p-24 flex flex-col justify-center z-20">
               <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none hidden lg:block">
                 <RotatingText />
               </div>
