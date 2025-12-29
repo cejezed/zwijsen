@@ -1,29 +1,42 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { SafeImage } from './UIElements';
 import { imageLocal } from '../data';
 import { ArrowUpRight, X, Layers, Ruler } from 'lucide-react';
 import { getImageUrl, getImageAlt } from '../utils/imageHelpers';
 
-export const MosaicItem: React.FC<{ 
-  project: any; 
-  onOpen: (p: any) => void; 
-  height: string; 
+export const MosaicItem: React.FC<{
+  project: any;
+  onOpen: (p: any) => void;
+  height: string;
   width: string;
   offsetY?: string;
   isBottomRow?: boolean;
 }> = ({ project, onOpen, height, width, offsetY = "0px", isBottomRow = false }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (project.slug) {
+      // Als er een slug is, ga naar de projectdetail pagina
+      navigate(`/projecten/${project.slug}`);
+    } else {
+      // Fallback naar overlay voor projecten zonder slug
+      onOpen(project);
+    }
+  };
+
   return (
-    <motion.div 
+    <motion.div
       className="relative flex-none overflow-visible group cursor-pointer"
-      style={{ 
-        height, 
+      style={{
+        height,
         width,
         zIndex: isBottomRow ? 10 : 20,
       }}
-      onClick={() => onOpen(project)}
-      whileHover={{ 
+      onClick={handleClick}
+      whileHover={{
         zIndex: 100,
         scale: 1.05,
         transition: { duration: 0.4, ease: [0.33, 1, 0.68, 1] }

@@ -51,21 +51,8 @@ export const Navigation: React.FC<NavigationProps> = ({
     setIsMenuOpen(false);
 
     if (link.name === "Projecten") {
-      if (currentRegion) {
-        // Blijf in regio context - scroll naar portfolio sectie
-        if (location.pathname === `/${currentRegion}`) {
-          const element = document.querySelector('#portfolio');
-          element?.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          navigate(`/${currentRegion}`);
-          setTimeout(() => {
-            const element = document.querySelector('#portfolio');
-            element?.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        }
-      } else {
-        navigate('/projecten');
-      }
+      // ALTIJD naar de projecten pagina
+      navigate('/projecten');
     } else if (link.name === "Regio's") {
       navigate('/regios');
     } else {

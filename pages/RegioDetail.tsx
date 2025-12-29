@@ -255,12 +255,10 @@ export const RegioDetail: React.FC = () => {
           <VisionSection onContactClick={() => window.location.hash = 'contact'} />
 
           {/* Portfolio Section - Full portfolio grid */}
-          <div id="portfolio">
-            <PortfolioSection
-              projects={(config as any).projects || []}
-              onProjectClick={setSelectedProject}
-            />
-          </div>
+          <PortfolioSection
+            projects={(config as any).projects || []}
+            onProjectClick={setSelectedProject}
+          />
 
           {/* Testimonials Section */}
           <TestimonialsSection />

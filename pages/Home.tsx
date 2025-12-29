@@ -149,12 +149,10 @@ export const Home: React.FC = () => {
           <VisionSection onContactClick={() => window.location.hash = 'contact'} />
 
           {/* Portfolio Section */}
-          <div id="portfolio">
-            <PortfolioSection
-              projects={pageConfig.projects || []}
-              onProjectClick={setSelectedProject}
-            />
-          </div>
+          <PortfolioSection
+            projects={pageConfig.projects || []}
+            onProjectClick={setSelectedProject}
+          />
 
           {/* Testimonials Section */}
           <TestimonialsSection />
