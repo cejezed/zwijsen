@@ -156,7 +156,7 @@ export const ProjectenOverzicht: React.FC = () => {
         {/* Uniform Dossier Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 md:gap-02"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-02"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (

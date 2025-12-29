@@ -22,6 +22,11 @@ export { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebog
 export { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
 export { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
 export { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
+export { villaOvergooiAlmere } from './architect-loenen-aan-de-vecht-vrijstaande-villa-almere-overgooi';
+export { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-prattenburg-rhenen';
+export { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
+export { villaKickesteinLoenen } from './architect-loenen-aan-de-vecht-verbouw-villa-kickestein';
+export { knikhuisCronenburghLoenen } from './architect-loenen-aan-de-vecht-knikhuis-cronenburgh';
 
 // Importeer projecten voor de array
 import { levensloopbestendigeniorenwoningenLoenen } from './levensloopbestendige-seniorenwoningen-loenen';
@@ -42,6 +47,11 @@ import { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebog
 import { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
 import { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
 import { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
+import { villaOvergooiAlmere } from './architect-loenen-aan-de-vecht-vrijstaande-villa-almere-overgooi';
+import { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-prattenburg-rhenen';
+import { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
+import { villaKickesteinLoenen } from './architect-loenen-aan-de-vecht-verbouw-villa-kickestein';
+import { knikhuisCronenburghLoenen } from './architect-loenen-aan-de-vecht-knikhuis-cronenburgh';
 
 /**
  * Centrale export van alle project details
@@ -66,4 +76,9 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   nieuweRietkapvillaZandvoortBoulevard,
   almereDuinKreekbosZuidAanDeKreekFase1,
   moderneStacaravanMetSchuifpanelenAmeland,
+  villaOvergooiAlmere,
+  villaPrattenburgRhenen,
+  woningWerkplaatsSeggelenAlmere,
+  villaKickesteinLoenen,
+  knikhuisCronenburghLoenen,
 ];
