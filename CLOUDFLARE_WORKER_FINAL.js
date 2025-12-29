@@ -1,15 +1,17 @@
-// === CLOUDFLARE WORKER - COPY/PASTE READY ===
+// === CLOUDFLARE WORKER - FINAL VERSIE ===
 // Voor zwijsen.net - Routes naar Vercel of WordPress
 
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\/$/, "") || "/"; // Remove trailing slash
+
+    // Normaliseer pathname - verwijder trailing slash behalve voor root
+    const pathname = url.pathname === "/" ? "/" : url.pathname.replace(/\/$/, "");
 
     // ============================================
     // CONFIGURATIE
     // ============================================
-    const VERCEL_DOMAIN = "zwijsen-eta.vercel.app"; // ← PAS AAN naar jouw Vercel URL
+    const VERCEL_DOMAIN = "zwijsen-eta.vercel.app";
 
     const VERCEL_ROUTES = [
       "/regios",
@@ -42,14 +44,14 @@ export default {
       return modifiedResponse;
     }
 
-    // PRIORITEIT 1B: Vercel static assets (images folder)
+    // PRIORITEIT 2: Vercel static assets (images folder)
     // Deze zitten in de Vercel build en moeten naar Vercel
     if (pathname.startsWith("/images/")) {
       const vercelUrl = `https://${VERCEL_DOMAIN}${pathname}${url.search}`;
       const vercelRequest = new Request(vercelUrl, {
         method: request.method,
         headers: request.headers,
-        redirect: "manual",
+        redirect: "follow",
       });
       const response = await fetch(vercelRequest);
       const modifiedResponse = new Response(response.body, response);
@@ -57,21 +59,20 @@ export default {
       return modifiedResponse;
     }
 
-    // PRIORITEIT 2: Check of dit een Vercel route is
+    // PRIORITEIT 3: Check of dit een Vercel route is
     const shouldProxyToVercel = VERCEL_ROUTES.some(
       (route) => pathname === route || pathname.startsWith(route + "/")
     );
 
     if (shouldProxyToVercel) {
       // === PROXY NAAR VERCEL ===
-      // Gebruik de genormaliseerde pathname (zonder trailing slash)
       const vercelUrl = `https://${VERCEL_DOMAIN}${pathname}${url.search}`;
 
       const vercelRequest = new Request(vercelUrl, {
         method: request.method,
         headers: request.headers,
         body: request.body,
-        redirect: "manual",
+        redirect: "follow",
       });
 
       const response = await fetch(vercelRequest);
