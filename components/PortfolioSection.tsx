@@ -161,7 +161,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
               </div>
 
               <a
-                href="#"
+                href="/projecten"
                 className="inline-flex items-center gap-6 bg-white text-black px-10 py-5 rounded-full mono text-xs uppercase tracking-[0.4em] font-black hover:bg-amber-600 hover:text-white transition-all group/btn shadow-2xl whitespace-nowrap"
               >
                 Alle Projecten

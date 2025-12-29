@@ -157,20 +157,6 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
         "Verbouw en herindeling van (monumentale) woningen",
         "Begeleiding bij vergunningsaanvragen bij gemeente Stichtse Vecht",
         "Gevestigd in Loenen aan de Vecht, actief in de gehele Vechtstreek"
-      ],
-      regionalProjects: [
-        {
-          title: "Dijkwoning Loenen",
-          description: "Karakteristieke verbouwing aan de Vecht"
-        },
-        {
-          title: "Landhuis Vreeland",
-          description: "Klassiek landhuis met hedendaagse twist"
-        },
-        {
-          title: "Villa Vechtstreek",
-          description: "Moderne nieuwbouw in groene omgeving"
-        }
       ]
     }
   }

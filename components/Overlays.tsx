@@ -138,18 +138,40 @@ export const InquiryForm: React.FC<FormProps> = ({ inline = false, onSubmitted }
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
                   <div className="space-y-4">
                     <label className="mono text-sm uppercase tracking-[0.3em] text-stone-600 font-black">Stap 03: Hoe bereiken we u?</label>
-                    <input 
-                      required 
-                      type="email" 
-                      value={formData.email} 
-                      onChange={e => setFormData({...formData, email: e.target.value})} 
-                      className="w-full border-b-2 border-stone-300 py-6 text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500" 
-                      placeholder="Uw e-mail adres.." 
+                    <input
+                      required
+                      type="email"
+                      value={formData.email}
+                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      className="w-full border-b-2 border-stone-300 py-6 text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500"
+                      placeholder="Uw e-mail adres.."
+                      disabled={isSubmitting}
                     />
                   </div>
+
+                  {error && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-800 text-sm">{error}</p>
+                    </div>
+                  )}
+
                   <div className="flex gap-4">
-                    <button type="button" onClick={prevStep} className="px-10 py-7 border-2 border-stone-300 mono text-sm uppercase tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors">Terug</button>
-                    <button type="submit" className="flex items-center gap-8 px-12 py-7 bg-amber-600 text-white mono text-sm uppercase tracking-[0.4em] font-black hover:bg-black transition-all shadow-xl rounded-full">Verstuur Aanvraag <Send size={20}/></button>
+                    <button
+                      type="button"
+                      onClick={prevStep}
+                      disabled={isSubmitting}
+                      className="px-10 py-7 border-2 border-stone-300 mono text-sm uppercase tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Terug
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex items-center gap-8 px-12 py-7 bg-amber-600 text-white mono text-sm uppercase tracking-[0.4em] font-black hover:bg-black transition-all shadow-xl rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Bezig met verzenden...' : 'Verstuur Aanvraag'}
+                      {!isSubmitting && <Send size={20}/>}
+                    </button>
                   </div>
                 </motion.div>
               )}

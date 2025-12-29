@@ -122,7 +122,7 @@ export interface RegioConfig {
       h3: string;
       h3_paragraph: string;
       services: string[];
-      regionalProjects: RegionalProject[];
+      regionalProjects?: RegionalProject[];  // Optioneel - wordt niet meer gebruikt
     };
   };
 }

@@ -53,20 +53,6 @@ export const loosdrechtConfig: Partial<RegioConfig> = {
         "Aanbouw en uitbreiding van bestaande woningen",
         "Begeleiding bij vergunningsaanvragen gemeente Wijdemeren",
         "Projectbegeleiding en aannemer-overleg"
-      ],
-      regionalProjects: [
-        {
-          title: "Villa aan de Plassen",
-          description: "Moderne woning met zicht op water"
-        },
-        {
-          title: "Gezinswoning Loosdrecht",
-          description: "Duurzaam ontwerp in groene setting"
-        },
-        {
-          title: "Verbouwing Dorpskern",
-          description: "Modernisering met behoud van karakter"
-        }
       ]
     }
   }
