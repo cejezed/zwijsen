@@ -29,6 +29,7 @@ export default {
       "/wijdemeren",
       "/kortenhoef",
       "/vreeland",
+      "/portfolio",
     ];
 
     // ============================================
@@ -46,7 +47,7 @@ export default {
 
     // PRIORITEIT 2: Vercel static assets (images folder)
     // Deze zitten in de Vercel build en moeten naar Vercel
-    if (pathname.startsWith("/images/")) {
+    if (pathname.startsWith("/images/") || pathname.startsWith("/assets/")) {
       const vercelUrl = `https://${VERCEL_DOMAIN}${pathname}${url.search}`;
       const vercelRequest = new Request(vercelUrl, {
         method: request.method,
@@ -60,7 +61,7 @@ export default {
     }
 
     // PRIORITEIT 3: Check of dit een Vercel route is
-    const shouldProxyToVercel = VERCEL_ROUTES.some(
+    let shouldProxyToVercel = VERCEL_ROUTES.some(
       (route) => pathname === route || pathname.startsWith(route + "/")
     );
 

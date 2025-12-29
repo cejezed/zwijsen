@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { MosaicItem } from './ProjectUI';
 import { ArrowRight } from 'lucide-react';
 
@@ -9,6 +10,7 @@ interface PortfolioSectionProps {
 }
 
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, onProjectClick }) => {
+  const navigate = useNavigate();
   const wallContainerRef = useRef<HTMLDivElement>(null);
   const portfolioScrollRef = useRef<HTMLDivElement>(null);
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
@@ -17,7 +19,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
   const [scrollLeft, setScrollLeft] = useState(0);
 
   // Limiteer projecten tot maximaal 5
-  const limitedProjects = projects.slice(0, 15);
+  const limitedProjects = projects.slice(0, 25);
 
   // Natuurlijke scroll parallax
   const { scrollYProgress: wallScrollProgress } = useScroll({
@@ -55,7 +57,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
     <section ref={wallContainerRef} className="relative pt-80 pb-0 bg-white z-10 overflow-hidden" id="projects">
       <div className="px-12 md:px-32 mb-40 flex flex-col md:flex-row justify-between items-end gap-12">
         <div className="relative">
-          <span className="mono text-amber-900 text-sm tracking-[1.2em] block uppercase mb-6 font-black">Interlocking Wall</span>
+          <span className="mono text-amber-900 text-sm tracking-[1.2em] block uppercase mb-6 font-black">Uitgelichte projecten</span>
           <h3 className="text-7xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-[0.85]">Vertaal uw <br/>Droom.</h3>
         </div>
         <div className="max-w-md">
@@ -160,13 +162,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
                 </p>
               </div>
 
-              <a
-                href="/projecten"
-                className="inline-flex items-center gap-6 bg-white text-black px-10 py-5 rounded-full mono text-xs uppercase tracking-[0.4em] font-black hover:bg-amber-600 hover:text-white transition-all group/btn shadow-2xl whitespace-nowrap"
+              <button
+                onClick={() => navigate('/portfolio')}
+                className="inline-flex items-center gap-6 bg-white text-black px-10 py-5 rounded-full mono text-xs uppercase tracking-[0.4em] font-black hover:bg-amber-600 hover:text-white transition-all group/btn shadow-2xl whitespace-nowrap cursor-pointer"
               >
                 Alle Projecten
                 <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
-              </a>
+              </button>
             </div>
 
             {/* Subtiele achtergrond gradient */}

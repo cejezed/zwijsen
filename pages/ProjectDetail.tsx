@@ -7,14 +7,14 @@ export const ProjectDetail: React.FC = () => {
   const navigate = useNavigate();
 
   if (!slug) {
-    navigate('/projecten');
+    navigate('/portfolio');
     return null;
   }
 
   return (
     <ProjectTemplate
       slug={slug}
-      onClose={() => navigate('/projecten')}
+      onClose={() => navigate('/portfolio')}
     />
   );
 };

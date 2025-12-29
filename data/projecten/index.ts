@@ -27,6 +27,11 @@ export { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-pr
 export { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
 export { villaKickesteinLoenen } from './architect-loenen-aan-de-vecht-verbouw-villa-kickestein';
 export { knikhuisCronenburghLoenen } from './architect-loenen-aan-de-vecht-knikhuis-cronenburgh';
+export { hofwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-hofwoning-cronenburgh';
+export { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-aan-de-vecht';
+export { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
+export { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
+export { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
 
 // Importeer projecten voor de array
 import { levensloopbestendigeniorenwoningenLoenen } from './levensloopbestendige-seniorenwoningen-loenen';
@@ -52,6 +57,11 @@ import { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-pr
 import { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
 import { villaKickesteinLoenen } from './architect-loenen-aan-de-vecht-verbouw-villa-kickestein';
 import { knikhuisCronenburghLoenen } from './architect-loenen-aan-de-vecht-knikhuis-cronenburgh';
+import { hofwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-hofwoning-cronenburgh';
+import { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-aan-de-vecht';
+import { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
+import { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
+import { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
 
 /**
  * Centrale export van alle project details
@@ -81,4 +91,9 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   woningWerkplaatsSeggelenAlmere,
   villaKickesteinLoenen,
   knikhuisCronenburghLoenen,
+  hofwoningCronenburghLoenen,
+  poortwoningCronenburghLoenen,
+  torenwoningCronenburghLoenen,
+  moderneRecreatiewoningVecht,
+  villaKasteelparkDeCloese,
 ];

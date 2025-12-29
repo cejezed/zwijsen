@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight, Plus, Filter, Hash, Home } from 'lucide-react';
+import { ArrowUpRight, Plus, Filter, Hash, ChevronDown } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../data/projecten';
 import { Footer } from '../components';
 
@@ -26,23 +26,23 @@ const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onC
 
         {/* Flash UI Overlays (Blueprint View) - Only on Hover */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-           {/* Architectural Crosshairs */}
-           <div className="absolute top-4 left-4 right-4 h-[1px] bg-white/40" />
-           <div className="absolute bottom-4 left-4 right-4 h-[1px] bg-white/40" />
-           <div className="absolute top-4 bottom-4 left-4 w-[1px] bg-white/40" />
-           <div className="absolute top-4 bottom-4 right-4 w-[1px] bg-white/40" />
+          {/* Architectural Crosshairs */}
+          <div className="absolute top-4 left-4 right-4 h-[1px] bg-white/40" />
+          <div className="absolute bottom-4 left-4 right-4 h-[1px] bg-white/40" />
+          <div className="absolute top-4 bottom-4 left-4 w-[1px] bg-white/40" />
+          <div className="absolute top-4 bottom-4 right-4 w-[1px] bg-white/40" />
 
-           {/* Technical Metadata */}
-           <div className="absolute top-8 left-8 flex flex-col gap-1">
-             <span className="mono text-[8px] text-white font-black tracking-[0.3em] uppercase bg-black/40 px-2 py-1">REF_0{idx + 1}</span>
-             <span className="mono text-[8px] text-white/70 tracking-widest uppercase">LAT_52.1284 / LON_5.0234</span>
-           </div>
+          {/* Technical Metadata */}
+          <div className="absolute top-8 left-8 flex flex-col gap-1">
+            <span className="mono text-[8px] text-white font-black tracking-[0.3em] uppercase bg-black/40 px-2 py-1">REF_0{idx + 1}</span>
+            <span className="mono text-[8px] text-white/70 tracking-widest uppercase">LAT_52.1284 / LON_5.0234</span>
+          </div>
 
-           <div className="absolute bottom-8 right-8">
-             <div className="bg-amber-600 text-white p-4 rounded-full shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <ArrowUpRight size={20} />
-             </div>
-           </div>
+          <div className="absolute bottom-8 right-8">
+            <div className="bg-amber-600 text-white p-4 rounded-full shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <ArrowUpRight size={20} />
+            </div>
+          </div>
         </div>
 
         {/* Subtle gradient overlay */}
@@ -72,6 +72,7 @@ const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onC
 export const ProjectenOverzicht: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('all');
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const footerRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top when component mounts
@@ -102,20 +103,12 @@ export const ProjectenOverzicht: React.FC = () => {
       className="min-h-screen bg-stone-50 pt-24 pb-32 px-6 md:px-12 relative overflow-hidden selection:bg-amber-100"
     >
       {/* Fixed Navigation Bar */}
-      <nav className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-4 pointer-events-none">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-stone-200 px-6 py-4 rounded-full shadow-sm hover:bg-white transition-all pointer-events-auto group"
-        >
-          <Home size={18} className="text-amber-600 group-hover:scale-110 transition-transform" />
-          <span className="mono text-[10px] font-black text-stone-700 uppercase tracking-[0.3em]">Home</span>
-        </button>
-
-        <div className="hidden md:flex items-center gap-8 bg-white/80 backdrop-blur-xl border border-stone-200 px-8 py-4 rounded-full shadow-sm pointer-events-auto">
-           <div className="flex items-center gap-3 mono text-[10px] font-black text-stone-400">
-              <Hash size={12} className="text-amber-500" />
-              <span>{filteredProjects.length} PROJECTEN</span>
-           </div>
+      <nav className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-[100] pointer-events-none">
+        <div className="flex items-center gap-8 bg-white/80 backdrop-blur-xl border border-stone-200 px-8 py-4 rounded-full shadow-sm pointer-events-auto">
+          <div className="flex items-center gap-3 mono text-[10px] font-black text-stone-400">
+            <Hash size={12} className="text-amber-500" />
+            <span>{filteredProjects.length} PROJECTEN</span>
+          </div>
         </div>
       </nav>
 
@@ -124,32 +117,65 @@ export const ProjectenOverzicht: React.FC = () => {
           <div className="space-y-10">
             <div className="flex items-center gap-6">
               <div className="w-12 h-[1px] bg-amber-600" />
-              <span className="mono text-amber-700 text-[10px] font-black tracking-[0.6em] uppercase">PROJECT_ARCHIVE_V2.5</span>
+              <span className="mono text-amber-700 text-[10px] font-black tracking-[0.6em] uppercase">Uitgelichte Projecten</span>
             </div>
             <h1 className="text-6xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-[0.85] uppercase">
-              Vormgegeven <br/> <span className="text-stone-300">Ambities.</span>
+              Vormgegeven <br /> <span className="text-stone-300">Ambities.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col gap-6 items-start md:items-end">
-             <div className="flex items-center gap-2 mono text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2">
-                <Filter size={14} className="text-amber-500" /> Filter op type
-             </div>
-             <div className="flex flex-wrap md:justify-end gap-3">
-               {allCategories.map((category) => (
-                 <button
-                   key={category}
-                   onClick={() => setFilter(category)}
-                   className={`px-8 py-3 rounded-full border-2 mono text-[9px] font-black uppercase tracking-widest transition-all duration-500 ${
-                     filter === category
-                       ? 'bg-amber-600 text-white border-amber-600 shadow-xl'
-                       : 'bg-white text-stone-500 border-stone-100 hover:border-amber-600/30'
-                   }`}
-                 >
-                   {category.replace(/-/g, ' ')}
-                 </button>
-               ))}
-             </div>
+          <div className="flex flex-col gap-6 items-start md:items-end relative">
+            <div className="flex items-center gap-2 mono text-[10px] font-black text-stone-400 uppercase tracking-widest mb-2">
+              <Filter size={14} className="text-amber-500" /> Filter op type
+            </div>
+
+            {/* Dropdown Button */}
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className={`px-8 py-4 rounded-full border-2 mono text-[9px] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-3 min-w-[200px] justify-between ${isDropdownOpen
+                    ? 'bg-amber-600 text-white border-amber-600 shadow-xl'
+                    : 'bg-white text-stone-700 border-stone-200 hover:border-amber-600/30'
+                  }`}
+              >
+                <span>{filter.replace(/-/g, ' ')}</span>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full mt-2 right-0 bg-white border-2 border-stone-200 rounded-2xl shadow-2xl overflow-hidden min-w-[200px] z-50"
+                  >
+                    <div className="py-2">
+                      {allCategories.map((category) => (
+                        <button
+                          key={category}
+                          onClick={() => {
+                            setFilter(category);
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full px-6 py-3 text-left mono text-[9px] font-black uppercase tracking-widest transition-all duration-300 ${filter === category
+                              ? 'bg-amber-600 text-white'
+                              : 'text-stone-600 hover:bg-stone-50'
+                            }`}
+                        >
+                          {category.replace(/-/g, ' ')}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </header>
 
@@ -164,7 +190,7 @@ export const ProjectenOverzicht: React.FC = () => {
                 key={project.slug}
                 project={project}
                 idx={idx}
-                onClick={() => navigate(`/projecten/${project.slug}`)}
+                onClick={() => navigate(`/portfolio/${project.slug}`)}
               />
             ))}
           </AnimatePresence>
@@ -181,8 +207,8 @@ export const ProjectenOverzicht: React.FC = () => {
           onClick={() => navigate('/#contact')}
           className="bg-black text-white px-10 py-6 rounded-full flex items-center gap-6 shadow-3xl hover:bg-amber-600 transition-all group"
         >
-           <span className="mono text-[11px] font-black uppercase tracking-widest">Start uw dossier</span>
-           <Plus size={20} className="group-hover:rotate-90 transition-transform" />
+          <span className="mono text-[11px] font-black uppercase tracking-widest">Start uw dossier</span>
+          <Plus size={20} className="group-hover:rotate-90 transition-transform" />
         </button>
       </motion.div>
 

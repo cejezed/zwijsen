@@ -31,8 +31,8 @@ const App: React.FC = () => {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projecten" element={<ProjectenOverzicht />} />
-          <Route path="/projecten/:slug" element={<ProjectDetail />} />
+          <Route path="/portfolio" element={<ProjectenOverzicht />} />
+          <Route path="/portfolio/:slug" element={<ProjectDetail />} />
           <Route path="/regios" element={<RegioOverzicht />} />
           {/* Direct regio routes zonder /regios/ prefix */}
           <Route path="/hilversum" element={<RegioDetail />} />

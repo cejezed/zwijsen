@@ -20,7 +20,7 @@ export const MosaicItem: React.FC<{
   const handleClick = () => {
     if (project.slug) {
       // Als er een slug is, ga naar de projectdetail pagina
-      navigate(`/projecten/${project.slug}`);
+      navigate(`/portfolio/${project.slug}`);
     } else {
       // Fallback naar overlay voor projecten zonder slug
       onOpen(project);

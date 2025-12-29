@@ -51,8 +51,8 @@ export const Navigation: React.FC<NavigationProps> = ({
     setIsMenuOpen(false);
 
     if (link.name === "Projecten") {
-      // ALTIJD naar de projecten pagina
-      navigate('/projecten');
+      // ALTIJD naar de portfolio pagina
+      navigate('/portfolio');
     } else if (link.name === "Regio's") {
       navigate('/regios');
     } else {

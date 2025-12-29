@@ -124,61 +124,110 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
         url:
           "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-eetkeuken-zichtlijnen.jpg",
         alt:
-          "Architect Loenen aan de Vecht: verhoogde eetkeuken met privacy en zichtlijnen door ligging op kruising in Cronenburgh"
+          "Verhoogde eetkeuken met privacy en zichtlijnen door ligging op kruising in Cronenburgh"
       }
     },
 
-    {
-      type: "split",
-      layout: "image-right",
-      fullWidth: false,
-      title: "Houten spanten als ruimtelijke drager in het interieur",
-      content:
-        "De kapvorm wordt aan de binnenzijde versterkt door in het zicht blijvende houten spanten die de draagconstructie vormen. Deze spanten verwijzen naar oude hoevewoningen, maar zijn op een moderne manier ingezet: als structuur, ritme en sfeerdrager tegelijk. In combinatie met verschillende verdiepingshoogtes en vloerniveaus ontstaat een divers en gelaagd interieur met lange zichtlijnen in de woning en gerichte doorzichten naar de tuin en de omgeving. De hofwoning voelt daardoor ruim, terwijl de verschillende zones toch intiem en passend blijven. Het is een voorbeeld van hoe een architect in Loenen aan de Vecht karakter kan maken met constructie en ruimte, zonder decoratie.",
-      image: {
-        url:
-          "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-houten-spanten-interieur.jpg",
-        alt:
-          "Architect Loenen aan de Vecht: houten spanten in zicht benadrukken de kapvorm en geven ritme aan het interieur"
-      }
-    },
+    { type: "spacer", size: "md" },
 
     {
       type: "split",
       layout: "image-left",
-      fullWidth: false,
-      title: "Ruwe baksteen en zinken dakkapellen: stoer en rustiek, maar modern gedetailleerd",
+      fullWidth: true,
+      title: "Houten spanten als ruimtelijke drager in het interieur",
       content:
-        "De buitenzijde is uitgevoerd in een zeer ruwe, soms subtiel vervormde baksteen, met grote uitgemetselde vensterbanken en dakkapellen in zink. De stoere textuur verwijst naar historische kasteel- of kloostermuren, waardoor de relatief lage woning toch een krachtige uitstraling krijgt binnen het geheel van Cronenburgh. Tegelijk is de detaillering eigentijds: precies, helder en terughoudend. Zo ontstaat een rustieke uitstraling die niet nostalgisch wordt, maar modern blijft in maatvoering en afwerking. Voor zoekers op ‘architect Loenen aan de Vecht’ is dit project een goed voorbeeld van hoe materiaalkeuze een woning karakter geeft én de schaal in het straatbeeld kan sturen.",
+        "De kapvorm wordt aan de binnenzijde versterkt door in het zicht blijvende houten spanten die de draagconstructie vormen. Deze spanten verwijzen naar oude hoevewoningen, maar zijn op een moderne manier ingezet: als structuur, ritme en sfeerdrager tegelijk.\n\nIn combinatie met verschillende verdiepingshoogtes en vloerniveaus ontstaat een divers en gelaagd interieur met lange zichtlijnen in de woning en gerichte doorzichten naar de tuin en de omgeving.\n\nDe hofwoning voelt daardoor ruim, terwijl de verschillende zones toch intiem en passend blijven. Het is een voorbeeld van hoe karakter kan ontstaan met constructie en ruimte, zonder decoratie.",
       image: {
         url:
-          "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-ruwe-baksteen-zink.jpg",
+          "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-houten-spanten-interieur.jpg",
         alt:
-          "Architect Loenen aan de Vecht: ruwe baksteen met uitgemetselde vensterbanken en zinken dakkapellen bij hofwoning Cronenburgh"
+          "Houten spanten in zicht benadrukken de kapvorm en geven ritme aan het interieur"
       }
     },
+
+    { type: "spacer", size: "lg" },
 
     {
       type: "split",
       layout: "image-right",
       fullWidth: false,
+      title: "Ruwe baksteen en zinken dakkapellen: stoer en rustiek, maar modern gedetailleerd",
+      content:
+        "De buitenzijde is uitgevoerd in een zeer ruwe, soms subtiel vervormde baksteen, met grote uitgemetselde vensterbanken en dakkapellen in zink. De stoere textuur verwijst naar historische kasteel- of kloostermuren, waardoor de relatief lage woning toch een krachtige uitstraling krijgt binnen het geheel van Cronenburgh.\n\nTegelijk is de detaillering eigentijds: precies, helder en terughoudend. Zo ontstaat een rustieke uitstraling die niet nostalgisch wordt, maar modern blijft in maatvoering en afwerking.\n\nDit project is een goed voorbeeld van hoe materiaalkeuze een woning karakter geeft én de schaal in het straatbeeld kan sturen.",
+      image: {
+        url:
+          "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-ruwe-baksteen-zink.jpg",
+        alt:
+          "Ruwe baksteen met uitgemetselde vensterbanken en zinken dakkapellen bij hofwoning Cronenburgh"
+      }
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "gallery",
+      layout: "horizontal",
+      gallery: [
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-exterieur.jpg",
+          alt: "Exterieur hofwoning Cronenburgh met lage kap"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-straatbeeld.jpg",
+          alt: "Hofwoning in straatbeeld Cronenburgh"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-kap-drie-vleugels.jpg",
+          alt: "Drie vleugels met variërende kapvormen"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-ruwe-baksteen-zink.jpg",
+          alt: "Detail ruwe baksteen en zinken dakkapellen"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-houten-spanten-interieur.jpg",
+          alt: "Interieur met houten spanten"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-eetkeuken-zichtlijnen.jpg",
+          alt: "Eetkeuken met zichtlijnen"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-binnenhof-pleisterwerk-glas.jpg",
+          alt: "Binnenhof met licht pleisterwerk"
+        },
+        {
+          url: "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-binnenhof-poort.jpg",
+          alt: "Poort naar binnenhof"
+        }
+      ]
+    },
+
+    { type: "spacer", size: "md" },
+
+    {
+      type: "split",
+      layout: "image-left",
+      fullWidth: true,
       title: "Het binnenhof: licht, beschut en ruimtelijk",
       content:
-        "Het binnenhof vormt het rustige hart van de hofwoning en is bereikbaar via een poort. Aan deze meer beschutte zijde verandert de materialisatie: licht pleisterwerk en grote raampartijen brengen daglicht diep in de woning en maken het hof ruimtelijk en vriendelijk. Hierdoor ontstaat een duidelijke tweedeling: een stoere, robuuste buitenkant aan de straat en een lichte, open wereld aan het hof. Die combinatie maakt de woning tegelijk stevig en uitnodigend. Het binnenhof laat zien hoe een architect in Loenen aan de Vecht privacy, daglicht en buitenruimte kan organiseren binnen de beperkingen van een bestemmingsplan en de schaal van een nieuwbouwwijk.",
+        "Het binnenhof vormt het rustige hart van de hofwoning en is bereikbaar via een poort. Aan deze meer beschutte zijde verandert de materialisatie: licht pleisterwerk en grote raampartijen brengen daglicht diep in de woning en maken het hof ruimtelijk en vriendelijk.\n\nHierdoor ontstaat een duidelijke tweedeling: een stoere, robuuste buitenkant aan de straat en een lichte, open wereld aan het hof. Die combinatie maakt de woning tegelijk stevig en uitnodigend.\n\nHet binnenhof laat zien hoe privacy, daglicht en buitenruimte kunnen worden georganiseerd binnen de beperkingen van een bestemmingsplan en de schaal van een nieuwbouwwijk.",
       image: {
         url:
           "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-hofwoning-cronenburgh-binnenhof-pleisterwerk-glas.jpg",
         alt:
-          "Architect Loenen aan de Vecht: binnenhof met licht pleisterwerk en grote raampartijen voor daglicht en beschutting"
+          "Binnenhof met licht pleisterwerk en grote raampartijen voor daglicht en beschutting"
       }
-    }
+    },
+
+    { type: "spacer", size: "lg" }
   ],
 
   cta: {
-    kicker: "Architect in Loenen aan de Vecht",
+    kicker: "Klaar om ook aan de slag te gaan?",
     headline:
-      "Ontwerp dat regels omzet in karakter, en ruimte maakt voor het dagelijks leven",
-    buttonLabel: "Neem contact op",
+      "Wilt u een woning ontwerpen die beperkingen omzet in karakter en ruimte maakt voor het dagelijks leven?",
+    buttonLabel: "Plan een Gratis Sessie",
     href: "/contact"
   }
 };

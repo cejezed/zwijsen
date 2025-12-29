@@ -35,7 +35,7 @@ export const moderneRietkapvillaHetGooi: ProjectDetail = {
       "energieneutraal villa"
     ],
     ogImage:
-      "https://www.zwijsen.net/wp-content/uploads/2025/11/architect-luxe-villa-blaricum-moderne-rietkapvilla-keldergarage-sousterrain.jpg"
+      "https://www.zwijsen.net/wp-content/uploads/2025/11/moderne-rieten-kap-villa-architect-ontwerp-moderne-rietkap-woning-glazen-gevel-gezinsleven.jpg"
   },
 
   featuredImage: {
@@ -69,7 +69,7 @@ export const moderneRietkapvillaHetGooi: ProjectDetail = {
       content:
         "Een luxe rietkapvilla in Het Gooi vraagt om meer dan 'mooie lijnen': het vraagt om begrip van de lokale esthetiek én een moderne visie op comfort en waarde.\n\nIn dit ontwerp hebben we de traditionele warmte van de rietkap vertaald naar een zero-compromise compositie: strak, licht en strategisch. De kap lijkt te zweven boven een wit gestucte onderbouw, waardoor een krachtig contrast ontstaat. Het resultaat is een sculptuur van rust en precisie — ontworpen om de tand des tijds te doorstaan en een herkenbare signatuur in de regio achter te laten.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2025/11/strakke-moderne-villa-met-rieten-dak-sousterrain-architectuur-riet-uitkragend-hoek.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2025/11/moderne-rieten-kap-villa-architect-ontwerp-moderne-rietkap-woning-glazen-gevel-gezinsleven.jpg",
         alt: "Strakke moderne villa met rieten dak en uitkragende woonlaag in Het Gooi"
       }
     },

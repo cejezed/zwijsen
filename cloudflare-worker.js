@@ -6,6 +6,17 @@ export default {
     const url = new URL(request.url);
     let path = url.pathname;
 
+    // Don't redirect asset requests (CSS, JS, images, fonts, etc.)
+    const assetExtensions = /\.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|eot|ico|map)$/i;
+    const isAssetRequest = assetExtensions.test(path);
+
+    // Redirect www to non-www (301 permanent redirect) - but NOT for assets
+    if (url.hostname.startsWith("www.") && !isAssetRequest) {
+      const newUrl = new URL(request.url);
+      newUrl.hostname = url.hostname.replace(/^www\./, "");
+      return Response.redirect(newUrl.toString(), 301);
+    }
+
     // Verwijder trailing slash (behalve root)
     if (path !== "/" && path.endsWith("/")) {
       path = path.slice(0, -1);
@@ -34,7 +45,7 @@ export default {
 
     const isVercelRoute = vercelRoutes.some(
       (route) => path === route || path.startsWith(route + "/")
-    );
+    ) || path.startsWith("/assets/");
 
     if (isVercelRoute) {
       const VERCEL_URL = "zwijsen-eta.vercel.app"; // Jouw Vercel deployment URL
