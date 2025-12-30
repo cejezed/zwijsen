@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowUp, MoveLeft } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { getPageConfig } from '../data/index';
 import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER } from '../data';
 import {
@@ -191,17 +191,6 @@ export const RegioDetail: React.FC = () => {
           </div>
         </motion.div>
       )}
-
-      {/* Back to Regios button */}
-      <nav className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-[500] pointer-events-none">
-        <button
-          onClick={() => navigate('/regios')}
-          className="pointer-events-auto bg-black text-white px-8 py-4 rounded-full border border-white/10 hover:bg-amber-600 transition-all shadow-2xl flex items-center gap-4 group"
-        >
-          <MoveLeft size={20} className="group-hover:-translate-x-2 transition-transform duration-500" />
-          <span className="mono text-[10px] font-extrabold uppercase tracking-[0.4em]">Regio's</span>
-        </button>
-      </nav>
 
       {/* Inquiry Overlay */}
       <InquiryOverlay
