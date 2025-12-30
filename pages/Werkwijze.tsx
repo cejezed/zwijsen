@@ -5,12 +5,14 @@ import { BRAND_NAME, PROCESS_STEPS } from '../data';
 import {
   Footer,
   InquiryOverlay,
+  QuickscanOverlay,
   ContactBar
 } from '../components';
 
 export const Werkwijze: React.FC = () => {
   const footerRef = useRef<HTMLDivElement>(null);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [isQuickscanOpen, setIsQuickscanOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Scroll animations
@@ -57,6 +59,12 @@ export const Werkwijze: React.FC = () => {
       <InquiryOverlay
         isOpen={isInquiryOpen}
         onClose={() => setIsInquiryOpen(false)}
+      />
+
+      {/* Quickscan Overlay */}
+      <QuickscanOverlay
+        isOpen={isQuickscanOpen}
+        onClose={() => setIsQuickscanOpen(false)}
       />
 
       {/* Contact Bar */}
@@ -124,7 +132,7 @@ export const Werkwijze: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <button
-              onClick={() => setIsInquiryOpen(true)}
+              onClick={() => setIsQuickscanOpen(true)}
               className="px-10 py-5 bg-amber-600 text-white rounded-full mono text-sm uppercase tracking-[0.3em] font-black hover:bg-amber-700 transition-all shadow-xl flex items-center gap-3"
             >
               Gratis Quickscan
@@ -358,9 +366,29 @@ export const Werkwijze: React.FC = () => {
         </div>
       </section>
 
-      {/* Kennismaking en eerste schets */}
-      <section className="py-32 px-6 md:px-12 bg-stone-900 text-white">
-        <div className="max-w-5xl mx-auto space-y-12">
+      {/* Kennismaking en eerste schets - With Parallax Background */}
+      <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 w-full h-[120%]"
+          style={{
+            y: useTransform(scrollY, [2000, 3000], [0, -150])
+          }}
+        >
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2019/11/ontwerp-architect-schetsontwerp-2.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </motion.div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/95 via-black/90 to-stone-900/95 z-[1]" />
+
+        <div className="relative max-w-5xl mx-auto space-y-12 text-white z-10">
           <div className="space-y-6">
             <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">
               De Start
@@ -394,7 +422,7 @@ export const Werkwijze: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROCESS_STEPS.map((step, idx) => (
+            {PROCESS_STEPS.filter(step => !step.isLast).map((step, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
@@ -436,6 +464,120 @@ export const Werkwijze: React.FC = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Fase 7: Oplevering - Extended Section with Parallax */}
+      <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 w-full h-[120%]"
+          style={{
+            y: useTransform(scrollY, [4000, 5000], [0, -150])
+          }}
+        >
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2022/10/68_resize.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </motion.div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 via-amber-800/85 to-stone-900/90 z-[1]" />
+
+        <div className="relative max-w-6xl mx-auto z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8 text-white"
+            >
+              <div className="space-y-4">
+                <div className="inline-block bg-amber-600 text-white px-6 py-3 mono text-xs font-black">
+                  FASE 07
+                </div>
+                <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+                  Oplevering & Nazorg
+                </h2>
+                <p className="text-xl md:text-2xl text-amber-200 font-light">
+                  Uw droom gerealiseerd — tot in het kleinste detail
+                </p>
+              </div>
+
+              <div className="space-y-6 text-stone-100 leading-relaxed">
+                <p className="text-lg">
+                  De oplevering is het hoogtepunt van het hele traject. Samen lopen we door uw nieuwe woning en controleren we elk detail. Van de afwerking van kozijnen tot de werking van installaties — alles moet perfect zijn.
+                </p>
+                <p className="text-lg">
+                  Bij de eindoplevering gaan we systematisch door de woning heen. Eventuele kleine onvolkomenheden worden genoteerd en door de aannemer hersteld. Pas wanneer alles aan de hoogste standaard voldoet, vindt de officiële sleuteloverdracht plaats.
+                </p>
+                <p className="text-xl font-serif italic text-amber-300">
+                  Een resultaat waar u jarenlang trots op mag zijn — en waar u elke dag opnieuw van geniet.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Deliverables & Nazorg */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div className="bg-white/10 backdrop-blur-sm p-8 border-2 border-white/20 rounded-lg space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center">
+                    <CheckCircle size={32} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif italic text-2xl text-white">
+                      Oplevering
+                    </h3>
+                    <p className="text-amber-200 text-sm mono uppercase tracking-wider">
+                      Het eindresultaat
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="space-y-4">
+                  {[
+                    "Gezamenlijke eindoplevering met volledige checklist",
+                    "Controle op afwerking en detaillering",
+                    "Test van alle installaties en voorzieningen",
+                    "Documentatie van gebruiksaanwijzingen en garanties",
+                    "Officiële sleuteloverdracht"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-white">
+                      <CheckCircle size={20} className="text-amber-400 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm p-8 border-2 border-white/20 rounded-lg space-y-4">
+                <h4 className="font-serif italic text-xl text-white">
+                  Nazorg & Garantie
+                </h4>
+                <p className="text-stone-200 leading-relaxed">
+                  Ook na de oplevering blijf ik beschikbaar voor vragen. Kleine kinderziektes worden opgelost en tijdens de garantieperiode blijf ik aanspreekpunt tussen u en de aannemer.
+                </p>
+                <div className="pt-4 border-t border-white/20">
+                  <p className="text-amber-300 font-bold">
+                    Garantieperiode: volgens bouwbesluit en aannemersovereenkomst
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -498,7 +640,7 @@ export const Werkwijze: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => setIsInquiryOpen(true)}
+              onClick={() => setIsQuickscanOpen(true)}
               className="px-10 py-5 bg-white text-amber-700 rounded-full mono text-sm uppercase tracking-[0.3em] font-black hover:bg-stone-100 transition-all shadow-xl flex items-center justify-center gap-3"
             >
               Gratis Quickscan
