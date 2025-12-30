@@ -93,12 +93,7 @@ export default async function handler(
   } catch (error: any) {
     console.error('Contact form error:', error);
     return res.status(500).json({
-      error: error.message || 'Er is iets misgegaan.',
-      details: error.toString(),
-      debug: {
-        env_wp_url: process.env.WORDPRESS_URL ? 'Set' : 'Missing',
-        env_form_id: process.env.CF7_FORM_ID ? 'Set' : 'Missing'
-      }
+      error: 'Er is iets misgegaan bij het verzenden van uw bericht. Probeer het later opnieuw of bel ons direct.'
     });
   }
 }
@@ -108,27 +103,26 @@ async function sendViaContactForm7(data: ContactFormData): Promise<void> {
   const WORDPRESS_URL = process.env.WORDPRESS_URL || 'https://www.zwijsen.net';
   const CF7_FORM_ID = process.env.CF7_FORM_ID || '123'; // Update this with your Form ID
 
-  console.log('Sending to WordPress CF7:', { url: WORDPRESS_URL, formId: CF7_FORM_ID });
+  // Contact Form 7 REST API often requires multipart/form-data
+  // and specific fields like _wpcf7_unit_tag to work correctly
+  const formData = new FormData();
+  formData.append('your-name', data.name);
+  formData.append('your-email', data.email);
+  formData.append('your-phone', data.phone || '');
+  formData.append('your-message', data.message);
+  formData.append('regio', data.region || '');
+  formData.append('_wpcf7_unit_tag', `wpcf7-f${CF7_FORM_ID}-p1-o1`);
 
-  // Contact Form 7 REST API supports JSON
   const response = await fetch(`${WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_FORM_ID}/feedback`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      'your-name': data.name,
-      'your-email': data.email,
-      'your-phone': data.phone || '',
-      'your-message': data.message,
-      'regio': data.region || ''
-    }),
+    body: formData,
+    // Note: Fetch handles the Boundary and Content-Type header automatically for FormData
   });
 
-  const result = await response.json();
+  const result: any = await response.json();
 
   if (!response.ok || result.status === 'validation_failed' || result.status === 'mail_failed') {
-    console.error('CF7 Error:', result);
+    console.error('CF7 Error details:', result);
     throw new Error(result.message || 'WordPress form submission failed');
   }
 
