@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Plus, Filter, Hash, ChevronDown } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../data/projecten';
-import { Footer } from '../components';
+import { Footer, InquiryOverlay } from '../components';
 
 const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onClick: () => void }) => {
   return (
@@ -73,6 +73,7 @@ export const ProjectenOverzicht: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('all');
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const footerRef = useRef<HTMLDivElement>(null);
 
   // Scroll to top when component mounts
@@ -96,12 +97,19 @@ export const ProjectenOverzicht: React.FC = () => {
     : PROJECTS_DETAIL.filter(p => p.categories?.includes(filter));
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen bg-stone-50 pt-24 pb-32 px-6 md:px-12 relative overflow-hidden selection:bg-amber-100"
-    >
+    <>
+      {/* Inquiry Overlay */}
+      <InquiryOverlay
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+      />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="min-h-screen bg-stone-50 pt-24 pb-32 px-6 md:px-12 relative overflow-hidden selection:bg-amber-100"
+      >
       {/* Fixed Navigation Bar */}
       <nav className="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-[100] pointer-events-none">
         <div className="flex items-center gap-8 bg-white/80 backdrop-blur-xl border border-stone-200 px-8 py-4 rounded-full shadow-sm pointer-events-auto">
@@ -204,10 +212,10 @@ export const ProjectenOverzicht: React.FC = () => {
         className="fixed bottom-10 right-10 z-[500]"
       >
         <button
-          onClick={() => navigate('/#contact')}
+          onClick={() => setIsInquiryOpen(true)}
           className="bg-black text-white px-10 py-6 rounded-full flex items-center gap-6 shadow-3xl hover:bg-amber-600 transition-all group"
         >
-          <span className="mono text-[11px] font-black uppercase tracking-widest">Start uw dossier</span>
+          <span className="mono text-[11px] font-black uppercase tracking-widest">Stel een Vraag</span>
           <Plus size={20} className="group-hover:rotate-90 transition-transform" />
         </button>
       </motion.div>
@@ -219,5 +227,6 @@ export const ProjectenOverzicht: React.FC = () => {
         opacity={footerOpacity}
       />
     </motion.div>
+    </>
   );
 };
