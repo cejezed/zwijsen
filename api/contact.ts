@@ -105,18 +105,20 @@ async function sendViaContactForm7(data: ContactFormData): Promise<void> {
 
   console.log('Sending to WordPress CF7:', { url: WORDPRESS_URL, formId: CF7_FORM_ID });
 
+  // Contact Form 7 expects form-urlencoded data
+  const formData = new URLSearchParams();
+  formData.append('your-name', data.name);
+  formData.append('your-email', data.email);
+  formData.append('your-phone', data.phone || '');
+  formData.append('your-message', data.message);
+  formData.append('regio', data.region || '');
+
   const response = await fetch(`${WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_FORM_ID}/feedback`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: JSON.stringify({
-      'your-name': data.name,
-      'your-email': data.email,
-      'your-phone': data.phone || '',
-      'your-message': data.message,
-      'regio': data.region || '',
-    }),
+    body: formData.toString(),
   });
 
   const result = await response.json();
