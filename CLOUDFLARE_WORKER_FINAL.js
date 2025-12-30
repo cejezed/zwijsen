@@ -30,6 +30,7 @@ export default {
       "/kortenhoef",
       "/vreeland",
       "/portfolio",
+      "/api",
     ];
 
     // ============================================

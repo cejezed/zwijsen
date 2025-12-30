@@ -17,11 +17,6 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
-  // Alleen POST requests toestaan
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
   // CORS headers (pas aan voor productie)
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -30,6 +25,11 @@ export default async function handler(
   // Handle preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  // Alleen POST requests toestaan
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
@@ -90,10 +90,15 @@ export default async function handler(
       message: 'Bedankt voor uw bericht! We nemen zo spoedig mogelijk contact met u op.'
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact form error:', error);
     return res.status(500).json({
-      error: 'Er is iets misgegaan. Probeer het later opnieuw of bel ons direct.'
+      error: error.message || 'Er is iets misgegaan.',
+      details: error.toString(),
+      debug: {
+        env_wp_url: process.env.WORDPRESS_URL ? 'Set' : 'Missing',
+        env_form_id: process.env.CF7_FORM_ID ? 'Set' : 'Missing'
+      }
     });
   }
 }
