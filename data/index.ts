@@ -2,7 +2,13 @@ import { DEFAULT_CONFIG } from './base';
 import type { RegioConfig } from './types';
 import {
   loenenAanDeVechtConfig,
-  loosdrechtConfig
+  loosdrechtConfig,
+  breukelenConfig,
+  maarssenConfig,
+  hilversumConfig,
+  bilthovenConfig,
+  stichtseVechtConfig,
+  vinkeveenConfig
 } from './regions';
 
 // Export werkwijze content
@@ -22,11 +28,23 @@ export const PAGE_CONFIG: Record<string, Partial<RegioConfig>> = {
   // Loosdrecht
   "loosdrecht": loosdrechtConfig,
 
-  // Breukelen - TODO: maak breukelen.ts aan in regions/
-  // "breukelen": breukelenConfig,
+  // Breukelen
+  "breukelen": breukelenConfig,
 
-  // Maarssen - TODO: maak maarssen.ts aan in regions/
-  // "maarssen": maarssenConfig,
+  // Maarssen
+  "maarssen": maarssenConfig,
+
+  // Hilversum
+  "hilversum": hilversumConfig,
+
+  // Bilthoven
+  "bilthoven": bilthovenConfig,
+
+  // Stichtse Vecht
+  "stichtse-vecht": stichtseVechtConfig,
+
+  // Vinkeveen
+  "vinkeveen": vinkeveenConfig,
 
   // Vreeland - TODO: maak vreeland.ts aan in regions/
   // "vreeland": vreelandConfig,
@@ -34,20 +52,11 @@ export const PAGE_CONFIG: Record<string, Partial<RegioConfig>> = {
   // Kortenhoef - TODO: maak kortenhoef.ts aan in regions/
   // "kortenhoef": kortenhoefConfig,
 
-  // Hilversum - TODO: maak hilversum.ts aan in regions/
-  // "hilversum": hilversumConfig,
-
-  // Bilthoven - TODO: maak bilthoven.ts aan in regions/
-  // "bilthoven": bilthovenConfig,
-
   // Blaricum - TODO: maak blaricum.ts aan in regions/
   // "blaricum": blaricumConfig,
 
   // Laren - TODO: maak laren.ts aan in regions/
   // "laren": larenConfig,
-
-  // Stichtse Vecht - TODO: maak stichtse-vecht.ts aan in regions/
-  // "stichtse-vecht": stichtseVechtConfig,
 
   // Wijdemeren - TODO: maak wijdemeren.ts aan in regions/
   // "wijdemeren": wijdemerenConfig,

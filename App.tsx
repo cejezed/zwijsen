@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // Import pages
 import { Home, ProjectenOverzicht, ProjectDetail, RegioOverzicht, RegioDetail, Architect, Werkwijze, Kosten, Quickscan, Contact } from './pages';
 
 // Import global components
 import { Navigation, InquiryOverlay } from './components';
+
+// Scroll to top on route change
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Scroll to top immediately
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+  }, [pathname]);
+
+  return null;
+};
 
 // Main App Component
 const App: React.FC = () => {
@@ -14,6 +30,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="bg-white min-h-screen">
         {/* Global Navigation */}
         <Navigation
@@ -49,6 +66,7 @@ const App: React.FC = () => {
           <Route path="/breukelen" element={<RegioDetail />} />
           <Route path="/maarssen" element={<RegioDetail />} />
           <Route path="/stichtse-vecht" element={<RegioDetail />} />
+          <Route path="/vinkeveen" element={<RegioDetail />} />
           <Route path="/het-gooi" element={<RegioDetail />} />
           <Route path="/blaricum" element={<RegioDetail />} />
           <Route path="/laren" element={<RegioDetail />} />

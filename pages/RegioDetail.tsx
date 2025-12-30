@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { getPageConfig } from '../data/index';
-import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER } from '../data';
+import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER, PROJECTS } from '../data';
 import {
   HeroSection,
   IntroSection,
@@ -220,6 +220,7 @@ export const RegioDetail: React.FC = () => {
               h1={config.regio.intro.h1}
               paragraph={config.regio.intro.paragraph}
               onCtaClick={() => setIsInquiryOpen(true)}
+              image={config.regio.collageImages?.[0]}
             />
           )}
 
@@ -243,9 +244,9 @@ export const RegioDetail: React.FC = () => {
           {/* Vision Section */}
           <VisionSection onContactClick={() => window.location.hash = 'contact'} />
 
-          {/* Portfolio Section - Full portfolio grid */}
+          {/* Portfolio Section - Full portfolio grid - Always shows ALL projects */}
           <PortfolioSection
-            projects={(config as any).projects || []}
+            projects={PROJECTS}
             onProjectClick={setSelectedProject}
           />
 
@@ -261,6 +262,7 @@ export const RegioDetail: React.FC = () => {
             parallaxText={footerParallaxText}
             opacity={footerOpacity}
             regionFooterIntro={config.regio?.footerIntro}
+            regionFooterImage={config.regio?.collageImages?.[1]}
           />
 
           {/* Scroll to Top Button */}

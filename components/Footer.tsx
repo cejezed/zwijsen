@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Instagram, Linkedin, Phone, Mail, ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
 import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER, PHONE_LINK } from '../data';
 import { InquiryForm } from './Overlays';
+import { SafeImage } from './SafeImage';
 
 interface FooterProps {
   footerRef: React.RefObject<HTMLDivElement>;
@@ -12,6 +13,10 @@ interface FooterProps {
   regionFooterIntro?: {
     h2: string;
     paragraph: string;
+  };
+  regionFooterImage?: {
+    url: string;
+    alt: string;
   };
 }
 
@@ -73,7 +78,7 @@ const FOOTER_LINKS = {
   }
 };
 
-export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity, regionFooterIntro }) => {
+export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity, regionFooterIntro, regionFooterImage }) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
@@ -85,14 +90,81 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
 
       {/* Regio-specifieke intro sectie (optioneel) */}
       {regionFooterIntro && (
-        <div className="bg-stone-50 border-t border-stone-200 py-20 md:py-32 px-6 md:px-12">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif italic text-black leading-tight">
-              {regionFooterIntro.h2}
-            </h2>
-            <p className="text-xl md:text-2xl text-stone-700 leading-relaxed">
-              {regionFooterIntro.paragraph}
-            </p>
+        <div className="relative bg-stone-50 border-t border-stone-200 py-24 md:py-40 overflow-hidden">
+          {/* Subtiele achtergrond accent - rechts */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-white/50 -z-10" />
+
+          <div className="max-w-screen-2xl mx-auto px-8 md:px-32">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center">
+              {/* Content */}
+              <div className="space-y-10 md:space-y-16 relative lg:order-1">
+                {/* Gelaagde achtergrondtekst - extract eerste woord */}
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 0.05 }}
+                  viewport={{ once: true }}
+                  className="absolute -top-20 -left-12 md:-top-32 md:-left-20 text-[20vw] md:text-[12vw] mono text-black uppercase font-black tracking-tighter pointer-events-none whitespace-nowrap"
+                >
+                  {regionFooterIntro.h2.split(' ')[0]}
+                </motion.span>
+
+                <div className="relative z-10 space-y-6 md:space-y-8">
+                  {/* Label */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="space-y-3"
+                  >
+                    <span className="mono text-amber-900 text-xs md:text-sm tracking-[0.8em] uppercase font-black block">
+                      Contact & Afspraak
+                    </span>
+                    <div className="w-20 h-1.5 bg-amber-600" />
+                  </motion.div>
+
+                  {/* H2 Titel */}
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-5xl md:text-7xl lg:text-[6vw] font-serif italic text-black leading-[0.95] tracking-tighter"
+                  >
+                    {regionFooterIntro.h2}
+                  </motion.h2>
+
+                  {/* Intro Tekst */}
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="text-xl md:text-2xl text-stone-800 font-light leading-relaxed italic border-l-4 border-amber-600 pl-8 md:pl-12"
+                  >
+                    {regionFooterIntro.paragraph}
+                  </motion.p>
+                </div>
+              </div>
+
+              {/* Afbeelding links (op desktop door order) */}
+              {regionFooterImage && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="relative h-[50vh] md:h-[70vh] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] rounded-sm overflow-hidden border border-stone-200 lg:order-0"
+                >
+                  <SafeImage
+                    localSrc={regionFooterImage.url}
+                    fallbackSrc={regionFooterImage.url}
+                    alt={regionFooterImage.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              )}
+            </div>
           </div>
         </div>
       )}

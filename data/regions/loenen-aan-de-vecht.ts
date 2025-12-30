@@ -1,20 +1,54 @@
 import type { RegioConfig } from '../types';
+import { PROJECTS_DETAIL } from '../projecten';
+
+// Converteer PROJECTS_DETAIL naar Project format voor de portfolio grid
+const loenenProjects = PROJECTS_DETAIL
+  .filter(p =>
+    p.slug === 'architect-loenen-aan-de-vecht-torenwoning-cronenburgh' ||
+    p.slug === 'architect-loenen-aan-de-vecht-verbouw-villa-kickestein' ||
+    p.slug === 'architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht' ||
+    p.slug === 'architect-poortwoning-cronenburgh-loenen-aan-de-vecht' ||
+    p.slug === 'architect-loenen-aan-de-vecht-hofwoning-cronenburgh'
+  )
+  .map((p, index) => {
+    const sizes = ['wide', 'portrait', 'landscape', 'square'] as const;
+    const size = sizes[index % 4];
+
+    return {
+      id: 100 + index, // Unieke IDs voor deze projecten
+      title: p.title,
+      location: p.locationLabel,
+      slug: p.slug,
+      image: p.featuredImage.url,
+      size: size,
+      year: 'N.N.B.',
+      area: 'N.N.B.',
+      tag: p.categories?.[0] === 'nieuwbouw' ? 'Nieuwbouw' : p.categories?.[0] === 'verbouw' ? 'Verbouw' : 'Project',
+      subtitle: p.subtitle,
+      description: p.subtitle,
+      gallery: p.heroImages.map(img => img.url)
+    };
+  });
 
 export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
   seoTitle: "Architect Loenen aan de Vecht | Nieuwbouw, Verbouw en verduurzaming Architectenbureau Jules Zwijsen",
   metaDescription: "Architect in Loenen aan de Vecht voor nieuwbouw, verbouw en monumenten. Jules Zwijsen ontwerpt woningen met oog voor locatie, regelgeving en detail.",
 
+  // Projecten voor Loenen aan de Vecht - eerste 4 worden getoond in QuickProjectsGrid
+  projects: loenenProjects,
+
   // Hero slides - optioneel per regio
   heroSlides: [
-    {
-      url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",
-      title: "ARCHITECT IN LOENEN AAN DE VECHT",
-      subtitle: "Nieuwbouw, verbouw en monumentenzorg in de Vechtstreek"
-    },
+  
     {
       url: "/images/loenen/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
       title: "VAN EERSTE SCHETS TOT OPLEVERING",
       subtitle: "Ontwerpen met oog voor de karakteristieke omgeving"
+    },
+      {
+      url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",
+      title: "ARCHITECT IN LOENEN AAN DE VECHT",
+      subtitle: "Nieuwbouw, verbouw en monumentenzorg in de Vechtstreek"
     },
     {
       url: "/images/loenen/modern-interieur-houten-spanten-sfeervol-nieuwbouw-woning.webp",
@@ -79,13 +113,13 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
     // Intro sectie - H1 + intro tekst direct onder hero
     intro: {
       h1: "Architect in Loenen aan de Vecht",
-      paragraph: "U zoekt een architect in Loenen aan de Vecht voor een verbouwing, aanbouw of nieuwbouwwoning. Vanuit Loenen aan de Vecht werkt Jules Zwijsen aan woningen en monumenten in het dorp en in Vreeland, met oog voor de bestaande bebouwing en de regels van de gemeente Stichtse Vecht. Het doel is een helder ontwerp dat goed voelt in het dagelijks gebruik en past in de omgeving."
+      paragraph: "U zoekt een architect in Loenen aan de Vecht voor een verbouwing, aanbouw of nieuwbouwwoning. Al jaren werk ik met veel plezier vanuit Loenen aan de Vecht samen met opdrachtgevers aan woningen en monumenten in het dorp en in Vreeland. Het doel is een ontwerp dat past bij uw wensen en dromen voor uw nieuwe thuis. Door kennis van de regels van gemeente Stichtse Vecht en ervaring met afwijkingsmogelijkheden van het bestemmingsplan blijkt er vaak meer mogelijk dan op het eerste gezicht lijkt."
     },
 
     // Footer intro - H2 + contacttekst in de footer
     footerIntro: {
       h2: "Architect in Loenen aan de Vecht nodig?",
-      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Loenen aan de Vecht of Vreeland en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak in Loenen aan de Vecht wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie."
+      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Loenen aan de Vecht of Vreeland en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak op uw locatie wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie."
     },
 
     collageImages: [
@@ -117,7 +151,7 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
     municipalLinks: [
       {
         title: "Bestemmingsplan / Omgevingsplan",
-        url: "https://www.ruimtelijkeplannen.nl/",
+        url: "https://omgevingswet.overheid.nl/regels-op-de-kaart/zoeken/locatie",
         description: "Controleer wat er mag op uw locatie volgens het gemeentelijke bestemmingsplan."
       },
       {
@@ -150,7 +184,7 @@ export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
       h2: "Wat doet een architect in Loenen aan de Vecht?",
       paragraph: "Als architect in Loenen aan de Vecht richt Jules Zwijsen zich op het ontwerpen en verbouwen van woningen in en rond het dorp. Dat varieert van een compacte uitbouw aan een bestaande woning tot het zorgvuldig uitbreiden van een monumentaal pand of het ontwerpen van een nieuwe woning op een kavel in de Vechtstreek. Steeds met aandacht voor zichtlijnen, daglicht, materiaal en de relatie met tuin en straat.",
       h3: "Architectonisch ontwerp en verbouw in de Vechtstreek",
-      h3_paragraph: "In de Vechtstreek speelt de samenhang tussen landschap, dorpsstructuur en bestaande architectuur een grote rol. Bij elk ontwerp wordt gekeken naar het straatbeeld, de maat en schaal van de omgeving en de regels van de gemeente Stichtse Vecht. Zo ontstaat een ontwerp dat ruim voelt, praktisch is in gebruik en vanzelfsprekend in de omgeving past.",
+      h3_paragraph: "In de Vechtstreek speelt de samenhang tussen landschap, dorpsstructuur en bestaande architectuur een grote rol. Bij elk ontwerp wordt gekeken naar het straatbeeld, de maat en schaal van de omgeving en de regels van de gemeente Stichtse Vecht. Door jarenlange ervaring met de welstandscommissie en monumentencommissie weet Jules Zwijsen precies hoe u uw project succesvol door de procedures leidt. Vaak is er meer mogelijk dan het bestemmingsplan aangeeft - via een binnenplanse afwijking of een buitenplanse omgevingsvergunning kunnen we samen met de gemeente kijken naar maatwerk dat past bij uw situatie. Zo ontstaat een ontwerp dat uw wensen vervult, ruim voelt, praktisch is in gebruik én vanzelfsprekend in de omgeving past.",
       services: [
         "Ontwerp van nieuwbouwwoningen in Loenen aan de Vecht en omgeving",
         "Verduurzaming, Aanbouw en uitbouw van bestaande woningen in Loenen en Vreeland",

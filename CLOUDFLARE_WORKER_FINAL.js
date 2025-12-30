@@ -23,6 +23,7 @@ export default {
       "/breukelen",
       "/maarssen",
       "/stichtse-vecht",
+      "/vinkeveen",
       "/het-gooi",
       "/blaricum",
       "/laren",
