@@ -52,11 +52,11 @@ export const ContactBar: React.FC<ContactBarProps> = ({ opacity, onStartTraject 
               </a>
            </div>
            
-           <button 
-             onClick={onStartTraject} 
+           <button
+             onClick={onStartTraject}
              className="bg-amber-600 text-white px-8 md:px-12 py-4 rounded-full flex items-center gap-6 hover:bg-white hover:text-black transition-all group"
            >
-              <span className="mono text-sm uppercase tracking-[0.3em] font-black">Start Traject</span>
+              <span className="mono text-sm uppercase tracking-[0.3em] font-black">Stel een Vraag</span>
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-black/10 transition-colors">
                 <MoveRight size={16} />
               </div>
