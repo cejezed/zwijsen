@@ -23,9 +23,17 @@ export default {
     }
 
     // ====================
-    // 1) VERCEL ROUTES (React App - Regio's)
+    // 1) VERCEL ROUTES (React App)
     // ====================
     const vercelRoutes = [
+      // Nieuwe pagina's
+      "/architect",
+      "/over-ons",
+      "/werkwijze",
+      "/kosten",
+      "/quickscan",
+      "/contact",
+      // Regio's
       "/regios",
       "/hilversum",
       "/loenen-aan-de-vecht",
