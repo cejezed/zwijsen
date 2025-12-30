@@ -178,64 +178,85 @@ export const Werkwijze: React.FC = () => {
         </div>
       </section>
 
-      {/* Waar het vaak misgaat - NIEUW */}
+      {/* Belangrijke inzichten - Side by Side */}
       <section className="py-32 px-6 md:px-12 bg-stone-50">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-12"
+            className="text-center space-y-6 max-w-3xl mx-auto"
           >
-            <div className="text-center space-y-6">
-              <span className="mono text-sm uppercase tracking-[0.6em] text-red-600 font-black block">
-                Belangrijk
-              </span>
-              <h2 className="text-4xl md:text-5xl font-serif italic text-black leading-tight">
-                Waar het vaak misgaat
-              </h2>
-            </div>
+            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-600 font-black block">
+              Belangrijk om te weten
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif italic text-black leading-tight">
+              Voorkomen is beter dan genezen
+            </h2>
+          </motion.div>
 
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 p-10 md:p-12 border-2 border-red-200 rounded-lg space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Waar het vaak misgaat */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-10 md:p-12 border-2 border-stone-200 hover:border-amber-600 transition-all space-y-6 shadow-lg"
+            >
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl">
+                  ⚠
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif italic text-black">
+                  Waar het vaak misgaat
+                </h3>
+              </div>
+
               <div className="space-y-6 text-stone-700 leading-relaxed">
-                <p className="text-lg md:text-xl">
+                <p className="text-lg">
                   Veel problemen tijdens de bouw ontstaan niet op de bouwplaats, maar al in de ontwerpfase. Onduidelijke keuzes, onvoldoende afstemming met regelgeving of te laat inzicht in kosten kunnen later grote gevolgen hebben.
                 </p>
-                <p className="text-xl md:text-2xl font-serif italic text-red-700">
+                <p className="text-xl font-serif italic text-amber-700">
                   Door in een vroeg stadium de juiste vragen te stellen en consequenties te overzien, voorkomen wij verrassingen tijdens uitvoering.
                 </p>
-                <p className="text-lg">
+                <p className="text-base text-stone-600">
                   Dat geeft rust, overzicht en een beter eindresultaat.
                 </p>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Herkent u dit? - NIEUW */}
-      <section className="py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-amber-50 to-orange-50 p-10 md:p-12 border-2 border-amber-200 rounded-lg space-y-6"
-          >
-            <div className="space-y-6 text-stone-700 leading-relaxed">
-              <h3 className="text-3xl md:text-4xl font-serif italic text-black">
-                Herkent u dit?
-              </h3>
-              <p className="text-lg md:text-xl">
-                Veel particuliere opdrachtgevers hebben drie zorgen: onverwachte kosten, onomkeerbare fouten en stress tijdens de bouw.
-              </p>
-              <p className="text-xl font-serif italic text-amber-700">
-                Ons proces is erop gericht om juist die punten vroeg te ondervangen — met heldere keuzes, goede voorbereiding en duidelijke documenten.
-              </p>
-            </div>
-          </motion.div>
+            {/* Herkent u dit? */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-10 md:p-12 border-2 border-stone-200 hover:border-amber-600 transition-all space-y-6 shadow-lg"
+            >
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white text-3xl">
+                  ✓
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif italic text-black">
+                  Herkent u dit?
+                </h3>
+              </div>
+
+              <div className="space-y-6 text-stone-700 leading-relaxed">
+                <p className="text-lg">
+                  Veel particuliere opdrachtgevers hebben drie zorgen: onverwachte kosten, onomkeerbare fouten en stress tijdens de bouw.
+                </p>
+                <p className="text-xl font-serif italic text-amber-700">
+                  Ons proces is erop gericht om juist die punten vroeg te ondervangen — met heldere keuzes, goede voorbereiding en duidelijke documenten.
+                </p>
+                <p className="text-base text-stone-600">
+                  Zo ontstaat vertrouwen en voorspelbaarheid gedurende het hele traject.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
