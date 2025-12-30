@@ -137,24 +137,24 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
            </div>
 
            {/* De Directe Lijn - Nieuwe Visuele Call */}
-           <div className="lg:col-span-2 bg-stone-900 text-white p-12 md:p-16 rounded-sm relative overflow-hidden group">
+           <div className="lg:col-span-2 bg-stone-900 text-white p-8 md:p-12 lg:p-16 rounded-sm relative overflow-hidden group">
              <div className="absolute top-0 left-0 w-full h-1 bg-amber-600" />
-             <div className="relative z-10 space-y-10">
+             <div className="relative z-10 space-y-6 md:space-y-10">
                <div className="flex justify-between items-start">
-                 <span className="mono text-s uppercase tracking-[0.5em] text-amber-500 font-black">Direct Contact</span>
-                 <PhoneCall className="text-amber-500 group-hover:rotate-12 transition-transform" size={44} />
+                 <span className="mono text-[9px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.5em] text-amber-500 font-black">Direct Contact</span>
+                 <PhoneCall className="text-amber-500 group-hover:rotate-12 transition-transform" size={32} />
                </div>
-               <div className="space-y-4">
-                 <h5 className="text-3xl font-serif italic text-stone-300">Spreek Jules direct.</h5>
-                 <a href={PHONE_LINK} className="text-4xl md:text-6xl font-serif italic block hover:text-amber-500 transition-colors font-bold tracking-tighter">
+               <div className="space-y-3 md:space-y-4">
+                 <h5 className="text-xl md:text-2xl lg:text-3xl font-serif italic text-stone-300">Spreek Jules direct.</h5>
+                 <a href={PHONE_LINK} className="text-2xl md:text-4xl lg:text-6xl font-serif italic block hover:text-amber-500 transition-colors font-bold tracking-tighter">
                    {PHONE_NUMBER}
                  </a>
-                 <p className="mono text-[16px] uppercase tracking-[0.4em] text-stone-500">De kortste weg van droom naar ontwerp</p>
+                 <p className="mono text-[10px] md:text-sm lg:text-base uppercase tracking-[0.2em] md:tracking-[0.4em] text-stone-500">De kortste weg van droom naar ontwerp</p>
                </div>
-               <div className="pt-6 border-t border-white/10 flex items-center gap-6">
-                 <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-stone-400 hover:text-white transition-colors">
-                   <Mail size={16} className="text-amber-600" />
-                   <span className="mono text-[28px] uppercase tracking-widest font-black">{EMAIL}</span>
+               <div className="pt-4 md:pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                 <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 md:gap-3 text-stone-400 hover:text-white transition-colors">
+                   <Mail size={14} className="text-amber-600 shrink-0" />
+                   <span className="mono text-xs md:text-base lg:text-lg uppercase tracking-tight md:tracking-wide font-black break-all">{EMAIL}</span>
                  </a>
                </div>
              </div>
