@@ -5,6 +5,9 @@ import {
   loosdrechtConfig
 } from './regions';
 
+// Export werkwijze content
+export { WERKWIJZE_CONTENT } from './werkwijze';
+
 // Export types
 export type { RegioConfig, Project, HeroSlide, MunicipalLink, RegionalProject, ImageWithAlt, ProcessStep } from './types';
 
