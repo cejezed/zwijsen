@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
 
       {/* Bestaande Footer Content */}
       <div className="py-64 px-12 md:px-32">
-       <motion.div style={{ x: parallaxText, opacity }} className="absolute top-48 md:top-64 left-0 whitespace-nowrap pointer-events-none select-none z-0">
+       <motion.div style={{ x: parallaxText, opacity }} className="absolute top-148 md:top-99 left-0 whitespace-nowrap pointer-events-none select-none z-0">
           <span className="text-[20vw] font-serif italic text-stone-100/90 leading-none uppercase tracking-tighter">Licht • Ruimte • Materiaal • Visie • Balans • Ordening</span>
        </motion.div>
        <div className="max-w-screen-2xl mx-auto relative z-20 flex flex-col gap-48">
@@ -114,30 +114,57 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
            </div>
          </div>
 
-         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 items-stretch pt-32 border-t border-stone-200">
-           {/* Adres en Naam */}
-           
-           <div className="space-y-8 flex flex-col justify-between">
-            <motion.div style={{ x: parallaxText, opacity }} className="absolute bottom-0 left-0 whitespace-nowrap pointer-events-none select-none z-0">
-          <span className="text-[10vw] font-serif italic text-stone-100/90 leading-none uppercase tracking-tighter">Laten we beginnen. Jules neemt persoonlijk contact met u o</span>
-       </motion.div>
-             <div className="space-y-8">
-               <h4 className="text-2xl font-serif italic text-black uppercase font-bold">{BRAND_NAME}</h4>
-               <div className="flex gap-4 text-stone-500">
-                 <MapPin size={20} className="shrink-0 text-amber-600" />
-                 <div className="space-y-1 mono text-sm font-black uppercase tracking-widest">
-                   <p>{ADDRESS.street}</p>
-                   <p>{ADDRESS.city}</p>
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch pt-32 border-t border-stone-200">
+           {/* Kolom 1: Adres, Socials & Copyright */}
+           <div className="space-y-12 flex flex-col justify-between">
+             <motion.div style={{ x: parallaxText, opacity }} className="absolute bottom-0 left-0 whitespace-nowrap pointer-events-none select-none z-0">
+               <span className="text-[10vw] font-serif italic text-stone-100/90 leading-none uppercase tracking-tighter">Laten we beginnen. Jules neemt persoonlijk contact met u o</span>
+             </motion.div>
+
+             <div className="space-y-12">
+               {/* Bedrijfsnaam en adres */}
+               <div className="space-y-8">
+                 <h4 className="text-2xl font-serif italic text-black uppercase font-bold">{BRAND_NAME}</h4>
+                 <div className="flex gap-4 text-stone-500">
+                   <MapPin size={20} className="shrink-0 text-amber-600" />
+                   <div className="space-y-1 mono text-sm font-black uppercase tracking-widest">
+                     <p>{ADDRESS.street}</p>
+                     <p>{ADDRESS.city}</p>
+                   </div>
+                 </div>
+               </div>
+
+               {/* Social media */}
+               <div className="space-y-6">
+                 <span className="mono text-sm uppercase tracking-widest font-black text-amber-900/40 block">Connectie</span>
+                 <div className="flex gap-4 items-center">
+                   <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
+                     <Instagram size={20} className="group-hover:scale-110 transition-transform" />
+                   </a>
+                   <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
+                     <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
+                   </a>
+                 </div>
+               </div>
+
+               {/* Studio Status */}
+               <div className="space-y-4">
+                 <span className="mono text-[10px] uppercase tracking-widest font-black text-amber-900/40 block">Studio Status</span>
+                 <div className="flex gap-4 items-center p-6 bg-stone-50 border border-stone-200 rounded-xl">
+                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                   <span className="mono text-[9px] uppercase tracking-[0.3em] font-black text-stone-600">Nu open voor inname</span>
                  </div>
                </div>
              </div>
+
+             {/* Copyright */}
              <span className="mono text-[10px] text-stone-400 font-black uppercase tracking-widest pt-12">
                © {new Date().getFullYear()} JULES ZWIJSEN STUDIO
              </span>
            </div>
 
-           {/* De Directe Lijn - Nieuwe Visuele Call */}
-           <div className="lg:col-span-2 bg-stone-900 text-white p-8 md:p-12 lg:p-16 rounded-sm relative overflow-hidden group">
+           {/* Kolom 2: Direct Contact */}
+           <div className="bg-stone-900 text-white p-8 md:p-12 lg:p-16 rounded-sm relative overflow-hidden group">
              <div className="absolute top-0 left-0 w-full h-1 bg-amber-600" />
              <div className="relative z-10 space-y-6 md:space-y-10">
                <div className="flex justify-between items-start">
@@ -156,29 +183,6 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
                    <Mail size={14} className="text-amber-600 shrink-0" />
                    <span className="mono text-xs md:text-base lg:text-lg uppercase tracking-tight md:tracking-wide font-black break-all">{EMAIL}</span>
                  </a>
-               </div>
-             </div>
-           </div>
-
-           {/* Socials & Status */}
-           <div className="space-y-12 flex flex-col justify-between">
-             <div className="space-y-8">
-               <span className="mono text-sm uppercase tracking-widest font-black text-amber-900/40 block">Connectie</span>
-               <div className="flex gap-4 items-center">
-                 <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
-                   <Instagram size={20} className="group-hover:scale-110 transition-transform" />
-                 </a>
-                 <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
-                   <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
-                 </a>
-               </div>
-             </div>
-
-             <div className="space-y-4">
-               <span className="mono text-[10px] uppercase tracking-widest font-black text-amber-900/40 block">Studio Status</span>
-               <div className="flex gap-4 items-center p-6 bg-stone-50 border border-stone-200 rounded-xl">
-                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                 <span className="mono text-[9px] uppercase tracking-[0.3em] font-black text-stone-600">Nu open voor inname</span>
                </div>
              </div>
            </div>
