@@ -9,8 +9,32 @@ interface ContactFormData {
   email: string;
   phone?: string;
   message: string;
+  location?: string;
+  website?: string; // Honeypot field
   subject?: string;
   region?: string;
+}
+
+// Simple in-memory rate limiting (for production, use Redis or similar)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const limit = rateLimitMap.get(ip);
+
+  if (!limit || now > limit.resetTime) {
+    // Reset or create new limit
+    rateLimitMap.set(ip, { count: 1, resetTime: now + 3600000 }); // 1 hour
+    return true;
+  }
+
+  if (limit.count >= 5) {
+    // Max 5 submissions per hour
+    return false;
+  }
+
+  limit.count++;
+  return true;
 }
 
 export default async function handler(
@@ -35,29 +59,62 @@ export default async function handler(
   try {
     const formData: ContactFormData = req.body;
 
-    // Validatie
+    // Rate limiting check
+    const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
+               (req.headers['x-real-ip'] as string) ||
+               'unknown';
+
+    if (!checkRateLimit(ip)) {
+      return res.status(429).json({
+        error: 'Te veel aanvragen. Probeer het later opnieuw.'
+      });
+    }
+
+    // Honeypot check - if filled, it's likely a bot
+    if (formData.website) {
+      // Return success to bot, but don't actually process
+      return res.status(200).json({
+        success: true,
+        message: 'Bedankt voor uw bericht!'
+      });
+    }
+
+    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       return res.status(400).json({
         error: 'Vul alle verplichte velden in (naam, email, bericht)'
       });
     }
 
-    // Email validatie
+    // Trim and validate length
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (name.length < 2 || name.length > 100) {
+      return res.status(400).json({
+        error: 'Naam moet tussen 2 en 100 karakters zijn'
+      });
+    }
+
+    if (message.length < 10 || message.length > 2000) {
+      return res.status(400).json({
+        error: 'Bericht moet tussen 10 en 2000 karakters zijn'
+      });
+    }
+
+    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(email)) {
       return res.status(400).json({
         error: 'Ongeldig e-mailadres'
       });
     }
 
-    // Spam protection - basic honeypot check
-    if (req.body.website) {
-      // Honeypot field - bots vullen dit vaak in
-      return res.status(200).json({
-        success: true,
-        message: 'Bedankt voor uw bericht!'
-      });
-    }
+    // Update formData with trimmed values
+    formData.name = name;
+    formData.email = email;
+    formData.message = message;
 
     // Log naar console (development)
     console.log('Contact form submission:', {
@@ -111,6 +168,7 @@ async function sendViaContactForm7(data: ContactFormData): Promise<void> {
   formData.append('your-phone', data.phone || '');
   formData.append('your-message', data.message);
   formData.append('regio', data.region || '');
+  formData.append('locatie', data.location || '');
   formData.append('_wpcf7_unit_tag', `wpcf7-f${CF7_FORM_ID}-p1-o1`);
 
   const response = await fetch(`${WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_FORM_ID}/feedback`, {
