@@ -273,70 +273,82 @@ export const Kosten: React.FC = () => {
         </div>
       </section>
 
-      {/* Meer dan tekeningen - NIEUW */}
-      <section className="py-20 px-6 md:px-12 bg-stone-50">
-        <div className="max-w-5xl mx-auto">
+      {/* Meer dan tekeningen & Waarom het zich terugverdient - Side by Side */}
+      <section className="py-32 px-6 md:px-12 bg-stone-50">
+        <div className="max-w-7xl mx-auto space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white p-12 border-2 border-amber-200 rounded-lg space-y-6"
+            className="text-center space-y-6 max-w-3xl mx-auto"
           >
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white shrink-0">
-                <Lightbulb size={28} />
-              </div>
+            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-600 font-black block">
+              De Toegevoegde Waarde
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif italic text-black leading-tight">
+              Waarom architectuur meer is dan tekeningen
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Meer dan tekeningen */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-10 md:p-12 border-2 border-stone-200 hover:border-amber-600 transition-all space-y-6 shadow-lg"
+            >
               <div className="space-y-4">
+                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white">
+                  <Lightbulb size={28} />
+                </div>
                 <h3 className="text-3xl md:text-4xl font-serif italic text-black">
                   Meer dan tekeningen
                 </h3>
-                <div className="space-y-4 text-stone-700 leading-relaxed">
-                  <p className="text-lg">
-                    Een architect levert geen losse tekeningen, maar samenhang. Wij overzien hoe ontwerpkeuzes invloed hebben op comfort, kosten, regelgeving en uitvoering.
-                  </p>
-                  <p className="text-xl font-serif italic text-amber-700">
-                    Juist die samenhang zorgt ervoor dat aannemers gerichter kunnen offreren, dat budgetten beter bewaakt blijven en dat het eindresultaat klopt — technisch én ruimtelijk.
-                  </p>
-                </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Waarom het zich terugverdient - NIEUW */}
-      <section className="py-20 px-6 md:px-12 bg-gradient-to-br from-amber-50 to-orange-50">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white p-10 md:p-12 border-2 border-amber-600 rounded-lg space-y-8"
-          >
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white shrink-0">
-                <Euro size={28} />
+              <div className="space-y-6 text-stone-700 leading-relaxed">
+                <p className="text-lg">
+                  Een architect levert geen losse tekeningen, maar samenhang. Wij overzien hoe ontwerpkeuzes invloed hebben op comfort, kosten, regelgeving en uitvoering.
+                </p>
+                <p className="text-xl font-serif italic text-amber-700">
+                  Juist die samenhang zorgt ervoor dat aannemers gerichter kunnen offreren, dat budgetten beter bewaakt blijven en dat het eindresultaat klopt — technisch én ruimtelijk.
+                </p>
               </div>
-              <div className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-serif italic text-black">
-                  Waarom een architect vaak goedkoper is dan het lijkt
-                </h3>
-                <div className="space-y-4 text-stone-700 leading-relaxed">
-                  <p className="text-lg md:text-xl">
-                    Veel extra kosten ontstaan door keuzes die te laat worden gemaakt of verkeerd worden ingeschat — nog vóórdat er een offerte ligt. Faalkosten zitten vaak in herstelwerk, meerwerkdiscussies, vertraging en het 'achteraf toch anders willen'.
-                  </p>
-                  <p className="text-xl font-serif italic text-amber-700">
-                    Onze rol is om die risico's vroeg zichtbaar te maken en een ontwerp zo helder vast te leggen dat uitvoering en offertes kloppen.
-                  </p>
-                  <p className="text-lg">
-                    Daarmee wordt een architectenhonorarium in de praktijk vaak een investering die zichzelf terugverdient.
-                  </p>
+            </motion.div>
+
+            {/* Waarom het zich terugverdient */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white p-10 md:p-12 border-2 border-stone-200 hover:border-amber-600 transition-all space-y-6 shadow-lg"
+            >
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white">
+                  <Euro size={28} />
                 </div>
+                <h3 className="text-3xl md:text-4xl font-serif italic text-black">
+                  Waarom het zich terugverdient
+                </h3>
               </div>
-            </div>
-          </motion.div>
+
+              <div className="space-y-6 text-stone-700 leading-relaxed">
+                <p className="text-lg">
+                  Veel extra kosten ontstaan door keuzes die te laat worden gemaakt of verkeerd worden ingeschat — nog vóórdat er een offerte ligt. Faalkosten zitten vaak in herstelwerk, meerwerkdiscussies, vertraging en het 'achteraf toch anders willen'.
+                </p>
+                <p className="text-xl font-serif italic text-amber-700">
+                  Onze rol is om die risico's vroeg zichtbaar te maken en een ontwerp zo helder vast te leggen dat uitvoering en offertes kloppen.
+                </p>
+                <p className="text-base text-stone-600">
+                  Daarmee wordt een architectenhonorarium in de praktijk vaak een investering die zichzelf terugverdient.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -401,17 +413,43 @@ export const Kosten: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-amber-50 border-2 border-amber-200 p-8 rounded-lg">
-            <p className="text-lg text-center text-stone-700 leading-relaxed">
-              <strong className="text-amber-800">Daarnaast</strong> zorgt een goed ontwerp voor meer <strong>woonkwaliteit en waardevastheid</strong>. Een doordacht ontworpen woning is niet alleen prettiger om in te wonen, maar behoudt ook beter zijn waarde op de lange termijn.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="max-w-3xl mx-auto pt-8"
+          >
+            <p className="text-xl text-stone-700 leading-relaxed text-center">
+              Daarnaast zorgt een goed ontwerp voor meer <strong className="text-amber-800">woonkwaliteit en waardevastheid</strong>. Een doordacht ontworpen woning is niet alleen prettiger om in te wonen, maar behoudt ook beter zijn waarde op de lange termijn.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Grip op bouwkosten */}
-      <section className="py-32 px-6 md:px-12 bg-stone-900 text-white">
-        <div className="max-w-5xl mx-auto space-y-12">
+      {/* Grip op bouwkosten - With Parallax Background */}
+      <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 w-full h-[120%]"
+          style={{
+            y: useTransform(scrollY, [2000, 3000], [0, -150])
+          }}
+        >
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2022/02/vrijstaande-moderne-villa-architect-bouwgrond-kavel-blaricum-gooi.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </motion.div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-900/95 via-black/90 to-stone-900/95 z-[1]" />
+
+        <div className="relative max-w-5xl mx-auto space-y-12 text-white z-10">
           <div className="space-y-6">
             <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">
               Budgetbewaking
@@ -572,9 +610,29 @@ export const Kosten: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 px-6 md:px-12 bg-gradient-to-br from-amber-600 to-amber-700 text-white">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+      {/* CTA Section - With Parallax Background */}
+      <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+        {/* Parallax Background Image */}
+        <motion.div
+          className="absolute inset-0 w-full h-[120%]"
+          style={{
+            y: useTransform(scrollY, [4000, 5000], [0, -150])
+          }}
+        >
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2022/10/68_resize.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </motion.div>
+
+        {/* Amber Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 via-amber-700/90 to-amber-800/90 z-[1]" />
+
+        <div className="relative max-w-4xl mx-auto text-center space-y-12 text-white z-10">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
               Twijfelt u over haalbaarheid of kosten?

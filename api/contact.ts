@@ -13,6 +13,12 @@ interface ContactFormData {
   website?: string; // Honeypot field
   subject?: string;
   region?: string;
+  formType?: string;
+  // Extra Quickscan fields
+  projectType?: string;
+  budget?: string;
+  timeframe?: string;
+  hasLocation?: string;
 }
 
 // Simple in-memory rate limiting (for production, use Redis or similar)
@@ -28,8 +34,8 @@ function checkRateLimit(ip: string): boolean {
     return true;
   }
 
-  if (limit.count >= 5) {
-    // Max 5 submissions per hour
+  if (limit.count >= 10) {
+    // Max 10 submissions per hour
     return false;
   }
 
@@ -41,7 +47,7 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
-  // CORS headers (pas aan voor productie)
+  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -61,8 +67,8 @@ export default async function handler(
 
     // Rate limiting check
     const ip = (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
-               (req.headers['x-real-ip'] as string) ||
-               'unknown';
+      (req.headers['x-real-ip'] as string) ||
+      'unknown';
 
     if (!checkRateLimit(ip)) {
       return res.status(429).json({
@@ -91,15 +97,9 @@ export default async function handler(
     const email = formData.email.trim();
     const message = formData.message.trim();
 
-    if (name.length < 2 || name.length > 100) {
+    if (name.length < 2 || name.length > 200) {
       return res.status(400).json({
-        error: 'Naam moet tussen 2 en 100 karakters zijn'
-      });
-    }
-
-    if (message.length < 10 || message.length > 2000) {
-      return res.status(400).json({
-        error: 'Bericht moet tussen 10 en 2000 karakters zijn'
+        error: 'Naam moet tussen 2 en 200 karakters zijn'
       });
     }
 
@@ -117,27 +117,12 @@ export default async function handler(
     formData.message = message;
 
     // Log naar console (development)
-    console.log('Contact form submission:', {
+    console.log('Form submission:', {
       name: formData.name,
       email: formData.email,
-      region: formData.region,
+      formType: formData.formType || 'contact',
       timestamp: new Date().toISOString()
     });
-
-    // Optie 1: Email verzenden via SMTP (bijv. Gmail, Office365)
-    // await sendEmailViaSMTP(formData);
-
-    // Optie 2: Email verzenden via SendGrid
-    // await sendEmailViaSendGrid(formData);
-
-    // Optie 3: Email verzenden via Resend (aanbevolen - makkelijk)
-    // await sendEmailViaResend(formData);
-
-    // Optie 4: Slack notificatie
-    // await sendSlackNotification(formData);
-
-    // Optie 5: Google Sheets logging
-    // await logToGoogleSheets(formData);
 
     // Send via WordPress Contact Form 7
     await sendViaContactForm7(formData);
@@ -150,7 +135,7 @@ export default async function handler(
   } catch (error: any) {
     console.error('Contact form error:', error);
     return res.status(500).json({
-      error: 'Er is iets misgegaan bij het verzenden van uw bericht. Probeer het later opnieuw of bel ons direct.'
+      error: 'Er is iets misgegaan bij het verzenden van uw bericht. Probeer het later opnieuw.'
     });
   }
 }
@@ -158,10 +143,16 @@ export default async function handler(
 // Contact Form 7 WordPress Integration
 async function sendViaContactForm7(data: ContactFormData): Promise<void> {
   const WORDPRESS_URL = process.env.WORDPRESS_URL || 'https://www.zwijsen.net';
-  const CF7_FORM_ID = process.env.CF7_FORM_ID || '123'; // Update this with your Form ID
 
-  // Contact Form 7 REST API often requires multipart/form-data
-  // and specific fields like _wpcf7_unit_tag to work correctly
+  // Decide which Form ID to use
+  // Default is the general contact form
+  let CF7_FORM_ID = process.env.CF7_FORM_ID || '21383';
+
+  // If it's a quickscan and a specific ID is provided, use that
+  if (data.formType === 'quickscan' && process.env.CF7_QUICKSCAN_FORM_ID) {
+    CF7_FORM_ID = process.env.CF7_QUICKSCAN_FORM_ID;
+  }
+
   const formData = new FormData();
   formData.append('your-name', data.name);
   formData.append('your-email', data.email);
@@ -169,12 +160,21 @@ async function sendViaContactForm7(data: ContactFormData): Promise<void> {
   formData.append('your-message', data.message);
   formData.append('regio', data.region || '');
   formData.append('locatie', data.location || '');
+
+  // Extra fields for Quickscan form (in case they are defined in CF7)
+  if (data.projectType) formData.append('project-type', data.projectType);
+  if (data.budget) formData.append('budget', data.budget);
+  if (data.timeframe) formData.append('timeframe', data.timeframe);
+  if (data.hasLocation) formData.append('has-location', data.hasLocation);
+  if (data.formType) formData.append('form-type', data.formType);
+
   formData.append('_wpcf7_unit_tag', `wpcf7-f${CF7_FORM_ID}-p1-o1`);
+
+  console.log(`Sending ${data.formType || 'contact'} form to WordPress CF7 (ID: ${CF7_FORM_ID})...`);
 
   const response = await fetch(`${WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_FORM_ID}/feedback`, {
     method: 'POST',
     body: formData,
-    // Note: Fetch handles the Boundary and Content-Type header automatically for FormData
   });
 
   const result: any = await response.json();
@@ -186,81 +186,3 @@ async function sendViaContactForm7(data: ContactFormData): Promise<void> {
 
   console.log('CF7 Success:', result);
 }
-
-// Voorbeeld implementaties hieronder:
-
-/*
-// OPTIE 1: Resend (Aanbevolen - €0/maand tot 3000 emails)
-import { Resend } from 'resend';
-
-async function sendEmailViaResend(data: ContactFormData) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
-  await resend.emails.send({
-    from: 'Website <noreply@zwijsen.net>',
-    to: 'info@zwijsen.net',
-    replyTo: data.email,
-    subject: `Nieuw contactverzoek van ${data.name}${data.region ? ` - ${data.region}` : ''}`,
-    html: `
-      <h2>Nieuw contactverzoek</h2>
-      <p><strong>Naam:</strong> ${data.name}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      ${data.phone ? `<p><strong>Telefoon:</strong> ${data.phone}</p>` : ''}
-      ${data.region ? `<p><strong>Regio:</strong> ${data.region}</p>` : ''}
-      <p><strong>Bericht:</strong></p>
-      <p>${data.message.replace(/\n/g, '<br>')}</p>
-    `
-  });
-}
-*/
-
-/*
-// OPTIE 2: SendGrid
-import sgMail from '@sendgrid/mail';
-
-async function sendEmailViaSendGrid(data: ContactFormData) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
-  const msg = {
-    to: 'info@zwijsen.net',
-    from: 'noreply@zwijsen.net',
-    replyTo: data.email,
-    subject: `Nieuw contactverzoek van ${data.name}`,
-    html: `
-      <h2>Nieuw contactverzoek</h2>
-      <p><strong>Naam:</strong> ${data.name}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      ${data.phone ? `<p><strong>Telefoon:</strong> ${data.phone}</p>` : ''}
-      ${data.region ? `<p><strong>Regio:</strong> ${data.region}</p>` : ''}
-      <p><strong>Bericht:</strong></p>
-      <p>${data.message.replace(/\n/g, '<br>')}</p>
-    `
-  };
-
-  await sgMail.send(msg);
-}
-*/
-
-/*
-// OPTIE 3: Slack Webhook
-async function sendSlackNotification(data: ContactFormData) {
-  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
-
-  await fetch(webhookUrl!, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      text: `🔔 Nieuw contactverzoek van ${data.name}`,
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: `*Naam:* ${data.name}\n*Email:* ${data.email}\n${data.phone ? `*Telefoon:* ${data.phone}\n` : ''}${data.region ? `*Regio:* ${data.region}\n` : ''}*Bericht:*\n${data.message}`
-          }
-        }
-      ]
-    })
-  });
-}
-*/

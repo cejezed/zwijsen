@@ -116,7 +116,7 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
     {
       type: "split",
       layout: "image-right",
-      fullWidth: false,
+      fullWidth: true,
       title: "Drie vleugels, drie woonwerelden",
       content:
         "De drie vleugels zijn ontworpen als drie verschillende woonwerelden die samen één hofwoning vormen. Een vleugel met een relatief lage berging op de begane grond maakt ruime slaapkamers op de verdieping mogelijk.\n\nEen tweede vleugel bevat een verdiept gelegen slaapkamer met directe toegang tot de tuin; boven deze zone ligt een eetkeuken die verhoogd is ten opzichte van de stoep. Die verhoging geeft extra privacy en benut de zichtlijnen optimaal, mede door de ligging op een kruising van straten.\n\nDe derde vleugel biedt een royale woonkamer met daarboven een 'zwevende' verdieping waarin een knusse tv-kamer is opgenomen. Deze opbouw zorgt voor variatie, ruimtelijkheid en logische zonering binnen de woning.",
@@ -133,7 +133,7 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
     {
       type: "split",
       layout: "image-left",
-      fullWidth: true,
+      fullWidth: false,
       title: "Houten spanten als ruimtelijke drager in het interieur",
       content:
         "De kapvorm wordt aan de binnenzijde versterkt door in het zicht blijvende houten spanten die de draagconstructie vormen. Deze spanten verwijzen naar oude hoevewoningen, maar zijn op een moderne manier ingezet: als structuur, ritme en sfeerdrager tegelijk.\n\nIn combinatie met verschillende verdiepingshoogtes en vloerniveaus ontstaat een divers en gelaagd interieur met lange zichtlijnen in de woning en gerichte doorzichten naar de tuin en de omgeving.\n\nDe hofwoning voelt daardoor ruim, terwijl de verschillende zones toch intiem en passend blijven. Het is een voorbeeld van hoe karakter kan ontstaan met constructie en ruimte, zonder decoratie.",
@@ -145,12 +145,12 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
       }
     },
 
-    { type: "spacer", size: "lg" },
+    { type: "spacer", size: "md" },
 
     {
       type: "split",
       layout: "image-right",
-      fullWidth: false,
+      fullWidth: true,
       title: "Ruwe baksteen en zinken dakkapellen: stoer en rustiek, maar modern gedetailleerd",
       content:
         "De buitenzijde is uitgevoerd in een zeer ruwe, soms subtiel vervormde baksteen, met grote uitgemetselde vensterbanken en dakkapellen in zink. De stoere textuur verwijst naar historische kasteel- of kloostermuren, waardoor de relatief lage woning toch een krachtige uitstraling krijgt binnen het geheel van Cronenburgh.\n\nTegelijk is de detaillering eigentijds: precies, helder en terughoudend. Zo ontstaat een rustieke uitstraling die niet nostalgisch wordt, maar modern blijft in maatvoering en afwerking.\n\nDit project is een goed voorbeeld van hoe materiaalkeuze een woning karakter geeft én de schaal in het straatbeeld kan sturen.",
@@ -203,12 +203,12 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "md" },
+    { type: "spacer", size: "lg" },
 
     {
       type: "split",
       layout: "image-left",
-      fullWidth: true,
+      fullWidth: false,
       title: "Het binnenhof: licht, beschut en ruimtelijk",
       content:
         "Het binnenhof vormt het rustige hart van de hofwoning en is bereikbaar via een poort. Aan deze meer beschutte zijde verandert de materialisatie: licht pleisterwerk en grote raampartijen brengen daglicht diep in de woning en maken het hof ruimtelijk en vriendelijk.\n\nHierdoor ontstaat een duidelijke tweedeling: een stoere, robuuste buitenkant aan de straat en een lichte, open wereld aan het hof. Die combinatie maakt de woning tegelijk stevig en uitnodigend.\n\nHet binnenhof laat zien hoe privacy, daglicht en buitenruimte kunnen worden georganiseerd binnen de beperkingen van een bestemmingsplan en de schaal van een nieuwbouwwijk.",
@@ -220,7 +220,7 @@ export const hofwoningCronenburghLoenen: ProjectDetail = {
       }
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "md" }
   ],
 
   cta: {

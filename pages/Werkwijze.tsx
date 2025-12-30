@@ -397,7 +397,7 @@ export const Werkwijze: React.FC = () => {
           }}
         >
           <img
-            src="https://www.zwijsen.net/wp-content/uploads/2019/11/ontwerp-architect-schetsontwerp-2.jpg"
+            src="https://www.zwijsen.net/wp-content/uploads/2022/02/vrijstaande-moderne-villa-architect-bouwgrond-kavel-blaricum-gooi.jpg"
             alt=""
             className="w-full h-full object-cover"
             onError={(e) => {

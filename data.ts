@@ -485,6 +485,5 @@ export const NAV_LINKS = [
   { name: "Regio's", label: "Lokale expertise", href: "/regios" },
   { name: "Architect", label: "Over Jules Zwijsen", href: "/architect" },
   { name: "Werkwijze", label: "Van schets tot oplevering", href: "/werkwijze" },
-  { name: "Kosten", label: "Wat kost een architect", href: "/kosten" },
-  { name: "Contact", label: "Kennismaking & Quickscan", href: "/contact" }
+  { name: "Kosten", label: "Wat kost een architect", href: "/kosten" }
 ];

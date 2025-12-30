@@ -114,12 +114,12 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       }
     },
 
-    { type: "spacer", size: "lg" },
+    { type: "spacer", size: "md" },
 
     {
       type: "split",
       layout: "image-left",
-      fullWidth: false,
+      fullWidth: true,
       title: "Zichtlijnen als Organiserend Principe in het Interieur",
       content:
         "Het interieur van de woning wordt georganiseerd rond twee duidelijke insnedes. De eerste insnede vormt het verlengde van de Zegelaarweg en benadrukt deze lange zichtlijn diep in de woning. De tweede insnede komt voort uit de positie van de entree en de interne ontsluiting.\n\nDoor de trappen strategisch te plaatsen, wordt de zichtlijn richting de diepe tuin achter de woning versterkt. Deze ruimtelijke sneden zijn aan de buitenzijde afleesbaar door een afwijkende materialisering en detaillering van de gevel en vormen samen één geheel met de uitbouw op de begane grond.\n\nDit is een schoolvoorbeeld van hoe interieur en exterieur elkaar wederzijds versterken.",
@@ -162,12 +162,12 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       ]
     },
 
-    { type: "spacer", size: "md" },
+    { type: "spacer", size: "lg" },
 
     {
       type: "split",
       layout: "image-right",
-      fullWidth: true,
+      fullWidth: false,
       title: "Daglicht, Privacy en Gericht Uitzicht",
       content:
         "Door strategisch geplaatste gevelopeningen is de woning rijk voorzien van daglicht, terwijl privacy behouden blijft ten opzichte van de openbare ruimte. De openingen zijn niet willekeurig geplaatst, maar zorgvuldig afgestemd op zichtlijnen, functies en oriëntatie.\n\nOp de juiste plekken ontstaat uitzicht op het Cronenburgherplein, de omliggende straten en de diepe tuin. Deze balans tussen openheid en beschutting is essentieel voor comfortabel wonen op een zichtlocatie en laat zien hoe complexe stedelijke situaties kunnen worden opgelost.",
@@ -192,7 +192,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       }
     },
 
-    { type: "spacer", size: "lg" }
+    { type: "spacer", size: "md" }
   ],
 
   cta: {
