@@ -37,7 +37,13 @@ export const InquiryForm: React.FC<FormProps> = ({ inline = false, onSubmitted }
         }),
       });
 
-      const data = await response.json();
+      let data: { error?: string; success?: boolean; message?: string };
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error('Failed to parse response as JSON:', parseError);
+        throw new Error('De server gaf een onverwacht antwoord. Dit formulier werkt alleen in productie.');
+      }
 
       if (!response.ok) {
         throw new Error(data.error || 'Er ging iets mis');

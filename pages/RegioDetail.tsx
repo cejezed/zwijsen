@@ -292,7 +292,7 @@ export const RegioDetail: React.FC = () => {
           {/* Contact Bar */}
           <ContactBar
             opacity={contactBarOpacity}
-            onStartTraject={() => window.location.hash = 'contact'}
+            onStartTraject={() => setIsInquiryOpen(true)}
           />
         </>
       )}

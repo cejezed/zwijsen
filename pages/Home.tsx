@@ -15,7 +15,8 @@ import {
   FAQSection,
   ContactBar,
   PortfolioSection,
-  ProjectDetailOverlay
+  ProjectDetailOverlay,
+  InquiryOverlay
 } from '../components';
 
 export const Home: React.FC = () => {
@@ -25,6 +26,7 @@ export const Home: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const [dockMode, setDockMode] = useState<'process' | 'dream'>('process');
   const [pageConfig, setPageConfig] = useState<RegioConfig>(getPageConfig('default'));
 
@@ -118,6 +120,12 @@ export const Home: React.FC = () => {
         </motion.div>
       )}
 
+      {/* Inquiry Overlay */}
+      <InquiryOverlay
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+      />
+
       {/* Project Detail Overlay */}
       <AnimatePresence>
         {selectedProject && (
@@ -185,7 +193,7 @@ export const Home: React.FC = () => {
           {/* Contact Bar */}
           <ContactBar
             opacity={contactBarOpacity}
-            onStartTraject={() => window.location.hash = 'contact'}
+            onStartTraject={() => setIsInquiryOpen(true)}
           />
         </>
       )}

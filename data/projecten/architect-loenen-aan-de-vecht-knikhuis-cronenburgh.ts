@@ -35,25 +35,25 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       "stedenbouwkundig accent"
     ],
     ogImage:
-      "https://www.zwijsen.net/wp-content/uploads/2025/xx/architect-loenen-aan-de-vecht-knikhuis-cronenburgh-og.jpg"
+      "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1560_resize.jpg"
   },
 
   featuredImage: {
-    url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis.jpg",
+    url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1560_resize.jpg",
     alt: "Knikhuis Cronenburgh – stedenbouwkundige special met verdraaide kap"
   },
 
   heroImages: [
     {
-      url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis.jpg",
+      url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_2759_resize.jpg",
       alt: "Exterieur knikhuis als markant accent aan het Cronenburgherplein"
     },
     {
-      url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-2.jpg",
+      url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_4004_resize.jpg",
       alt: "Knikhuis op overgang Lutgerslaan naar Cronenburgherplein"
     },
     {
-      url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-3.jpg",
+      url: "hhttps://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1931_resize.jpg",
       alt: "Detail abstracte gevel knikhuis met verdraaide kap"
     }
   ],
@@ -69,7 +69,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       content:
         "Net als de torenwoning is ook kavel 11 één van de specials binnen het plan Cronenburgh in Loenen aan de Vecht. De woning is gesitueerd op de plek waar de Lutgerslaan overgaat in het Cronenburgherplein en markeert daar de verdraaiing van de stratenstructuur.\n\nDeze verdraaiing is het uitgangspunt geworden voor de vormgeving van het knikhuis. Door het knikpunt van de woning bewust te verplaatsen, wordt de hiërarchie van de openbare ruimte versterkt: het grootste deel van de gevel richt zich nadrukkelijk op het Cronenburgherplein.\n\nDit project laat zien hoe stedenbouwkundige kenmerken direct kunnen worden vertaald naar architectuur.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1275_resize.jpg",
         alt: "Knikhuis Cronenburgh dat de verdraaiing van straten accentueert"
       }
     },
@@ -109,7 +109,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       content:
         "De nok van de woning volgt niet de rooilijn van de kavel, maar juist de middellijn tussen de twee hoeken van de straat. Hierdoor verloopt de goothoogte en wordt de verdraaiing van de straatstructuur nogmaals benadrukt.\n\nDoor kozijnen strak in de gevels te plaatsen en de detaillering bewust eenvoudig te houden, krijgt de woning een abstract karakter. Het knikhuis leest zich als een massief volume — bijna als een stenen diamant — waarin zorgvuldig geplaatste sparingen het interieur zichtbaar maken en voorzien van daglicht en uitzicht.\n\nDeze abstractie versterkt de sculpturale kwaliteit van de woning en verankert haar stevig in de omgeving.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-2.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_0549_resize.jpg",
         alt: "Abstracte gevel knikhuis met strak geplaatste kozijnen en verdraaide kap"
       }
     },
@@ -124,7 +124,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       content:
         "Het interieur van de woning wordt georganiseerd rond twee duidelijke insnedes. De eerste insnede vormt het verlengde van de Zegelaarweg en benadrukt deze lange zichtlijn diep in de woning. De tweede insnede komt voort uit de positie van de entree en de interne ontsluiting.\n\nDoor de trappen strategisch te plaatsen, wordt de zichtlijn richting de diepe tuin achter de woning versterkt. Deze ruimtelijke sneden zijn aan de buitenzijde afleesbaar door een afwijkende materialisering en detaillering van de gevel en vormen samen één geheel met de uitbouw op de begane grond.\n\nDit is een schoolvoorbeeld van hoe interieur en exterieur elkaar wederzijds versterken.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-3.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1094_resize.jpg",
         alt: "Zichtlijnen en insnedes in interieur knikhuis richting tuin"
       }
     },
@@ -136,27 +136,27 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       layout: "horizontal",
       gallery: [
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1595_resize.jpg",
           alt: "Exterieur knikhuis Cronenburgh aan plein"
         },
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-2.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1103_resize.jpg",
           alt: "Abstracte gevel met verdraaide kap"
         },
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-3.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1592_resize.jpg",
           alt: "Zichtlijnen en insnedes in gevel"
         },
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-4.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_4006_resize.jpg",
           alt: "Detail gevelopeningen en materialisatie"
         },
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-5.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_0544_resize.jpg",
           alt: "Knikhuis op overgang straten"
         },
         {
-          url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-6.jpg",
+          url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_4000_resize.jpg",
           alt: "Stedenbouwkundig accent Cronenburgherplein"
         }
       ]
@@ -172,7 +172,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       content:
         "Door strategisch geplaatste gevelopeningen is de woning rijk voorzien van daglicht, terwijl privacy behouden blijft ten opzichte van de openbare ruimte. De openingen zijn niet willekeurig geplaatst, maar zorgvuldig afgestemd op zichtlijnen, functies en oriëntatie.\n\nOp de juiste plekken ontstaat uitzicht op het Cronenburgherplein, de omliggende straten en de diepe tuin. Deze balans tussen openheid en beschutting is essentieel voor comfortabel wonen op een zichtlocatie en laat zien hoe complexe stedelijke situaties kunnen worden opgelost.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-4.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_1560_resize.jpg",
         alt: "Strategisch geplaatste gevelopeningen voor daglicht en privacy"
       }
     },
@@ -187,7 +187,7 @@ export const knikhuisCronenburghLoenen: ProjectDetail = {
       content:
         "Achter in de tuin is een vrijstaande garage geplaatst die qua vorm en materialisatie refereert aan de oude schuren die in de omgeving veel voorkomen. De gevel is bekleed met zwart geteerde, gepotdekselde houten delen, aangebracht op een helder stramien van houten spanten.\n\nHiermee vormt de garage een ingetogen maar karaktervolle tegenhanger van het abstracte hoofdvolume. Samen versterken woning en bijgebouw het verhaal van de plek: een eigentijdse woning die diep geworteld is in de context van Loenen aan de Vecht en Cronenburgh.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2015/05/nieuwbouw-cronenburgh-loenen-aan-de-vecht-knikhuis-5.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2015/06/IMG_4000_resize.jpg",
         alt: "Garage in tuin met zwart geteerd hout als verwijzing naar oude schuren"
       }
     },

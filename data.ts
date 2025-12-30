@@ -1,7 +1,7 @@
 
 export const BRAND_NAME = "ARCHITECTENBUREAU JULES ZWIJSEN";
 export const PHONE_NUMBER = "+31 (0) 6 44 97 62 09";
-export const PHONE_LINK = "tel:+3144976209";
+export const PHONE_LINK = "tel:+31644976209";
 export const WHATSAPP_LINK = "https://wa.me/31644976209";
 export const EMAIL = "info@zwijsen.net";
 export const ADDRESS = {
