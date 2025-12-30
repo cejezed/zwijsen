@@ -483,5 +483,8 @@ export const FAQS = [
 export const NAV_LINKS = [
   { name: "Projecten", label: "Gerealiseerde dromen", href: "#projects" },
   { name: "Regio's", label: "Lokale expertise", href: "/regios" },
-  { name: "Info", label: "Wie is Jules Zwijsen?", href: "#info" }
+  { name: "Architect", label: "Over Jules Zwijsen", href: "/architect" },
+  { name: "Werkwijze", label: "Van schets tot oplevering", href: "/werkwijze" },
+  { name: "Kosten", label: "Wat kost een architect", href: "/kosten" },
+  { name: "Contact", label: "Kennismaking & Quickscan", href: "/contact" }
 ];

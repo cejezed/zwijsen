@@ -30,6 +30,7 @@ export { ProjectTemplate } from './ProjectTemplate';
 
 // Overlay components
 export { InquiryOverlay } from './Overlays';
+export { QuickscanOverlay } from './QuickscanOverlay';
 
 // UI elements
 export * from './UIElements';

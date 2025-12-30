@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import pages
-import { Home, ProjectenOverzicht, ProjectDetail, RegioOverzicht, RegioDetail } from './pages';
+import { Home, ProjectenOverzicht, ProjectDetail, RegioOverzicht, RegioDetail, Architect, Werkwijze, Kosten, Quickscan, Contact } from './pages';
 
 // Import global components
 import { Navigation, InquiryOverlay } from './components';
@@ -31,6 +31,12 @@ const App: React.FC = () => {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/architect" element={<Architect />} />
+          <Route path="/over-ons" element={<Architect />} />
+          <Route path="/werkwijze" element={<Werkwijze />} />
+          <Route path="/kosten" element={<Kosten />} />
+          <Route path="/quickscan" element={<Quickscan />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<ProjectenOverzicht />} />
           <Route path="/portfolio/:slug" element={<ProjectDetail />} />
           <Route path="/regios" element={<RegioOverzicht />} />

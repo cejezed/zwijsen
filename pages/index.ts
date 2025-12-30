@@ -3,3 +3,8 @@ export { ProjectenOverzicht } from './ProjectenOverzicht';
 export { ProjectDetail } from './ProjectDetail';
 export { RegioOverzicht } from './RegioOverzicht';
 export { RegioDetail } from './RegioDetail';
+export { Architect } from './Architect';
+export { Werkwijze } from './Werkwijze';
+export { Kosten } from './Kosten';
+export { Quickscan } from './Quickscan';
+export { Contact } from './Contact';

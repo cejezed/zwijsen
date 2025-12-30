@@ -55,8 +55,20 @@ export const Navigation: React.FC<NavigationProps> = ({
       navigate('/portfolio');
     } else if (link.name === "Regio's") {
       navigate('/regios');
+    } else if (link.name === "Architect") {
+      // Navigate to Architect page
+      navigate('/architect');
+    } else if (link.name === "Werkwijze") {
+      // Navigate to Werkwijze page
+      navigate('/werkwijze');
+    } else if (link.name === "Kosten") {
+      // Navigate to Kosten page
+      navigate('/kosten');
+    } else if (link.name === "Contact") {
+      // Navigate to Contact page
+      navigate('/contact');
     } else {
-      // For anchor links (like #proces, #over-ons, etc.)
+      // For anchor links (like #proces, #info, etc.)
       if (currentRegion) {
         // Blijf in regio context
         if (location.pathname === `/${currentRegion}`) {
