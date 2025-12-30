@@ -104,79 +104,85 @@ export const InquiryForm: React.FC<FormProps> = ({ inline = false, onSubmitted }
           ) : (
             <form key={`step-${step}`} onSubmit={handleSubmit} className="w-full space-y-12">
               {step === 1 && (
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6 md:space-y-8">
                   <div className="space-y-4">
-                    <label className="mono text-sm uppercase tracking-[0.3em] text-stone-600 font-black">Stap 01: Wat is uw droom?</label>
-                    <textarea 
-                      required 
+                    <label className="mono text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-600 font-black">Stap 01: Wat is uw droom?</label>
+                    <textarea
+                      required
                       rows={4}
-                      value={formData.story} 
-                      onChange={e => setFormData({...formData, story: e.target.value})} 
-                      className="w-full border-b-2 border-stone-300 py-6 text-2xl md:text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent resize-none placeholder:text-stone-500" 
-                      placeholder="Vertel kort over uw visie, kavel of plannen.." 
+                      value={formData.story}
+                      onChange={e => setFormData({...formData, story: e.target.value})}
+                      className="w-full border-b-2 border-stone-300 py-4 md:py-6 text-xl md:text-2xl lg:text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent resize-none placeholder:text-stone-500"
+                      placeholder="Vertel kort over uw visie, kavel of plannen.."
                     />
                   </div>
-                  <button type="button" onClick={nextStep} className="flex items-center gap-8 px-12 py-7 bg-black text-white mono text-sm uppercase tracking-[0.4em] font-black hover:bg-amber-600 transition-all shadow-xl rounded-full">Volgende Stap <MoveRight size={20}/></button>
+                  <button type="button" onClick={nextStep} className="flex items-center justify-center gap-3 md:gap-8 px-6 md:px-12 py-5 md:py-7 bg-black text-white mono text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.4em] font-black hover:bg-amber-600 transition-all shadow-xl rounded-full w-full md:w-auto">
+                    <span className="whitespace-nowrap">Volgende Stap</span>
+                    <MoveRight size={16} className="md:w-5 md:h-5"/>
+                  </button>
                 </motion.div>
               )}
 
               {step === 2 && (
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6 md:space-y-8">
                   <div className="space-y-4">
-                    <label className="mono text-sm uppercase tracking-[0.3em] text-stone-600 font-black">Stap 02: Met wie spreken we?</label>
-                    <input 
-                      required 
-                      type="text" 
-                      value={formData.name} 
-                      onChange={e => setFormData({...formData, name: e.target.value})} 
-                      className="w-full border-b-2 border-stone-300 py-6 text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500" 
-                      placeholder="Uw volledige naam.." 
+                    <label className="mono text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-600 font-black">Stap 02: Met wie spreken we?</label>
+                    <input
+                      required
+                      type="text"
+                      value={formData.name}
+                      onChange={e => setFormData({...formData, name: e.target.value})}
+                      className="w-full border-b-2 border-stone-300 py-4 md:py-6 text-xl md:text-2xl lg:text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500"
+                      placeholder="Uw volledige naam.."
                     />
                   </div>
-                  <div className="flex gap-4">
-                    <button type="button" onClick={prevStep} className="px-10 py-7 border-2 border-stone-300 mono text-sm uppercase tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors">Terug</button>
-                    <button type="button" onClick={nextStep} className="flex items-center gap-8 px-12 py-7 bg-black text-white mono text-sm uppercase tracking-[0.4em] font-black hover:bg-amber-600 transition-all shadow-xl rounded-full">Contactgegevens <MoveRight size={20}/></button>
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <button type="button" onClick={prevStep} className="px-6 md:px-10 py-4 md:py-7 border-2 border-stone-300 mono text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors">Terug</button>
+                    <button type="button" onClick={nextStep} className="flex items-center justify-center gap-3 md:gap-8 px-6 md:px-12 py-4 md:py-7 bg-black text-white mono text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.4em] font-black hover:bg-amber-600 transition-all shadow-xl rounded-full flex-1">
+                      <span className="whitespace-nowrap">Contactgegevens</span>
+                      <MoveRight size={16} className="md:w-5 md:h-5"/>
+                    </button>
                   </div>
                 </motion.div>
               )}
 
               {step === 3 && (
-                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6 md:space-y-8">
                   <div className="space-y-4">
-                    <label className="mono text-sm uppercase tracking-[0.3em] text-stone-600 font-black">Stap 03: Hoe bereiken we u?</label>
+                    <label className="mono text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-600 font-black">Stap 03: Hoe bereiken we u?</label>
                     <input
                       required
                       type="email"
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
-                      className="w-full border-b-2 border-stone-300 py-6 text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500"
+                      className="w-full border-b-2 border-stone-300 py-4 md:py-6 text-xl md:text-2xl lg:text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent placeholder:text-stone-500"
                       placeholder="Uw e-mail adres.."
                       disabled={isSubmitting}
                     />
                   </div>
 
                   {error && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <p className="text-red-800 text-sm">{error}</p>
+                    <div className="p-3 md:p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-800 text-xs md:text-sm">{error}</p>
                     </div>
                   )}
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                     <button
                       type="button"
                       onClick={prevStep}
                       disabled={isSubmitting}
-                      className="px-10 py-7 border-2 border-stone-300 mono text-sm uppercase tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-6 md:px-10 py-4 md:py-7 border-2 border-stone-300 mono text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-widest font-black hover:bg-stone-50 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Terug
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex items-center gap-8 px-12 py-7 bg-amber-600 text-white mono text-sm uppercase tracking-[0.4em] font-black hover:bg-black transition-all shadow-xl rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex items-center justify-center gap-3 md:gap-8 px-6 md:px-12 py-4 md:py-7 bg-amber-600 text-white mono text-[10px] md:text-sm uppercase tracking-[0.15em] md:tracking-[0.3em] font-black hover:bg-black transition-all shadow-xl rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-1"
                     >
-                      {isSubmitting ? 'Bezig met verzenden...' : 'Verstuur Aanvraag'}
-                      {!isSubmitting && <Send size={20}/>}
+                      <span className="whitespace-nowrap">{isSubmitting ? 'Bezig met verzenden...' : 'Verstuur Aanvraag'}</span>
+                      {!isSubmitting && <Send size={16} className="md:w-5 md:h-5"/>}
                     </button>
                   </div>
                 </motion.div>
