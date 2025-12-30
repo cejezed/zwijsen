@@ -106,14 +106,14 @@ export const InquiryForm: React.FC<FormProps> = ({ inline = false, onSubmitted }
               {step === 1 && (
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6 md:space-y-8">
                   <div className="space-y-4">
-                    <label className="mono text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-600 font-black">Stap 01: Wat is uw droom?</label>
+                    <label className="mono text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] text-stone-600 font-black">Stap 01: Waarmee kunnen we helpen?</label>
                     <textarea
                       required
                       rows={4}
                       value={formData.story}
                       onChange={e => setFormData({...formData, story: e.target.value})}
                       className="w-full border-b-2 border-stone-300 py-4 md:py-6 text-xl md:text-2xl lg:text-3xl font-serif italic focus:border-amber-600 outline-none transition-all bg-transparent resize-none placeholder:text-stone-500"
-                      placeholder="Vertel kort over uw visie, kavel of plannen.."
+                      placeholder="Vertel ons over uw vraag, plannen of ideeën..."
                     />
                   </div>
                   <button type="button" onClick={nextStep} className="flex items-center justify-center gap-3 md:gap-8 px-6 md:px-12 py-5 md:py-7 bg-black text-white mono text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.4em] font-black hover:bg-amber-600 transition-all shadow-xl rounded-full w-full md:w-auto">
