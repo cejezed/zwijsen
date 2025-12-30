@@ -67,18 +67,45 @@ export const RegioDetail: React.FC = () => {
 
   // SEO management
   useEffect(() => {
+    const currentUrl = `https://www.zwijsen.net${location.pathname}`;
+
     // Set page title
     document.title = config.seoTitle || `${config.regio?.name} | Architectenbureau Jules Zwijsen`;
 
-    // Set meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', config.metaDescription || '');
+    // Set canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (canonical) {
+      canonical.href = currentUrl;
     } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = config.metaDescription || '';
-      document.head.appendChild(meta);
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      canonical.href = currentUrl;
+      document.head.appendChild(canonical);
+    }
+
+    // Helper function to set meta tags
+    const setMetaTag = (name: string, content: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (tag) {
+        tag.setAttribute('content', content);
+      } else {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        tag.setAttribute('content', content);
+        document.head.appendChild(tag);
+      }
+    };
+
+    // Set meta description
+    setMetaTag('description', config.metaDescription || '');
+
+    // Set geo meta tags for local SEO
+    if (config.regio?.geo) {
+      setMetaTag('geo.region', config.regio.geo.region || 'NL');
+      setMetaTag('geo.placename', config.regio.name);
+      if (config.regio.geo.position) {
+        setMetaTag('geo.position', config.regio.geo.position);
+      }
     }
 
     // Set Open Graph tags
@@ -97,8 +124,19 @@ export const RegioDetail: React.FC = () => {
     setOgTag('og:title', config.seoTitle || '');
     setOgTag('og:description', config.metaDescription || '');
     setOgTag('og:type', 'website');
+    setOgTag('og:url', currentUrl);
     if (config.heroSlides?.[0]?.url) {
-      setOgTag('og:image', config.heroSlides[0].url);
+      setOgTag('og:image', `https://www.zwijsen.net${config.heroSlides[0].url}`);
+      setOgTag('og:image:width', '1200');
+      setOgTag('og:image:height', '630');
+    }
+
+    // Set Twitter Card tags
+    setMetaTag('twitter:card', 'summary_large_image');
+    setMetaTag('twitter:title', config.seoTitle || '');
+    setMetaTag('twitter:description', config.metaDescription || '');
+    if (config.heroSlides?.[0]?.url) {
+      setMetaTag('twitter:image', `https://www.zwijsen.net${config.heroSlides[0].url}`);
     }
 
     // Add JSON-LD structured data for LocalBusiness/Architect
@@ -107,37 +145,57 @@ export const RegioDetail: React.FC = () => {
       existingScript.remove();
     }
 
+    // Build areaServed dynamically from region config
+    const areaServed: any[] = [
+      {
+        "@type": "City",
+        "name": config.regio?.name
+      }
+    ];
+
+    // Add municipality and province if available
+    if (config.regio?.municipality) {
+      areaServed.push({
+        "@type": "AdministrativeArea",
+        "name": config.regio.municipality
+      });
+    }
+    if (config.regio?.province) {
+      areaServed.push({
+        "@type": "AdministrativeArea",
+        "name": config.regio.province
+      });
+    }
+
     const structuredData = {
       "@context": "https://schema.org",
       "@type": ["Architect", "LocalBusiness", "ProfessionalService"],
       "name": BRAND_NAME,
       "description": config.metaDescription || `Architect in ${config.regio?.name} voor nieuwbouw, verbouw en verduurzaming`,
-      "url": `https://www.zwijsen.net${location.pathname}`,
+      "url": currentUrl,
+      "image": "https://www.zwijsen.net/images/logo.png",
+      "logo": "https://www.zwijsen.net/images/logo.png",
       "telephone": PHONE_NUMBER,
       "email": EMAIL,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": ADDRESS.street,
-        "addressLocality": ADDRESS.city.split(' ').slice(1).join(' '), // "Loenen aan de Vecht"
-        "postalCode": ADDRESS.city.split(' ')[0], // "3632JH"
+        "addressLocality": ADDRESS.city.split(' ').slice(1).join(' '),
+        "postalCode": ADDRESS.city.split(' ')[0],
         "addressCountry": "NL"
       },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": config.regio?.name
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Stichtse Vecht"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Utrecht"
-        }
-      ],
+      "geo": config.regio?.geo?.coordinates ? {
+        "@type": "GeoCoordinates",
+        "latitude": config.regio.geo.coordinates.latitude,
+        "longitude": config.regio.geo.coordinates.longitude
+      } : undefined,
+      "areaServed": areaServed,
       "priceRange": "€€€",
       "openingHours": "Mo-Fr 09:00-17:00",
+      "founder": {
+        "@type": "Person",
+        "name": "Jules Zwijsen"
+      },
       "sameAs": [
         "https://www.linkedin.com/company/architectenbureau-jules-zwijsen"
       ]

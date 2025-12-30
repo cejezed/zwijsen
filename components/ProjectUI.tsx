@@ -75,13 +75,29 @@ export const MosaicItem: React.FC<{
 };
 
 export const ProjectDetailOverlay: React.FC<{ project: any; onClose: () => void }> = ({ project, onClose }) => {
+  React.useEffect(() => {
+    // Lock body scroll when overlay is open
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+
+    return () => {
+      // Restore body scroll when overlay closes
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
+
   if (!project) return null;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      exit={{ opacity: 0 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       className="fixed inset-0 z-[200] bg-white overflow-y-auto"
     >
       <button onClick={onClose} className="fixed top-10 right-10 z-[210] p-6 bg-black text-white rounded-full hover:scale-110 transition-transform shadow-2xl"><X size={32} /></button>
@@ -103,7 +119,9 @@ export const ProjectDetailOverlay: React.FC<{ project: any; onClose: () => void 
            <div className="space-y-16">
               <div className="space-y-6">
                 <span className="mono text-amber-800 text-xs tracking-[1em] block uppercase font-black">Filosofie</span>
-                <h3 className="text-7xl font-serif italic text-black leading-[0.9] tracking-tighter">De kunst van het weglaten.</h3>
+                <h3 className="text-7xl font-serif italic text-black leading-[0.9] tracking-tighter">
+                  {project.philosophy || project.subtitle || 'De kunst van het weglaten.'}
+                </h3>
               </div>
               <p className="text-3xl text-stone-800 font-light leading-relaxed italic border-l-4 border-amber-600 pl-12">{project.description}</p>
               <div className="grid grid-cols-2 gap-12 pt-16 border-t border-stone-100">

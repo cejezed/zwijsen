@@ -18,7 +18,9 @@
       "Bash(git commit:*)",
       "Bash(git push)",
       "Bash(nslookup:*)",
-      "Bash(vercel --version:*)"
+      "Bash(vercel --version:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)"
     ]
   }
 }
