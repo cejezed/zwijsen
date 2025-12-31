@@ -31,21 +31,54 @@ const loenenProjects = PROJECTS_DETAIL
   });
 
 export const loenenAanDeVechtConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Loenen aan de Vecht | Nieuwbouw, Verbouw en verduurzaming Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Loenen aan de Vecht voor nieuwbouw, verbouw en monumenten. Jules Zwijsen ontwerpt woningen met oog voor locatie, regelgeving en detail.",
+  seoTitle: "Architect Loenen aan de Vecht | Nieuwbouw & Verbouw Vechtstreek | Jules Zwijsen",
+  metaDescription: "Architect in Loenen aan de Vecht en Vreeland voor exclusieve nieuwbouw, verbouw en monumenten in Stichtse Vecht. Jules Zwijsen: de kortste weg van droom naar ontwerp.",
+  canonicalUrl: "https://www.zwijsen.net/loenen-aan-de-vecht",
+
+  breadcrumbs: [
+    { label: "Loenen aan de Vecht", href: "/loenen-aan-de-vecht" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "VERGUNNING",
+      q: "Wanneer heb je een omgevingsvergunning nodig in Loenen aan de Vecht?",
+      a: "Binnen de historische kern en het beschermd dorpsgezicht van Loenen aan de Vecht is vrijwel elke wijziging aan de buitenzijde vergunningsplichtig. Ook voor aanbouwen aan de achterzijde gelden in Stichtse Vecht specifieke regels. Wij verzorgen het volledige vergunningstraject en het vooroverleg met de gemeente.",
+      color: "amber"
+    },
+    {
+      tag: "WELSTAND",
+      q: "Hoe streng is de welstand in Cronenburgh en het dorpslint?",
+      a: "De welstandseisen in Cronenburgh zijn vastgelegd in een beeldkwaliteitsplan. In het dorpslint van Loenen en Vreeland wordt streng gekeken naar de aansluiting bij het historische karakter. Wij hebben veel ervaring met deze commissies en weten ontwerpen te maken die zowel eigentijds zijn als soepel door de welstandstoets komen.",
+      color: "stone"
+    },
+    {
+      tag: "MONUMENT",
+      q: "Begeleiden jullie ook de verbouw van monumentale panden aan de Vecht?",
+      a: "Jazeker. Wij zijn gespecialiseerd in het combineren van historisch erfgoed met modern wooncomfort. Of het nu gaat om een rijksmonument aan de Vecht of een gemeentelijk monument in het dorp, wij kennen de regels voor restauratie en herbestemming.",
+      color: "emerald"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Wat kost een architect bij verbouw in Stichtse Vecht?",
+      a: "De kosten zijn afhankelijk van de schaal van de verbouwing. Wij werken met transparante fasen: van een eerste haalbaarheidsscan tot de definitieve bouwbegeleiding. Voor projecten in onze eigen regio (Loenen/Vreeland) kunnen we vaak zeer gericht en lokaal adviseren over aannemers en kosten.",
+      color: "blue"
+    }
+  ],
 
   // Projecten voor Loenen aan de Vecht - eerste 4 worden getoond in QuickProjectsGrid
   projects: loenenProjects,
 
   // Hero slides - optioneel per regio
   heroSlides: [
-  
+
     {
       url: "/images/loenen/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
       title: "VAN EERSTE SCHETS TOT OPLEVERING",
       subtitle: "Ontwerpen met oog voor de karakteristieke omgeving"
     },
-      {
+    {
       url: "/images/loenen/verbouw woning aan de vecht nieuw bijgebouw architect loenen mijndensedijk.webp",
       title: "ARCHITECT IN LOENEN AAN DE VECHT",
       subtitle: "Nieuwbouw, verbouw en monumentenzorg in de Vechtstreek"

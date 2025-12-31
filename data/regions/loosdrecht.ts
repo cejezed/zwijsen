@@ -30,8 +30,13 @@ const loosdrechtProjects = PROJECTS_DETAIL
   });
 
 export const loosdrechtConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Loosdrecht, Nieuw Loosdrecht en Breukeleveen gemeente Wijdemeren | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Loosdrecht, Nieuw-Loosdrecht en Breukeleveen voor nieuwbouw en verbouw aan de Loosdrechtse Plassen. Jules Zwijsen ontwerpt woningen met oog voor water en groene omgeving.",
+  seoTitle: "Architect Loosdrecht aan de Plassen | Nieuwbouw & Verbouw | Jules Zwijsen",
+  metaDescription: "Architect in Loosdrecht, Nieuw-Loosdrecht en Breukeleveen voor exclusieve nieuwbouw en verbouw aan de Loosdrechtse Plassen. Jules Zwijsen: van schets tot vergunning in Wijdemeren.",
+  canonicalUrl: "https://www.zwijsen.net/loosdrecht",
+
+  breadcrumbs: [
+    { label: "Loosdrecht", href: "/loosdrecht" }
+  ],
 
   // Projecten voor Loosdrecht - eerste 4 worden getoond in QuickProjectsGrid
   projects: loosdrechtProjects,
@@ -41,96 +46,146 @@ export const loosdrechtConfig: Partial<RegioConfig> = {
     {
       url: "/images/loosdrecht/luxe-villa-architect-loosdrecht-moderne-woning-zwembad-luxury-living-architekt-wijdemeren.webp",
       title: "ARCHITECT IN LOOSDRECHT",
-      subtitle: "Woningen met oog voor water en groene omgeving aan de Plassen"
+      subtitle: "Exclusieve woningen aan de Loosdrechtse Plassen"
     },
     {
       url: "/images/loosdrecht/moderne-villa-witte-gevels-architect-gelijkvloers-wonen-aan-het-water-wijdemeren-luxury-living.webp",
-      title: "VAN EERSTE SCHETS TOT OPLEVERING",
-      subtitle: "Ontwerpen die passen bij het karakter van Loosdrecht"
+      title: "VAN SCHETS TOT VERGUNNING",
+      subtitle: "Ontwerpen die het karakter van de Plassen versterken"
     },
     {
       url: "/images/loosdrecht/moderne-stacaravan-recreatiewoning-eigentijds-architect-houten-schermen-loosdrecht.webp",
-      title: "VAKMANSCHAP EN AANDACHT",
-      subtitle: "Begeleiding bij vergunningen en contact met gemeente Wijdemeren"
+      title: "VAKMANSCHAP AAN HET WATER",
+      subtitle: "Uw droomhuis in gemeente Wijdemeren of Hilversum"
+    }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "VERGUNNING",
+      q: "Wanneer heb je een omgevingsvergunning nodig in Loosdrecht?",
+      a: "Vrijwel elke structurele wijziging, uitbouw of nieuwbouw aan de Loosdrechtse Plassen is vergunningsplichtig. Vanwege de vigerende bestemmingsplannen en de status van Wijdemeren als waterrijk gebied, adviseren wij altijd een officieel vooroverleg ('Verken uw idee') bij de gemeente te starten. Wij begeleiden dit traject van de eerste schets tot de definitieve aanvraag.",
+      color: "amber"
+    },
+    {
+      tag: "WELSTAND",
+      q: "Hoe streng is de welstand bij bouwprojecten in Wijdemeren?",
+      a: "De welstandseisen in Loosdrecht zijn specifiek gericht op het behoud van het open karakter en de landschappelijke inpassing. In gebieden zoals Nieuw-Loosdrecht of de dijken gelden strenge regels voor dakvormen en materiaalgebruik (zoals riet of hout). Door onze ruime ervaring met de commissie ruimtelijke kwaliteit van Wijdemeren, weten we ontwerpen te maken die zowel modern zijn als vlot door de welstandstoets komen.",
+      color: "stone"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Wat kost een architect voor een villa in Loosdrecht?",
+      a: "Ons honorarium is variabel en afhankelijk van de complexiteit van het ontwerp en de gewenste mate van bouwbegeleiding. Voor een luxe nieuwbouwvilla of ingrijpende verbouwing aan het water werken we vaak met een vast percentage of een honorarium per fase. Een eerste quickscan voor uw kavel bieden wij kosteloos aan om de haalbaarheid te toetsen.",
+      color: "emerald"
+    },
+    {
+      tag: "BESTEMMINGSPLAN",
+      q: "Kan ik afwijken van het omgevingsplan in Loosdrecht?",
+      a: "Ja, in veel gevallen zijn er afwijkingsmogelijkheden via een uitgebreide procedure of de zogenaamde 'kruimelgevallenregeling'. Dit biedt vaak kansen voor een grotere aanbouw of een hogere gootlijn dan het basisplan toestaat. Wij analyseren de juridische ruimte om de maximale potentie uit uw kavel aan de Plassen te halen.",
+      color: "blue"
+    }
+  ],
+
+  // Region-specific testimonials for SEO
+  testimonials: [
+    {
+      name: "Dhr. van der Meer",
+      location: "Loosdrechtse Plassen",
+      quote: "Jules heeft voor onze kavel aan de plas een ontwerp gemaakt dat binnen de scherpe regels van Wijdemeren toch maximale transparantie en ruimte biedt. De verbinding met het water is precies wat we zochten.",
+      role: "Nieuwbouw Villa aan het water",
+      image: "/images/loosdrecht/recreatiewoning-nieuwbouw-loosdrecht-architect-moderne-recreatie-woning.webp"
     }
   ],
 
   regio: {
-    name: "Wijdemeren",
+    name: "Loosdrecht",
+    municipality: "Wijdemeren",
+    province: "Noord-Holland",
+    geo: {
+      region: "NL-NH",
+      position: "52.2167;5.1000",
+      coordinates: {
+        latitude: 52.2167,
+        longitude: 5.1000
+      }
+    },
 
     // Intro sectie - H1 + intro tekst direct onder hero
     intro: {
-      h1: "Architect in Loosdrecht",
-      paragraph: "U zoekt een architect in Loosdrecht voor een verbouwing, aanbouw of nieuwbouwwoning aan de Loosdrechtse Plassen of in Nieuw Loosdrecht. Vanuit mijn basis in Loenen aan de Vecht werk ik met regelmaat in Loosdrecht en omgeving. Het doel is een ontwerp dat uw leven bij het water optimaal maakt - een woning die past bij uw dromen en hoe u hier wilt genieten van uw omgeving. Door ervaring met regelgeving en afwijkingsmogelijkheden ontstaat vaak meer ruimte dan verwacht om uw ideale woning te realiseren aan de Plassen."
+      h1: "Architect Loosdrecht",
+      paragraph: "U zoekt een architect in Loosdrecht voor een exclusieve verbouwing, aanbouw of nieuwbouwvilla aan de Loosdrechtse Plassen. Vanuit mijn passie voor water en architectuur help ik u bij het realiseren van een woning die het maximale haalt uit deze unieke locatie. Of het nu gaat om een modern paviljoen in Nieuw-Loosdrecht of een rietkapvilla in Breukeleveen, wij begeleiden het volledige proces bij gemeente Wijdemeren."
     },
 
     // Footer intro - H2 + contacttekst in de footer
     footerIntro: {
-      h2: "Architect in Loosdrecht of Breukeleveen nodig?",
-      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Loosdrecht, Breukeleveen of Nieuw Loosdrecht en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak op uw locatie wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie in gemeente Wijdemeren (of binnenkort gemeente Hilversum) en omgeving."
+      h2: "Uw droomhuis in Loosdrecht realiseren?",
+      paragraph: "Neem contact op voor een vrijblijvende kennismaking op uw locatie aan de Plassen. Samen verkennen we de mogelijkheden voor uw kavel of bestaande woning in Loosdrecht en omgeving."
     },
 
     collageImages: [
       {
         url: "/images/loosdrecht/luxe-villa-architect-loosdrecht-moderne-woning-zwembad-luxury-living-architekt-wijdemeren.webp",
-        alt: "Luxe villa met zwembad in Loosdrecht, moderne architectuur door architect Jules Zwijsen"
+        alt: "Luxe villa architect Loosdrecht, moderne woning met zwembad aan het water"
       },
       {
         url: "/images/loosdrecht/rieten-kap-villa-loosdrecht-wijdemeren-architect-moderne-woning-kavel-architekt.webp",
-        alt: "Moderne villa met rieten kap in Loosdrecht, ontwerp architect Wijdemeren"
+        alt: "Moderne rietkapvilla Loosdrecht, ontwerp architect Wijdemeren op eigen kavel"
       },
       {
         url: "/images/loosdrecht/moderne-villa-witte-gevels-architect-gelijkvloers-wonen-aan-het-water-wijdemeren-luxury-living.webp",
-        alt: "Moderne villa met witte gevels aan het water in Wijdemeren, gelijkvloers wonen"
+        alt: "Gelijkvloers wonen aan het water Loosdrecht, architectuur overzicht"
       },
       {
         url: "/images/loosdrecht/recreatiewoning-nieuwbouw-loosdrecht-architect-moderne-recreatie-woning.webp",
-        alt: "Nieuwbouw recreatiewoning in Loosdrecht, modern ontwerp door architect"
+        alt: "Architect recreatiewoning Loosdrecht, modern ontwerp aan de Plassen"
       },
       {
         url: "/images/loosdrecht/moderne-stacaravan-recreatiewoning-eigentijds-architect-houten-schermen-loosdrecht.webp",
-        alt: "Moderne recreatiewoning met houten schermen in Loosdrecht, eigentijds ontwerp"
+        alt: "Moderne recreatiewoning Loosdrecht met houten gevelbekleding"
       },
       {
         url: "/images/loosdrecht/modern interieur gebogen villa luxe architect loosdrecht villa vrijstaand bouwen bouwgrond.webp",
-        alt: "Modern interieur van gebogen villa in Loosdrecht, luxe vrijstaande woning op bouwgrond"
+        alt: "Luxe interieur villa Loosdrecht, interieurarchitectuur Jules Zwijsen"
       }
     ],
 
     municipalLinks: [
       {
-        title: "Bestemmingsplan Wijdemeren",
+        title: "Omgevingsloket Loosdrecht",
         url: "https://omgevingswet.overheid.nl/regels-op-de-kaart/zoeken/locatie",
-        description: "Controleer wat er mag op uw locatie volgens het gemeentelijke bestemmingsplan."
+        description: "Controleer de bouwmogelijkheden op uw kavel in Loosdrecht via de officiële kanalen."
       },
       {
-        title: "Welstandsnota Wijdemeren",
+        title: "Welstandseisen Wijdemeren",
         url: "https://www.wijdemeren.nl/nl/beleidsnota-s/Welstandsnota-2013-2MB.pdf",
-        description: "Inzicht in welstandscriteria en architectonische eisen voor uw bouwplan."
+        description: "Inzicht in aan welke architectonische eisen uw bouwplan moet voldoen in Loosdrecht."
       },
       {
-        title: "Leges en tarieven omgevingsvergunning",
+        title: "Leges Vergunning Wijdemeren",
         url: "https://lokaleregelgeving.overheid.nl/CVDR733879/1",
-        description: "Overzicht van gemeentelijke kosten voor vergunningaanvragen."
+        description: "Wat zijn de gemeentelijke kosten voor een bouwaavraag in Loosdrecht?"
       },
       {
-        title: "Vooroverleg gemeente Wijdemeren; Verken uw idee",
+        title: "Vooroverleg Gemeente",
         url: "https://www.wijdemeren.nl/verkenuwidee",
-        description: "Neem vooraf contact op met de gemeente voor advies over uw plannen."
+        description: "Uw bouwplannen vooraf toetsen bij de gemeente Wijdemeren."
       }
     ],
     expertise: {
-      h2: "Wat doet een architect in Loosdrecht?",
-      paragraph: "Als architect in Loosdrecht en omgeving ontwerpt Jules Zwijsen woningen met oog voor de unieke ligging aan de Loosdrechtse Plassen en het bijzondere veenlandschap. Van waterwoningen, recreatiewoningen tot landelijke villa's - elk ontwerp past bij de groene en waterrijke omgeving die de gemeente wijdemeren en hilversum zo uniek maken. En bovenal natuurlijk bij uw wensen en dromen zodat het uw thuis wordt.",
-      h3: "Architectonisch ontwerp aan de Plassen",
-      h3_paragraph: "Loosdrecht kent een bijzonder karakter door de nabijheid van water en natuur. Bij elk ontwerp wordt rekening gehouden met het dorpse karakter en de landschappelijke kwaliteiten van de omgeving. Jules Zwijsen heeft ruime ervaring met de gemeente Wijdemeren (binnenkort gemeente Hilversum), de welstandscommissie en procedures voor afwijking van het bestemmingsplan. Deze kennis zorgt ervoor dat uw project soepel tot realisatie komt en dat u optimaal kunt profiteren van de mogelijkheden die er zijn voor uw specifieke situatie.",
+      h2: "Expertise als architect in Loosdrecht",
+      paragraph: "Architect Jules Zwijsen combineert moderne architectuur met de specifieke landschappelijke kwaliteiten van de Loosdrechtse Plassen. Wij zijn gespecialiseerd in projecten waarbij de relatie tussen binnen en buiten cruciaal is.",
+      h3: "Bouwen aan de Loosdrechtse Plassen",
+      h3_paragraph: "De Plassen vragen om een architect die de regels van Wijdemeren kent maar ook durft te ontwerpen met visie. Onze ontwerpen kenmerken zich door grote glaspartijen, natuurlijke materialen en een vlekkeloze integratie in de omgeving. Bekijk ook onze projecten zoals de recreatiewoning in Loosdrecht voor inspiratie.",
       services: [
-        "Ontwerp van nieuwbouwwoningen in Loosdrecht, Nieuw Loosdrecht en Breukeleveen",
-        "Verbouw van woningen nabij de Loosdrechtse Plassen",
-        "Aanbouw, uitbreiding en verduurzaming van bestaande woningen",
-        "Begeleiding bij vergunningsaanvragen gemeente Wijdemeren en gemeente Hilversum",
-  
+        "Nieuwbouw van villa's en landhuizen in Loosdrecht",
+        "Verbouw en modernisering van woningen aan de Plassen",
+        "Begeleiding vergunningen bij gemeente Wijdemeren en Hilversum",
+        "Interieurontwerp en lichtplannen op maat",
+        "Quickscan voor kavels en bestaande bouw"
       ]
     }
   }
 };
+

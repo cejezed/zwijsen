@@ -3,8 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { FAQS } from '../data';
+import type { FAQ } from '../data/types';
 
-export const FAQSection: React.FC = () => {
+interface FAQSectionProps {
+  faqs?: FAQ[];
+}
+
+export const FAQSection: React.FC<FAQSectionProps> = ({ faqs = FAQS }) => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Genereer JSON-LD voor Google SEO
@@ -12,7 +17,7 @@ export const FAQSection: React.FC = () => {
     const schema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": FAQS.map(faq => ({
+      "mainEntity": faqs.map(faq => ({
         "@type": "Question",
         "name": faq.q,
         "acceptedAnswer": {
@@ -61,17 +66,17 @@ export const FAQSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-8">
         <div className="mb-40 space-y-8">
           <span className="mono text-amber-900 text-sm tracking-[1em] block uppercase font-black underline decoration-amber-600 decoration-4 underline-offset-8">FAQ / Zekerheid</span>
-          <h3 className="text-6xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-none">Uw Vragen, <br/>mijn expertise.</h3>
+          <h3 className="text-6xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-none">Uw Vragen, <br />mijn expertise.</h3>
           <p className="max-w-2xl text-stone-500 italic text-xl font-light">Wij geloven in volledige transparantie. Hieronder vindt u antwoorden op de meest gestelde vragen over het ontwerpproces en de realisatie van uw droomhuis.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {FAQS.map((faq, idx) => {
+          {faqs.map((faq, idx) => {
             const isActive = activeFaq === idx;
             return (
-              <motion.div 
-                key={idx} 
-                layout 
-                onClick={() => setActiveFaq(isActive ? null : idx)} 
+              <motion.div
+                key={idx}
+                layout
+                onClick={() => setActiveFaq(isActive ? null : idx)}
                 className={`relative p-12 md:p-16 border-2 transition-all duration-500 cursor-pointer overflow-hidden ${getFaqColors(faq.color, isActive)} ${isActive ? 'shadow-2xl scale-[1.02] z-20' : 'shadow-sm z-10'}`}
               >
                 <div className="space-y-10">
@@ -82,10 +87,10 @@ export const FAQSection: React.FC = () => {
                   </div>
                   <AnimatePresence>
                     {isActive && (
-                      <motion.div 
-                        initial={{ height: 0, opacity: 0 }} 
-                        animate={{ height: "auto", opacity: 1 }} 
-                        exit={{ height: 0, opacity: 0 }} 
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
                         className="overflow-hidden pt-12 border-t border-white/10 mt-12"
                       >
                         <p className="text-xl md:text-2xl font-light leading-relaxed opacity-90 italic">{faq.a}</p>

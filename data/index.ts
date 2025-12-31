@@ -81,6 +81,12 @@ export const getPageConfig = (region: string = 'default'): RegioConfig => {
     heroSlides: regionConfig.heroSlides || DEFAULT_CONFIG.heroSlides,
     projects: regionConfig.projects || DEFAULT_CONFIG.projects,
     processSteps: regionConfig.processSteps || DEFAULT_CONFIG.processSteps,
+    faqs: regionConfig.faqs || DEFAULT_CONFIG.faqs,
+    testimonials: regionConfig.testimonials || DEFAULT_CONFIG.testimonials,
+    breadcrumbs: [
+      ...(DEFAULT_CONFIG.breadcrumbs || []),
+      ...(regionConfig.breadcrumbs || [])
+    ],
     regio: {
       ...DEFAULT_CONFIG.regio,
       ...(regionConfig.regio || {}),

@@ -138,7 +138,7 @@ export const Navigation: React.FC<NavigationProps> = ({
       {/* Main Nav */}
       <nav className="fixed top-0 left-0 w-full p-4 md:p-10 z-[145] flex justify-between items-center mix-blend-difference text-white pointer-events-none">
         <div className="flex flex-col pointer-events-auto cursor-pointer" onClick={handleLogoClick}>
-          <h1 className="text-lg md:text-2xl font-black tracking-tighter leading-none uppercase">{BRAND_NAME}</h1>
+          <span className="text-lg md:text-2xl font-black tracking-tighter leading-none uppercase block">{BRAND_NAME}</span>
           <span className="mono text-[9px] md:text-[10px] uppercase tracking-[0.4em] mt-1 opacity-95 font-black">Architectuur & Realisatie</span>
         </div>
 

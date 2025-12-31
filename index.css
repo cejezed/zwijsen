@@ -33,3 +33,26 @@ body {
 ::-webkit-scrollbar-thumb { background: #000; }
 
 h1, h2, h3, h4 { line-height: 1.1; letter-spacing: -0.02em; }
+
+/* === PRERENDER OVERRIDES === */
+/* Voorkom dat Puppeteer een snapshot maakt van een 'onzichtbare' pagina door Framer Motion animaties */
+body.is-prerendering * {
+  animation: none !important;
+  transition: none !important;
+}
+
+body.is-prerendering [style*="opacity: 0"],
+body.is-prerendering .opacity-0 {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.is-prerendering [style*="transform"],
+body.is-prerendering .transform {
+  transform: none !important;
+}
+
+/* Verberg elementen die niet in de snapshot horen (zoals overlays) */
+body.is-prerendering .pointer-events-none {
+  display: none !important;
+}

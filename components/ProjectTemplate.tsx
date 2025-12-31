@@ -630,6 +630,21 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
       }
       metaTag.setAttribute('content', content);
     });
+
+    // === PRERENDER DISPATCH ===
+    const checkReady = () => {
+      const hasTitle = document.title.includes(project.title);
+      const hasDescription = document.querySelector('meta[name="description"]')?.getAttribute('content') === seoDescription;
+
+      if (hasTitle && hasDescription) {
+        setTimeout(() => {
+          document.dispatchEvent(new Event('render-event'));
+        }, 100);
+      } else {
+        setTimeout(checkReady, 50);
+      }
+    };
+    checkReady();
   }, [project.slug, project.seo, project.title, project.subtitle, project.tags, project.featuredImage.url]);
 
   return (

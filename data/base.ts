@@ -1,4 +1,4 @@
-import { IMAGES, HERO_SLIDES, PROJECTS, PROCESS_STEPS } from '../data';
+import { IMAGES, HERO_SLIDES, PROJECTS, PROCESS_STEPS, FAQS, TESTIMONIALS } from '../data';
 import type { RegioConfig } from './types';
 
 // Default/Global configuratie (fallback voor alle regio's)
@@ -9,6 +9,12 @@ export const DEFAULT_CONFIG: RegioConfig = {
   heroSlides: HERO_SLIDES,
   projects: PROJECTS,
   processSteps: PROCESS_STEPS,
+  faqs: FAQS,
+  testimonials: TESTIMONIALS,
+  breadcrumbs: [
+    { label: "Home", href: "/" },
+    { label: "Regio's", href: "/regios" }
+  ],
   regio: {
     name: "Loenen aan de Vecht",
     collageImages: [

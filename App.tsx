@@ -28,6 +28,13 @@ const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
+  useEffect(() => {
+    // Detecteer of we in een prerender phase zitten (Puppeteer/Headless)
+    if (navigator.webdriver || navigator.userAgent.includes('HeadlessChrome')) {
+      document.body.classList.add('is-prerendering');
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />

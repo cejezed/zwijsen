@@ -139,12 +139,6 @@ export const RegioDetail: React.FC = () => {
       setMetaTag('twitter:image', `https://www.zwijsen.net${config.heroSlides[0].url}`);
     }
 
-    // Add JSON-LD structured data for LocalBusiness/Architect
-    const existingScript = document.querySelector('script[type="application/ld+json"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
-
     // Build areaServed dynamically from region config
     const areaServed: any[] = [
       {
@@ -153,7 +147,6 @@ export const RegioDetail: React.FC = () => {
       }
     ];
 
-    // Add municipality and province if available
     if (config.regio?.municipality) {
       areaServed.push({
         "@type": "AdministrativeArea",
@@ -167,13 +160,15 @@ export const RegioDetail: React.FC = () => {
       });
     }
 
-    const structuredData = {
+    // 1. LocalBusiness / Architect / ProfessionalService Schema
+    const localBusinessSchema = {
       "@context": "https://schema.org",
       "@type": ["Architect", "LocalBusiness", "ProfessionalService"],
+      "@id": "https://www.zwijsen.net/#architect",
       "name": BRAND_NAME,
       "description": config.metaDescription || `Architect in ${config.regio?.name} voor nieuwbouw, verbouw en verduurzaming`,
       "url": currentUrl,
-      "image": "https://www.zwijsen.net/images/logo.png",
+      "image": config.ogImage || (config.heroSlides?.[0]?.url ? `https://www.zwijsen.net${config.heroSlides[0].url}` : "https://www.zwijsen.net/images/logo.png"),
       "logo": "https://www.zwijsen.net/images/logo.png",
       "telephone": PHONE_NUMBER,
       "email": EMAIL,
@@ -201,16 +196,54 @@ export const RegioDetail: React.FC = () => {
       ]
     };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
+    // 2. BreadcrumbList Schema
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": config.breadcrumbs?.map((crumb, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": crumb.label,
+        "item": crumb.href.startsWith('http') ? crumb.href : `https://www.zwijsen.net${crumb.href}`
+      }))
+    };
+
+    const businessScript = document.createElement('script');
+    businessScript.type = 'application/ld+json';
+    businessScript.id = 'schema-business';
+    businessScript.text = JSON.stringify(localBusinessSchema);
+    document.head.appendChild(businessScript);
+
+    const breadcrumbScript = document.createElement('script');
+    breadcrumbScript.type = 'application/ld+json';
+    breadcrumbScript.id = 'schema-breadcrumbs';
+    breadcrumbScript.text = JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(breadcrumbScript);
+
+    // === PRERENDER DISPATCH ===
+    // Wacht tot de domelementen en metadata er echt in staan
+    const checkReady = () => {
+      const hasTitle = document.title.includes(config.regio?.name || '');
+      const hasCanonical = document.querySelector('link[rel="canonical"]');
+      const hasSchema = document.getElementById('schema-business');
+
+      if (hasTitle && hasCanonical && hasSchema) {
+        // Kleine buffer voor Framer Motion "final state" (ook al hebben we de CSS hack)
+        setTimeout(() => {
+          document.dispatchEvent(new Event('render-event'));
+        }, 100);
+      } else {
+        // Probeer het over 50ms opnieuw
+        setTimeout(checkReady, 50);
+      }
+    };
+
+    // Start checking
+    checkReady();
 
     return () => {
-      const scriptToRemove = document.querySelector('script[type="application/ld+json"]');
-      if (scriptToRemove) {
-        scriptToRemove.remove();
-      }
+      document.getElementById('schema-business')?.remove();
+      document.getElementById('schema-breadcrumbs')?.remove();
     };
   }, [slug, config, location.pathname]);
 
@@ -229,6 +262,13 @@ export const RegioDetail: React.FC = () => {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Helper to ensure image is an object with url and alt
+  const ensureImageObject = (img: any): { url: string; alt: string } | undefined => {
+    if (!img) return undefined;
+    if (typeof img === 'string') return { url: img, alt: config.regio?.name || BRAND_NAME };
+    return { url: img.url, alt: img.alt };
+  };
 
   return (
     <>
@@ -272,13 +312,23 @@ export const RegioDetail: React.FC = () => {
           {/* Hero Section */}
           <HeroSection opacity={heroOpacity} heroSlides={config.heroSlides} />
 
+          {/* Minimal Breadcrumbs UI - Visible but subtle */}
+          <div className="absolute top-32 left-8 md:left-20 z-50 flex items-center gap-2 mono text-[10px] uppercase tracking-widest text-white/60">
+            {config.breadcrumbs?.map((crumb, i) => (
+              <React.Fragment key={i}>
+                <a href={crumb.href} className="hover:text-amber-500 transition-colors">{crumb.label}</a>
+                {i < config.breadcrumbs!.length - 1 && <span>/</span>}
+              </React.Fragment>
+            ))}
+          </div>
+
           {/* Intro Section - H1 + intro tekst direct onder hero */}
           {config.regio?.intro && (
             <IntroSection
               h1={config.regio.intro.h1}
               paragraph={config.regio.intro.paragraph}
               onCtaClick={() => setIsInquiryOpen(true)}
-              image={config.regio.collageImages?.[0]}
+              image={ensureImageObject(config.regio.collageImages?.[0])}
             />
           )}
 
@@ -296,23 +346,22 @@ export const RegioDetail: React.FC = () => {
             <ProcessSectionCompact processSteps={(config as any).processSteps || []} />
           </div>
 
-          {/* Region Section - This is the region-specific content */}
-          <RegionSection regio={config.regio} />
+          {/* Region Section - Move up to better integrate with content flow */}
+          <div id="regio-expert">
+            <RegionSection regio={config.regio} />
+          </div>
 
-          {/* Vision Section */}
-          <VisionSection onContactClick={() => window.location.hash = 'contact'} />
-
-          {/* Portfolio Section - Full portfolio grid - Always shows ALL projects */}
+          {/* Portfolio Section - Full portfolio grid */}
           <PortfolioSection
             projects={PROJECTS}
             onProjectClick={setSelectedProject}
           />
 
           {/* Testimonials Section */}
-          <TestimonialsSection />
+          <TestimonialsSection testimonials={config.testimonials} />
 
           {/* FAQ Section */}
-          <FAQSection />
+          <FAQSection faqs={config.faqs} />
 
           {/* Footer */}
           <Footer
@@ -320,7 +369,7 @@ export const RegioDetail: React.FC = () => {
             parallaxText={footerParallaxText}
             opacity={footerOpacity}
             regionFooterIntro={config.regio?.footerIntro}
-            regionFooterImage={config.regio?.collageImages?.[1]}
+            regionFooterImage={ensureImageObject(config.regio?.collageImages?.[1])}
           />
 
           {/* Scroll to Top Button */}

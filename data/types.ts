@@ -7,6 +7,23 @@ export interface HeroSlide {
   subtitleSize?: 'small' | 'medium' | 'large';  // Optioneel: grootte van de subtitle
 }
 
+// FAQ type
+export interface FAQ {
+  tag: string;
+  q: string;
+  a: string;
+  color: string;
+}
+
+// Testimonial type
+export interface Testimonial {
+  name: string;
+  location: string;
+  quote: string;
+  role: string;
+  image: string;
+}
+
 // Image met alt tekst
 export interface ImageWithAlt {
   url: string;
@@ -100,12 +117,27 @@ export interface ProcessStep {
 // Type definitie voor regio configuratie
 export interface RegioConfig {
   seoTitle: string;
-  metaDescription?: string;  // SEO meta description voor deze regio
+  metaDescription?: string;
+  ogImage?: string;       // Optionele specifieke OG image (1200x630)
+  canonicalUrl?: string;  // Optionele handmatige canonical
   heroSlides?: HeroSlide[];
-  projects?: Project[];  // Portfolio projecten voor deze regio
-  processSteps?: ProcessStep[];  // Werkwijze stappen (optioneel per regio)
+  projects?: Project[];
+  processSteps?: ProcessStep[];
+  faqs?: FAQ[];
+  testimonials?: Testimonial[];
+  breadcrumbs?: { label: string; href: string }[]; // Breadcrumbpad voor SEO
   regio: {
     name: string;
+    geo?: {
+      region?: string;
+      position?: string;
+      coordinates?: {
+        latitude: number;
+        longitude: number;
+      };
+    };
+    municipality?: string; // e.g. "Wijdemeren"
+    province?: string;     // e.g. "Noord-Holland"
     intro?: {
       h1: string;  // H1 titel, bijv. "Architect in Loenen aan de Vecht"
       paragraph: string;  // Intro tekst direct onder de hero
