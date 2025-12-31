@@ -121,7 +121,7 @@ export const loosdrechtConfig: Partial<RegioConfig> = {
     // Footer intro - H2 + contacttekst in de footer
     footerIntro: {
       h2: "Uw droomhuis in Loosdrecht realiseren?",
-      paragraph: "Neem contact op voor een vrijblijvende kennismaking op uw locatie aan de Plassen. Samen verkennen we de mogelijkheden voor uw kavel of bestaande woning in Loosdrecht en omgeving."
+      paragraph: "Neem contact op voor een vrijblijvende kennismaking op uw locatie. Samen verkennen we de mogelijkheden voor uw kavel of bestaande woning in Loosdrecht, Nieuw Loosdrecht of Breukeleveen."
     },
 
     collageImages: [
@@ -153,7 +153,7 @@ export const loosdrechtConfig: Partial<RegioConfig> = {
 
     municipalLinks: [
       {
-        title: "Omgevingsloket Loosdrecht",
+        title: "Omgevingsloket Wijdemeren",
         url: "https://omgevingswet.overheid.nl/regels-op-de-kaart/zoeken/locatie",
         description: "Controleer de bouwmogelijkheden op uw kavel in Loosdrecht via de officiële kanalen."
       },
@@ -175,7 +175,7 @@ export const loosdrechtConfig: Partial<RegioConfig> = {
     ],
     expertise: {
       h2: "Expertise als architect in Loosdrecht",
-      paragraph: "Architect Jules Zwijsen combineert moderne architectuur met de specifieke landschappelijke kwaliteiten van de Loosdrechtse Plassen. Wij zijn gespecialiseerd in projecten waarbij de relatie tussen binnen en buiten cruciaal is.",
+      paragraph: "Architect Jules Zwijsen combineert moderne architectuur met de specifieke landschappelijke kwaliteiten van de Loosdrechtse Plassen. Wij zijn gespecialiseerd in projecten waarbij de relatie tussen binnen en buiten cruciaal is. En natuurlijk volledig op de hoogte van mogelijkheden en onmogelijkheden, afwijkingsmogelijkheden en specifieke regels die de bestemmingsplannen Plassengebied Loosdrecht, Kernen Ankeveen, Kortenhoef en Nieuw Loosdrecht en Tussen de Dijken bieden.   ",
       h3: "Bouwen aan de Loosdrechtse Plassen",
       h3_paragraph: "De Plassen vragen om een architect die de regels van Wijdemeren kent maar ook durft te ontwerpen met visie. Onze ontwerpen kenmerken zich door grote glaspartijen, natuurlijke materialen en een vlekkeloze integratie in de omgeving. Bekijk ook onze projecten zoals de recreatiewoning in Loosdrecht voor inspiratie.",
       services: [
