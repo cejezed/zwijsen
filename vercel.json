@@ -1,31 +1,12 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/loenen-aan-de-vecht",
-      "destination": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
-      "source": "/loosdrecht",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/regios",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/regios/:slug",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/projecten",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/projecten/:slug",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/((?!api).*)",
+      "source": "/((?!assets|images|.*\\..*).*)",
       "destination": "/index.html"
     }
   ],

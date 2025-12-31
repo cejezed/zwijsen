@@ -11,7 +11,7 @@ const JSDOMRenderer = _require('@prerenderer/renderer-jsdom');
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: './',  // Use relative paths for assets
+    base: '/',  // Use absolute paths for assets
     server: {
       port: 3000,
       host: '0.0.0.0',
