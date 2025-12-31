@@ -1,14 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/[slug]/page": "app/[slug]/page.js",
-  "/portfolio/[slug]/page": "app/portfolio/[slug]/page.js",
-  "/quickscan/page": "app/quickscan/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/over-ons/page": "app/over-ons/page.js",
-  "/kosten/page": "app/kosten/page.js",
-  "/portfolio/page": "app/portfolio/page.js",
   "/page": "app/page.js",
-  "/architect/page": "app/architect/page.js",
-  "/werkwijze/page": "app/werkwijze/page.js",
+  "/[slug]/page": "app/[slug]/page.js",
   "/regios/page": "app/regios/page.js"
 }
