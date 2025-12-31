@@ -6,7 +6,7 @@ import { getAllPrerenderRoutes } from './data/routes';
 
 const _require = createRequire(import.meta.url);
 const prerender = _require('vite-plugin-prerender');
-const Renderer = prerender.PuppeteerRenderer;
+const JSDOMRenderer = _require('@prerenderer/renderer-jsdom');
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -26,11 +26,10 @@ export default defineConfig(({ mode }) => {
       prerender({
         staticDir: path.join(__dirname, 'dist'),
         routes: getAllPrerenderRoutes(),
-        renderer: new Renderer({
+        renderer: new JSDOMRenderer({
           renderAfterDocumentEvent: 'render-event',
-          headless: true,
-          // Geef de app de tijd om metadata te zetten
-          maxConcurrentRoutes: 4
+          // Backup: als het event niet komt, na 3 seconden alsnog knippen
+          renderAfterTime: 3000
         })
       })
     ],
