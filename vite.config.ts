@@ -1,10 +1,12 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import prerender from 'vite-plugin-prerender';
+import { createRequire } from 'module';
 import { getAllPrerenderRoutes } from './data/routes';
 
-const Renderer = (prerender as any).PuppeteerRenderer;
+const _require = createRequire(import.meta.url);
+const prerender = _require('vite-plugin-prerender');
+const Renderer = prerender.PuppeteerRenderer;
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
