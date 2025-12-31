@@ -52,8 +52,8 @@ export const getUniqueCategories = (
  */
 export const countByCategory = (
   projects: ProjectDetail[]
-): Record<ProjectCategory, number> => {
-  const counts: Partial<Record<ProjectCategory, number>> = {};
+): Record<string, number> => {
+  const counts: Record<string, number> = {};
 
   projects.forEach((project) => {
     project.categories?.forEach((cat) => {
@@ -61,13 +61,13 @@ export const countByCategory = (
     });
   });
 
-  return counts as Record<ProjectCategory, number>;
+  return counts;
 };
 
 /**
  * Categorie labels voor display
  */
-export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
+export const CATEGORY_LABELS: Partial<Record<string, string>> = {
   'nieuwbouw': 'Nieuwbouw',
   'verbouw': 'Verbouw',
   'verduurzaming': 'Verduurzaming',
@@ -79,7 +79,7 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
 /**
  * Categorie kleuren voor badges/UI
  */
-export const CATEGORY_COLORS: Record<ProjectCategory, { bg: string; text: string; border: string }> = {
+export const CATEGORY_COLORS: Partial<Record<string, { bg: string; text: string; border: string }>> = {
   'nieuwbouw': {
     bg: 'bg-blue-50',
     text: 'text-blue-700',

@@ -31,8 +31,8 @@ export const QuickProjectsGrid: React.FC<QuickProjectsGridProps> = ({ projects, 
               {/* Image Card */}
               <div className="relative aspect-[3/4] overflow-hidden bg-stone-200 rounded-lg shadow-md hover:shadow-xl transition-all duration-500">
                 <img
-                  src={project.image}
-                  alt={project.title}
+                  src={typeof project.image === 'string' ? project.image : project.image.url}
+                  alt={typeof project.image === 'string' ? project.title : project.image.alt || project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 

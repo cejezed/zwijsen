@@ -89,11 +89,14 @@ export const Contact: React.FC = () => {
       <InquiryOverlay
         isOpen={isInquiryOpen}
         onClose={() => setIsInquiryOpen(false)}
-      />
+      /> 
 
       {/* ContactBar */}
       <motion.div style={{ opacity: contactBarOpacity }}>
-        <ContactBar setIsInquiryOpen={setIsInquiryOpen} />
+        <ContactBar
+          opacity={contactBarOpacity}
+          onStartTraject={() => setIsInquiryOpen(true)}
+        />
       </motion.div>
 
       <div className="bg-white min-h-screen selection:bg-amber-100">

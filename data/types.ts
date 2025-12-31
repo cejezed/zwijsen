@@ -52,13 +52,7 @@ export interface RegionalProject {
 }
 
 // Project categorieën
-export type ProjectCategory =
-  | 'nieuwbouw'
-  | 'verbouw'
-  | 'verduurzaming'
-  | 'aanbouw'
-  | 'in-aanbouw'
-  | 'uitgelicht';
+export type ProjectCategory = string;
 
 // Project Detail type voor gedetailleerde projectpagina's
 export interface ProjectDetail {
@@ -80,6 +74,7 @@ export interface ProjectDetail {
   featuredImage: ImageWithAlt;
   heroImages: ImageWithAlt[];
   sections: ProjectSection[];
+  partners?: Array<{ label: string; name?: string; value?: string; href?: string }>;
   cta: {
     kicker: string;
     headline: string;

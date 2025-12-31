@@ -38,10 +38,17 @@ export const ServicesSection: React.FC = () => {
                              {i === 2 && <CheckCircle size={24} />}
                           </div>
                           <h4 className="text-4xl font-serif italic text-black">{s.title}</h4>
-                          <p className="text-stone-500 leading-relaxed font-light">{s.desc}</p>
+                          <p className="text-stone-500 leading-relaxed font-light">{s.description}</p>
                        </div>
                        <div className="flex flex-wrap gap-3 pt-12">
-                          {s.tags?.map(tag => <span key={tag} className="mono text-[10px] uppercase font-black tracking-widest border border-stone-200 px-3 py-1 rounded-full group-hover:border-amber-100 transition-colors">{tag}</span>)}
+                          {s.features?.map(feature => (
+                            <span
+                              key={feature}
+                              className="mono text-[10px] uppercase font-black tracking-widest border border-stone-200 px-3 py-1 rounded-full group-hover:border-amber-100 transition-colors"
+                            >
+                              {feature}
+                            </span>
+                          ))}
                        </div>
                     </motion.div>
                   ))}

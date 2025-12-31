@@ -1,20 +1,23 @@
 
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getPageConfig, BRAND_NAME, ADDRESS, PHONE_NUMBER, EMAIL } from '../../data/index';
 import { RegioDetailClient } from './RegioDetailClient';
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
 
-type Props = {
-    params: { slug: string }
-}
+type RegioParams = { slug: string };
+type RouteProps<T> = { params: Promise<T> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const config = getPageConfig(params.slug);
+export async function generateMetadata({ params }: RouteProps<RegioParams>): Promise<Metadata> {
+    const slug = (await params)?.slug;
+
+    if (!slug) {
+        return { title: 'Not Found' };
+    }
+
+    const config = getPageConfig(slug);
 
     if (!config.regio?.name) {
-        return {
-            title: 'Not Found'
-        };
+        return { title: 'Not Found' };
     }
 
     return {
@@ -29,15 +32,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function Page({ params }: Props) {
-    const config = getPageConfig(params.slug);
+export default async function Page({ params }: RouteProps<RegioParams>) {
+    const slug = (await params)?.slug;
+
+    if (!slug) {
+        notFound();
+    }
+
+    const config = getPageConfig(slug);
 
     if (!config.regio?.name) {
         notFound();
     }
 
     // Schema.org generation
-    const currentUrl = `https://www.zwijsen.net/${params.slug}`;
+    const currentUrl = `https://www.zwijsen.net/${slug}`;
 
     const areaServed: any[] = [
         {
@@ -115,7 +124,7 @@ export default function Page({ params }: Props) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-            <RegioDetailClient slug={params.slug} config={config} />
+            <RegioDetailClient slug={slug} config={config} />
         </>
     );
 }

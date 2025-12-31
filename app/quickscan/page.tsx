@@ -1,7 +1,7 @@
 'use client';
 
-import { Quickscan } from '../../_pages_old';
+import { QuickscanClient } from './QuickscanClient';
 
 export default function Page() {
-    return <Quickscan />;
+    return <QuickscanClient />;
 }
