@@ -20,8 +20,10 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Limiteer projecten tot maximaal 5
-  const limitedProjects = projects.slice(0, 25);
+  // Gebruik alleen projecten met een beschikbare image/featuredImage
+  const limitedProjects = projects.filter(
+    (p) => p?.image || p?.featuredImage
+  );
 
   // Natuurlijke scroll parallax
   const { scrollYProgress: wallScrollProgress } = useScroll({

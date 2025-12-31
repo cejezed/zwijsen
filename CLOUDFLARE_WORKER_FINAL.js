@@ -13,8 +13,9 @@ export default {
     // ============================================
     const VERCEL_DOMAIN = "zwijsen-eta.vercel.app";
 
+    // Voor de Next-site sturen we routes naar Vercel,
+    // maar de homepage ("/") blijft op WordPress.
     const VERCEL_ROUTES = [
-      "/", // homepage
       "/architect",
       "/werkwijze",
       "/kosten",
@@ -69,14 +70,17 @@ export default {
       });
       const response = await fetch(vercelRequest);
       const modifiedResponse = new Response(response.body, response);
-      modifiedResponse.headers.set("X-Proxy-Target", "Vercel-Images");
+      modifiedResponse.headers.set("X-Proxy-Target", "Vercel-Assets");
       return modifiedResponse;
     }
 
     // PRIORITEIT 3: Check of dit een Vercel route is
-    let shouldProxyToVercel = VERCEL_ROUTES.some(
-      (route) => pathname === route || pathname.startsWith(route + "/")
-    );
+    // Default: alles naar Vercel tenzij expliciet WP-assets of homepage
+    let shouldProxyToVercel =
+      pathname !== "/" &&
+      VERCEL_ROUTES.some(
+        (route) => pathname === route || pathname.startsWith(route + "/")
+      );
 
     if (shouldProxyToVercel) {
       // === PROXY NAAR VERCEL ===

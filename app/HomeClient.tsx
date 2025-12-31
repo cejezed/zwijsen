@@ -137,8 +137,7 @@ export const HomeClient: React.FC<HomeClientProps> = ({ initialConfig }) => {
                         <ProcessSection processSteps={pageConfig.processSteps} />
                     </div>
 
-                    {/* Region Section */}
-                    <RegionSection regio={pageConfig.regio} />
+
 
                     {/* Vision Section */}
                     <VisionSection onContactClick={() => window.location.hash = 'contact'} />

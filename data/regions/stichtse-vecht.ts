@@ -71,17 +71,17 @@ export const stichtseVechtConfig: Partial<RegioConfig> = {
 
   heroSlides: [
     {
-      url: "/images/stichtsevecht/nieuwbouw-landhuis-architekt-maarssen-stichtsevecht-luxe-villabouw-kavel-vervangende-nieuwbouw-ontwerp.webp",
+      url: "/images/stichtsevecht/moderne-uitbreiding-monumentale-woning-vechtstreek-stichtsevecht-architekt.webp",
       title: "ARCHITECT IN STICHTSE VECHT",
       subtitle: "Nieuwbouw, verbouw en monumentenzorg in de Vechtstreek"
     },
     {
-      url: "/images/stichtsevecht/moderne-villa-vechtstreek-architect-stichtsevecht-luxe-villa-modern.webp",
+      url: "/images/stichtsevecht/metamorfose-oude-woning-breukelen-stichtse-vecht-zandpad-architect-luxe-villa.webp",
       title: "VAN EERSTE SCHETS TOT OPLEVERING",
       subtitle: "Ontwerpen met respect voor het karakter van Stichtse Vecht"
     },
     {
-      url: "/images/stichtsevecht/verduurzamen-woning-maarssen-rieten-kap-architectenbureau-luxe-verbouw-villa.webp",
+      url: "/images/stichtsevecht/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
       title: "VAKMANSCHAP EN AANDACHT",
       subtitle: "Begeleiding bij vergunningen en contact met gemeente Stichtse Vecht"
     }
@@ -102,27 +102,27 @@ export const stichtseVechtConfig: Partial<RegioConfig> = {
 
     collageImages: [
       {
-        url: "/images/stichtsevecht/nieuwbouw-landhuis-architekt-maarssen-stichtsevecht-luxe-villabouw-kavel-vervangende-nieuwbouw-ontwerp.webp",
+        url: "/images/stichtsevecht/koetshuis-bij-monument-vechtstreek-nieuwbouw-klassiek-bijgebouw-maarssen.webp",
         alt: "Nieuwbouw landhuis in Stichtse Vecht, luxe villabouw op kavel door architect"
       },
       {
-        url: "/images/stichtsevecht/moderne-villa-vechtstreek-architect-stichtsevecht-luxe-villa-modern.webp",
+        url: "/images/stichtsevecht/renovatie-kickestein-loenen-aan-de-vecht-verbouw-karakteristieke-woning.webp",
         alt: "Moderne villa in de Vechtstreek Stichtse Vecht, luxe ontwerp architect"
       },
       {
-        url: "/images/stichtsevecht/verduurzamen-woning-maarssen-rieten-kap-architectenbureau-luxe-verbouw-villa.webp",
+        url: "/images/stichtsevecht/metamorfose-oude-woning-breukelen-stichtse-vecht-zandpad-architect-luxe-villa.webp",
         alt: "Verduurzaming woning met rieten kap in Stichtse Vecht, luxe verbouw door architectenbureau"
       },
       {
-        url: "/images/stichtsevecht/koetshuis-bij-monument-vechtstreek-nieuwbouw-klassiek-bijgebouw-maarssen.webp",
+        url: "/images/stichtsevecht/poortwoning-cronenburgh-loenen-aan-de-vecht-stichtse-vecht-ontwerp-villa-architect.webp",
         alt: "Nieuwbouw klassiek koetshuis bij monument in Stichtse Vecht Vechtstreek"
       },
       {
-        url: "/images/stichtsevecht/ontwerp-nieuwbouwwoning-modern-architect-maarssen-desgin-luxury-residence.webp",
+        url: "/images/stichtsevecht/moderne-uitbreiding-monumentale-woning-vechtstreek-stichtsevecht-architekt.webp",
         alt: "Ontwerp moderne nieuwbouwwoning in Stichtse Vecht, luxury residence architect"
       },
       {
-        url: "/images/stichtsevecht/inrerieur-nieuwbouwwoning-modern-architect-maarssen-desgin-luxury-residence-interior-design.webp",
+        url: "/images/stichtsevecht/luxe-villa-architect-loosdrecht-moderne-woning-zwembad-luxury-living-architekt-wijdemeren.webp",
         alt: "Modern interieur nieuwbouwwoning in Stichtse Vecht, luxury residence interior design"
       }
     ],

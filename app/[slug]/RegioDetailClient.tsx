@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
-import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER, PROJECTS } from '../../data/index';
+import { BRAND_NAME } from '../../data/index';
+import { PROJECTS_DETAIL } from '../../data/projecten';
 import type { RegioConfig, ImageWithAlt } from '../../data/types';
 import {
     HeroSection,
@@ -30,7 +31,6 @@ interface RegioDetailClientProps {
 
 export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, config }) => {
     const router = useRouter();
-    const pathname = usePathname();
     const footerRef = useRef<HTMLDivElement>(null);
 
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -75,6 +75,33 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
         if (typeof img === 'string') return { url: img, alt: config.regio?.name || BRAND_NAME };
         return { url: img.url, alt: img.alt };
     };
+
+    // Toon alle projecten in de scroller door PROJECTS_DETAIL te normaliseren naar het portfolio formaat
+    const portfolioProjects = useMemo(() => {
+        return PROJECTS_DETAIL.map((p, index) => {
+            const gallery = (p.heroImages || []).map(img => img.url).filter(Boolean);
+            const primaryImage = p.featuredImage?.url || gallery[0];
+            const baseGallery = gallery.length ? gallery : primaryImage ? [primaryImage] : [];
+            const paddedGallery = baseGallery.length >= 3
+                ? baseGallery
+                : [...baseGallery, ...Array.from({ length: 3 - baseGallery.length }, () => primaryImage || baseGallery[0]).filter(Boolean)];
+
+            return {
+                id: 1000 + index,
+                title: p.title,
+                location: p.locationLabel?.replace('Locatie: ', '') || '',
+                slug: p.slug,
+                image: primaryImage,
+                featuredImage: p.featuredImage,
+                year: 'N.N.B.',
+                area: 'N.N.B.',
+                tag: p.categories?.includes('nieuwbouw') ? 'Nieuwbouw' : p.categories?.includes('verbouw') ? 'Verbouw' : p.categories?.[0] || 'Project',
+                subtitle: p.subtitle,
+                description: p.subtitle,
+                gallery: paddedGallery
+            };
+        });
+    }, []);
 
     return (
         <>
@@ -157,9 +184,12 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
                         <RegionSection regio={config.regio} />
                     </div>
 
+                    {/* Vision Section - direct na de regio info */}
+                    <VisionSection onContactClick={() => setIsInquiryOpen(true)} />
+
                     {/* Portfolio Section - Full portfolio grid */}
                     <PortfolioSection
-                        projects={PROJECTS}
+                        projects={portfolioProjects}
                         onProjectClick={setSelectedProject}
                     />
 
