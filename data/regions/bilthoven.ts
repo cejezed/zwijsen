@@ -30,7 +30,7 @@ const bilthovenProjects = PROJECTS_DETAIL
   });
 
 export const bilthovenConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Bilthoven | Villabouw op de Heuvelrug | Jules Zwijsen",
+  seoTitle: "Architect gemeente De Bilt | Villabouw op de Heuvelrug | Jules Zwijsen",
   metaDescription: "Architect in Bilthoven voor exclusieve nieuwbouw villa's en landhuizen. Jules Zwijsen ontwerpt met oog voor de bosrijke omgeving van the Utrechtse Heuvelrug.",
   canonicalUrl: "https://www.zwijsen.net/bilthoven",
 
@@ -70,17 +70,17 @@ export const bilthovenConfig: Partial<RegioConfig> = {
 
   heroSlides: [
     {
-      url: "/images/bilthoven/luxury-living-architect-residence-bilthoven-new-villa-kavel.webp",
+      url: "/images/bilthoven/moderne-uitbouw-renovatie-woning-bilthoven-verduurzaming-architect.webp",
       title: "ARCHITECT IN BILTHOVEN",
       subtitle: "Villa's met oog voor de groene omgeving van de Utrechtse Heuvelrug"
     },
     {
-      url: "/images/bilthoven/landhuis-bilthoven-nieuwe-rieten-kap-villa-architect-bilthoven-kavel-bouwgrond.webp",
+      url: "/images/bilthoven/architekt moderne villa in het bos luxe bosvilla architect glazen paviljoen bilthoven architektenburo.webp",
       title: "VAN EERSTE SCHETS TOT OPLEVERING",
       subtitle: "Ontwerpen die passen bij het karakteristieke karakter van Bilthoven"
     },
     {
-      url: "/images/bilthoven/bilthoven-aanbouw-oude-woning-architect-verbouw-woning-verduurzaming-moderne-lichte-aanbouw.webp",
+      url: "/images/bilthoven/villa-entree-brede-houten-deur-betonvilla-bilthoven-bouwgrond-architect-luxe nieuwbouw.webp",
       title: "VAKMANSCHAP EN AANDACHT",
       subtitle: "Begeleiding bij vergunningen en contact met gemeente De Bilt"
     }
@@ -95,8 +95,8 @@ export const bilthovenConfig: Partial<RegioConfig> = {
     },
 
     footerIntro: {
-      h2: "Architect in Bilthoven nodig?",
-      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Bilthoven en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak op uw locatie wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie in Bilthoven en omgeving."
+      h2: "Architect in gemeente De Bilt nodig?",
+      paragraph: "Denkt u na over een verbouwing, aanbouw of nieuwbouwwoning in Bilthoven, Bosch en Duin of Den Dolder en wilt u daar met een architect over sparren? Neem contact op met Jules Zwijsen voor een vrijblijvend gesprek. Tijdens een afspraak op uw locatie wordt samen bekeken welke mogelijkheden er zijn voor uw woning en locatie in Bilthoven en omgeving."
     },
 
     collageImages: [
@@ -134,29 +134,29 @@ export const bilthovenConfig: Partial<RegioConfig> = {
       },
       {
         title: "Welstandsnota De Bilt",
-        url: "https://www.debilt.nl/",
+        url: "https://www.debilt.nl/fileadmin/bestanden/Bouwen_en_wonen/Welstandsnota_2013.pdf",
         description: "Inzicht in welstandscriteria en architectonische eisen voor uw bouwplan."
       },
       {
         title: "Leges en tarieven omgevingsvergunning",
-        url: "https://www.debilt.nl/",
+        url: "https://www.debilt.nl/bestuur-en-organisatie/wet-en-regelgeving/verordeningen-en-beleidsregels",
         description: "Overzicht van gemeentelijke kosten voor vergunningaanvragen."
       },
       {
         title: "Vooroverleg gemeente De Bilt",
-        url: "https://www.debilt.nl/bouwen-verbouwen",
+        url: "https://www.debilt.nl/bouwen-en-verbouwen",
         description: "Neem vooraf contact op met de gemeente voor advies over uw plannen."
       }
     ],
 
     expertise: {
-      h2: "Wat doet een architect in Bilthoven?",
-      paragraph: "Als architect in Bilthoven ontwerpt Jules Zwijsen villa's en landhuizen met oog voor de groene, bosrijke omgeving van de Utrechtse Heuvelrug. Van nieuwbouw villa's tot zorgvuldige uitbreidingen en verduurzaming van bestaande woningen - elk ontwerp past bij het karakteristieke villakarakter van Bilthoven.",
+      h2: "Wat doet een architect in gemeente De Bilt?",
+      paragraph: "Als architect in Bilthoven, Bosch en Duin en Den Dolder ontwerpt Jules Zwijsen villa's en landhuizen met oog voor de groene, bosrijke omgeving van de Utrechtse Heuvelrug. Van nieuwbouw villa's tot zorgvuldige uitbreidingen en verduurzaming van bestaande woningen - elk ontwerp past bij het karakteristieke villakarakter van Bilthoven. Bilthoven en omgeving worden gekenmerkt door een grote hoeveelheid vrijstaande villas die vaak technisch verouderd zijn. Door slim te gebruik te maken van bestaande onderdelen van de woning is het mogelijk om de woningen weer passend bij de huidge tijd te krijgen qua comfort en techniek. Vaak zijn maar minimale aanpassingen nodig om maximaal resultaat te halen.",
       h3: "Architectonisch ontwerp op de Utrechtse Heuvelrug",
-      h3_paragraph: "Bilthoven kent een bijzonder karakter door de ligging op de Utrechtse Heuvelrug en de vele villa's in groene, bosrijke omgeving. Bij elk ontwerp wordt rekening gehouden met de landschappelijke inpassing en de welstandscriteria. Door jarenlange ervaring met de welstandscommissie van gemeente De Bilt weet Jules Zwijsen precies hoe u uw project succesvol door de procedures leidt en tot realisatie brengt.",
+      h3_paragraph: "Bilthoven kent een bijzonder karakter door de ligging op de Utrechtse Heuvelrug en de vele villa's in groene, bosrijke omgeving. Bij elk ontwerp wordt rekening gehouden met de landschappelijke inpassing en de welstandscriteria. Door jarenlange ervaring met de welstandscommissie van gemeente De Bilt weet Jules Zwijsen precies hoe u uw project succesvol door de procedures leidt en tot realisatie brengt. De specifieke bestemmingsplannen, Bilthoven Noord en Zuid, Den Dolder, Bosch en Duin en Huis ter Heide hebben allen hun eigen specifieke randvoorwaarden die vaak veel mogelijk maken binnen een goede ruimtelijke inpassing",
       services: [
         "Ontwerp van nieuwbouw villa's in Bilthoven en omgeving",
-        "Verbouw en uitbreiding van woningen in bosrijke omgeving",
+        "Verbouw en uitbreiding van woningen in bosrijke omgeving van gemeente De Bilt",
         "Aanbouw en verduurzaming van bestaande woningen",
         "Begeleiding bij vergunningsaanvragen gemeente De Bilt",
         "Advies bij landschappelijke inpassing en welstandstoetsing"

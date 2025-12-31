@@ -134,17 +134,17 @@ export const vinkeveenConfig: Partial<RegioConfig> = {
       },
       {
         title: "Welstandsnota De Ronde Venen",
-        url: "https://www.derondevenen.nl/",
+        url: "https://www.derondevenen.nl/dsresource?objectid=e880d12e-9c02-4f88-84a0-6508ac6a6c33&type=PDF",
         description: "Inzicht in welstandscriteria en architectonische eisen voor uw bouwplan."
       },
       {
         title: "Leges en tarieven omgevingsvergunning",
-        url: "https://www.derondevenen.nl/bouwen-verbouwen",
+        url: "https://lokaleregelgeving.overheid.nl/CVDR731615",
         description: "Overzicht van gemeentelijke kosten voor vergunningaanvragen."
       },
       {
         title: "Vooroverleg gemeente De Ronde Venen",
-        url: "https://www.derondevenen.nl/bouwen-verbouwen",
+        url: "https://www.derondevenen.nl/Wonen_en_leven/Bouwen_verbouwen_en_slopen/Omgevingswet/Vooroverleg",
         description: "Neem vooraf contact op met de gemeente voor advies over uw plannen."
       },
       {
