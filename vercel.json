@@ -1,36 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "rewrites": [
-    {
-      "source": "/loenen-aan-de-vecht",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/loosdrecht",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/regios",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/regios/:slug",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/projecten",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/projecten/:slug",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/((?!api).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

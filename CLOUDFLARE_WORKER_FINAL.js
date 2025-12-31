@@ -14,7 +14,15 @@ export default {
     const VERCEL_DOMAIN = "zwijsen-eta.vercel.app";
 
     const VERCEL_ROUTES = [
-      "/regios",
+      "/", // homepage
+      "/architect",
+      "/werkwijze",
+      "/kosten",
+      "/portfolio", // includes /portfolio/[slug]
+      "/regios", // includes /regios/[slug]
+      "/quickscan",
+      "/contact",
+      "/over-ons",
       "/hilversum",
       "/loenen-aan-de-vecht",
       "/loosdrecht",
@@ -30,7 +38,6 @@ export default {
       "/wijdemeren",
       "/kortenhoef",
       "/vreeland",
-      "/portfolio",
       "/api",
     ];
 
@@ -47,9 +54,13 @@ export default {
       return modifiedResponse;
     }
 
-    // PRIORITEIT 2: Vercel static assets (images folder)
+    // PRIORITEIT 2: Vercel static assets (Next build output)
     // Deze zitten in de Vercel build en moeten naar Vercel
-    if (pathname.startsWith("/images/") || pathname.startsWith("/assets/")) {
+    if (
+      pathname.startsWith("/_next/") ||
+      pathname.startsWith("/images/") ||
+      pathname.startsWith("/assets/")
+    ) {
       const vercelUrl = `https://${VERCEL_DOMAIN}${pathname}${url.search}`;
       const vercelRequest = new Request(vercelUrl, {
         method: request.method,

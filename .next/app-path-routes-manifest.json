@@ -3,12 +3,12 @@
   "/[slug]/page": "/[slug]",
   "/portfolio/[slug]/page": "/portfolio/[slug]",
   "/quickscan/page": "/quickscan",
-  "/page": "/",
+  "/contact/page": "/contact",
+  "/over-ons/page": "/over-ons",
   "/kosten/page": "/kosten",
   "/portfolio/page": "/portfolio",
-  "/contact/page": "/contact",
+  "/page": "/",
   "/architect/page": "/architect",
-  "/regios/page": "/regios",
   "/werkwijze/page": "/werkwijze",
-  "/over-ons/page": "/over-ons"
+  "/regios/page": "/regios"
 }
