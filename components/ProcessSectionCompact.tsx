@@ -1,8 +1,9 @@
+'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Ruler, CheckCircle, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { PROCESS_STEPS } from '../data';
 import { SafeImage } from './UIElements';
 import type { ProcessStep } from '../data/index';
@@ -14,7 +15,7 @@ interface ProcessSectionCompactProps {
 export const ProcessSectionCompact: React.FC<ProcessSectionCompactProps> = ({ processSteps }) => {
   const steps = processSteps || PROCESS_STEPS;
   const [activeTab, setActiveTab] = useState(0);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <section className="relative bg-white py-12 md:py-24 px-6 md:px-12">
@@ -142,7 +143,7 @@ export const ProcessSectionCompact: React.FC<ProcessSectionCompactProps> = ({ pr
               </p>
             </div>
             <button
-              onClick={() => navigate('/werkwijze')}
+              onClick={() => router.push('/werkwijze')}
               className="flex items-center gap-3 px-8 py-4 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-all shadow-lg hover:shadow-xl mono text-xs uppercase tracking-[0.3em] font-black whitespace-nowrap"
             >
               Volledige werkwijze

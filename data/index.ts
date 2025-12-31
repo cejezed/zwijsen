@@ -7,6 +7,7 @@ import {
   maarssenConfig,
   hilversumConfig,
   bilthovenConfig,
+  utrechtConfig,
   stichtseVechtConfig,
   vinkeveenConfig
 } from './regions';
@@ -27,6 +28,9 @@ export const PAGE_CONFIG: Record<string, Partial<RegioConfig>> = {
 
   // Loosdrecht
   "loosdrecht": loosdrechtConfig,
+
+  // Utrecht
+  "utrecht": utrechtConfig,
 
   // Breukelen
   "breukelen": breukelenConfig,
@@ -102,3 +106,4 @@ export const getPageConfig = (region: string = 'default'): RegioConfig => {
 
 // Backwards compatibility - exporteer oude REGIO_DATA
 export const REGIO_DATA = DEFAULT_CONFIG.regio;
+export * from './constants';

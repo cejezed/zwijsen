@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Subtiel raster voor architecturale diepte */
+.arch-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 9999;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* === PRERENDER OVERRIDES === */
+/* Voorkom dat Puppeteer een snapshot maakt van een 'onzichtbare' pagina door Framer Motion animaties */
+body.is-prerendering * {
+  animation: none !important;
+  transition: none !important;
+}
+
+body.is-prerendering [style*="opacity: 0"],
+body.is-prerendering .opacity-0 {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.is-prerendering [style*="transform"],
+body.is-prerendering .transform {
+  transform: none !important;
+}
+
+/* Verberg elementen die niet in de snapshot horen (zoals overlays) */
+body.is-prerendering .pointer-events-none {
+  display: none !important;
+}

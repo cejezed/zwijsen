@@ -1,4 +1,4 @@
-import { IMAGES, HERO_SLIDES, PROJECTS, PROCESS_STEPS, FAQS, TESTIMONIALS } from '../data';
+import { IMAGES, HERO_SLIDES, PROJECTS, PROCESS_STEPS, FAQS, TESTIMONIALS } from './constants';
 import type { RegioConfig } from './types';
 
 // Default/Global configuratie (fallback voor alle regio's)

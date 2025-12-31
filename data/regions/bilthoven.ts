@@ -30,8 +30,41 @@ const bilthovenProjects = PROJECTS_DETAIL
   });
 
 export const bilthovenConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Bilthoven | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Bilthoven voor nieuwbouw en verbouw villa's. Jules Zwijsen ontwerpt woningen met oog voor de groene omgeving en het karakter van de Utrechtse Heuvelrug.",
+  seoTitle: "Architect Bilthoven | Villabouw op de Heuvelrug | Jules Zwijsen",
+  metaDescription: "Architect in Bilthoven voor exclusieve nieuwbouw villa's en landhuizen. Jules Zwijsen ontwerpt met oog voor de bosrijke omgeving van the Utrechtse Heuvelrug.",
+  canonicalUrl: "https://www.zwijsen.net/bilthoven",
+
+  breadcrumbs: [
+    { label: "Bilthoven", href: "/bilthoven" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "BOS",
+      q: "Wat zijn de belangrijkste regels voor bouwen in Bilthoven Noord?",
+      a: "In Bilthoven Noord en de omliggende bosgebieden gelden strenge regels voor het bebouwingspercentage en het kappen van bomen. Wij zijn meesters in het ontwerpen van woningen die de omringende natuur omarmen, waarbij we binnen de kaders van de gemeente De Bilt het maximale uit uw kavel halen.",
+      color: "emerald"
+    },
+    {
+      tag: "WELSTAND",
+      q: "Hoe kijkt de gemeente De Bilt naar moderne architectuur?",
+      a: "De gemeente De Bilt waardeert hoogwaardige architectuur die past bij het karakter van de Utrechtse Heuvelrug. Wij maken gebruik van natuurlijke materialen zoals hout, natuursteen en grote glasoppervlakken om een ontwerp te creëren dat tijdloos is en de goedkeuring van de welstand draagt.",
+      color: "amber"
+    },
+    {
+      tag: "DUURZAAM",
+      q: "Is het verduurzamen van een bestaande villa in Bilthoven rendabel?",
+      a: "Zeker. Veel oudere villa's in Bilthoven hebben een prachtig karakter maar een slecht energielabel. Wij combineren architectonische verfraaiing (bijv. een nieuwe gevel of uitbouw) met hoogwaardige isolatie en installatietechnieken, waardoor uw woning klaar is voor de toekomst.",
+      color: "blue"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Begeleiden jullie ook de bouw van een villa in Bilthoven?",
+      a: "Wij gaan verder dan alleen het ontwerp. Van de bestemmingsplan-check tot de selectie van de aannemer en de esthetische begeleiding tijdens de bouw: wij zorgen ervoor dat het resultaat exact wordt zoals we het samen bedacht hebben.",
+      color: "stone"
+    }
+  ],
 
   projects: bilthovenProjects,
 

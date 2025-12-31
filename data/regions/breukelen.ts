@@ -30,8 +30,41 @@ const breukelenProjects = PROJECTS_DETAIL
   });
 
 export const breukelenConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Breukelen | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Breukelen voor nieuwbouw, verbouw en monumentenzorg aan de Vecht. Jules Zwijsen ontwerpt woningen met oog voor het karakteristieke karakter van de Vechtstreek.",
+  seoTitle: "Architect Breukelen | Vechtstreek & Monumenten | Jules Zwijsen",
+  metaDescription: "Architect in Breukelen voor hoogwaardige nieuwbouw, verbouw en renovatie langs de Vecht. Specialist in monumentale panden en luxe villabouw in Stichtse Vecht.",
+  canonicalUrl: "https://www.zwijsen.net/breukelen",
+
+  breadcrumbs: [
+    { label: "Breukelen", href: "/breukelen" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "LOCATIE",
+      q: "Ontwerpen jullie ook woningen aan de Straatweg in Breukelen?",
+      a: "De Straatweg tussen Breukelen en Maarssen is een van de mooiste lanen van Nederland. Wij hebben veel ervaring met de specifieke eisen voor bouwen langs dit lint, waarbij zichtlijnen en de relatie met de Vecht een centrale rol spelen.",
+      color: "emerald"
+    },
+    {
+      tag: "MONUMENT",
+      q: "Is een moderne aanbouw bij een monument in Breukelen mogelijk?",
+      a: "Juist het contrast tussen een historisch pand en een moderne glazen uitbouw kan de krachtigste architectuur opleveren. Wij zijn gespecialiseerd in het verkrijgen van vergunningen voor dergelijke 'cross-overs' bij de monumentencommissie van Stichtse Vecht.",
+      color: "stone"
+    },
+    {
+      tag: "VERGUNNING",
+      q: "Hoe zit het met vergunningsvrij bouwen in de historische kern van Breukelen?",
+      a: "Binnen de historische kern gelden vaak strengere regels waardoor ook kleine aanpassingen al snel vergunningsplichtig zijn. Wij voeren een snelle scan voor u uit om te zien wat de mogelijkheden zijn op uw perceel.",
+      color: "amber"
+    },
+    {
+      tag: "DUURZAAM",
+      q: "Kan een monumentale woning in Breukelen verduurzaamd worden?",
+      a: "Zeker. Met technieken als monumentenglas, vloerisolatie en warmtepompen kunnen we ook historische panden naar een modern energielabel brengen zonder het karakter aan te tasten.",
+      color: "blue"
+    }
+  ],
 
   // Projecten voor Breukelen - eerste 4 worden getoond in QuickProjectsGrid
   projects: breukelenProjects,

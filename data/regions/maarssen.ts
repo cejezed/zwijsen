@@ -30,8 +30,41 @@ const maarssenProjects = PROJECTS_DETAIL
   });
 
 export const maarssenConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Maarssen | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Maarssen voor nieuwbouw, verbouw en monumentenzorg aan de Vecht. Jules Zwijsen ontwerpt woningen met oog voor het karakteristieke karakter van de Vechtstreek.",
+  seoTitle: "Architect Maarssen | Nieuwbouw & Verbouw langs de Vecht | Jules Zwijsen",
+  metaDescription: "Architect in Maarssen voor exclusieve nieuwbouw en verbouw van (monumentale) woningen. Jules Zwijsen: de specialist voor bouwen langs de Vecht in Stichtse Vecht.",
+  canonicalUrl: "https://www.zwijsen.net/maarssen",
+
+  breadcrumbs: [
+    { label: "Maarssen", href: "/maarssen" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "LOCATIE",
+      q: "Wat zijn de uitdagingen van bouwen langs de Vecht in Maarssen?",
+      a: "Bouwen langs de Vecht vraagt om een zorgvuldige balans tussen modern comfort en historisch respect. De gemeente Stichtse Vecht hanteert strikte regels voor zichtlijnen vanaf de rivier en de weg. Wij kennen deze kaders en weten hoe we de unieke kwaliteiten van een diepe tuin aan het water maximaal kunnen benutten.",
+      color: "emerald"
+    },
+    {
+      tag: "MONUMENT",
+      q: "Hoe ga je om met een herenhuis of buitenplaats in Maarssen-Dorp?",
+      a: "Maarssen kent veel rijks- en gemeentelijke monumenten. Voor verbouw of restauratie is een specifieke expertise nodig op het gebied van historisch materiaalgebruik en verduurzaming. Wij begeleiden het volledige traject van het eerste monumentenoverleg tot de uiteindelijke vergunning.",
+      color: "stone"
+    },
+    {
+      tag: "VERGUNNING",
+      q: "Hoe lang duurt een omgevingsvergunning traject in Stichtse Vecht?",
+      a: "Voor reguliere nieuwbouw of verbouw staat de wettelijke termijn op 8 weken, maar bij monumenten of complexe afwijkingen van het omgevingsplan kan dit langer zijn. Door een goed vooroverleg met de gemeente Maarssen/Stichtse Vecht proberen we dit proces te versnellen.",
+      color: "amber"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Zijn jullie ook beschikbaar voor een uitbouw in Maarssenbroek?",
+      a: "Zeker. Of het nu gaat om een klassiek herenhuis aan de Vecht of een moderne vergroting van een gezinswoning in Maarssenbroek, wij brengen dezelfde aandacht voor detail en kwaliteit mee naar elk project in de regio.",
+      color: "blue"
+    }
+  ],
 
   projects: maarssenProjects,
 

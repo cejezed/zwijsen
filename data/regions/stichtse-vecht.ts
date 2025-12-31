@@ -31,8 +31,41 @@ const stichtseVechtProjects = PROJECTS_DETAIL
   });
 
 export const stichtseVechtConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Stichtse Vecht | Loenen aan de Vecht, Breukelen, Maarssen, Nieuwersluis, Nigtevecht | Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Stichtse Vecht voor nieuwbouw, verbouw en monumentenzorg. Werkzaam in Loenen aan de Vecht, Breukelen, Maarssen, Nieuwersluis, Nigtevecht, Kockengen, Portengen, Tienhoven en Vreeland. Jules Zwijsen ontwerpt woningen met oog voor het karakteristieke karakter van de Vechtstreek.",
+  seoTitle: "Architect Stichtse Vecht | Exclusieve Villabouw | Jules Zwijsen",
+  metaDescription: "Architectenbureau in Stichtse Vecht voor nieuwbouw en verbouw villa's. Specialist in Loenen aan de Vecht, Breukelen en Maarssen. Jules Zwijsen ontwerpt met oog voor de Vechtstreek.",
+  canonicalUrl: "https://www.zwijsen.net/stichtse-vecht",
+
+  breadcrumbs: [
+    { label: "Stichtse Vecht", href: "/stichtse-vecht" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "REGIONAAL",
+      q: "In welke dorpen van Stichtse Vecht zijn jullie actief?",
+      a: "Hoewel wij gevestigd zijn in Loenen aan de Vecht, ontwerpen wij in de gehele gemeente. Of het nu gaat om een monumentaal pand in Breukelen, een moderne villa in Maarssen of een landelijk ontwerp in Kockengen of Vreeland; wij kennen de lokale omgevingsplannen door en door.",
+      color: "blue"
+    },
+    {
+      tag: "ERFGOED",
+      q: "Hoe ga je om met de cultuurhistorische waarde in Stichtse Vecht?",
+      a: "De Vechtstreek is uniek in Nederland. Elk ontwerp vraagt om een 'dialoog' met het verleden. Wij zorgen ervoor dat nieuwbouw niet vloekt met de historie, maar deze juist versterkt door hoogwaardig materiaalgebruik en zorgvuldige detaillering.",
+      color: "stone"
+    },
+    {
+      tag: "PROCEDURE",
+      q: "Wat is het voordeel van een architect met ervaring in Stichtse Vecht?",
+      a: "De gemeente Stichtse Vecht heeft een specifieke welstands- en monumentencommissie. Doordat wij hier wekelijks over de vloer komen, kennen wij de ongeschreven regels en voorkeuren, wat de kans op een snelle vergunning aanzienlijk vergroot.",
+      color: "amber"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Kunnen jullie een schatting geven van de stichtingskosten in deze regio?",
+      a: "Bouwen in de Vechtstreek brengt vaak extra kosten met zich mee door funderingsvereisten (heien), monumentale eisen of specifieke afwerking. Wij maken al in de schetsfase een realistische raming om verrassingen te voorkomen.",
+      color: "emerald"
+    }
+  ],
 
   projects: stichtseVechtProjects,
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { MoveLeft, ArrowRight, X, Maximize2, ChevronLeft, ChevronRight, Mail, Phone, ShieldCheck, Target, Layers, FileText, Users, PenTool } from 'lucide-react';
@@ -7,7 +9,8 @@ import { BRAND_NAME, EMAIL, PHONE_NUMBER } from '../data';
 import { InquiryForm } from './Overlays';
 import { RotatingText } from './RotatingText';
 import { PortfolioSection } from './PortfolioSection';
-import { useNavigate } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Lightbox: React.FC<{ images: ImageWithAlt[]; initialIndex: number; onClose: () => void }> = ({ images, initialIndex, onClose }) => {
   const [index, setIndex] = useState(initialIndex);
@@ -562,90 +565,11 @@ const SectionRenderer: React.FC<{ section: ProjectSection; index: number }> = ({
 };
 
 const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({ project, onBack }) => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    // Set SEO meta tags
-    const seoTitle = project.seo?.title || `${project.title} | ${BRAND_NAME}`;
-    const seoDescription = project.seo?.description || project.subtitle;
-    const seoKeywords = project.seo?.keywords?.join(', ') || project.tags.join(', ');
-    const ogImage = project.seo?.ogImage || project.featuredImage.url;
-
-    // Update document title
-    document.title = seoTitle;
-
-    // Update or create meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', seoDescription);
-
-    // Update or create meta keywords
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', seoKeywords);
-
-    // Update or create Open Graph meta tags
-    const ogTags = [
-      { property: 'og:title', content: seoTitle },
-      { property: 'og:description', content: seoDescription },
-      { property: 'og:image', content: ogImage },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: window.location.href }
-    ];
-
-    ogTags.forEach(({ property, content }) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    });
-
-    // Twitter Card meta tags
-    const twitterTags = [
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: seoTitle },
-      { name: 'twitter:description', content: seoDescription },
-      { name: 'twitter:image', content: ogImage }
-    ];
-
-    twitterTags.forEach(({ name, content }) => {
-      let metaTag = document.querySelector(`meta[name="${name}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('name', name);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    });
-
-    // === PRERENDER DISPATCH ===
-    const checkReady = () => {
-      const hasTitle = document.title.includes(project.title);
-      const hasDescription = document.querySelector('meta[name="description"]')?.getAttribute('content') === seoDescription;
-
-      if (hasTitle && hasDescription) {
-        setTimeout(() => {
-          document.dispatchEvent(new Event('render-event'));
-        }, 100);
-      } else {
-        setTimeout(checkReady, 50);
-      }
-    };
-    checkReady();
-  }, [project.slug, project.seo, project.title, project.subtitle, project.tags, project.featuredImage.url]);
+  }, [project.slug]);
 
   return (
     <motion.div
@@ -666,7 +590,18 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
       <main>
         <ProjectHeroSlideshow project={project} />
 
-        <div className="pt-16">
+        {/* Visual Breadcrumbs Section */}
+        <div className="max-w-7xl mx-auto px-6 pt-12">
+          <nav className="flex items-center gap-3 text-[11px] tracking-[0.3em] text-stone-400 uppercase font-medium">
+            <Link href="/" className="hover:text-amber-700 transition-colors">HOME</Link>
+            <ChevronRight size={12} className="text-stone-300" />
+            <Link href="/portfolio" className="hover:text-amber-700 transition-colors">PORTFOLIO</Link>
+            <ChevronRight size={12} className="text-stone-300" />
+            <span className="text-stone-800 border-b border-amber-500/30 pb-0.5">{project.title}</span>
+          </nav>
+        </div>
+
+        <div className="pt-4">
           {project.sections.map((section, i) => (
             <SectionRenderer key={i} section={section} index={i} />
           ))}
@@ -676,7 +611,7 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
         <PortfolioSection
           projects={PROJECTS_DETAIL}
           onProjectClick={(selectedProject) => {
-            navigate(`/portfolio/${selectedProject.slug}`);
+            router.push(`/portfolio/${selectedProject.slug}`);
             window.scrollTo(0, 0);
           }}
         />

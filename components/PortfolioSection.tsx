@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { MosaicItem } from './ProjectUI';
 import { ArrowRight } from 'lucide-react';
 
@@ -10,7 +12,7 @@ interface PortfolioSectionProps {
 }
 
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, onProjectClick }) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const wallContainerRef = useRef<HTMLDivElement>(null);
   const portfolioScrollRef = useRef<HTMLDivElement>(null);
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
@@ -58,7 +60,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
       <div className="px-12 md:px-32 mb-40 flex flex-col md:flex-row justify-between items-end gap-12">
         <div className="relative">
           <span className="mono text-amber-900 text-sm tracking-[1.2em] block uppercase mb-6 font-black">Uitgelichte projecten</span>
-          <h3 className="text-7xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-[0.85]">Vertaal uw <br/>Droom.</h3>
+          <h3 className="text-7xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-[0.85]">Vertaal uw <br />Droom.</h3>
         </div>
         <div className="max-w-md">
           <p className="text-stone-500 text-xl italic font-light leading-relaxed">Scroll horizontaal door ons portfolio. Sleep of scroll naar rechts voor meer inspiratie.</p>
@@ -154,7 +156,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
                   Meer Inspiratie
                 </span>
                 <h4 className="text-4xl md:text-6xl font-serif italic text-white leading-[0.95] tracking-tighter">
-                  Nieuwsgierig naar <br/>
+                  Nieuwsgierig naar <br />
                   <span className="text-amber-500">andere oplossingen?</span>
                 </h4>
                 <p className="text-lg md:text-xl font-light italic text-stone-300 leading-relaxed">
@@ -163,7 +165,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
               </div>
 
               <button
-                onClick={() => navigate('/portfolio')}
+                onClick={() => router.push('/portfolio')}
                 className="inline-flex items-center gap-6 bg-white text-black px-10 py-5 rounded-full mono text-xs uppercase tracking-[0.4em] font-black hover:bg-amber-600 hover:text-white transition-all group/btn shadow-2xl whitespace-nowrap cursor-pointer"
               >
                 Alle Projecten

@@ -30,8 +30,41 @@ const hilversumProjects = PROJECTS_DETAIL
   });
 
 export const hilversumConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Hilversum | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Hilversum voor nieuwbouw en verbouw villa's in het Gooi. Jules Zwijsen ontwerpt woningen met oog voor groene omgeving en architectonisch karakter.",
+  seoTitle: "Architect Hilversum | Nieuwbouw & Verbouw in het Gooi | Jules Zwijsen",
+  metaDescription: "Architect in Hilversum voor exclusieve villabouw, verbouw en landhuizen. Jules Zwijsen ontwerpt met oog voor de Dudok-traditie en de bosrijke omgeving van het Gooi.",
+  canonicalUrl: "https://www.zwijsen.net/hilversum",
+
+  breadcrumbs: [
+    { label: "Hilversum", href: "/hilversum" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "WELSTAND",
+      q: "Hoe gaat de gemeente Hilversum om met moderne architectuur?",
+      a: "Hilversum heeft een sterke architectuurtraditie (o.a. Dudok). De welstandscommissie kijkt kritisch naar materiaalgebruik en inpassing in het groen. Wij hebben veel ervaring met het vertalen van moderne woonwensen naar een ontwerp dat de goedkeuring van de Hilversumse welstand krijgt.",
+      color: "amber"
+    },
+    {
+      tag: "BOUWEN",
+      q: "Mag ik een bosperceel in Hilversum zomaar bebouwen?",
+      a: "In de bosrijke wijken van Hilversum en het Gooi gelden vaak strikte regels over de 'footprint' van een woning en het behoud van bomen. Wij voeren vakkundige kavelanalyses uit om te bepalen wat de maximale bouwmogelijkheden zijn binnen het geldende omgevingsplan.",
+      color: "emerald"
+    },
+    {
+      tag: "VERBOUW",
+      q: "Is een aanbouw aan een jaren '30 woning in Hilversum altijd vergunningsplichtig?",
+      a: "Veel woningen in Hilversum vallen onder beschermd stads- of dorpsgezicht. In dat geval is bijna elke wijziging aan de buitenzijde vergunningsplichtig. Wij verzorgen de volledige aanvraag omgevingsvergunning bij de gemeente Hilversum.",
+      color: "blue"
+    },
+    {
+      tag: "KOSTEN",
+      q: "Wat zijn de kosten van een architect voor een villa in het Gooi?",
+      a: "Wij werken met een transparante honorariumstructuur gebaseerd op de verschillende fasen van het ontwerp- en bouwproces. In een vrijblijvend kennismakingsgesprek schetsen we de route van eerste schets tot de uiteindelijke realisatie.",
+      color: "stone"
+    }
+  ],
 
   projects: hilversumProjects,
 

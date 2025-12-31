@@ -5,6 +5,7 @@ export { breukelenConfig } from './breukelen';
 export { maarssenConfig } from './maarssen';
 export { hilversumConfig } from './hilversum';
 export { bilthovenConfig } from './bilthoven';
+export { utrechtConfig } from './utrecht';
 export { stichtseVechtConfig } from './stichtse-vecht';
 export { vinkeveenConfig } from './vinkeveen';
 

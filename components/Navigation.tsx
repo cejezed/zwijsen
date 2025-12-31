@@ -1,6 +1,7 @@
+'use client';
 
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Phone } from 'lucide-react';
 import { BRAND_NAME, NAV_LINKS, PHONE_LINK } from '../data';
@@ -16,8 +17,8 @@ export const Navigation: React.FC<NavigationProps> = ({
   setIsMenuOpen,
   setIsInquiryOpen
 }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   // Detect if we're in a region page
   const REGION_ROUTES = [
@@ -26,23 +27,21 @@ export const Navigation: React.FC<NavigationProps> = ({
     'het-gooi', 'blaricum', 'laren', 'wijdemeren', 'kortenhoef', 'vreeland'
   ];
   const currentRegion = REGION_ROUTES.find(region =>
-    location.pathname === `/${region}` || location.pathname.startsWith(`/${region}/`)
+    pathname === `/${region}` || pathname.startsWith(`/${region}/`)
   );
 
   const handleLogoClick = () => {
     if (currentRegion) {
-      // Als we in een regio zijn, ga naar die regio home
-      if (location.pathname === `/${currentRegion}`) {
+      if (pathname === `/${currentRegion}`) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        navigate(`/${currentRegion}`);
+        router.push(`/${currentRegion}`);
       }
     } else {
-      // Anders naar de algemene home
-      if (location.pathname === '/') {
+      if (pathname === '/') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        navigate('/');
+        router.push('/');
       }
     }
   };
@@ -51,44 +50,37 @@ export const Navigation: React.FC<NavigationProps> = ({
     setIsMenuOpen(false);
 
     if (link.name === "Projecten") {
-      // ALTIJD naar de portfolio pagina
-      navigate('/portfolio');
+      router.push('/portfolio');
     } else if (link.name === "Regio's") {
-      navigate('/regios');
+      router.push('/regios');
     } else if (link.name === "Architect") {
-      // Navigate to Architect page
-      navigate('/architect');
+      router.push('/architect');
     } else if (link.name === "Werkwijze") {
-      // Navigate to Werkwijze page
-      navigate('/werkwijze');
+      router.push('/werkwijze');
     } else if (link.name === "Kosten") {
-      // Navigate to Kosten page
-      navigate('/kosten');
+      router.push('/kosten');
     } else if (link.name === "Contact") {
-      // Navigate to Contact page
-      navigate('/contact');
+      router.push('/contact');
     } else {
       // For anchor links (like #proces, #info, etc.)
       if (currentRegion) {
-        // Blijf in regio context
-        if (location.pathname === `/${currentRegion}`) {
+        if (pathname === `/${currentRegion}`) {
           const element = document.querySelector(link.href);
           element?.scrollIntoView({ behavior: 'smooth' });
         } else {
-          navigate(`/${currentRegion}`);
+          router.push(`/${currentRegion}`);
           setTimeout(() => {
             const element = document.querySelector(link.href);
             element?.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
+          }, 300);
         }
       } else {
-        // Ga naar algemene home
-        if (location.pathname !== '/') {
-          navigate('/');
+        if (pathname !== '/') {
+          router.push('/');
           setTimeout(() => {
             const element = document.querySelector(link.href);
             element?.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
+          }, 300);
         } else {
           const element = document.querySelector(link.href);
           element?.scrollIntoView({ behavior: 'smooth' });

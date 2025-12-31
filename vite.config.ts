@@ -21,17 +21,17 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
-      // === OPTIE A: PRERENDERING ACTIVATIE ===
-      // Dit genereert statische HTML files voor elke route tijdens de build.
+      // === OPTIE A: PRERENDERING (Tijdelijk uitgeschakeld voor stabiliteit) ===
+      /*
       prerender({
         staticDir: path.join(__dirname, 'dist'),
         routes: getAllPrerenderRoutes(),
         renderer: new JSDOMRenderer({
           renderAfterDocumentEvent: 'render-event',
-          // Backup: als het event niet komt, na 3 seconden alsnog knippen
           renderAfterTime: 3000
         })
       })
+      */
     ],
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

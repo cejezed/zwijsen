@@ -30,8 +30,41 @@ const vinkeveenProjects = PROJECTS_DETAIL
   });
 
 export const vinkeveenConfig: Partial<RegioConfig> = {
-  seoTitle: "Architect Vinkeveen | De Ronde Venen | Nieuwbouw en Verbouw Architectenbureau Jules Zwijsen",
-  metaDescription: "Architect in Vinkeveen en De Ronde Venen voor nieuwbouw en verbouw aan de Vinkeveense Plassen. Jules Zwijsen ontwerpt woningen met oog voor water en groene veenweideomgeving.",
+  seoTitle: "Architect Vinkeveen | Bouwen aan de Plassen | Jules Zwijsen",
+  metaDescription: "Architect in Vinkeveen voor villa's en waterwoningen aan de Vinkeveense Plassen. Jules Zwijsen: specialist in luxe nieuwbouw en verbouw in De Ronde Venen.",
+  canonicalUrl: "https://www.zwijsen.net/vinkeveen",
+
+  breadcrumbs: [
+    { label: "Vinkeveen", href: "/vinkeveen" }
+  ],
+
+  // Region-specific FAQs for SEO
+  faqs: [
+    {
+      tag: "WATER",
+      q: "Wat zijn de regels voor bouwen aan de Vinkeveense Plassen?",
+      a: "Bouwen direct aan het water vraagt om specifieke kennis van de Keur van het Waterschap en de provinciale regels. Daarnaast kijkt de gemeente De Ronde Venen streng naar de bouwhoogte en kapvorm die past in het landschap. Wij begeleiden u bij de afstemming met alle instanties.",
+      color: "blue"
+    },
+    {
+      tag: "GROND",
+      q: "Moet je in Vinkeveen altijd heien bij een aanbouw?",
+      a: "De ondergrond in Vinkeveen bestaat uit dikke veenlagen. Bijna elke constructieve wijziging of uitbreiding vraagt om een gedegen funderingsadvies en meestal een nieuwe paalfundering om verzakking te voorkomen. Wij werken samen met gespecialiseerde constructeurs in de regio.",
+      color: "emerald"
+    },
+    {
+      tag: "RECREATIE",
+      q: "Kan ik een recreatiewoning in Vinkeveen ombouwen tot permanente woning?",
+      a: "Dit is een veelgestelde vraag. Het omgevingsplan van De Ronde Venen is hier over het algemeen zeer terughoudend in. We kunnen echter wel onderzoeken wat de maximale verruimingsmogelijkheden zijn voor het huidige gebruik of een modernisering van de bestaande bebouwing.",
+      color: "stone"
+    },
+    {
+      tag: "VERGUNNING",
+      q: "Hoe adviseert de welstand in De Ronde Venen over moderne ontwerpen?",
+      a: "De welstandscommissie in De Ronde Venen waardeert eigentijdse architectuur, mits deze respect toont voor de openheid van het veenweidelandschap. Wij presenteren onze ontwerpen met 3D-visualisaties om de commissie te overtuigen van de kwaliteit en inpassing.",
+      color: "amber"
+    }
+  ],
 
   projects: vinkeveenProjects,
 
