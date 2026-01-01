@@ -31,7 +31,7 @@ const utrechtProjects = PROJECTS_DETAIL
 
 export const utrechtConfig: Partial<RegioConfig> = {
     seoTitle: "Architect Utrecht | Exclusieve Villabouw & Verbouw | Jules Zwijsen",
-    metaDescription: "Architect in Utrecht voor modern wonen, luxe verbouw en monumentale renovatie. Jules Zwijsen ontwerpt met oog voor de stad Utrecht en de omliggende Vechtstreek.",
+    metaDescription: "Architect in Utrecht, Vleuten of De Meern voor modern wonen, luxe verbouw en monumentale renovatie. Jules Zwijsen ontwerpt met oog voor de stad Utrecht en de omliggende Vechtstreek.",
     canonicalUrl: "https://www.zwijsen.net/utrecht",
 
     breadcrumbs: [
@@ -48,7 +48,7 @@ export const utrechtConfig: Partial<RegioConfig> = {
         {
             tag: "NIEUWBOUW",
             q: "Zijn jullie actief op kavels in Leidsche Rijn of Vleuten-De Meern?",
-            a: "De uitbreidingsgebieden van Utrecht bieden prachtige kansen voor moderne architectuur. Wij helpen u bij het vertalen van de beeldkwaliteitsplannen van de gemeente naar een uniek eigen ontwerp.",
+            a: "Zeker, en daar hebben we ook al projecten gerealiseerd. De uitbreidingsgebieden van Utrecht bieden prachtige kansen voor moderne architectuur. Wij helpen u bij het vertalen van de beeldkwaliteitsplannen van de gemeente naar een uniek eigen ontwerp.",
             color: "blue"
         },
         {
@@ -60,7 +60,7 @@ export const utrechtConfig: Partial<RegioConfig> = {
         {
             tag: "PROCES",
             q: "Kunnen we een vrijblijvend gesprek plannen in Utrecht?",
-            a: "Natuurlijk. Hoewel ons bureau in Loenen aan de Vecht is gevestigd, komen we graag naar u toe in Utrecht om de locatie te bekijken en uw eerste ideeën te bespreken.",
+            a: "Natuurlijk. Hoewel ons bureau in Loenen aan de Vecht is gevestigd, komen we graag vrijblijvend naar u toe in Utrecht, Vleuten, De meern of ergens anders om de locatie te bekijken, kennis te maken en uw eerste ideeën te bespreken.",
             color: "emerald"
         }
     ],
@@ -69,12 +69,12 @@ export const utrechtConfig: Partial<RegioConfig> = {
 
     heroSlides: [
         {
-            url: "/images/utrecht/landhuis-utrecht-nieuwe-villa-architect-kavel-bouwgrond.webp",
+            url: "/images/utrecht/moderne-uitbreiding-monumentale-woning-vechtstreek-utrecht-architekt.webp",
             title: "ARCHITECT IN UTRECHT",
             subtitle: "Exclusief wonen in de stad en de omliggende Vechtstreek"
         },
         {
-            url: "/images/utrecht/modern-interieur-villa-utrecht-architect-design.webp",
+            url: "/images/utrecht/luxe-villa-architect-loosdrecht-moderne-woning-zwembad-luxury-living-architekt-wijdemeren.webp",
             title: "VAN SCHETS TOT REALISATIE",
             subtitle: "Wij begeleiden uw volledige bouwproces in Utrecht"
         }
@@ -93,31 +93,56 @@ export const utrechtConfig: Partial<RegioConfig> = {
             paragraph: "Wilt u bouwen of verbouwen in Utrecht? Of het nu gaat om een modern herenhuis of een vrijstaande villa, wij staan u bij in het gehele proces. Neem contact op voor een kennismaking."
         },
 
-        collageImages: [], // Wordt gevuld met relevante projectbeelden
+        collageImages: [
+      {
+        url: "/images/utrecht/Villa-kavel-Vleuten-utrecht-architect.webp",
+        alt: "Moderne villa op kavel Vleuten Utrecht door lokale architect Zwijsen"
+      },
+      {
+        url: "/images/utrecht/moderne-uitbreiding-monumentale-woning-vechtstreek-utrecht-architekt.webp",
+        alt: "Moderne uitbreiding monumentale woning Vechtstreek Utrecht architect"
+      },
+      {
+        url: "/images/utrecht/metamorfose-oude-woning-breukelen-utrecht-zandpad-architect-luxe-villa.webp",
+        alt: "Metamorfose oude woning naar luxe villa Breukelen Utrecht zandpad architect"
+      },
+      {
+        url: "/images/utrecht/renovatie-kickestein-provncie-utrecht-verbouw-karakteristieke-woning.webp",
+        alt: "Renovatie karakteristieke woning Kijkestein Utrecht provincie verbouw architect"
+      },
+      {
+        url: "/images/utrecht/luxe-villa-architect-loosdrecht-moderne-woning-zwembad-luxury-living-architekt-wijdemeren.webp",
+        alt: "Luxe moderne villa met zwembad Breukeleveen architect Zwijsen"
+      },
+      {
+        url: "/images/utrecht/koetshuis-bij-monument-vechtstreek-nieuwbouw-klassiek-bijgebouw-utrecht.webp",
+        alt: "Nieuwbouw koetshuis bij monument Vechtstreek Utrecht klassiek bijgebouw"
+      }
+    ],
 
         municipalLinks: [
             {
                 title: "Omgevingsloket Utrecht",
-                url: "https://www.utrecht.nl/wonen-en-leven/bouwen/",
+                url: "https://loket.digitaal.utrecht.nl/nl/producten/omgevingsvergunning-aanvragen",
                 description: "Informatie over bouwen en verbouwen in de gemeente Utrecht."
             },
             {
                 title: "Welstandsnota Utrecht",
-                url: "https://www.utrecht.nl/wonen-en-leven/bouwen/welstand/",
+                url: "https://omgevingsvisie.utrecht.nl/thematisch-beleid/welstand/welstandsnota",
                 description: "Inzicht in de esthetische eisen die de gemeente Utrecht stelt."
             }
         ],
 
         expertise: {
             h2: "Specialist in de regio Utrecht",
-            paragraph: "Als architect met een bureau vlakbij Utrecht kennen we de lokale dynamiek en de verschillende bouwstijlen die de stad kenmerken.",
+            paragraph: "Als architect met een bureau in de provincie Utrecht kennen we de lokale dynamiek en de verschillende bouwstijlen die de steden en omgeving kenmerken.",
             h3: "Bouwen en verbouwen in Utrecht",
             h3_paragraph: "Utrecht biedt een diversiteit aan woonmilieus, van historische grachtengevels tot ruime kavels aan de stadsrand. Wij navigeren u door de complexe regelgeving.",
             services: [
-                "Luxe villabouw Utrecht",
-                "Renovatie van herenhuizen",
-                "Moderne interieurarchitectuur",
-                "Begeleiding vergunningtrajecten"
+                "Luxe villabouw Utrecht, vechtstreek, Vleuten en De Meern",
+                "Renovatie en verduurzaming van herenhuizen, villas en monumenten",
+                "Moderne architectuur passend in historische context",
+                "Begeleiding vergunningtrajecten, van eerste schets tot oplevering"
             ]
         }
     }

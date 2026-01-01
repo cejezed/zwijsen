@@ -36,6 +36,33 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 }
 
 
+// Validate ../../app/(marketing)/aanbouw-woning/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/aanbouw-woning">> = Specific
+  const handler = {} as typeof import("../../app/(marketing)/aanbouw-woning/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/(marketing)/nieuwbouw-villa/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/nieuwbouw-villa">> = Specific
+  const handler = {} as typeof import("../../app/(marketing)/nieuwbouw-villa/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/(marketing)/verbouwing-woning/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/verbouwing-woning">> = Specific
+  const handler = {} as typeof import("../../app/(marketing)/verbouwing-woning/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/[slug]/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/[slug]">> = Specific
