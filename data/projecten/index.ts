@@ -32,6 +32,20 @@ export { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 export { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 export { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 export { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+export { villavleuten } from './light-vleuten-villa.ts';
+export { villaabcoude } from './light-aboude-land-van-winkel-villa.ts';
+export { villareo59 } from './light-Rieteiland-Oost-IJburg-vila-59.ts';
+export { villareo36 } from './light-Rieteiland-Oost-IJburg-villa-36.ts';
+export { villareo16 } from './light-Rieteiland-Oost-IJburg-villa-16.ts';
+export { Muidenstal } from './light-Muiden-verbouw-stal.ts';
+export { Muidendijkwoning } from './light-Muiden-dijkwoning.ts';
+export { Bilthovenjaren30 } from './light-Bilthoven-verbouw-aanbouw-jaren30.ts';
+export { Bilthovenjaren30aanbouw } from './light-Bilthoven-moderne-aanbouw.ts';
+export { Bilthovenveranda } from './light-Bilthoven-tuinkamer-veranda.ts';
+export { plantagehuis } from './light-vreeland-plantagehuis.ts';
+export { warmehand } from './light-nieuwersluis-warme-hand.ts';
+export { Breukelentuinkamer } from './light-breukelen-tuinkamer-vecht.ts';
+export { Breukelenaanbouw } from './light-Breukelen-aanbouw-villa.ts';
 
 // Importeer projecten voor de array
 import { levensloopbestendigeniorenwoningenLoenen } from './levensloopbestendige-seniorenwoningen-loenen';
@@ -62,13 +76,27 @@ import { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 import { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 import { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 import { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+import { villavleuten } from './light-vleuten-villa.ts';
+import { villaabcoude } from './light-aboude-land-van-winkel-villa.ts';
+import { villareo59 } from './light-Rieteiland-Oost-IJburg-vila-59.ts';
+import { villareo36 } from './light-Rieteiland-Oost-IJburg-villa-36.ts';
+import { villareo16 } from './light-Rieteiland-Oost-IJburg-villa-16.ts';  
+import { Muidenstal } from './light-Muiden-verbouw-stal.ts';
+import { Muidendijkwoning } from './light-Muiden-dijkwoning.ts';
+import { Bilthovenjaren30 } from './light-Bilthoven-verbouw-aanbouw-jaren30.ts';
+import { Bilthovenjaren30aanbouw } from './light-Bilthoven-moderne-aanbouw.ts';
+import { Bilthovenveranda } from './light-Bilthoven-tuinkamer-veranda.ts';
+import { plantagehuis } from './light-vreeland-plantagehuis.ts';
+import { warmehand } from './light-nieuwersluis-warme-hand.ts';
+import { Breukelentuinkamer } from './light-breukelen-tuinkamer-vecht.ts';
+import { Breukelenaanbouw } from './light-Breukelen-aanbouw-villa.ts';
 
 /**
  * Centrale export van alle project details
  * Voeg hier nieuwe projecten toe wanneer je ze aanmaakt
  */
 export const PROJECTS_DETAIL: ProjectDetail[] = [
-  verbouwLuxeVillaZandvoort,
+  verbouwLuxeVillaZandvoort,  
   moderneRietkapvillaHetGooi,
   moderneVernieuwbouwvillaUitzichtGroenLelystad,
   villaGameren,
@@ -96,4 +124,18 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   torenwoningCronenburghLoenen,
   moderneRecreatiewoningVecht,
   villaKasteelparkDeCloese,
+  villavleuten,
+  villaabcoude,
+  villareo59, 
+  villareo36,
+  villareo16,
+  Muidenstal,
+  Muidendijkwoning,
+  Bilthovenjaren30,
+  Bilthovenjaren30aanbouw,
+  Bilthovenveranda,
+  plantagehuis,
+  warmehand,
+  Breukelentuinkamer,
+  Breukelenaanbouw
 ];

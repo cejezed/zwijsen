@@ -93,6 +93,7 @@ export const ProjectDetailOverlay: React.FC<{ project: any; onClose: () => void 
   }, []);
 
   if (!project) return null;
+  const displayTitle = project.title || project.slug || 'Project';
 
   return (
     <motion.div
@@ -107,60 +108,66 @@ export const ProjectDetailOverlay: React.FC<{ project: any; onClose: () => void 
           <SafeImage localSrc={imageLocal(project.image)} fallbackSrc={project.image} className="w-full h-full object-cover" alt={project.title} />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute bottom-24 left-12 md:left-32 max-w-4xl text-white">
-            <span className="mono text-xs md:text-sm uppercase tracking-[0.6em] font-black mb-6 block text-amber-500">Masterplan / {project.year}</span>
-            <h2 className="text-8xl md:text-[10vw] font-serif italic leading-[0.8] tracking-tighter mb-12">{project.title}</h2>
+            <span className="mono text-xs md:text-sm uppercase tracking-[0.6em] font-black mb-6 block text-amber-500">Project / {project.year}</span>
+            <h2 className="text-8xl md:text-[10vw] font-serif italic leading-[0.8] tracking-tighter mb-12">{displayTitle}</h2>
             <div className="flex flex-wrap gap-12 md:gap-24 pt-12 border-t border-white/20">
               <div className="flex flex-col gap-2"><span className="mono text-[11px] uppercase text-white/50 tracking-widest">Locatie</span><span className="text-2xl italic font-serif">{project.location}</span></div>
               <div className="flex flex-col gap-2"><span className="mono text-[11px] uppercase text-white/50 tracking-widest">Gebruik</span><span className="text-2xl italic font-serif">{project.tag}</span></div>
-              <div className="flex flex-col gap-2"><span className="mono text-[11px] uppercase text-white/50 tracking-widest">Volume</span><span className="text-2xl italic font-serif">{project.area}</span></div>
+              <div className="flex flex-col gap-2"><span className="mono text-[11px] uppercase text-white/50 tracking-widest">Oppervlak</span><span className="text-2xl italic font-serif">{project.area}</span></div>
             </div>
           </div>
         </div>
-        <div className="py-64 px-12 md:px-32 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-          <div className="space-y-16">
-            <div className="space-y-6">
-              <span className="mono text-amber-800 text-xs tracking-[1em] block uppercase font-black">Filosofie</span>
-              <h3 className="text-7xl font-serif italic text-black leading-[0.9] tracking-tighter">
-                {project.philosophy || project.subtitle || 'De kunst van het weglaten.'}
-              </h3>
+        <div className="py-48 px-6 md:px-12 lg:px-16 w-full">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
+            <div className="w-full lg:w-2/5 space-y-10">
+              <div className="space-y-6">
+                <span className="mono text-amber-800 text-xs tracking-[1em] block uppercase font-black">Filosofie</span>
+                <h3 className="text-6xl lg:text-7xl font-serif italic text-black leading-[0.9] tracking-tighter">
+                  {displayTitle}
+                </h3>
+              </div>
+              <p className="text-2xl md:text-3xl text-stone-800 font-light leading-relaxed italic border-l-4 border-amber-600 pl-8 lg:pl-10">
+                {project.description}
+              </p>
+              <div className="grid grid-cols-2 gap-10 pt-10 border-t border-stone-100">
+                <div className="flex items-center gap-5 text-stone-900"><Layers size={24} className="text-amber-600" /> <span className="mono text-[11px] uppercase tracking-widest font-black">Licht & Schaduw</span></div>
+                <div className="flex items-center gap-5 text-stone-900"><Ruler size={24} className="text-amber-600" /> <span className="mono text-[11px] uppercase tracking-widest font-black">Zichtlijnen</span></div>
+              </div>
             </div>
-            <p className="text-3xl text-stone-800 font-light leading-relaxed italic border-l-4 border-amber-600 pl-12">{project.description}</p>
-            <div className="grid grid-cols-2 gap-12 pt-16 border-t border-stone-100">
-              <div className="flex items-center gap-6 text-stone-900"><Layers size={24} className="text-amber-600" /> <span className="mono text-[11px] uppercase tracking-widest font-black">Licht & Schaduw</span></div>
-              <div className="flex items-center gap-6 text-stone-900"><Ruler size={24} className="text-amber-600" /> <span className="mono text-[11px] uppercase tracking-widest font-black">Zichtlijnen</span></div>
+            <div className="w-full lg:w-3/5 bg-stone-50 p-6 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-1000">
+              <SafeImage
+                localSrc={imageLocal(getImageUrl(project.gallery?.[1] || project.gallery?.[0]))}
+                fallbackSrc={getImageUrl(project.gallery?.[1] || project.gallery?.[0])}
+                className="w-full h-[70vh] object-cover"
+                alt={getImageAlt(project.gallery?.[1] || project.gallery?.[0], "Interieur detail")}
+              />
             </div>
-          </div>
-          <div className="bg-stone-50 p-6 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-1000">
-            <SafeImage
-              localSrc={imageLocal(getImageUrl(project.gallery[1]))}
-              fallbackSrc={getImageUrl(project.gallery[1])}
-              className="w-full h-full object-cover"
-              alt={getImageAlt(project.gallery[1], "Interieur detail")}
-            />
           </div>
         </div>
-        <div className="pb-64 px-12 md:px-32">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-7">
-              <SafeImage
-                localSrc={imageLocal(getImageUrl(project.gallery[2]))}
-                fallbackSrc={getImageUrl(project.gallery[2])}
-                className="w-full h-[90vh] object-cover shadow-xl"
-                alt={getImageAlt(project.gallery[2], "Perspectief 1")}
-              />
+        <div className="pb-48 px-6 md:px-12">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-[2px] bg-amber-600" />
+              <span className="mono text-[11px] uppercase tracking-[0.4em] text-stone-500 font-black">Galerij</span>
             </div>
-            <div className="md:col-span-5 pt-32">
-              <SafeImage
-                localSrc={imageLocal(getImageUrl(project.gallery[0]))}
-                fallbackSrc={getImageUrl(project.gallery[0])}
-                className="w-full h-[70vh] object-cover shadow-xl"
-                alt={getImageAlt(project.gallery[0], "Perspectief 2")}
-              />
+            <div className="overflow-x-auto">
+              <div className="flex gap-3 md:gap-4 min-w-max pb-2">
+                {(project.gallery || []).map((img: any, i: number) => (
+                  <div key={i} className="flex-none max-w-[520px] flex items-center justify-center">
+                    <SafeImage
+                      localSrc={imageLocal(getImageUrl(img))}
+                      fallbackSrc={getImageUrl(img)}
+                      className="h-[260px] md:h-[320px] lg:h-[380px] w-auto object-contain"
+                      alt={getImageAlt(img, `Galerij beeld ${i + 1}`)}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
         <div className="py-48 bg-black text-center flex flex-col items-center gap-12">
-          <span className="mono text-amber-500 text-sm tracking-[1em] uppercase font-black">Contact</span>
+          <span className="mono text-amber-500 text-sm tracking-[1em] uppercase font-black">Uw project ook hier?</span>
           <h4 className="text-white text-6xl md:text-8xl font-serif italic leading-none">Vertaal uw droom <br /> naar architectuur.</h4>
           <button onClick={onClose} className="mt-12 px-20 py-10 bg-white text-black mono text-sm uppercase tracking-[0.6em] font-black hover:bg-amber-600 hover:text-white transition-all duration-500">Sluiten & Terug</button>
         </div>

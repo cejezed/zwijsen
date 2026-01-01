@@ -3,16 +3,16 @@
   "/[slug]/page": "/[slug]",
   "/portfolio/[slug]/page": "/portfolio/[slug]",
   "/quickscan/page": "/quickscan",
-  "/(marketing)/aanbouw-woning/page": "/aanbouw-woning",
   "/architect/page": "/architect",
+  "/(marketing)/aanbouw-woning/page": "/aanbouw-woning",
+  "/contact/page": "/contact",
+  "/over-ons/page": "/over-ons",
   "/(marketing)/verbouwing-woning/page": "/verbouwing-woning",
+  "/(marketing)/moderne-villa-ontwerp/page": "/moderne-villa-ontwerp",
   "/(marketing)/nieuwbouw-villa/page": "/nieuwbouw-villa",
   "/page": "/",
-  "/over-ons/page": "/over-ons",
-  "/(marketing)/moderne-villa-ontwerp/page": "/moderne-villa-ontwerp",
   "/kosten/page": "/kosten",
   "/portfolio/page": "/portfolio",
   "/regios/page": "/regios",
-  "/werkwijze/page": "/werkwijze",
-  "/contact/page": "/contact"
+  "/werkwijze/page": "/werkwijze"
 }

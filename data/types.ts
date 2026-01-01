@@ -60,28 +60,39 @@ export interface ProjectDetail {
   title: string;
   subtitle: string;
   locationLabel: string;
+  year?: string;
+  area?: string;
   tags: string[];
-  categories?: ProjectCategory[];  // Optioneel: categorieën voor filtering
+  categories?: ProjectCategory[];
+
+  // ✅ nieuw: bepaalt of klik naar pagina gaat of overlay
+  openMode?: 'page' | 'overlay';
 
   // SEO & Meta data
   seo?: {
-    title?: string;              // SEO title (fallback: project title)
-    description?: string;         // Meta description
-    keywords?: string[];          // Meta keywords
-    ogImage?: string;             // Open Graph image URL
+    title?: string;
+    description?: string;
+    keywords?: string[];
+    ogImage?: string;
   };
 
   featuredImage: ImageWithAlt;
   heroImages: ImageWithAlt[];
-  sections: ProjectSection[];
+
+  // ✅ light projects hebben geen sections nodig
+  sections?: ProjectSection[];
+
   partners?: Array<{ label: string; name?: string; value?: string; href?: string }>;
-  cta: {
+
+  // ✅ light projects hebben geen CTA nodig
+  cta?: {
     kicker: string;
     headline: string;
     buttonLabel: string;
     href: string;
   };
 }
+
 
 // Project Section types
 export type ProjectSection =

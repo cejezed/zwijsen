@@ -602,7 +602,7 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
         </div>
 
         <div className="pt-4">
-          {project.sections.map((section, i) => (
+          {(project.sections ?? []).map((section, i) => (
             <SectionRenderer key={i} section={section} index={i} />
           ))}
         </div>

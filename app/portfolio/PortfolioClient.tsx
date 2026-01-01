@@ -6,7 +6,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, Plus, Filter, Hash, ChevronDown } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../../data/projecten';
 import { ProjectCategory } from '../../data/types';
-import { Footer, InquiryOverlay } from '../../components';
+import { Footer, InquiryOverlay, ProjectDetailOverlay } from '../../components';
 
 const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onClick: () => void }) => {
     return (
@@ -77,6 +77,7 @@ export const PortfolioClient: React.FC = () => {
     const [filter, setFilter] = useState<ProjectCategory | 'all'>('all');
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<any>(null);
     const footerRef = useRef<HTMLDivElement>(null);
 
     // Scroll to top when component mounts
@@ -99,6 +100,29 @@ export const PortfolioClient: React.FC = () => {
         ? PROJECTS_DETAIL
         : PROJECTS_DETAIL.filter(p => p.categories?.includes(filter as ProjectCategory));
 
+    const toOverlayProject = (p: any, idx: number) => {
+        const gallery = (p.heroImages || []).map((img: any) => img.url).filter(Boolean);
+        const primaryImage = p.featuredImage?.url || gallery[0];
+        const baseGallery = gallery.length ? gallery : primaryImage ? [primaryImage] : [];
+        const paddedGallery = baseGallery.length >= 3
+            ? baseGallery
+            : [...baseGallery, ...Array.from({ length: 3 - baseGallery.length }, () => primaryImage || baseGallery[0]).filter(Boolean)];
+
+        return {
+            id: 1000 + idx,
+            title: p.title,
+            location: (p.locationLabel || '').replace('Locatie: ', ''),
+            slug: p.slug,
+            image: primaryImage,
+            year: p.year || 'N.N.B.',
+            area: p.area || 'N.N.B.',
+            tag: p.categories?.includes('nieuwbouw') ? 'Nieuwbouw' : p.categories?.includes('verbouw') ? 'Verbouw' : p.categories?.[0] || 'Project',
+            subtitle: p.subtitle,
+            description: p.subtitle,
+            gallery: paddedGallery
+        };
+    };
+
     return (
         <>
             {/* Inquiry Overlay */}
@@ -106,6 +130,15 @@ export const PortfolioClient: React.FC = () => {
                 isOpen={isInquiryOpen}
                 onClose={() => setIsInquiryOpen(false)}
             />
+
+            <AnimatePresence>
+                {selectedProject && (
+                    <ProjectDetailOverlay
+                        project={selectedProject}
+                        onClose={() => setSelectedProject(null)}
+                    />
+                )}
+            </AnimatePresence>
 
             <motion.div
                 initial={{ opacity: 0 }}
@@ -201,7 +234,13 @@ export const PortfolioClient: React.FC = () => {
                                     key={project.slug}
                                     project={project}
                                     idx={idx}
-                                    onClick={() => router.push(`/portfolio/${project.slug}`)}
+                                    onClick={() => {
+                                        if ((project as any).openMode === 'overlay') {
+                                            setSelectedProject(toOverlayProject(project, idx));
+                                            return;
+                                        }
+                                        router.push(`/portfolio/${project.slug}`);
+                                    }}
                                 />
                             ))}
                         </AnimatePresence>
