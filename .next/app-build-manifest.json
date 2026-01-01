@@ -1,25 +1,158 @@
 {
   "pages": {
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/app/_not-found/page-e997db95b4332861.js"
     ],
-    "/(marketing)/verbouwing-woning/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(marketing)/verbouwing-woning/page.js"
+    "/layout": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/css/f4ae39a3feb5dd1d.css",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/layout-a5715e7ff10b932f.js"
     ],
     "/[slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[slug]/page.js"
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/[slug]/page-dab3ca23c61ffcba.js"
+    ],
+    "/portfolio/[slug]/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/portfolio/[slug]/page-473682bcce5ba48e.js"
+    ],
+    "/quickscan/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/quickscan/page-1cfb17c16ab3b7ca.js"
     ],
     "/(marketing)/aanbouw-woning/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(marketing)/aanbouw-woning/page.js"
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/(marketing)/aanbouw-woning/page-9b783b9007324979.js"
+    ],
+    "/architect/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/53-60408ab0a0149b19.js",
+      "static/chunks/app/architect/page-68cf8c1111b25569.js"
+    ],
+    "/(marketing)/verbouwing-woning/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/(marketing)/verbouwing-woning/page-4148ed6e1fccdbd5.js"
+    ],
+    "/(marketing)/nieuwbouw-villa/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/(marketing)/nieuwbouw-villa/page-21405ae6f73bc523.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/page-8c78e20e899df547.js"
+    ],
+    "/over-ons/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/53-60408ab0a0149b19.js",
+      "static/chunks/app/over-ons/page-0e132d90662ef029.js"
+    ],
+    "/(marketing)/moderne-villa-ontwerp/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/(marketing)/moderne-villa-ontwerp/page-c2a094433091c4ce.js"
+    ],
+    "/kosten/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/kosten/page-8f8fcab80e01d41f.js"
+    ],
+    "/portfolio/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/portfolio/page-7f7acebc2fc7e22a.js"
+    ],
+    "/regios/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/regios/page-28e5769502a67a3d.js"
+    ],
+    "/werkwijze/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/werkwijze/page-f15e1bd69c08f7e2.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-22409fb78aaf74a3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-cb395327542b56ef.js",
+      "static/chunks/main-app-bc4d4ddfc058553a.js",
+      "static/chunks/432-f8aac0d27507c0ac.js",
+      "static/chunks/907-fb2ef1b3f78f9a3e.js",
+      "static/chunks/app/contact/page-6492e2833089910f.js"
     ]
   }
 }

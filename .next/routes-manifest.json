@@ -1,1 +1,142 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/portfolio/[slug]",
+      "regex": "^/portfolio/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/portfolio/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[slug]",
+      "regex": "^/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/aanbouw-woning",
+      "regex": "^/aanbouw\\-woning(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/aanbouw\\-woning(?:/)?$"
+    },
+    {
+      "page": "/architect",
+      "regex": "^/architect(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/architect(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/kosten",
+      "regex": "^/kosten(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kosten(?:/)?$"
+    },
+    {
+      "page": "/moderne-villa-ontwerp",
+      "regex": "^/moderne\\-villa\\-ontwerp(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/moderne\\-villa\\-ontwerp(?:/)?$"
+    },
+    {
+      "page": "/nieuwbouw-villa",
+      "regex": "^/nieuwbouw\\-villa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nieuwbouw\\-villa(?:/)?$"
+    },
+    {
+      "page": "/over-ons",
+      "regex": "^/over\\-ons(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/over\\-ons(?:/)?$"
+    },
+    {
+      "page": "/portfolio",
+      "regex": "^/portfolio(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portfolio(?:/)?$"
+    },
+    {
+      "page": "/quickscan",
+      "regex": "^/quickscan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quickscan(?:/)?$"
+    },
+    {
+      "page": "/regios",
+      "regex": "^/regios(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/regios(?:/)?$"
+    },
+    {
+      "page": "/verbouwing-woning",
+      "regex": "^/verbouwing\\-woning(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/verbouwing\\-woning(?:/)?$"
+    },
+    {
+      "page": "/werkwijze",
+      "regex": "^/werkwijze(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/werkwijze(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
