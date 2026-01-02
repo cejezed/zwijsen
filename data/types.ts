@@ -30,19 +30,41 @@ export interface ImageWithAlt {
   alt: string;
 }
 
+// Snapshot types voor overlay projecten
+export type SnapshotLogicType = 'vraag' | 'pijn' | 'oplossing' | 'opbrengst';
+
+export interface ProjectSnapshot {
+  idea?: string;
+  extendedDescription?: string;
+  logic: Array<{ type: SnapshotLogicType; text: string }>;
+  yield: string[];
+}
+
 // Portfolio project type (volledige project info voor PortfolioSection)
 export interface Project {
   id: number;
   title: string;
   location: string;
   slug?: string;  // Optioneel: slug voor link naar gedetailleerde projectpagina
+
+  // Klikgedrag: overlay (light) of pagina (full)
+  openMode?: 'page' | 'overlay';
+
   image: string | ImageWithAlt;
   size: 'wide' | 'portrait' | 'landscape' | 'square';
   year: string;
   area: string;
   tag: string;
   description: string;
+
+  // Beelden (support zowel string als {url, alt})
   gallery: (string | ImageWithAlt)[];
+
+  // Light overlay data (optioneel)
+  snapshot?: ProjectSnapshot;
+
+  // Optioneel: typologie label voor overlay footer
+  typology?: string;
 }
 
 // Regional project type (kleine project cards in RegionSection)
@@ -63,17 +85,23 @@ export interface ProjectDetail {
   year?: string;
   area?: string;
   tags: string[];
-  categories?: ProjectCategory[];
+  categories?: ProjectCategory[];  // Optioneel: categorieën voor filtering
 
   // ✅ nieuw: bepaalt of klik naar pagina gaat of overlay
   openMode?: 'page' | 'overlay';
 
+  // Light overlay data (optioneel)
+  snapshot?: ProjectSnapshot;
+
+  // Optioneel: typologie label voor overlay footer
+  typology?: string;
+
   // SEO & Meta data
   seo?: {
-    title?: string;
-    description?: string;
-    keywords?: string[];
-    ogImage?: string;
+    title?: string;              // SEO title (fallback: project title)
+    description?: string;         // Meta description
+    keywords?: string[];          // Meta keywords
+    ogImage?: string;             // Open Graph image URL
   };
 
   featuredImage: ImageWithAlt;
@@ -92,7 +120,6 @@ export interface ProjectDetail {
     href: string;
   };
 }
-
 
 // Project Section types
 export type ProjectSection =

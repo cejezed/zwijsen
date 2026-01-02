@@ -40,21 +40,24 @@ const VILLA_PROJECT_SLUGS: string[] = [
 const pickVillaProjects = () => {
   const list = PROJECTS_DETAIL
     .filter((p) => {
-      if (VILLA_PROJECT_SLUGS.length > 0) return VILLA_PROJECT_SLUGS.includes(p.slug);
+      if (VILLA_PROJECT_SLUGS.length > 0) return p.slug && VILLA_PROJECT_SLUGS.includes(p.slug);
 
-      const hay = `${p.title} ${p.subtitle} ${p.tags?.join(' ') ?? ''}`.toLowerCase();
+      const subtitle = 'subtitle' in p ? p.subtitle ?? '' : ('description' in p ? p.description : '');
+      const tags = 'tags' in p ? p.tags ?? [] : ('tag' in p ? [p.tag] : []);
+      const hay = `${p.title} ${subtitle} ${tags.join(' ')}`.toLowerCase();
       const isVilla = hay.includes('villa') || hay.includes('landhuis') || hay.includes('paviljoen');
-      const isNieuwbouw = (p.categories ?? []).includes('nieuwbouw') || hay.includes('nieuwbouw');
+      const cats = ('categories' in p ? p.categories ?? [] : []).map((c) => c.toLowerCase());
+      const isNieuwbouw = cats.includes('nieuwbouw') || hay.includes('nieuwbouw');
       return isVilla && isNieuwbouw;
     })
     .slice(0, 6);
 
   return list.map((p) => ({
-    slug: p.slug,
+    slug: p.slug ?? '',
     title: p.title,
-    subtitle: p.subtitle,
-    location: p.locationLabel,
-    image: p.featuredImage?.url ?? '',
+    subtitle: 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : ''),
+    location: 'locationLabel' in p ? p.locationLabel : ('location' in p ? p.location : ''),
+    image: 'featuredImage' in p ? p.featuredImage?.url ?? '' : (typeof p.image === 'string' ? p.image : p.image?.url ?? ''),
   }));
 };
 
@@ -77,11 +80,11 @@ const FAQS = [
   {
     tag: 'VERGUNNING',
     q: 'Begeleiden jullie ook het vergunningstraject en welstand?',
-    a: 'Ja. We begeleiden het traject en stemmen af met gemeente en adviseurs. Door vroeg te toetsen aan regels en welstand voorkom je vertraging en worden ontwerpkeuzes tijdig bijgestuurd.',
+    a: 'Ja. We begeleiden het traject en stemmen af met gemeente en adviseurs. Door vroeg te toetsen aan regels en welstand voorkomt u vertraging en worden ontwerpkeuzes tijdig bijgestuurd.',
   },
   {
     tag: 'DUURZAAM',
-    q: 'Hoe maak je een nieuwbouw villa duurzaam en toekomstbestendig?',
+    q: 'Hoe maakt u een nieuwbouw villa duurzaam en toekomstbestendig?',
     a: 'Duurzaamheid begint bij ontwerp: oriëntatie, massa, zonwering en een goede schil. Daarna kiezen we installaties die passen bij comfort én onderhoud. Daarnaast ontwerpen we met flexibiliteit, zodat de villa kan meegroeien met veranderende woonwensen.',
   },
 ];
@@ -233,7 +236,7 @@ export const NieuwbouwVillaClient: React.FC = () => {
               {
                 title: 'Kosten die “ineens” oplopen',
                 description:
-                  'Als budget pas laat gekoppeld wordt aan ontwerpkeuzes, krijg je bijsturen onder tijdsdruk. Wij willen dat eerder helder hebben.',
+                  'Als budget pas laat gekoppeld wordt aan ontwerpkeuzes, krijgt u bijsturen onder tijdsdruk. Wij willen dat eerder helder hebben.',
               },
               {
                 title: 'Techniek die leidend wordt',

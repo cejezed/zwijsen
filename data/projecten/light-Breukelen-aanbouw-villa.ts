@@ -1,39 +1,48 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const Breukelenaanbouw: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'De Vechtzijde openen met een royale aanbouw die licht en zichtlijnen maximaliseert.',
+  extendedDescription:
+    'De woning ligt direct aan de Vecht. Door de gevel 2,9 meter op te schuiven is aan de Vechtzijde een ruimere woonzone ontstaan met panoramisch uitzicht. De keuken verhuisde naar de tuinzijde en staat half-open met de vergrote woonkamer. Het grid van 2,9 x 2,9 m sluit aan op de bestaande maatvoering; maximale gevelopening richting de Vecht levert een licht interieur dat naadloos op de bestaande woning aansluit.',
+  logic: [
+    { type: 'vraag', text: 'Hoe geef je een bestaande woning aan de Vecht meer ruimte en uitzicht zonder het karakter te verliezen?' },
+    { type: 'pijn', text: 'Groot woonoppervlak maar weinig ruimtelijk gevoel; beperkte zichtlijnen op de Vecht.' },
+    { type: 'oplossing', text: 'Gevel opschuiven 2,9 m richting Vecht/noordzijde; keuken naar tuinzijde; gevelopeningen maximaliseren binnen bestaand grid.' },
+    { type: 'opbrengst', text: 'Panoramisch uitzicht, licht interieur, moderne uitbreiding die het originele ritme behoudt.' },
+  ],
+  yield: [
+    'Panoramische woonkamer aan de Vecht met veel licht.',
+    'Keuken strategisch verplaatst voor betere routing en zichtlijnen.',
+    'Uitbreiding in bestaand grid voor een naadloze aansluiting.',
+  ],
+};
+
+export const Breukelenaanbouw: Project = {
+  id: 9201,
+  title: 'Aanbouw villa aan de Vecht',
+  location: 'Breukelen',
   slug: 'light-Breukelen-aanbouw-villa',
 
-  title: 'Aanbouw villa aan de Vecht',
-  subtitle:
-    'De woning ligt op een prachtige locatie direct aan de rivier de Vecht waarbij de woonkamer panoramisch uitzicht geeft op de tuin en de Vecht. De bestaande woning had een groot woonoppervlak maar bood aan de binnenzijde nergens een ruim gevoel. Om hierin verandering te brengen is de woning aan de Vechtzijde vergroot door de gevel 2,9 meter op te schuiven richting de Vecht en de noordzijde. De keuken is van de straatzijde verplaatst naar de tuinzijde en staat in half-open verbinding met de vergrootte woonkamer. De vormgeving en maatvoering van de uitbreiding volgt het grid van de bestaande maatvoering (2,9x2,9m) en sluit aan bij de vormgeving van de bestaand woning. De gevels zijn maximaal open richting de Vecht waardoor een zeer licht interieur ontstaat met een prachtig uitzicht. Op deze manier is een moderne, ruimtelijke en lichte uitbreiding ontstaan die naadloos aansluit op de bestaande woning.',
-  locationLabel: 'Locatie: Breukelen',
-  tags: ['verbouw', 'aanbouw', 'jaren dertig woning', 'Tuinkamer'],
-  categories: ['Verbouw', 'Aanbouw'],
+  openMode: 'overlay',
+  typology: 'Aanbouw / verbouw',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-04.jpg',
+  size: 'landscape',
   year: '2013',
   area: '350 m2',
+  tag: 'Verbouw',
+  description:
+    'Royale aanbouw aan de Vechtzijde; gevel 2,9 m opgeschoven voor licht, zicht en een ruim woonprogramma.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-07.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-01.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-02.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-03.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-05.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-06.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-04.jpg',
+  ],
 
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-04.jpg',
-    alt: 'Grote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-07.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' },
-        { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-01.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' },
-            { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-02.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' },
-                { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-03.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' },
-                    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-05.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' },
-                        { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-06.jpg', alt: 'rote aanbouw van de villa aan de Vecht in Breukelen in de stijl van de originele woning' }
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

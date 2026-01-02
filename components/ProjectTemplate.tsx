@@ -733,6 +733,16 @@ export const ProjectTemplate: React.FC<{ slug: string; onClose?: () => void }> =
     return null;
   }
 
+  // Type guard: ensure this is a ProjectDetail (full project page), not a light Project
+  const isProjectDetail = (p: any): p is ProjectDetail => {
+    return 'featuredImage' in p && 'heroImages' in p && 'subtitle' in p;
+  };
+
+  if (!isProjectDetail(project)) {
+    console.error(`Project with slug "${slug}" is not a full ProjectDetail`);
+    return null;
+  }
+
   const handleBack = () => {
     if (onClose) {
       onClose();

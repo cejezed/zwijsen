@@ -167,8 +167,15 @@ export const IMAGES = {
 // Geeft `/images/<key>.jpg` terug wanneer de waarde overeenkomt met een sleutel in IMAGES,
 // anders valt het terug op een conservatieve bestandsnaam gebaseerd op een hash.
 export const imageLocal = (value: string) => {
+  // Als de waarde leeg is, geef lege string terug
+  if (!value) return '';
+
+  // Als het al een lokaal pad is (begint met /images/), geef het gewoon terug
+  if (value.startsWith('/images/')) return value;
+
   const entry = Object.entries(IMAGES).find(([, v]) => v === value);
   if (entry) return `/images/${entry[0]}.jpg`;
+
   // fallback: probeer een eenvoudige bestandsnaam op basis van laatste path-segment
   try {
     const u = new URL(value);
@@ -176,7 +183,8 @@ export const imageLocal = (value: string) => {
     const clean = seg.split('?')[0].replace(/[^a-zA-Z0-9-_\.]/g, '_');
     return `/images/${clean}`;
   } catch (e) {
-    return `/images/image.jpg`;
+    // Als het geen URL is, geef de waarde gewoon terug
+    return value;
   }
 };
 

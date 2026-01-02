@@ -39,9 +39,11 @@ type ProjectCard = {
 
 const buildModernVillaProjects = (): ProjectCard[] => {
   const list = PROJECTS_DETAIL.filter((p) => {
-    if (MODERNE_VILLA_PROJECT_SLUGS.length > 0) return MODERNE_VILLA_PROJECT_SLUGS.includes(p.slug);
+    if (MODERNE_VILLA_PROJECT_SLUGS.length > 0) return p.slug && MODERNE_VILLA_PROJECT_SLUGS.includes(p.slug);
 
-    const hay = `${p.title} ${p.subtitle} ${(p.tags ?? []).join(" ")}`.toLowerCase();
+    const subtitle = 'subtitle' in p ? p.subtitle ?? '' : ('description' in p ? p.description : '');
+    const tags = 'tags' in p ? p.tags ?? [] : ('tag' in p ? [p.tag] : []);
+    const hay = `${p.title} ${subtitle} ${tags.join(" ")}`.toLowerCase();
 
     const isVillaLike = hay.includes("villa") || hay.includes("paviljoen") || hay.includes("landhuis");
     const isModernLike =
@@ -57,7 +59,9 @@ const buildModernVillaProjects = (): ProjectCard[] => {
   }).slice(0, 6);
 
   const pickExplanation = (p: any): string => {
-    const hay = `${p.title} ${p.subtitle} ${(p.tags ?? []).join(" ")}`.toLowerCase();
+    const subtitle = 'subtitle' in p ? p.subtitle ?? '' : ('description' in p ? p.description : '');
+    const tags = 'tags' in p ? p.tags ?? [] : ('tag' in p ? [p.tag] : []);
+    const hay = `${p.title} ${subtitle} ${tags.join(" ")}`.toLowerCase();
 
     // Heuristische, maar inhoudelijke uitleg — geen marketingzinnen
     if (hay.includes("water") || hay.includes("vecht") || hay.includes("kade")) {
@@ -79,11 +83,11 @@ const buildModernVillaProjects = (): ProjectCard[] => {
   };
 
   return list.map((p) => ({
-    slug: p.slug,
+    slug: p.slug ?? '',
     title: p.title,
-    subtitle: p.subtitle,
-    location: p.locationLabel,
-    image: p.featuredImage?.url ?? "",
+    subtitle: 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : ''),
+    location: 'locationLabel' in p ? p.locationLabel : ('location' in p ? p.location : undefined),
+    image: 'featuredImage' in p ? p.featuredImage?.url ?? '' : (typeof p.image === 'string' ? p.image : p.image?.url ?? ''),
     explanation: pickExplanation(p),
   }));
 };
@@ -131,6 +135,7 @@ export const ModerneVillaOntwerpClient: React.FC = () => {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const contactBarOpacity = useTransform(scrollY, [300, 600], [0, 1]);
+  const parallaxY = useTransform(scrollY, [0, 1000], [0, -200]);
 
   const { scrollYProgress: footerScroll } = useScroll({
     target: footerRef,
@@ -167,8 +172,11 @@ export const ModerneVillaOntwerpClient: React.FC = () => {
           <img
             src="https://zwijsen.net/wp-content/uploads/2022/10/villa-ruurlo-architect-achterhoek-lochem-1.jpg"
             alt="Moderne villa met heldere lijnen, zorgvuldig licht en rustige verhoudingen"
-            className="w-full h-full object-cover opacity-0"
-            onLoad={(e) => e.currentTarget.classList.replace("opacity-0", "opacity-100")}
+            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            onLoad={(e) => {
+              e.currentTarget.classList.remove('opacity-40');
+              e.currentTarget.classList.add('opacity-100');
+            }}
             onError={(e) => (e.currentTarget.style.display = "none")}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
@@ -441,8 +449,20 @@ export const ModerneVillaOntwerpClient: React.FC = () => {
       </section>
 
       {/* DOORKLIK NAAR TRAJECT */}
-      <section className="py-28 md:py-32 px-6 md:px-12 bg-stone-900 text-white">
-        <div className="max-w-5xl mx-auto text-center space-y-10">
+      <section className="relative py-28 md:py-32 px-6 md:px-12 text-white overflow-hidden">
+        <motion.div
+          style={{ y: parallaxY }}
+          className="absolute inset-0 z-0"
+        >
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2025/12/Bestemmingsplan-Afwijking-Architect-Vooroverleg-villa-blaricum.jpeg"
+            alt="Moderne villa achtergrond"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/90 via-stone-900/85 to-stone-900/90" />
+        </motion.div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
           <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">
             Realisatie
           </span>

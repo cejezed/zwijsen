@@ -1,37 +1,58 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const villaabcoude: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea:
+    'Met beperkte bouwruimte en strenge stedenbouwkundige randvoorwaarden toch een lichte, ruime villa realiseren.',
+  extendedDescription:
+    'Dure grond, strenge stedenbouwkundige eisen, geen gasaansluiting en kritische hypotheekverstrekkers: beperkingen vragen om slimme oplossingen. De woning benut de regels maximaal, met focus op daglicht, zichtlijnen en een helder volume.',
+  logic: [
+    {
+      type: 'vraag',
+      text: 'Hoe maak je een royale, lichte villa binnen krappe kavel- en bouwregels?',
+    },
+    {
+      type: 'pijn',
+      text: 'Beperkte footprint en strenge stedenbouw leiden snel tot een donkere, opgeknipte plattegrond.',
+    },
+    {
+      type: 'oplossing',
+      text: 'Heldere volumes met grote gevelopeningen en beschutte buitenruimte; slimme positionering van leefruimtes voor licht en privacy.',
+    },
+    {
+      type: 'opbrengst',
+      text: 'Ruimtelijke rust, veel licht en logische zichtlijnen, zonder de regels te overschrijden.',
+    },
+  ],
+  yield: [
+    'Slimme inzet van regels resulteert in een lichte woning met sterke zichtlijnen.',
+    'Beschutte buitenruimte en privacy ondanks krappe bouwkavel.',
+    'Consistente materialisatie voor een tijdloos geheel.',
+  ],
+};
+
+export const villaabcoude: Project = {
+  id: 9002,
+  title: 'Villa Abcoude',
+  location: 'Abcoude – Land van Winkel',
   slug: 'light-abcoude-land-van-winkel-villa',
 
-  title: 'Light villa Abcoude',
-  subtitle:
-    'Dure grond, strenge stedenbouwkundige eisen, geen gasaansluiting en lastige hypotheekverstrekkers maken dat tot een ware uitdaging… Maar beperkingen leiden vaak tot bijzondere oplossingen!',
-  locationLabel: 'Locatie: Abcoude Land van Winkel',
-  tags: ['Nieuwbouw', 'Interieur', 'Licht & zichtlijnen'],
-  categories: ['nieuwbouw'],
+  openMode: 'overlay',
+  typology: 'Nieuwbouw villa',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning_resize.jpg',
+  size: 'wide',
   year: '2015',
   area: '235 m2',
+  tag: 'Nieuwbouw',
+  description:
+    'Moderne witgestucte villa met natuursteenaccenten, ontworpen voor maximale lichtinval binnen strenge stedenbouwkundige kaders.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel-vv.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel-tuin.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning_resize.jpg',
+  ],
 
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning_resize.jpg',
-    alt: 'Karakteristieke moderne wit gestucte villa met natuursteen accenten.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel.jpg', alt: 'abcoude kavel architect moderne woning land van winkel vv' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel-vv.jpg', alt: 'De wit gepleisterde villa in Abcoude Land van Winkel, architect Jules Zwijsen.' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning-land-van-winkel-tuin.jpg', alt: 'Detail maatwerk en materiaalovergang' }
-
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

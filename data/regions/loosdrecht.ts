@@ -13,19 +13,26 @@ const loosdrechtProjects = PROJECTS_DETAIL
     const sizes = ['wide', 'portrait', 'landscape', 'square'] as const;
     const size = sizes[index % 4];
 
+    const locationLabel = 'locationLabel' in p ? p.locationLabel : ('location' in p ? p.location : '');
+    const featuredImage = 'featuredImage' in p ? p.featuredImage : undefined;
+    const regularImage = 'image' in p ? p.image : undefined;
+    const heroImages = 'heroImages' in p ? p.heroImages : [];
+    const subtitle = 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : '');
+    const categories = 'categories' in p ? p.categories : undefined;
+
     return {
       id: 200 + index, // Unieke IDs voor deze projecten
       title: p.title,
-      location: p.locationLabel,
+      location: locationLabel,
       slug: p.slug,
-      image: p.featuredImage.url,
+      image: featuredImage?.url || (typeof regularImage === 'string' ? regularImage : regularImage?.url) || '',
       size: size,
       year: 'N.N.B.',
       area: 'N.N.B.',
-      tag: p.categories?.[0] === 'nieuwbouw' ? 'Nieuwbouw' : p.categories?.[0] === 'verbouw' ? 'Verbouw' : 'Project',
-      subtitle: p.subtitle,
-      description: p.subtitle,
-      gallery: p.heroImages.map(img => img.url)
+      tag: categories?.[0] === 'nieuwbouw' ? 'Nieuwbouw' : categories?.[0] === 'verbouw' ? 'Verbouw' : 'Project',
+      subtitle: subtitle,
+      description: subtitle,
+      gallery: heroImages.map(img => img.url)
     };
   });
 

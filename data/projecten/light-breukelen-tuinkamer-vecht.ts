@@ -1,34 +1,44 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const Breukelentuinkamer: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'Met een tuinkamer aan de Vecht de woning verduurzamen én de tuin bij het wonen betrekken.',
+  extendedDescription:
+    'De woning is verduurzaamd en kreeg een strategische tuinkamer aan de Vechtzijde. De eetkamer in de tuinkamer trekt de tuin en de vergezichten naar binnen: een kleine ingreep met groots effect.',
+  logic: [
+    { type: 'vraag', text: 'Hoe voeg je licht en zicht op de Vecht toe zonder grote verbouwing?' },
+    { type: 'pijn', text: 'Behoefte aan eetkamer met uitzicht; bestaande woning sluit de tuin af.' },
+    { type: 'oplossing', text: 'Nieuwe tuinkamer/eetkamer aan de Vechtzijde met grote gevelopeningen.' },
+    { type: 'opbrengst', text: 'Imposant uitzicht, meer daglicht en direct contact met tuin en rivier.' },
+  ],
+  yield: [
+    'Eenvoudige tuinkamer die de rivier en tuin in de woning brengt.',
+    'Verduurzaming gecombineerd met ruimtelijke winst.',
+    'Kleine uitbreiding, groot effect op woonkwaliteit.',
+  ],
+};
+
+export const Breukelentuinkamer: Project = {
+  id: 9202,
+  title: 'Tuinkamer aan de Vecht',
+  location: 'Breukelen',
   slug: 'light-Breukelen-tuinkamer-vecht',
 
-  title: 'Aanbouw woning aan de Vecht',
-  subtitle:
-    'De woning is van binnen geheel verduurzaamd en op een strategische plek aan de Vecht voorzien van een nieuwe tuinkamer. Die tuinkamer vormt de eetkamer en betrekt op die manier op een indrukwekkende manier de tuin en de vergezichten over de Vecht in de woning. Een eenvoudige ingreep met groots effect.',
-  locationLabel: 'Locatie: Breukelen',
-  tags: ['Nieuwbouw', 'veranda', 'jaren dertig woning', 'Tuinkamer'],
-  categories: ['Nieuwbouw', 'veranda'],
+  openMode: 'overlay',
+  typology: 'Tuinkamer / aanbouw',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2021/10/20220120_125203_resize.jpg',
+  size: 'portrait',
   year: '2022',
   area: '50 m2',
+  tag: 'Aanbouw',
+  description:
+    'Verduurzaming en tuinkamer/eetkamer aan de Vechtzijde; maximale relatie tussen wonen, tuin en uitzicht.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2021/10/20220120_125203_resize.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2021/03/moderne-aanbouw-oude-woning-vecht-architect-verbouw.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2021/03/moderne-aanbouw-oude-woning-vecht-architect-verbouw.jpg',
+  ],
 
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2021/10/20220120_125203_resize.jpg',
-    alt: 'In de tuin opgenomen berging met tuinkamer onder overkragende overkapping.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2021/03/moderne-aanbouw-oude-woning-vecht-architect-verbouw.jpg', alt: 'Moderne aanbouw en verbouw Bilthoven architect 4' }
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

@@ -1,37 +1,46 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const warmehand: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'Een historisch huis transformeren met een royale uitbouw en uitzicht op Zwemlust.',
+  extendedDescription:
+    'Ooit herberg, later verwaarloosd: De Warme Hand kreeg een grondige verbouw. Met slimme vrijstellingen in het bestemmingsplan is achter een ruime woon- en eetkamer toegevoegd met grote glazen puien richting Zwemlust. De kap is doorgetrokken en de zijkant opnieuw opgebouwd voor meer ruimte en modern comfort.',
+  logic: [
+    { type: 'vraag', text: 'Hoe maak je een karaktervolle maar verouderde woning ruim en licht zonder het verleden te verliezen?' },
+    { type: 'pijn', text: 'Beperkte ruimte en comfort; weinig zicht op het water en vergezichten.' },
+    { type: 'oplossing', text: 'Ruime uitbouw aan de achterzijde met grote puien; kap doortrekken en zijkant vernieuwen voor extra ruimte en comfort.' },
+    { type: 'opbrengst', text: 'Lichte woon/eetkamer met uitzicht, moderne comforteisen en een logisch volume.' },
+  ],
+  yield: [
+    'Woon/eetkamer met panoramische puien richting Zwemlust.',
+    'Vergroot volume door kap en zijopbouw, passend bij de historie.',
+    'Comfort op modern niveau zonder het karakter te verliezen.',
+  ],
+};
+
+export const warmehand: Project = {
+  id: 9301,
+  title: 'Verbouw woning Nieuwersluis “De Warme Hand”',
+  location: 'Nieuwersluis aan de Vecht',
   slug: 'light-nieuwersluis-warme-hand',
 
-  title: 'Verbouw woning Nieuwersluis De Warme Hand',
-  subtitle:
-    'Een woning met een geschiedenis die ver terug gaat in de tijd, als herberg begonnen en als verwaarloosde woning weer hersteld. Door slim gebruik te maken van de vrijstellingen in het bestemmingsplan is de woning aan de achterzijde voorzien van een prachtige ruimte woon- en eetkamer met grote glazen puien die prachtig uitzicht geven op het achtergelegen Zwemlust en de vergezichten. Door de kap van de woning door te trekken en de zijkant opnieuw op te bouwen is er een ruime woning ontstaan die volledig aangepast is aan de comforteisen van de huidige tijd. .',
-  locationLabel: 'Locatie: Nieuwersluis aan de Vecht',
-  tags: ['waterkant'],
-  categories: ['verbouw'],
+  openMode: 'overlay',
+  typology: 'Verbouw & uitbouw',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2021/11/2024-10-22-08.53.51_resize.jpg',
+  size: 'landscape',
   year: '2021',
   area: '261 m2',
+  tag: 'Verbouw',
+  description:
+    'Rigoureuze verbouwing met royale uitbouw en grote puien naar Zwemlust; historisch huis met modern comfort en zichtlijnen.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
-
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2021/11/2024-10-22-08.53.51_resize.jpg',
-    alt: 'Rigoreus verbouwde en uitgebreide woning Nieuwersluis De Warme Hand.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2021/11/2023-03-13-16.59.12_resize.jpg', alt: 'moderne woning rieteiland oost 05' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2021/11/2023-03-13-17.00.15_resize.jpg', alt: 'moderne woning rieteiland oost 06' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2022/10/pers-tuin.jpg', alt: 'kruislings verlijmd vurenhout als constructie van de woning' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2022/10/pers-straat.jpg', alt: 'Detail maatwerk en materiaalovergang' }
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2021/11/2024-10-22-08.53.51_resize.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2021/11/2023-03-13-16.59.12_resize.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2021/11/2023-03-13-17.00.15_resize.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2022/10/pers-tuin.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2022/10/pers-straat.jpg',
   ],
 
-  // Bewust geen:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

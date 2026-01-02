@@ -1,4 +1,6 @@
-import type { ProjectDetail } from '../types';
+import type { ProjectDetail, Project } from '../types';
+
+export type AnyProject = ProjectDetail | Project;
 
 // Export utility functies voor filtering
 export * from './utils';
@@ -21,7 +23,6 @@ export { rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek } from './rigoureuze
 export { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebogen-gevel-gooi-en-vechtstreek';
 export { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
 export { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
-export { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
 export { villaOvergooiAlmere } from './architect-loenen-aan-de-vecht-vrijstaande-villa-almere-overgooi';
 export { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-prattenburg-rhenen';
 export { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
@@ -32,12 +33,14 @@ export { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 export { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 export { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 export { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+
+// Light exports
 export { villavleuten } from './light-vleuten-villa.ts';
 export { villaabcoude } from './light-aboude-land-van-winkel-villa.ts';
 export { villareo59 } from './light-Rieteiland-Oost-IJburg-vila-59.ts';
 export { villareo36 } from './light-Rieteiland-Oost-IJburg-villa-36.ts';
 export { villareo16 } from './light-Rieteiland-Oost-IJburg-villa-16.ts';
-export { Muidenstal } from './light-Muiden-verbouw-stal.ts';
+export { Muidenstal } from './light-Muiden-verbouw-stal';
 export { Muidendijkwoning } from './light-Muiden-dijkwoning.ts';
 export { Bilthovenjaren30 } from './light-Bilthoven-verbouw-aanbouw-jaren30.ts';
 export { Bilthovenjaren30aanbouw } from './light-Bilthoven-moderne-aanbouw.ts';
@@ -65,7 +68,6 @@ import { rigoureuzeFaceliftRietkapvillaBreukelenVechtstreek } from './rigoureuze
 import { moderneVillaGebogenGevelGooiEnVechtstreek } from './moderne-villa-gebogen-gevel-gooi-en-vechtstreek';
 import { nieuweRietkapvillaZandvoortBoulevard } from './nieuwe-rietkapvilla-zandvoort-boulevard';
 import { almereDuinKreekbosZuidAanDeKreekFase1 } from './almere-duin-kreekbos-zuid-aan-de-kreek-fase-1';
-import { moderneStacaravanMetSchuifpanelenAmeland } from './moderne-stacaravan-schuifpanelen-ameland';
 import { villaOvergooiAlmere } from './architect-loenen-aan-de-vecht-vrijstaande-villa-almere-overgooi';
 import { villaPrattenburgRhenen } from './architect-loenen-aan-de-vecht-villa-prattenburg-rhenen';
 import { woningWerkplaatsSeggelenAlmere } from './architect-loenen-aan-de-vecht-woning-werkplaats-almere-poort';
@@ -76,12 +78,14 @@ import { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 import { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 import { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 import { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+
+// Light imports
 import { villavleuten } from './light-vleuten-villa.ts';
 import { villaabcoude } from './light-aboude-land-van-winkel-villa.ts';
 import { villareo59 } from './light-Rieteiland-Oost-IJburg-vila-59.ts';
 import { villareo36 } from './light-Rieteiland-Oost-IJburg-villa-36.ts';
-import { villareo16 } from './light-Rieteiland-Oost-IJburg-villa-16.ts';  
-import { Muidenstal } from './light-Muiden-verbouw-stal.ts';
+import { villareo16 } from './light-Rieteiland-Oost-IJburg-villa-16.ts';
+import { Muidenstal } from './light-Muiden-verbouw-stal';
 import { Muidendijkwoning } from './light-Muiden-dijkwoning.ts';
 import { Bilthovenjaren30 } from './light-Bilthoven-verbouw-aanbouw-jaren30.ts';
 import { Bilthovenjaren30aanbouw } from './light-Bilthoven-moderne-aanbouw.ts';
@@ -95,7 +99,7 @@ import { Breukelenaanbouw } from './light-Breukelen-aanbouw-villa.ts';
  * Centrale export van alle project details
  * Voeg hier nieuwe projecten toe wanneer je ze aanmaakt
  */
-export const PROJECTS_DETAIL: ProjectDetail[] = [
+export const PROJECTS_DETAIL: AnyProject[] = [
   verbouwLuxeVillaZandvoort,  
   moderneRietkapvillaHetGooi,
   moderneVernieuwbouwvillaUitzichtGroenLelystad,
@@ -113,7 +117,6 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   moderneVillaGebogenGevelGooiEnVechtstreek,
   nieuweRietkapvillaZandvoortBoulevard,
   almereDuinKreekbosZuidAanDeKreekFase1,
-  moderneStacaravanMetSchuifpanelenAmeland,
   villaOvergooiAlmere,
   villaPrattenburgRhenen,
   woningWerkplaatsSeggelenAlmere,
@@ -124,6 +127,8 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   torenwoningCronenburghLoenen,
   moderneRecreatiewoningVecht,
   villaKasteelparkDeCloese,
+
+  // light
   villavleuten,
   villaabcoude,
   villareo59, 
@@ -139,3 +144,19 @@ export const PROJECTS_DETAIL: ProjectDetail[] = [
   Breukelentuinkamer,
   Breukelenaanbouw
 ];
+
+// Deduped variant for UI lists (prevents React key collisions if data gets merged twice)
+export const PROJECTS_UNIQUE: AnyProject[] = (() => {
+  const seen = new Set<string>();
+  const out: AnyProject[] = [];
+  for (const p of PROJECTS_DETAIL) {
+    const key =
+      (p as any).slug ||
+      `${(p as any).title || ''}__${(p as any).location || (p as any).locationLabel || ''}`;
+    if (!key) continue;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(p);
+  }
+  return out;
+})();

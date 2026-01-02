@@ -23,21 +23,38 @@ import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar } from '../../../c
 
 /**
  * Aanbouw / Uitbouw woning – conversiegedreven type-pagina
- * --------------------------------------------------------
- * Doel:
- * - “Aanbouw” breder framen: het is vrijwel altijd een combinatie van uitbreiding + verbouwing.
- * - Vertrouwen opbouwen: laten zien dat je risico's voorkomt (constructie, regelgeving, details),
- *   én dat je het proces beheerst richting aannemer/uitvoering.
+ * =========================================================
  *
- * Vervang later:
- * - hero images in /public/images/aanbouw/
- * - projectselectie (slugs) met jouw sterkste cases
+ * HOE PROJECTEN SELECTEREN?
+ * --------------------------
+ * Scroll naar beneden naar de AANBOUW_PROJECT_SLUGS array (regel ~51) en:
+ * 1. Voeg project slugs toe die je wilt tonen (max 6 projecten)
+ * 2. Laat de array leeg voor automatische selectie op basis van keywords
+ * 3. Uncomment de console.log in pickAanbouwProjects() om alle beschikbare slugs te zien
  */
 
-// Optioneel: zet hier je beste cases neer (portfolio/:slug). Leeg = automatische selectie.
+/**
+ * PROJECTEN SELECTIE VOOR AANBOUW PAGINA
+ * ========================================
+ *
+ * Voeg hier de slugs toe van projecten die je wilt tonen op de aanbouw pagina.
+ * Je vindt de slug in de URL van het project, bijvoorbeeld:
+ * - /portfolio/verbouw-luxe-villa-zandvoort → slug: 'verbouw-luxe-villa-zandvoort'
+ * - /portfolio/moderne-villa-rieten-kap-blaricum → slug: 'moderne-villa-rieten-kap-blaricum'
+ *
+ * Als deze array LEEG is, worden automatisch relevante projecten geselecteerd
+ * op basis van categories en keywords (aanbouw, uitbouw, verbouw, etc.)
+ *
+ * Maximaal 6 projecten worden getoond.
+ */
 const AANBOUW_PROJECT_SLUGS: string[] = [
-  // 'jouw-project-slug-1',
-  // 'jouw-project-slug-2',
+  // Voeg hier je project slugs toe, bijvoorbeeld:
+  'light-Breukelen-tuinkamer-vecht',
+  'light-Muiden-verbouw-stal',
+  'light-plantagehuis-vreeland',
+'herbestemming-boerderij-laag-keppel-achterhoek',
+'light-Bilthoven-verbouw-aanbouw-jaren30',
+  'light-Bilthoven-verbouw-aanbouw-jaren-dertig',    
 ];
 
 type PickedProject = {
@@ -50,12 +67,19 @@ type PickedProject = {
 };
 
 const pickAanbouwProjects = (): PickedProject[] => {
+  // DEBUGGING: Uncomment onderstaande regel om alle beschikbare project slugs te zien in de console
+  // console.log('Alle beschikbare projecten:', PROJECTS_DETAIL.map(p => ({ slug: p.slug, title: p.title })));
+
   const list = PROJECTS_DETAIL
     .filter((p) => {
-      if (AANBOUW_PROJECT_SLUGS.length > 0) return AANBOUW_PROJECT_SLUGS.includes(p.slug);
+      // Als je specifieke slugs hebt opgegeven, gebruik die
+      if (AANBOUW_PROJECT_SLUGS.length > 0) return p.slug && AANBOUW_PROJECT_SLUGS.includes(p.slug);
 
-      const cats = (p.categories ?? []).map((c) => c.toLowerCase());
-      const hay = `${p.title} ${p.subtitle ?? ''} ${(p.tags ?? []).join(' ')}`.toLowerCase();
+      // Anders: automatische selectie op basis van categories en keywords
+      const cats = ('categories' in p ? p.categories ?? [] : []).map((c) => c.toLowerCase());
+      const subtitle = 'subtitle' in p ? p.subtitle ?? '' : ('description' in p ? p.description : '');
+      const tags = 'tags' in p ? p.tags ?? [] : ('tag' in p ? [p.tag] : []);
+      const hay = `${p.title} ${subtitle} ${tags.join(' ')}`.toLowerCase();
 
       const isAanbouw =
         cats.includes('aanbouw') ||
@@ -64,7 +88,7 @@ const pickAanbouwProjects = (): PickedProject[] => {
         hay.includes('serre') ||
         hay.includes('erker');
 
-      // We accepteren ook “verbouw” als het duidelijk een uitbreiding/doorbraak betreft
+      // We accepteren ook "verbouw" als het duidelijk een uitbreiding/doorbraak betreft
       const isVerbouwingRelated =
         cats.includes('verbouw') || hay.includes('doorbraak') || hay.includes('keuken') || hay.includes('woonkamer');
 
@@ -73,13 +97,13 @@ const pickAanbouwProjects = (): PickedProject[] => {
     .slice(0, 6);
 
   return list.map((p) => ({
-    slug: p.slug,
+    slug: p.slug ?? '',
     title: p.title,
-    subtitle: p.subtitle,
-    location: p.locationLabel,
-    image: p.featuredImage?.url ?? '',
+    subtitle: 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : undefined),
+    location: 'locationLabel' in p ? p.locationLabel : ('location' in p ? p.location : undefined),
+    image: 'featuredImage' in p ? p.featuredImage?.url ?? '' : (typeof p.image === 'string' ? p.image : p.image?.url ?? ''),
     alt:
-      p.featuredImage?.alt ||
+      ('featuredImage' in p ? p.featuredImage?.alt : (typeof p.image === 'string' ? undefined : p.image?.alt)) ||
       `Aanbouw/verbouwing woning – project ${p.title} door Architectenbureau Jules Zwijsen`,
   }));
 };
@@ -94,7 +118,7 @@ const FAQS = [
   {
     tag: 'REGELS',
     q: 'Heb ik een vergunning nodig voor een aanbouw?',
-    a: 'Niet altijd. Maar “vergunningsvrij” betekent niet “regelvrij”. Ook dan gelden technische eisen (Bbl), het omgevingsplan, burenrecht en vaak welstand. Wij toetsen dit vroeg, zodat je geen ontwerp maakt dat later alsnog moet worden teruggedraaid.',
+    a: 'Niet altijd. Maar "vergunningsvrij" betekent niet "regelvrij". Ook dan gelden technische eisen (Bbl), het omgevingsplan, burenrecht en vaak welstand. Wij toetsen dit vroeg, zodat u geen ontwerp maakt dat later alsnog moet worden teruggedraaid.',
   },
   {
     tag: 'KOSTEN',
@@ -103,13 +127,13 @@ const FAQS = [
   },
   {
     tag: 'COMFORT',
-    q: 'Hoe voorkom je koudebruggen en vochtproblemen bij een aanbouw?',
+    q: 'Hoe voorkomt u koudebruggen en vochtproblemen bij een aanbouw?',
     a: 'Door het detailontwerp serieus te nemen: aansluitingen bij kozijnen, gevelranden, dakranden en vloeren moeten kloppen. Isolatie alleen is niet genoeg; ook luchtdichtheid, ventilatie en vochthuishouding moeten integraal worden ontworpen.',
   },
   {
     tag: 'TIMING',
     q: 'Wanneer schakel ik een architect in?',
-    a: 'Idealiter vóórdat je aannemers benadert. Dan kun je eerst de ruimtelijke oplossing, haalbaarheid en regelgeving scherp krijgen. Daardoor wordt een offerte vergelijkbaar, voorkom je stelposten en blijft het gesprek met aannemers inhoudelijk in plaats van “op gevoel”.',
+    a: 'Idealiter vóórdat u aannemers benadert. Dan kunt u eerst de ruimtelijke oplossing, haalbaarheid en regelgeving scherp krijgen. Daardoor wordt een offerte vergelijkbaar, voorkomt u stelposten en blijft het gesprek met aannemers inhoudelijk in plaats van "op gevoel".',
   },
   {
     tag: 'SCOPE',
@@ -134,6 +158,11 @@ export const AanbouwWoningClient: React.FC = () => {
   const footerParallaxText = useTransform(footerScroll, [0, 1], [0, -1500]);
   const footerOpacity = useTransform(footerScroll, [0, 0.4], [0, 1]);
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 1000);
     window.addEventListener('scroll', onScroll);
@@ -154,11 +183,16 @@ export const AanbouwWoningClient: React.FC = () => {
       >
         <div className="absolute inset-0">
           <img
-            src="/images/aanbouw/aanbouw-woning-hero.jpg"
-            alt=""
-            className="w-full h-full object-cover opacity-0"
-            onLoad={(e) => e.currentTarget.classList.replace('opacity-0', 'opacity-100')}
-            onError={(e) => (e.currentTarget.style.display = 'none')}
+            src="images/bilthoven/moderne-uitbouw-renovatie-woning-bilthoven-verduurzaming-architect.webp"
+            alt="Aanbouw woning architect - moderne uitbreiding met glazen gevel"
+            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            onLoad={(e) => {
+              e.currentTarget.classList.remove('opacity-40');
+              e.currentTarget.classList.add('opacity-100');
+            }}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/80" />
         </div>
@@ -233,7 +267,7 @@ export const AanbouwWoningClient: React.FC = () => {
               Een aanbouw is bijna altijd méér dan een aanbouw
             </h2>
             <p className="text-xl text-stone-700 leading-relaxed">
-              Zodra je een gevel openbreekt, installaties verlegt en isolatie moet laten “aansluiten”, ben je in feite
+              Zodra u een gevel openbreekt, installaties verlegt en isolatie moet laten "aansluiten", bent u in feite
               een verbouwing aan het ontwerpen. De kwaliteit zit in de overgangen: vloer-opbouw, kozijnen, dakrand,
               constructie en ventilatie. Dáár ontstaat comfort — of gedoe.
             </p>
@@ -254,7 +288,7 @@ export const AanbouwWoningClient: React.FC = () => {
               {
                 icon: ThermometerSun,
                 title: 'Comfort vraagt om techniek + schil',
-                desc: 'Isolatie, luchtdichtheid en ventilatie moeten samen kloppen. Anders krijg je tocht, vocht of oververhitting.',
+                desc: 'Isolatie, luchtdichtheid en ventilatie moeten samen kloppen. Anders krijgt u tocht, vocht of oververhitting.',
               },
               {
                 icon: Landmark,
@@ -294,8 +328,18 @@ export const AanbouwWoningClient: React.FC = () => {
       </section>
 
       {/* 2) VALUE PROP: wat jij concreet doet (geen kreten, maar scope) */}
-      <section className="py-24 md:py-28 px-6 md:px-12 bg-stone-900 text-white">
-        <div className="max-w-6xl mx-auto space-y-16">
+      <section className="relative py-24 md:py-28 px-6 md:px-12 bg-stone-900 text-white overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="images/breukelen/moderne-uitbreiding-monumentale-woning-vechtstreek-breukelen-architekt.webp"
+            alt=""
+            className="w-full h-full object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/75 via-stone-900/70 to-stone-900/75" />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto space-y-16">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">
               Wat wij doen
@@ -304,8 +348,8 @@ export const AanbouwWoningClient: React.FC = () => {
               Van eerste idee tot uitvoerbaar plan
             </h2>
             <p className="text-xl text-stone-300 leading-relaxed">
-              We vertalen je woonwens naar een oplossing die ruimtelijk klopt, technisch klopt én uitvoerbaar is binnen
-              budget. Niet achteraf “repareren”, maar vooraf sturen.
+              We vertalen uw woonwens naar een oplossing die ruimtelijk klopt, technisch klopt én uitvoerbaar is binnen
+              budget. Niet achteraf "repareren", maar vooraf sturen.
             </p>
           </div>
 
@@ -324,7 +368,7 @@ export const AanbouwWoningClient: React.FC = () => {
               {
                 icon: Ruler,
                 title: 'Constructie & aansluitdetails',
-                desc: 'Hier win je (of verlies je) kwaliteit. We zorgen dat doorbraken, fundering en details kloppen vóór de aannemer start.',
+                desc: 'Hier wint u (of verliest u) kwaliteit. We zorgen dat doorbraken, fundering en details kloppen vóór de aannemer start.',
                 bullets: [
                   'Doorbraken, staal, draaglijnen en vervorming',
                   'Fundering/grondslag passend bij bestaand',
@@ -334,7 +378,7 @@ export const AanbouwWoningClient: React.FC = () => {
               {
                 icon: FileText,
                 title: 'Regels, vergunning & onderbouwing',
-                desc: 'Vergunningsvrij of vergunningplichtig: wij maken het helder en zorgen dat je plan juridisch “staat”.',
+                desc: 'Vergunningsvrij of vergunningplichtig: wij maken het helder en zorgen dat uw plan juridisch "staat".',
                 bullets: [
                   'Toets omgevingsplan, welstand en Bbl',
                   'Dossieropbouw (tekeningen, details, uitgangspunten)',
@@ -354,7 +398,7 @@ export const AanbouwWoningClient: React.FC = () => {
               {
                 icon: Wallet,
                 title: 'Haalbaarheid & kostensturing',
-                desc: 'Budget wordt gestuurd door keuzes. We maken inzichtelijk waar kosten ontstaan en waar je slim kunt prioriteren.',
+                desc: 'Budget wordt gestuurd door keuzes. We maken inzichtelijk waar kosten ontstaan en waar u slim kunt prioriteren.',
                 bullets: [
                   'Keuzes koppelen aan impact op bouwsom',
                   'Helder PvE voor vergelijkbare offertes',
@@ -364,7 +408,7 @@ export const AanbouwWoningClient: React.FC = () => {
               {
                 icon: ShieldCheck,
                 title: 'Uitwerking & (optioneel) bouwbegeleiding',
-                desc: 'Als je wilt, bewaken we kwaliteit in de uitvoering: details, communicatie en besluitmomenten.',
+                desc: 'Als u wilt, bewaken we kwaliteit in de uitvoering: details, communicatie en besluitmomenten.',
                 bullets: [
                   'Uitvoeringstekeningen / details waar nodig',
                   'Afstemming aannemer/constructeur/adviseurs',
@@ -426,7 +470,7 @@ export const AanbouwWoningClient: React.FC = () => {
             {[
               {
                 title: 'Vergunningsvrij verkeerd gelezen',
-                desc: 'Een plan kan vergunningsvrij lijken, maar alsnog botsen met omgevingsplan, Bbl, welstand of burenrecht. Wij maken die spelregels expliciet vóórdat je vastloopt.',
+                desc: 'Een plan kan vergunningsvrij lijken, maar alsnog botsen met omgevingsplan, Bbl, welstand of burenrecht. Wij maken die spelregels expliciet vóórdat u vastloopt.',
               },
               {
                 title: 'Doorbraak zonder constructief verhaal',
@@ -438,7 +482,7 @@ export const AanbouwWoningClient: React.FC = () => {
               },
               {
                 title: 'Budget pas laat gekoppeld aan keuzes',
-                desc: 'Als je pas tijdens offertes ontdekt wat iets kost, moet je onder druk schrappen. Wij koppelen keuzes vroeg aan haalbaarheid, zodat je gericht prioriteert.',
+                desc: 'Als u pas tijdens offertes ontdekt wat iets kost, moet u onder druk schrappen. Wij koppelen keuzes vroeg aan haalbaarheid, zodat u gericht prioriteert.',
               },
             ].map((item, idx) => (
               <motion.div
@@ -462,45 +506,55 @@ export const AanbouwWoningClient: React.FC = () => {
         </div>
       </section>
 
-      {/* 4) Proces (bestaande PROCESS_STEPS) */}
-      <section className="py-24 md:py-28 px-6 md:px-12 bg-stone-50">
-        <div className="max-w-6xl mx-auto space-y-14">
+      {/* 4) Proces - Van ontwerp tot uitvoering */}
+      <section className="py-32 px-6 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
-            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-600 font-black block">Werkwijze</span>
+            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-600 font-black block">
+              Het Ontwerpproces
+            </span>
             <h2 className="text-4xl md:text-5xl font-serif italic text-black leading-tight">
-              Van idee naar uitvoering zonder ruis
+              Van ontwerp tot uitvoering
             </h2>
             <p className="text-xl text-stone-700">
-              Duidelijke stappen, duidelijke keuzes. Zodat je weet wat er wanneer besloten moet worden.
+              Het complete traject in 7 gestructureerde fases
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PROCESS_STEPS.slice(0, 6).map((step, idx) => (
+            {PROCESS_STEPS.filter(step => !step.isLast).map((step, idx) => (
               <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: 12 }}
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.06 }}
-                className="relative p-8 bg-white border-2 border-stone-200 hover:border-amber-600 transition-all"
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="relative p-8 bg-stone-50 border-2 border-stone-200 hover:border-amber-600 transition-all group"
               >
                 <div className="absolute -top-4 left-8 bg-amber-600 text-white px-4 py-2 mono text-xs font-black">
-                  {step.id}
+                  FASE {step.id}
                 </div>
                 <div className="space-y-4 mt-4">
                   <div className="space-y-2">
-                    <h3 className="font-serif italic text-xl text-stone-900">{step.title}</h3>
-                    <p className="mono text-xs uppercase tracking-wider text-stone-500 font-bold">{step.subtitle}</p>
+                    <h3 className="font-serif italic text-2xl text-black group-hover:text-amber-600 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="mono text-xs uppercase tracking-wider text-stone-500 font-bold">
+                      {step.subtitle} • {step.duration}
+                    </p>
                   </div>
-                  <p className="text-stone-600 leading-relaxed text-sm">{step.description}</p>
+                  <p className="text-stone-600 leading-relaxed">
+                    {step.description}
+                  </p>
                   {step.deliverables && (
                     <div className="pt-4 border-t border-stone-200">
-                      <p className="mono text-xs uppercase tracking-wider text-stone-400 font-bold mb-2">Oplevering</p>
-                      <ul className="space-y-1">
+                      <p className="mono text-xs uppercase tracking-wider text-stone-400 font-bold mb-3">
+                        Oplevering
+                      </p>
+                      <ul className="space-y-2">
                         {step.deliverables.map((deliverable, dIdx) => (
                           <li key={dIdx} className="flex items-start gap-2 text-sm text-stone-600">
-                            <CheckCircle size={14} className="text-amber-600 shrink-0 mt-0.5" />
+                            <CheckCircle size={16} className="text-amber-600 shrink-0 mt-0.5" />
                             <span>{deliverable}</span>
                           </li>
                         ))}
@@ -514,50 +568,174 @@ export const AanbouwWoningClient: React.FC = () => {
         </div>
       </section>
 
+      {/* Fase 7: Oplevering - Extended Section with Parallax */}
+      <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+        {/* Parallax Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src="https://www.zwijsen.net/wp-content/uploads/2022/10/68_resize.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
+          />
+        </div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 via-amber-800/85 to-stone-900/90 z-[1]" />
+
+        <div className="relative max-w-6xl mx-auto z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8 text-white"
+            >
+              <div className="space-y-4">
+                <div className="inline-block bg-amber-600 text-white px-6 py-3 mono text-xs font-black">
+                  FASE 07
+                </div>
+                <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+                  Oplevering & Nazorg
+                </h2>
+                <p className="text-xl md:text-2xl text-amber-200 font-light">
+                  Uw droom gerealiseerd — tot in het kleinste detail
+                </p>
+              </div>
+
+              <div className="space-y-6 text-stone-100 leading-relaxed">
+                <p className="text-lg">
+                  De oplevering is het hoogtepunt van het hele traject. Samen lopen we door uw nieuwe woning en controleren we elk detail. Van de afwerking van kozijnen tot de werking van installaties — alles moet perfect zijn.
+                </p>
+                <p className="text-lg">
+                  Bij de eindoplevering gaan we systematisch door de woning heen. Eventuele kleine onvolkomenheden worden genoteerd en door de aannemer hersteld. Pas wanneer alles aan de hoogste standaard voldoet, vindt de officiële sleuteloverdracht plaats.
+                </p>
+                <p className="text-xl font-serif italic text-amber-300">
+                  Een resultaat waar u jarenlang trots op mag zijn — en waar u elke dag opnieuw van geniet.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Column - Deliverables & Nazorg */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div className="bg-white/10 backdrop-blur-sm p-8 border-2 border-white/20 rounded-lg space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center">
+                    <CheckCircle size={32} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif italic text-2xl text-white">
+                      Oplevering
+                    </h3>
+                    <p className="text-amber-200 text-sm mono uppercase tracking-wider">
+                      Het eindresultaat
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="space-y-4">
+                  {[
+                    "Gezamenlijke eindoplevering met volledige checklist",
+                    "Controle op afwerking en detaillering",
+                    "Test van alle installaties en voorzieningen",
+                    "Documentatie van gebruiksaanwijzingen en garanties",
+                    "Officiële sleuteloverdracht"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-white">
+                      <CheckCircle size={20} className="text-amber-400 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm p-8 border-2 border-white/20 rounded-lg space-y-4">
+                <h4 className="font-serif italic text-xl text-white">
+                  Nazorg & Garantie
+                </h4>
+                <p className="text-stone-200 leading-relaxed">
+                  Ook na de oplevering blijf ik beschikbaar voor vragen. Kleine kinderziektes worden opgelost en tijdens de garantieperiode blijf ik aanspreekpunt tussen u en de aannemer.
+                </p>
+                <div className="pt-4 border-t border-white/20">
+                  <p className="text-amber-300 font-bold">
+                    Garantieperiode: volgens bouwbesluit en aannemersovereenkomst
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* 5) Bewijs — projecten */}
       <section className="py-24 md:py-28 px-6 md:px-12 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto space-y-14">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
-            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">Projecten</span>
+            <span className="mono text-sm uppercase tracking-[0.6em] text-amber-500 font-black block">Gerealiseerde projecten</span>
             <h2 className="text-4xl md:text-5xl font-serif italic leading-tight">
               Aanbouwen en verbouwingen uit de praktijk
             </h2>
             <p className="text-xl text-stone-300">
-              Vul dit met 3–6 sterke cases. Beeld + detailverhaal is hier je grootste SEO- en conversiewapen.
+              Van tuinkamers tot complete uitbouwen — elk project een unieke oplossing voor ruimte, licht en comfort.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((p) => (
-              <a
-                key={p.slug}
-                href={`/portfolio/${p.slug}`}
-                className="group block border border-white/10 rounded-xl overflow-hidden bg-white/5 hover:border-amber-500/60 transition-colors"
-              >
-                <div className="aspect-[16/10] bg-black/20 overflow-hidden">
-                  {p.image ? (
-                    <img
-                      src={p.image}
-                      alt={p.alt || p.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white/40">
-                      Voeg featuredImage toe
-                    </div>
-                  )}
-                </div>
-                <div className="p-5 space-y-2">
-                  <div className="mono text-[10px] uppercase tracking-[0.4em] text-amber-500 font-black">
-                    Aanbouw / verbouwing
+            {projects.map((p) => {
+              // Automatisch samenvatten: eerste zin of max 120 karakters
+              const getTruncatedSubtitle = (text: string | undefined) => {
+                if (!text) return '';
+                // Probeer eerste zin te pakken (tot eerste punt)
+                const firstSentence = text.split(/\.\s/)[0];
+                // Als eerste zin korter dan 120 chars, gebruik die
+                if (firstSentence.length <= 120) return firstSentence + '.';
+                // Anders: trim op 120 chars en voeg ... toe
+                return text.substring(0, 120).trim() + '...';
+              };
+
+              return (
+                <a
+                  key={p.slug}
+                  href={`/portfolio/${p.slug}`}
+                  className="group block border border-white/10 rounded-xl overflow-hidden bg-white/5 hover:border-amber-500/60 transition-colors"
+                >
+                  <div className="aspect-[16/10] bg-black/20 overflow-hidden">
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.alt || p.title}
+                        className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-white/40">
+                        Voeg featuredImage toe
+                      </div>
+                    )}
                   </div>
-                  <div className="text-xl font-serif italic">{p.title}</div>
-                  <div className="text-sm text-white/60">{p.location}</div>
-                  <div className="text-sm text-white/70 font-light leading-relaxed">{p.subtitle}</div>
-                </div>
-              </a>
-            ))}
+                  <div className="p-5 space-y-2">
+                    <div className="mono text-[10px] uppercase tracking-[0.4em] text-amber-500 font-black">
+                      Aanbouw / verbouwing
+                    </div>
+                    <div className="text-xl font-serif italic">{p.title}</div>
+                    <div className="text-sm text-white/60">{p.location}</div>
+                    <div className="text-sm text-white/70 font-light leading-relaxed">
+                      {getTruncatedSubtitle(p.subtitle)}
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
 
           <div className="text-center">
@@ -616,17 +794,16 @@ export const AanbouwWoningClient: React.FC = () => {
       <section className="relative py-24 md:py-28 px-6 md:px-12 overflow-hidden bg-gradient-to-br from-stone-950 to-black">
         <div className="absolute inset-0">
           <img
-            src="/images/aanbouw/aanbouw-woning-cta.jpg"
+            src="https://www.zwijsen.net/wp-content/uploads/2022/10/moderne-villa-architect-art-of-living-verbouw-1.jpg"
             alt=""
-            className="w-full h-full object-cover"
-            onError={(e) => (e.currentTarget.style.display = 'none')}
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-950/92 via-black/88 to-stone-950/92" />
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-900/85 via-stone-800/80 to-stone-900/85" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center space-y-10 text-white z-10">
           <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
-            Twijfel je over haalbaarheid, regels of risico’s?
+            Twijfelt u over haalbaarheid, regels of risico's?
           </h2>
           <p className="text-xl text-stone-300">
             Vraag een gratis quickscan aan of plan een kennismaking. Dan brengen we in kaart waar de echte knelpunten

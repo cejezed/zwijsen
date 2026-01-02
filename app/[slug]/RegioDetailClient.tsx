@@ -79,8 +79,11 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
     // Toon alle projecten in de scroller door PROJECTS_DETAIL te normaliseren naar het portfolio formaat
     const portfolioProjects = useMemo(() => {
         return PROJECTS_DETAIL.map((p, index) => {
-            const gallery = (p.heroImages || []).map(img => img.url).filter(Boolean);
-            const primaryImage = p.featuredImage?.url || gallery[0];
+            const heroImages = 'heroImages' in p ? p.heroImages || [] : [];
+            const gallery = heroImages.map(img => img.url).filter(Boolean);
+            const featuredImage = 'featuredImage' in p ? p.featuredImage : undefined;
+            const regularImage = 'image' in p ? p.image : undefined;
+            const primaryImage = featuredImage?.url || gallery[0] || (typeof regularImage === 'string' ? regularImage : regularImage?.url);
             const baseGallery = gallery.length ? gallery : primaryImage ? [primaryImage] : [];
             const paddedGallery = baseGallery.length >= 3
                 ? baseGallery
@@ -89,15 +92,15 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
             return {
                 id: 1000 + index,
                 title: p.title,
-                location: p.locationLabel?.replace('Locatie: ', '') || '',
+                location: ('locationLabel' in p ? p.locationLabel?.replace('Locatie: ', '') : ('location' in p ? p.location : '')) || '',
                 slug: p.slug,
                 image: primaryImage,
-                featuredImage: p.featuredImage,
+                featuredImage: featuredImage,
                 year: p.year || 'N.N.B.',
                 area: p.area || 'N.N.B.',
-                tag: p.categories?.includes('nieuwbouw') ? 'Nieuwbouw' : p.categories?.includes('verbouw') ? 'Verbouw' : p.categories?.[0] || 'Project',
-                subtitle: p.subtitle,
-                description: p.subtitle,
+                tag: ('categories' in p && p.categories?.includes('nieuwbouw')) ? 'Nieuwbouw' : ('categories' in p && p.categories?.includes('verbouw')) ? 'Verbouw' : ('categories' in p ? p.categories?.[0] : ('tag' in p ? p.tag : undefined)) || 'Project',
+                subtitle: 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : ''),
+                description: 'subtitle' in p ? p.subtitle : ('description' in p ? p.description : ''),
                 gallery: paddedGallery
             };
         });
@@ -135,6 +138,10 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
                     <ProjectDetailOverlay
                         project={selectedProject}
                         onClose={() => setSelectedProject(null)}
+                        onContact={() => {
+                            setSelectedProject(null);
+                            setIsInquiryOpen(true);
+                        }}
                     />
                 )}
             </AnimatePresence>

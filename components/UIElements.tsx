@@ -41,6 +41,9 @@ export const SafeImage: React.FC<{
     }
   };
 
+  // Als er geen src is, render niets
+  if (!src) return null;
+
   if (useMotion) {
     // @ts-ignore - framer-motion img element
     return <motion.img src={src} onError={handleError} alt={alt} className={className} />;

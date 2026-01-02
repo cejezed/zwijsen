@@ -1,18 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/[slug]/page": "app/[slug]/page.js",
-  "/portfolio/[slug]/page": "app/portfolio/[slug]/page.js",
-  "/quickscan/page": "app/quickscan/page.js",
-  "/architect/page": "app/architect/page.js",
-  "/(marketing)/aanbouw-woning/page": "app/(marketing)/aanbouw-woning/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/over-ons/page": "app/over-ons/page.js",
-  "/(marketing)/verbouwing-woning/page": "app/(marketing)/verbouwing-woning/page.js",
-  "/(marketing)/moderne-villa-ontwerp/page": "app/(marketing)/moderne-villa-ontwerp/page.js",
-  "/(marketing)/nieuwbouw-villa/page": "app/(marketing)/nieuwbouw-villa/page.js",
-  "/page": "app/page.js",
-  "/kosten/page": "app/kosten/page.js",
   "/portfolio/page": "app/portfolio/page.js",
-  "/regios/page": "app/regios/page.js",
-  "/werkwijze/page": "app/werkwijze/page.js"
+  "/page": "app/page.js"
 }

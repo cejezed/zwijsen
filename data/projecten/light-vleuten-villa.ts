@@ -1,37 +1,67 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const villavleuten: ProjectDetail = {
+export const villavleuten: Project & {
+  openMode: 'overlay';
+  snapshot: ProjectSnapshot;
+  typology?: string;
+} = {
+  id: 9001,
+
+  title: 'Villa Vleuten-De Meern',
+  location: 'Vleuten-De Meern',
   slug: 'light-vleuten-villa',
 
-  title: 'villa Vleuten',
-  subtitle:
-    'Door slim gebruik te maken van de regelgeving in het bestemmingsplan gebruiken we de woning als een schild tussen de voor- en achterzijde. De uitbouwen aan beide zijde van de woning zijn daarbij integraal onderdeel van het geheel. Aan de oostzijde een prachtige eetkeuken met een hoog schuin dak en aan de westzijde de garage met overdekte doorgang naar de achtertuin. Ook binnen zorgt de aanbouw van de keuken voor een extra kwaliteit: vanuit de keuken is er zicht op de overloop op beide verdiepingen. Daarnaast zorgen strategisch geplaatste dakramen voor prachtig licht in de keuken en woonkamer.',
-  locationLabel: 'Locatie: Vleuten De Meern',
-  tags: ['Nieuwbouw', 'Interieur', 'Licht & zichtlijnen'],
-  categories: ['nieuwbouw'],
+  openMode: 'overlay',
+  typology: 'Nieuwbouw villa',
+
+  // Portfolio/kaart velden
+  image: '/images/projecten/modene-wit-villa-vleuten-de-meern-architect-jules-zwijsen-bouwgrond.webp',
+  size: 'wide',
   year: '2014',
-  area: '245 m2',
+  area: '245 m²',
+  tag: 'Nieuwbouw',
+  description:
+    'Slimme inzet van regelgeving en uitbouwen: de woning werkt als “schild” tussen straat en tuin, met maximale licht- en zichtlijnen binnen.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  // Overlay gebruikt dit als detailbeelden
+  gallery: [
+    '/images/projecten/modene-wit-villa-vleuten-de-meern-architect-jules-zwijsen-bouwgrond.webp',
+    '/images/projecten/modene-witte-villa-vleuten-de-meern-architect-jules-zwijsen-kavel.webp',
+    '/images/utrecht/Villa-kavel-Vleuten-utrecht-architect.webp',
+    'https://www.zwijsen.net/wp-content/uploads/2014/05/IMG_0780_resize.jpg'
+  ],
 
-  featuredImage: {
-    url: '/images/projecten/modene-wit-villa-vleuten-de-meern-architect-jules-zwijsen-bouwgrond.webp',
-    alt: 'Karakteristieke moderne wit gestucte villa met houten accenten.',
+  snapshot: {
+    idea:
+      'Niet "meer bouwen", maar de kavelregels zó gebruiken dat ze een ruimtelijk voordeel worden.',
+    extendedDescription:
+      'Door slim gebruik te maken van de regelgeving in het bestemmingsplan gebruiken we de woning als een schild tussen de voor- en achterzijde. De uitbouwen aan beide zijde van de woning zijn daarbij integraal onderdeel van het geheel. Aan de oostzijde een prachtige eetkeuken met een hoog schuin dak en aan de westzijde de garage met overdekte doorgang naar de achtertuin. Ook binnen zorgt de aanbouw van de keuken voor een extra kwaliteit: vanuit de keuken is er zicht op de overloop op beide verdiepingen. Daarnaast zorgen strategisch geplaatste dakramen voor prachtig licht in de keuken en woonkamer.',
+    logic: [
+      {
+        type: 'vraag',
+        text:
+          'Hoe kunnen we binnen de kavelregels toch een royale woonkeuken en een goede overgang tussen straat en tuin maken?',
+      },
+      {
+        type: 'pijn',
+        text:
+          'De regelgeving drukt de massa naar een onhandige positie: risico op weinig privacy, rommelige zichtlijnen en verlies van daglicht.',
+      },
+      {
+        type: 'oplossing',
+        text:
+          'De woning als “schild”: uitbouwen aan beide zijden maken een heldere scheiding straat/tuin; de eetkeuken krijgt een hoog schuin dak en strategische dakramen.',
+      },
+      {
+        type: 'opbrengst',
+        text:
+          'Meer daglicht, meer ruimtelijkheid en een logisch daglichtplan; zichtlijnen over beide verdiepingen; kwaliteit zonder extra volume.',
+      },
+    ],
+    yield: [
+      'Heldere scheiding tussen straat en tuin zonder concessies.',
+      'Extra daglicht via strategische dakramen in keuken en woonkamer.',
+      'Sterke zichtlijnen door de woning voor ruimtelijke rust.',
+    ],
   },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: '/images/projecten/modene-wit-villa-vleuten-de-meern-architect-jules-zwijsen-bouwgrond.webp', alt: 'Een karakteristieke moderne wit gestucte villa met houten accenten.' },
-    { url: '/images/projecten/modene-witte-villa-vleuten-de-meern-architect-jules-zwijsen-kavel.webp', alt: 'De wit gepleisterde villa in Vleuten De Meern, architect Jules Zwijsen.' },
-    { url: '/images/utrecht/Villa-kavel-Vleuten-utrecht-architect.webp', alt: 'Detail maatwerk en materiaalovergang' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2014/05/IMG_0780_resize.jpg', alt: 'De wit gepleisterde villa in Vleuten De Meern, architect Jules Zwijsen.' }
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
 };

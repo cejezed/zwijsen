@@ -1,40 +1,49 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const villareo16: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'Een T-vormige plattegrond om het waterzicht te maximaliseren en privacy te waarborgen.',
+  extendedDescription:
+    'Aan de noordzijde van Rieteiland Oost schuift de plattegrond in een T-vorm om zicht op water en openbare ruimte te benutten. Keuken als spil met aangrenzend entree, woonkamer en eetkamer aan de waterzijde. De woonkamer ligt centraal in de tuin voor ideale bezonning; eetkamer en terras liggen verhoogd voor weids uitzicht. Op de 2e verdieping een werk/kantoor met dakterrassen aan noord en zuid. Gevelopeningen zijn zo geplaatst dat zichtlijnen op eiland, tuin en water maximaal zijn zonder oververhitting.',
+  logic: [
+    { type: 'vraag', text: 'Hoe ontwerp je een waterkavelwoning met maximale zichtlijnen en comfort?' },
+    { type: 'pijn', text: 'Risico op opwarming en beperkte zichtlijnen als openingen ongunstig liggen.' },
+    { type: 'oplossing', text: 'T-vormige plattegrond; keuken als spil; verhoogde eetkamer/terras; gevelopeningen strategisch geplaatst.' },
+    { type: 'opbrengst', text: 'Weids uitzicht, beschutte tuinplekken en gecontroleerd daglicht.' },
+  ],
+  yield: [
+    'Keuken als spil met zicht op water en tuin.',
+    'Verhoogde eetkamer/terras voor panoramisch uitzicht.',
+    'Werk/kantoor met dakterrassen en doorkijk naar eiland en water.',
+  ],
+};
+
+export const villareo16: Project = {
+  id: 9403,
+  title: 'Waterkant villa Rieteiland Oost',
+  location: 'Rieteiland Oost, IJburg',
   slug: 'light-rieteiland-oost-ijburg-villa-16',
 
-  title: 'Waterkant villa Rieteiland Oost IJburg',
-  subtitle:
-    'De kavel is gelegen op de noordzijde van het Rieteiland Oost. De plattegrond van de woning heeft een T-vorm waardoor er maximaal gebruik gemaakt wordt van het uitzicht op het water en de hoogwaardige openbare ruimte aan de voorzijde van de woning. De keuken vormt op de begane grond de spil van de plattegrond met aangrenzend de entree, woonkamer en de eetkamer aan de waterzijde. De woonkamer ligt midden in de tuin en heeft daardoor zicht op de hele kavel en een ideale bezonning. De eetkamer en het aangrenzende buitenterras liggen verhoogd om zo het uitzicht op het weidse water mogelijk te maken, over de door de gemeente aan te leggen natuurlijke erfafscheiding. Op de 2e verdieping bevindt zich een werk-/kantoorruimte met aan de noord- en zuidzijde dakterrassen, bereikbaar via grote schuifpuien. De openingen in de gevel zijn zo geplaatst dat de zichtlijnen op het eiland, de tuin en het water zoveel mogelijk benut worden, zonder last te hebben van teveel opwarming door de zon.',
-  locationLabel: 'Locatie: Rieteiland Oost IJburg',
-  tags: ['waterkant'],
-  categories: ['nieuwbouw'],
+  openMode: 'overlay',
+  typology: 'Nieuwbouw villa',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/IMG_3923_resize.jpg',
+  size: 'landscape',
   year: '2013',
   area: '215 m2',
+  tag: 'Nieuwbouw',
+  description:
+    'T-vormige plattegrond met verhoogde eetkamer en strategische gevelopeningen voor uitzicht en comfort.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
-
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/IMG_3923_resize.jpg',
-    alt: 'woning op het rieteiland oost Amsterdam IJburg, gelegen aan de waterkant en uitgevoerd in metselwerk.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-05.jpg', alt: 'moderne woning rieteiland oost 05' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-06.jpg', alt: 'moderne woning rieteiland oost 06' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-08.jpg', alt: 'kruislings verlijmd vurenhout als constructie van de woning' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-02.jpg', alt: 'Detail maatwerk en materiaalovergang' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-03.jpg', alt: 'Detail maatwerk en materiaalovergang' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-09.jpg', alt: 'prefab clt opbouw klh oostenrijk' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-04.jpg', alt: 'clt hout in het zicht' }
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/IMG_3923_resize.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-05.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-06.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-08.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-02.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-03.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-09.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-woning-rieteiland-oost-04.jpg',
   ],
 
-  // Bewust geen:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

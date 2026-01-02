@@ -3,12 +3,16 @@
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight, Plus, Filter, Hash, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, Filter, Hash, ChevronDown } from 'lucide-react';
 import { PROJECTS_DETAIL } from '../../data/projecten';
 import { ProjectCategory } from '../../data/types';
 import { Footer, InquiryOverlay, ProjectDetailOverlay } from '../../components';
 
 const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onClick: () => void }) => {
+    // Support both light projects (image) and full projects (featuredImage)
+    const imageSrc = project.image || project.featuredImage?.url || '';
+    const imageAlt = project.featuredImage?.alt || project.title || '';
+
     return (
         <motion.div
             layout
@@ -21,11 +25,13 @@ const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onC
         >
             {/* Image Container */}
             <div className="relative overflow-hidden aspect-[4/3]">
-                <img
-                    src={project.featuredImage?.url}
-                    alt={project.featuredImage?.alt}
-                    className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
-                />
+                {imageSrc && (
+                    <img
+                        src={imageSrc}
+                        alt={imageAlt}
+                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110 grayscale-[0.1] group-hover:grayscale-0"
+                    />
+                )}
 
                 {/* Flash UI Overlays (Blueprint View) - Only on Hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
@@ -60,7 +66,7 @@ const ProjectCard = ({ project, idx, onClick }: { project: any; idx: number; onC
                             REF_0{idx + 1}
                         </span>
                         <span className="mono text-[8px] font-black uppercase tracking-[0.3em] text-stone-400">
-                            {project.locationLabel?.replace('Locatie: ', '')}
+                            {project.location || project.locationLabel?.replace('Locatie: ', '')}
                         </span>
                     </div>
                     <h3 className="text-lg md:text-xl font-serif text-black leading-tight group-hover:text-amber-700 transition-colors duration-500">
@@ -77,7 +83,7 @@ export const PortfolioClient: React.FC = () => {
     const [filter, setFilter] = useState<ProjectCategory | 'all'>('all');
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-    const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [selectedProject, setSelectedProject] = useState<{ project: any; idx: number } | null>(null);
     const footerRef = useRef<HTMLDivElement>(null);
 
     // Scroll to top when component mounts
@@ -95,32 +101,59 @@ export const PortfolioClient: React.FC = () => {
     const footerParallaxText = useTransform(footerScroll, [0, 1], [0, -1500]);
     const footerOpacity = useTransform(footerScroll, [0, 0.4], [0, 1]);
 
-    const allCategories = ['all', ...Array.from(new Set(PROJECTS_DETAIL.flatMap(p => p.categories || [])))];
+    const allCategories = ['all', ...Array.from(new Set(PROJECTS_DETAIL.flatMap(p => 'categories' in p ? p.categories || [] : [])))];
     const filteredProjects = filter === 'all'
         ? PROJECTS_DETAIL
-        : PROJECTS_DETAIL.filter(p => p.categories?.includes(filter as ProjectCategory));
+        : PROJECTS_DETAIL.filter(p => 'categories' in p && p.categories?.includes(filter as ProjectCategory));
 
     const toOverlayProject = (p: any, idx: number) => {
-        const gallery = (p.heroImages || []).map((img: any) => img.url).filter(Boolean);
-        const primaryImage = p.featuredImage?.url || gallery[0];
-        const baseGallery = gallery.length ? gallery : primaryImage ? [primaryImage] : [];
+        // Support both "light" projects (with image/gallery) and full projects (with featuredImage/heroImages)
+        const isLightProject = p.openMode === 'overlay';
+
+        let primaryImage: string;
+        let baseGallery: string[];
+
+        if (isLightProject) {
+            // Light project format
+            primaryImage = p.image || '';
+            baseGallery = p.gallery || (primaryImage ? [primaryImage] : []);
+        } else {
+            // Full project format
+            const gallery = (p.heroImages || []).map((img: any) => img.url).filter(Boolean);
+            primaryImage = p.featuredImage?.url || gallery[0] || '';
+            baseGallery = gallery.length ? gallery : primaryImage ? [primaryImage] : [];
+        }
+
         const paddedGallery = baseGallery.length >= 3
             ? baseGallery
             : [...baseGallery, ...Array.from({ length: 3 - baseGallery.length }, () => primaryImage || baseGallery[0]).filter(Boolean)];
 
         return {
-            id: 1000 + idx,
+            id: p.id || 1000 + idx,
             title: p.title,
-            location: (p.locationLabel || '').replace('Locatie: ', ''),
+            location: p.location || (p.locationLabel || '').replace('Locatie: ', ''),
             slug: p.slug,
             image: primaryImage,
             year: p.year || 'N.N.B.',
             area: p.area || 'N.N.B.',
-            tag: p.categories?.includes('nieuwbouw') ? 'Nieuwbouw' : p.categories?.includes('verbouw') ? 'Verbouw' : p.categories?.[0] || 'Project',
+            tag: p.tag || (p.categories?.includes('nieuwbouw') ? 'Nieuwbouw' : p.categories?.includes('verbouw') ? 'Verbouw' : p.categories?.[0] || 'Project'),
             subtitle: p.subtitle,
-            description: p.subtitle,
-            gallery: paddedGallery
+            description: p.description || p.subtitle,
+            gallery: paddedGallery,
+            snapshot: p.snapshot
         };
+    };
+
+    const openOverlay = (p: any, idx: number) => setSelectedProject({ project: toOverlayProject(p, idx), idx });
+    const showPrev = () => {
+        if (!selectedProject || filteredProjects.length === 0) return;
+        const prevIdx = (selectedProject.idx - 1 + filteredProjects.length) % filteredProjects.length;
+        openOverlay(filteredProjects[prevIdx], prevIdx);
+    };
+    const showNext = () => {
+        if (!selectedProject || filteredProjects.length === 0) return;
+        const nextIdx = (selectedProject.idx + 1) % filteredProjects.length;
+        openOverlay(filteredProjects[nextIdx], nextIdx);
     };
 
     return (
@@ -134,8 +167,14 @@ export const PortfolioClient: React.FC = () => {
             <AnimatePresence>
                 {selectedProject && (
                     <ProjectDetailOverlay
-                        project={selectedProject}
+                        project={selectedProject.project}
                         onClose={() => setSelectedProject(null)}
+                        onPrev={filteredProjects.length > 1 ? showPrev : undefined}
+                        onNext={filteredProjects.length > 1 ? showNext : undefined}
+                        onContact={() => {
+                            setSelectedProject(null);
+                            setIsInquiryOpen(true);
+                        }}
                     />
                 )}
             </AnimatePresence>
@@ -236,7 +275,7 @@ export const PortfolioClient: React.FC = () => {
                                     idx={idx}
                                     onClick={() => {
                                         if ((project as any).openMode === 'overlay') {
-                                            setSelectedProject(toOverlayProject(project, idx));
+                                            openOverlay(project, idx);
                                             return;
                                         }
                                         router.push(`/portfolio/${project.slug}`);
@@ -246,21 +285,6 @@ export const PortfolioClient: React.FC = () => {
                         </AnimatePresence>
                     </motion.div>
                 </div>
-
-                {/* Floating Action Button for Contact */}
-                <motion.div
-                    initial={{ y: 100 }}
-                    animate={{ y: 0 }}
-                    className="fixed bottom-10 right-10 z-[500]"
-                >
-                    <button
-                        onClick={() => setIsInquiryOpen(true)}
-                        className="bg-black text-white px-10 py-6 rounded-full flex items-center gap-6 shadow-3xl hover:bg-amber-600 transition-all group"
-                    >
-                        <span className="mono text-[11px] font-black uppercase tracking-widest">Stel een Vraag</span>
-                        <Plus size={20} className="group-hover:rotate-90 transition-transform" />
-                    </button>
-                </motion.div>
 
                 {/* Footer */}
                 <Footer

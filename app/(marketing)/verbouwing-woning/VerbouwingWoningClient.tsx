@@ -38,7 +38,7 @@ const FAQS = [
   {
     tag: 'VERGUNNING',
     q: 'Heb ik een vergunning nodig voor een verbouwing?',
-    a: 'Soms kan (een deel) vergunningsvrij, maar “vergunningsvrij” is niet “regelvrij”. Ook dan gelden technische eisen (Bbl), burenrecht en vaak welstand. In de quickscan bepalen we welke route het meest zeker is, zodat je niet achteraf hoeft te repareren.',
+    a: 'Soms kan (een deel) vergunningsvrij, maar "vergunningsvrij" is niet "regelvrij". Ook dan gelden technische eisen (Bbl), burenrecht en vaak welstand. In de quickscan bepalen we welke route het meest zeker is, zodat u niet achteraf hoeft te repareren.',
   },
   {
     tag: 'RISICO',
@@ -48,12 +48,12 @@ const FAQS = [
   {
     tag: 'KOSTEN',
     q: 'Wat kost een woningverbouwing?',
-    a: 'De kosten hangen vooral af van doorbraken, fundering, installaties, isolatie-ambities en afwerkingsniveau. We maken vroeg inzichtelijk welke keuzes de grootste kostendrivers zijn, zodat je kunt prioriteren en realistisch begroten.',
+    a: 'De kosten hangen vooral af van doorbraken, fundering, installaties, isolatie-ambities en afwerkingsniveau. We maken vroeg inzichtelijk welke keuzes de grootste kostendrivers zijn, zodat u kunt prioriteren en realistisch begroten.',
   },
   {
     tag: 'TIMING',
     q: 'Wanneer schakel ik het beste een architect in?',
-    a: 'Het liefst vóórdat je offertes opvraagt. Dan sturen we eerst op indeling, haalbaarheid, constructie en regelgeving, zodat aannemers hetzelfde uitgangspunt prijzen en je minder verrassingen krijgt.',
+    a: 'Het liefst vóórdat u offertes opvraagt. Dan sturen we eerst op indeling, haalbaarheid, constructie en regelgeving, zodat aannemers hetzelfde uitgangspunt prijzen en u minder verrassingen krijgt.',
   },
   {
     tag: 'WELSTAND',
@@ -105,9 +105,14 @@ export const VerbouwingWoningClient: React.FC = () => {
           <img
             src="https://www.zwijsen.net/wp-content/uploads/2022/10/zandvoort-2a.jpg"
             alt="Verwoening woning architect - foto zandvoort moderne verbouwing duurzame woning nieuwbouw comfort"
-            className="w-full h-full object-cover opacity-0"
-            onLoad={(e) => e.currentTarget.classList.replace('opacity-0', 'opacity-100')}
-            onError={(e) => (e.currentTarget.style.display = 'none')}
+            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            onLoad={(e) => {
+              e.currentTarget.classList.remove('opacity-40');
+              e.currentTarget.classList.add('opacity-100');
+            }}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/80" />
         </div>
@@ -192,9 +197,9 @@ export const VerbouwingWoningClient: React.FC = () => {
               Verbouwen is geen optelsom van “extra meters”
             </h2>
             <p className="text-xl text-stone-700 leading-relaxed">
-              Bij bestaande bouw heb je te maken met historie: funderingen, draagstructuren, onverwachte leidingen,
-              vochtgedrag, scheefstand en soms monument- of welstandskaders. Als je dat pas tijdens de uitvoering ontdekt,
-              krijg je gedoe: vertraging, meerwerk en onrust.
+              Bij bestaande bouw heeft u te maken met historie: funderingen, draagstructuren, onverwachte leidingen,
+              vochtgedrag, scheefstand en soms monument- of welstandskaders. Als u dat pas tijdens de uitvoering ontdekt,
+              krijgt u gedoe: vertraging, meerwerk en onrust.
             </p>
           </div>
 
@@ -252,7 +257,7 @@ export const VerbouwingWoningClient: React.FC = () => {
         </div>
       </section>
 
-      {/* 2) Value proposition: jouw manier van werken */}
+      {/* 2) Value proposition: onze manier van werken */}
       <section className="py-28 md:py-32 px-6 md:px-12 bg-stone-900 text-white">
         <div className="max-w-6xl mx-auto space-y-16">
           <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -263,7 +268,7 @@ export const VerbouwingWoningClient: React.FC = () => {
               Ontwerp, risico en uitvoering in één lijn
             </h2>
             <p className="text-xl text-stone-300 leading-relaxed">
-              Mijn rol is meer dan ontwerpen: ik wil dat je verbouwing technisch klopt, juridisch houdbaar is,
+              Mijn rol is meer dan ontwerpen: ik wil dat uw verbouwing technisch klopt, juridisch houdbaar is,
               én voorspelbaar gebouwd kan worden. Dat vraagt een proces waarin keuzes vroeg scherp worden gemaakt
               en details eenduidig worden vastgelegd.
             </p>
@@ -325,8 +330,8 @@ export const VerbouwingWoningClient: React.FC = () => {
               Wat maakt een verbouwing écht geslaagd?
             </h2>
             <p className="text-xl text-stone-700 leading-relaxed">
-              Een geslaagde verbouwing maakt je huis beter in gebruik én waardevaster—zonder dat je later denkt:
-              “hadden we dit maar anders gedaan.” Daarom stuur ik vroeg op onderstaande punten.
+              Een geslaagde verbouwing maakt uw huis beter in gebruik én waardevaster—zonder dat u later denkt:
+              "hadden we dit maar anders gedaan." Daarom stuur ik vroeg op onderstaande punten.
             </p>
           </div>
 
@@ -410,7 +415,7 @@ export const VerbouwingWoningClient: React.FC = () => {
               {
                 icon: Home,
                 title: 'Wensen & routines',
-                desc: 'Hoe leef je nu, wat wringt er, en wat moet straks beter? Daaruit volgt de ruimtelijke logica.',
+                desc: 'Hoe leeft u nu, wat wringt er, en wat moet straks beter? Daaruit volgt de ruimtelijke logica.',
               },
               {
                 icon: Wallet,
@@ -420,7 +425,7 @@ export const VerbouwingWoningClient: React.FC = () => {
               {
                 icon: FileText,
                 title: 'Locatie & regels',
-                desc: 'Omgevingsplan, welstand, burenrecht en technische eisen. Zo kies je de juiste vergunningsroute.',
+                desc: 'Omgevingsplan, welstand, burenrecht en technische eisen. Zo kiest u de juiste vergunningsroute.',
               },
             ].map((b, idx) => (
               <div
@@ -457,7 +462,7 @@ export const VerbouwingWoningClient: React.FC = () => {
               Waar de kosten bij verbouwing écht door worden bepaald
             </h2>
             <p className="text-xl text-stone-700 leading-relaxed">
-              Een verbouwing is vaak complexer dan nieuwbouw: je werkt met bestaande beperkingen én je wil comfort
+              Een verbouwing is vaak complexer dan nieuwbouw: u werkt met bestaande beperkingen én u wil comfort
               en kwaliteit omhoog brengen. Daarom is het essentieel om vroeg de kostendrivers te herkennen.
             </p>
           </div>
@@ -513,7 +518,7 @@ export const VerbouwingWoningClient: React.FC = () => {
             </h2>
             <p className="text-xl text-stone-300">
               Een gestructureerd proces met duidelijke momenten van keuze, toetsing en besluitvorming.
-              Bij complexe situaties kiezen we vaak voor vroeg vooroverleg (bijvoorbeeld een omgevingstafel) zodat je later niet vastloopt.
+              Bij complexe situaties kiezen we vaak voor vroeg vooroverleg (bijvoorbeeld een omgevingstafel) zodat u later niet vastloopt.
             </p>
           </div>
 
@@ -577,13 +582,13 @@ export const VerbouwingWoningClient: React.FC = () => {
               Voor wie dit wél en niet past
             </h2>
             <p className="text-xl text-stone-700">
-              Duidelijkheid werkt twee kanten op. Zo weet je snel of onze werkwijze bij je past.
+              Duidelijkheid werkt twee kanten op. Zo weet u snel of onze werkwijze bij u past.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-stone-50 border border-stone-200 p-10">
-              <h3 className="font-serif italic text-2xl text-black">Dit past bij je als je:</h3>
+              <h3 className="font-serif italic text-2xl text-black">Dit past bij u als u:</h3>
               <ul className="mt-6 space-y-4">
                 {[
                   'zekerheid wilt over constructie, techniek en vergunningen;',
@@ -600,7 +605,7 @@ export const VerbouwingWoningClient: React.FC = () => {
             </div>
 
             <div className="bg-white border border-stone-200 p-10">
-              <h3 className="font-serif italic text-2xl text-black">Dit past minder als je:</h3>
+              <h3 className="font-serif italic text-2xl text-black">Dit past minder als u:</h3>
               <ul className="mt-6 space-y-4">
                 {[
                   'alleen een snelle schets zoekt zonder uitwerking in details;',
@@ -673,10 +678,10 @@ export const VerbouwingWoningClient: React.FC = () => {
 
         <div className="relative max-w-4xl mx-auto text-center space-y-10 text-white z-10">
           <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
-            Wil je weten of jouw verbouwing “veilig en haalbaar” is?
+            Wilt u weten of uw verbouwing "veilig en haalbaar" is?
           </h2>
           <p className="text-xl text-stone-300">
-            Start met een gratis quickscan of plan een kennismaking. Dan weet je snel waar de echte risico’s zitten
+            Start met een gratis quickscan of plan een kennismaking. Dan weet u snel waar de echte risico's zitten
             en welke keuzes het verschil maken in kosten, comfort en uitvoering.
           </p>
 

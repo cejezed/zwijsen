@@ -1,35 +1,43 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const Bilthovenveranda: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'Een tuinkamer/veranda toevoegen als licht en beschut verlengstuk van de woning.',
+  extendedDescription:
+    'Een compacte berging met veranda en tuinkamer die het woonprogramma uitbreidt. Grote glasvlakken, houten accenten en een heldere kap geven licht en beschutting, met zicht op de tuin.',
+  logic: [
+    { type: 'vraag', text: 'Hoe voeg je extra woonkwaliteit toe zonder een grote aanbouw?' },
+    { type: 'pijn', text: 'Beperkte buitenruimte en behoefte aan beschutte zitplek met licht en zicht.' },
+    { type: 'oplossing', text: 'Tuinkamer met veranda, veel glas en hout, als verlengstuk van wonen en tuin.' },
+    { type: 'opbrengst', text: 'Meer gebruiksmomenten buiten, extra licht en zichtlijnen vanuit de woning.' },
+  ],
+  yield: [
+    'Beschutte veranda/tuinkamer die de tuin bij de woning betrekt.',
+    'Veel glas voor licht en zichtlijnen.',
+    'Compact volume met berging en zitplek in één gebaar.',
+  ],
+};
+
+export const Bilthovenveranda: Project = {
+  id: 9103,
+  title: 'Berging met veranda Bilthoven',
+  location: 'Bilthoven',
   slug: 'light-Bilthoven-tuinkamer-veranda',
 
-  title: 'Berging met veranda Bilthoven',
-  subtitle:
-    'Een tuin met natuurlijke hoogteverschillen die eigenlijk nauwelijks benut worden... De gewenste schuur hebben we de heuvel ingeschoven zodat deze nauwelijks opvalt. Door het dak van de berging door te trekken ontstaat er een prachtige veranda waar het heerlijk buiten zitten is. De avondzon schijnt precies onder het zwevende dak door, de hete middagzon wordt door het dak tegengehouden. Het houten scherm zorgt voor rugdekking en belemmert ook het zicht op een ruimte die toch ook wel erg fijn is: achter in de tuin is plek voor opslag van hout en ander materiaal zonder dat dat hinderlijk in het zicht staat.',
-  locationLabel: 'Locatie: Bilthoven',
-  tags: ['Nieuwbouw', 'veranda', 'jaren dertig woning', 'Tuinkamer'],
-  categories: ['Nieuwbouw', 'veranda'],
-  year: '2015',
-  area: '50 m2',
+  openMode: 'overlay',
+  typology: 'Tuinkamer / veranda',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  image: 'https://www.zwijsen.net/wp-content/uploads/2015/04/veranda_resize.jpg',
+  size: 'landscape',
+  year: '2016',
+  area: 'N.N.B.',
+  tag: 'Aanbouw',
+  description:
+    'Tuinkamer/veranda met berging; veel glas, hout en beschutting voor een licht buitenverblijf.',
 
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2015/04/veranda_resize.jpg',
-    alt: 'In de tuin opgenomen berging met tuinkamer onder overkragende overkapping.',
-  },
+  gallery: [
+    
+    'https://www.zwijsen.net/wp-content/uploads/2016/12/Sketch183201737.jpg',
+     ],
 
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2016/12/Sketch183201737.jpg', alt: 'Moderne aanbouw en verbouw Bilthoven architect 4' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2016/12/perspectief-2.jpg', alt: 'De wit gepleisterde villa in Abcoude Land van Winkel, architect Jules Zwijsen.' }
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

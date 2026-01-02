@@ -1,41 +1,49 @@
-import type { ProjectDetail } from '../types';
+import type { Project, ProjectSnapshot } from '../types';
 
-export const villareo36: ProjectDetail = {
+const snapshot: ProjectSnapshot = {
+  idea: 'Een houten, rolstoeltoegankelijke villa met patio-achtige plekken en strategische zichtlijnen.',
+  extendedDescription:
+    'Deze houten villa op Rieteiland Oost benut de kavel door beschutte en open plekken te maken. De hoofdslaapkamer op de 2e verdieping kijkt via een groot raam richting Amsterdam en het Diemerpark. Massieve vurenhouten CLT-wanden en vloeren bepalen het interieur. Grote gevelopeningen op gekozen plekken zorgen voor rust, licht en vergezichten. De woning is volledig rolstoeltoegankelijk en levensloopbestendig.',
+  logic: [
+    { type: 'vraag', text: 'Hoe combineer je houtbouw, uitzicht en levensloopbestendigheid op een waterkavel?' },
+    { type: 'pijn', text: 'Eenzijdige oriëntatie of geslotenheid kan licht en uitzicht beperken; toegankelijkheid moet worden geborgd.' },
+    { type: 'oplossing', text: 'CLT-constructie met strategische openingen, patio-achtige plekken en volledige rolstoeltoegankelijkheid.' },
+    { type: 'opbrengst', text: 'Rustig, licht interieur met vergezichten; toekomstbestendig door rolstoeltoegang en logische routing.' },
+  ],
+  yield: [
+    'CLT-houtbouw met zichtlijnen naar Amsterdam en Diemerpark.',
+    'Strategische gevelopeningen voor licht en privacy.',
+    'Rolstoeltoegankelijke, levensloopbestendige indeling.',
+  ],
+};
+
+export const villareo36: Project = {
+  id: 9402,
+  title: 'Houten villa Rieteiland Oost',
+  location: 'Rieteiland Oost, IJburg',
   slug: 'light-rieteiland-oost-ijburg-villa-36',
 
-  title: 'Houten villa Rieteiland Oost IJburg',
-  subtitle:
-    'Op deze manier ontstaan op de kavel verschillende plekken die beschut, bezond of open liggen en daardoor een divers gebruik mogelijk maken. Op de 2e verdieping bevindt zich de hoofdslaapkamer die door middel van een groot raam uitzicht heeft op het verderop gelegen Amsterdam en het naastgelegen Diemerpark. De woning is volledig ingericht op aanpasbaar bouwen en is daarom overal toegankelijk voor een rolstoel. Hierdoor is ook de levensloop-bestendigheid van de woning verzekerd. De materialisatie van de woning bestaat uit een vergrijsde houten bekleding in combinatie met grote gevelopeningen op strategische plekken die zorgen voor een rustig maar afwisselend beeld. De wanden en vloeren zijn gemaakt van massieve vurenhouten platen in diverse diktes. Deze bepalen in grote mate ook het interieur en wooncomfort van de woning',
-  locationLabel: 'Locatie: Rieteiland Oost IJburg',
-  tags: ['Nieuwbouw', 'Interieur', 'Hout', 'CLT bouwsysteem'],
-  categories: ['nieuwbouw'],
+  openMode: 'overlay',
+  typology: 'Houtbouw / nieuwbouw',
+
+  image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-11.jpg',
+  size: 'portrait',
   year: '2013',
   area: '215 m2',
+  tag: 'Nieuwbouw',
+  description:
+    'CLT-houten villa met strategische zichtlijnen en patio-achtige plekken; volledig rolstoeltoegankelijk.',
 
-  // Dit veld gebruik je straks om in PortfolioClient te sturen:
-  // openMode: 'overlay' => overlay openen i.p.v. /portfolio/[slug]
-  // (als je types dit veld nog niet kennen, voeg het later toe of gebruik "as any")
-  openMode: 'overlay' as any,
+  gallery: [
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-05.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-06.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-07.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-09.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-10.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-03.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-04.jpg',
+    'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-11.jpg',
+  ],
 
-  featuredImage: {
-    url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-11.jpg',
-    alt: 'woning op het rieteiland oost Amsterdam IJburg, opgebouwd in prefab cross laminated timber.',
-  },
-
-  // 2–4 beelden is genoeg voor light projects
-  heroImages: [
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-05.jpg', alt: 'abcoude kavel architect moderne woning land van winkel vv' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-06.jpg', alt: 'De wit gepleisterde villa in Abcoude Land van Winkel, architect Jules Zwijsen.' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-07.jpg', alt: 'kruislings verlijmd vurenhout als constructie van de woning' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-09.jpg', alt: 'Detail maatwerk en materiaalovergang' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-10.jpg', alt: 'Detail maatwerk en materiaalovergang' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-03.jpg', alt: 'prefab clt opbouw klh oostenrijk' },
-    { url: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-04.jpg', alt: 'clt hout in het zicht' }
-
-  ]
-
-  // Bewust géén:
-  // - sections
-  // - seo
-  // - cta
+  snapshot,
 };

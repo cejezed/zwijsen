@@ -23,9 +23,13 @@ export async function generateMetadata({ params }: RouteProps<ProjectParams>) {
         };
     }
 
+    const seo = 'seo' in project ? project.seo : undefined;
+    const subtitle = 'subtitle' in project ? project.subtitle : ('description' in project ? project.description : '');
+    const locationLabel = 'locationLabel' in project ? project.locationLabel : ('location' in project ? project.location : '');
+
     return {
         title: `${project.title} | Jules Zwijsen`,
-        description: project.seo?.description || project.subtitle || `Bekijk ons project ${project.title} in ${project.locationLabel}.`,
+        description: seo?.description || subtitle || `Bekijk ons project ${project.title} in ${locationLabel}.`,
     };
 }
 
