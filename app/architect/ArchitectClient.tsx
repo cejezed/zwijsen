@@ -810,7 +810,7 @@ export const ArchitectClient: React.FC = () => {
                                     Met Brikx kunt u uw wensen en prioriteiten alvast structureren in een Programma van Eisen. Dat helpt om sneller tot een scherp ontwerp en betere offertes te komen — en maakt een eerste gesprek vaak efficiënter.
                                 </p>
                                 <a
-                                    href="https://brikx.nl"
+                                    href="https://www.brikxai.nl"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 text-amber-600 hover:text-amber-700 font-bold mt-6 group-hover:gap-4 transition-all"

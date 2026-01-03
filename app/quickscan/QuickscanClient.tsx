@@ -410,7 +410,7 @@ export const QuickscanClient: React.FC = () => {
                                     Structureer uw wensen en budget voordat u aan tafel gaat met een architect. Zo bent u beter voorbereid en weet u wat u wilt.
                                 </p>
                                 <a
-                                    href="https://brikx.nl"
+                                    href="https://www.brikxai.nl"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 text-amber-500 hover:text-amber-400 font-bold transition-colors"

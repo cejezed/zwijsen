@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Instagram, Linkedin, Phone, Mail, ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
+import { MapPin, Instagram, Linkedin, Pinterest, Phone, Mail, ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
 import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER, PHONE_LINK } from '../data';
 import { InquiryForm } from './Overlays';
 import { SafeImage } from './SafeImage';
@@ -210,8 +210,11 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
                 <div className="space-y-6">
                   <span className="mono text-sm uppercase tracking-widest font-black text-amber-900/40 block">Connectie</span>
                   <div className="flex gap-4 items-center">
-                    <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
+                    <a href="https://www.instagram.com/abjzwijsen/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
                       <Instagram size={20} className="group-hover:scale-110 transition-transform" />
+                    </a>
+                    <a href="https://nl.pinterest.com/architectz/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
+                      <Pinterest size={20} className="group-hover:scale-110 transition-transform" />
                     </a>
                     <a href="https://www.linkedin.com/in/jules-zwijsen-22450a4/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
                       <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
