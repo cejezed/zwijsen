@@ -240,7 +240,7 @@ export const verbouwLuxeVillaZandvoort: ProjectDetail = {
       content:
         "In het interieur is gewerkt met rustige, hoogwaardige materialen zoals eikenhout, kalkverf en natuursteen. De keuken is als maatwerkobject centraal gepositioneerd, met zicht op tuin en eetruimte.\n\nEr is gekozen voor ingetogen kleuren, akoestische oplossingen en subtiele overgangen tussen ruimtes. Zo sluit het interieur naadloos aan op de architectuur en ontstaat een tijdloze, comfortabele woning voor het gezin.",
       image: {
-        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/interieur-architect-villa-aan-zee.jpg",
+        url: "https://www.zwijsen.net/wp-content/uploads/2022/10/duinvilla-zandvoort-modern-duinen-architect-12.jpg",
         alt: "Interieur – eikenhout, kalkverf en natuursteen in rustige compositie"
       }
     },

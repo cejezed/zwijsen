@@ -25,6 +25,7 @@ const loosdrechtProjects = PROJECTS_DETAIL
       title: p.title,
       location: locationLabel,
       slug: p.slug,
+      openMode: 'page' as const,
       image: featuredImage?.url || (typeof regularImage === 'string' ? regularImage : regularImage?.url) || '',
       size: size,
       year: 'N.N.B.',
@@ -32,7 +33,7 @@ const loosdrechtProjects = PROJECTS_DETAIL
       tag: categories?.[0] === 'nieuwbouw' ? 'Nieuwbouw' : categories?.[0] === 'verbouw' ? 'Verbouw' : 'Project',
       subtitle: subtitle,
       description: subtitle,
-      gallery: heroImages.map(img => img.url)
+      gallery: heroImages.length > 0 ? heroImages.map(img => img.url) : [featuredImage?.url || (typeof regularImage === 'string' ? regularImage : regularImage?.url) || '']
     };
   });
 

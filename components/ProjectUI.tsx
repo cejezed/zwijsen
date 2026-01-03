@@ -157,6 +157,16 @@ export const ProjectDetailOverlay: React.FC<{ project: any; onClose: () => void;
   const resultaatRef = useRef(null);
   const archiveRef = useRef(null);
 
+  // Reset state when project changes
+  useEffect(() => {
+    setActivePhases(['diagnose']);
+    // Scroll to top when project changes
+    const overlayElement = document.querySelector('.fixed.inset-0.z-\\[250\\]');
+    if (overlayElement) {
+      overlayElement.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [project?.slug, project?.id]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

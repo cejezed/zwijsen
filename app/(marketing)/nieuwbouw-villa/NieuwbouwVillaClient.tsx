@@ -15,9 +15,9 @@ import {
   FileText,
 } from 'lucide-react';
 
-import { PROCESS_STEPS } from '../../../data';
+import { PROCESS_STEPS, INTERNAL_LINKS } from '../../../data';
 import { PROJECTS_DETAIL } from '../../../data/projecten';
-import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar } from '../../../components';
+import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar, InternalLinksSection } from '../../../components';
 
 /**
  * Nieuwbouw Villa – Conversiegedreven type-pagina
@@ -702,6 +702,13 @@ export const NieuwbouwVillaClient: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interne links voor SEO */}
+      <InternalLinksSection
+        title="Gerelateerde Diensten & Regio's"
+        subtitle="Ontdek meer over onze architectuurdiensten en bekijk projecten in verschillende regio's"
+        links={INTERNAL_LINKS.nieuwbouwVilla}
+      />
 
       <Footer footerRef={footerRef} parallaxText={footerParallaxText} opacity={footerOpacity} />
 

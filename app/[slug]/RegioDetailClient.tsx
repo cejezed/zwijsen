@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
-import { BRAND_NAME } from '../../data/index';
+import { BRAND_NAME, INTERNAL_LINKS } from '../../data/index';
 import { PROJECTS_DETAIL } from '../../data/projecten';
 import type { RegioConfig, ImageWithAlt } from '../../data/types';
 import {
@@ -21,7 +21,8 @@ import {
     PortfolioSection,
     QuickProjectsGrid,
     ProjectDetailOverlay,
-    InquiryOverlay
+    InquiryOverlay,
+    InternalLinksSection
 } from '../../components';
 
 interface RegioDetailClientProps {
@@ -178,7 +179,14 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
                     {/* Quick Projects Grid - 4 simple project cards for mobile UX */}
                     <QuickProjectsGrid
                         projects={(config as any).projects || []}
-                        onProjectClick={setSelectedProject}
+                        onProjectClick={(project) => {
+                            // Check if project should open as overlay or navigate to page
+                            if (project.openMode === 'overlay') {
+                                setSelectedProject(project);
+                            } else {
+                                router.push(`/portfolio/${project.slug}`);
+                            }
+                        }}
                     />
 
                     {/* Process Section - Compact version with tabs */}
@@ -205,6 +213,15 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
 
                     {/* FAQ Section */}
                     <FAQSection faqs={config.faqs || []} />
+
+                    {/* Internal Links Section voor SEO */}
+                    {INTERNAL_LINKS[slug as keyof typeof INTERNAL_LINKS] && (
+                        <InternalLinksSection
+                            title="Gerelateerde Diensten & Regio's"
+                            subtitle="Ontdek meer over onze architectuurdiensten en andere regio's"
+                            links={INTERNAL_LINKS[slug as keyof typeof INTERNAL_LINKS]}
+                        />
+                    )}
 
                     {/* Footer */}
                     <Footer

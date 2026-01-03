@@ -15,6 +15,12 @@ import {
 // Export werkwijze content
 export { WERKWIJZE_CONTENT } from './werkwijze';
 
+// Export internal links
+export { INTERNAL_LINKS } from './internal-links';
+
+// Export structured data utilities
+export * from './structured-data';
+
 // Export types
 export type { RegioConfig, Project, HeroSlide, MunicipalLink, RegionalProject, ImageWithAlt, ProcessStep } from './types';
 

@@ -33,6 +33,8 @@ export { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 export { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 export { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 export { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+export { verbouwMetModerneAanbouwWoningLoenenAanDeVecht } from './verbouw-met-moderne-aanbouw-woning-loenen-aan-de-vecht';
+export { herbestemmingNeraGebouw } from './herbestemming-nera-gebouw';
 
 // Light exports
 export { villavleuten } from './light-vleuten-villa.ts';
@@ -78,6 +80,8 @@ import { poortwoningCronenburghLoenen } from './poortwoning-cronenburgh-loenen-a
 import { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-torenwoning-cronenburgh';
 import { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 import { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
+import { verbouwMetModerneAanbouwWoningLoenenAanDeVecht } from './verbouw-met-moderne-aanbouw-woning-loenen-aan-de-vecht';
+import { herbestemmingNeraGebouw } from './herbestemming-nera-gebouw';
 
 // Light imports
 import { villavleuten } from './light-vleuten-villa.ts';
@@ -127,6 +131,8 @@ export const PROJECTS_DETAIL: AnyProject[] = [
   torenwoningCronenburghLoenen,
   moderneRecreatiewoningVecht,
   villaKasteelparkDeCloese,
+  herbestemmingNeraGebouw,
+  verbouwMetModerneAanbouwWoningLoenenAanDeVecht,
 
   // light
   villavleuten,

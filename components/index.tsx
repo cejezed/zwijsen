@@ -23,6 +23,7 @@ export { Footer } from './Footer';
 export { PortfolioSection } from './PortfolioSection';
 export { QuickProjectsGrid } from './QuickProjectsGrid';
 export { FAQSection } from './FAQSection';
+export { InternalLinksSection } from './InternalLinksSection';
 
 // Project components
 export { ProjectDetailOverlay, MosaicItem } from './ProjectUI';

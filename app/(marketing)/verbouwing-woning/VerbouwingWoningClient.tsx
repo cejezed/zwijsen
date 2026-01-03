@@ -18,8 +18,8 @@ import {
   Scale,
 } from 'lucide-react';
 
-import { PROCESS_STEPS } from '../../../data';
-import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar } from '../../../components';
+import { PROCESS_STEPS, INTERNAL_LINKS } from '../../../data';
+import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar, InternalLinksSection } from '../../../components';
 
 /**
  * Verbouwing woning – conversiegedreven type-pagina
@@ -719,6 +719,13 @@ export const VerbouwingWoningClient: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interne links voor SEO */}
+      <InternalLinksSection
+        title="Gerelateerde Diensten & Regio's"
+        subtitle="Ontdek meer over onze architectuurdiensten en regio's waar we actief zijn"
+        links={INTERNAL_LINKS.verbouwingWoning}
+      />
 
       <Footer footerRef={footerRef} parallaxText={footerParallaxText} opacity={footerOpacity} />
 

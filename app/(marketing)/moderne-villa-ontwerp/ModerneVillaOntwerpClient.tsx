@@ -14,7 +14,8 @@ import {
 } from "lucide-react";
 
 import { PROJECTS_DETAIL } from "../../../data/projecten";
-import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar } from "../../../components";
+import { INTERNAL_LINKS } from "../../../data";
+import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar, InternalLinksSection } from "../../../components";
 
 /**
  * Projectselectie:
@@ -562,6 +563,13 @@ export const ModerneVillaOntwerpClient: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interne links voor SEO */}
+      <InternalLinksSection
+        title="Gerelateerde Diensten & Regio's"
+        subtitle="Ontdek meer moderne projecten en onze diensten in verschillende regio's"
+        links={INTERNAL_LINKS.moderneVillaOntwerp}
+      />
 
       <Footer footerRef={footerRef} parallaxText={footerParallaxText} opacity={footerOpacity} />
 

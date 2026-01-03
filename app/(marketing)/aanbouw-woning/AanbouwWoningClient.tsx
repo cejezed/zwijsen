@@ -17,9 +17,9 @@ import {
   Landmark,
 } from 'lucide-react';
 
-import { PROCESS_STEPS } from '../../../data';
+import { PROCESS_STEPS, INTERNAL_LINKS } from '../../../data';
 import { PROJECTS_DETAIL } from '../../../data/projecten';
-import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar } from '../../../components';
+import { Footer, InquiryOverlay, QuickscanOverlay, ContactBar, InternalLinksSection } from '../../../components';
 
 /**
  * Aanbouw / Uitbouw woning – conversiegedreven type-pagina
@@ -828,6 +828,13 @@ export const AanbouwWoningClient: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interne links voor SEO */}
+      <InternalLinksSection
+        title="Gerelateerde Diensten & Regio's"
+        subtitle="Ontdek meer over onze architectuurdiensten en projecten"
+        links={INTERNAL_LINKS.aanbouwWoning}
+      />
 
       <Footer footerRef={footerRef} parallaxText={footerParallaxText} opacity={footerOpacity} />
 
