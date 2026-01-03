@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: RouteProps<ProjectParams>) {
         };
     }
 
-    const project = PROJECTS_DETAIL.find((p) => p.slug === slug);
+    const project = PROJECTS_DETAIL.find((p) => p && p.slug === slug);
 
     if (!project) {
         return {
@@ -65,7 +65,7 @@ export default async function Page({ params }: RouteProps<ProjectParams>) {
         notFound();
     }
 
-    const project = PROJECTS_DETAIL.find((p) => p.slug === slug);
+    const project = PROJECTS_DETAIL.find((p) => p && p.slug === slug);
 
     if (!project) {
         notFound();

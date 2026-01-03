@@ -9,7 +9,8 @@ import {
   bilthovenConfig,
   utrechtConfig,
   stichtseVechtConfig,
-  vinkeveenConfig
+  vinkeveenConfig,
+  blaricumConfig
 } from './regions';
 
 // Export werkwijze content
@@ -55,6 +56,9 @@ export const PAGE_CONFIG: Record<string, Partial<RegioConfig>> = {
 
   // Vinkeveen
   "vinkeveen": vinkeveenConfig,
+
+  // Blaricum
+  "blaricum": blaricumConfig,
 
   // Vreeland - TODO: maak vreeland.ts aan in regions/
   // "vreeland": vreelandConfig,

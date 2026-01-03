@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 
 export function ProjectDetailClient({ slug }: { slug: string }) {
     const router = useRouter();
-    const project = PROJECTS_DETAIL.find(p => p.slug === slug);
+    const project = PROJECTS_DETAIL.find(p => p && p.slug === slug);
 
     if (!project) {
         notFound();

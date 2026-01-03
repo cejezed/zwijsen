@@ -65,7 +65,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ projects, on
           <h3 className="text-7xl md:text-[8vw] font-serif italic tracking-tighter text-black leading-[0.85]">Vertaal uw <br />Droom.</h3>
         </div>
         <div className="max-w-md">
-          <p className="text-stone-500 text-xl italic font-light leading-relaxed">Scroll horizontaal door ons portfolio. Sleep of scroll naar rechts voor meer inspiratie.</p>
+          <p className="text-stone-500 text-xl italic font-light leading-relaxed">Scroll horizontaal door de portfolio. Sleep of scroll naar rechts voor meer inspiratie.</p>
         </div>
       </div>
 

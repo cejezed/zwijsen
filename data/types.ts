@@ -151,13 +151,15 @@ export interface ProcessStep {
 }
 
 // Type definitie voor regio configuratie
+export type AnyProject = Project | ProjectDetail;
+
 export interface RegioConfig {
   seoTitle: string;
   metaDescription?: string;
   ogImage?: string;       // Optionele specifieke OG image (1200x630)
   canonicalUrl?: string;  // Optionele handmatige canonical
   heroSlides?: HeroSlide[];
-  projects?: Project[];
+  projects?: AnyProject[];
   processSteps?: ProcessStep[];
   faqs?: FAQ[];
   testimonials?: Testimonial[];

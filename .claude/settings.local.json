@@ -20,7 +20,10 @@
       "Bash(nslookup:*)",
       "Bash(vercel --version:*)",
       "Bash(find:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "Bash(timeout 10 tail:*)",
+      "Bash(timeout 15 tail:*)"
     ]
   }
 }

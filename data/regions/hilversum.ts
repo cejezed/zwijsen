@@ -3,12 +3,12 @@ import { PROJECTS_DETAIL } from '../projecten';
 
 // Converteer relevante projecten naar Project format voor de portfolio grid
 const hilversumProjects = PROJECTS_DETAIL
-  .filter(p =>
+  .filter(p => p && (
     p.slug === 'moderne-rietkapvilla-het-gooi' ||
     p.slug === 'moderne-villa-rieten-kap-blaricum' ||
     p.slug === 'moderne-villa-gebogen-gevel-gooi-en-vechtstreek' ||
     p.slug === 'luxe-villa-uitzicht-waterrijk-woerden'
-  )
+  ))
   .map((p, index) => {
     const sizes = ['wide', 'portrait', 'landscape', 'square'] as const;
     const size = sizes[index % 4];

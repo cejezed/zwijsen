@@ -56,7 +56,7 @@ export const verbouwLuxeVillaZandvoort: ProjectDetail = {
       alt: "Duinvilla in Zandvoort – architectuur in verbinding met duinlandschap"
     },
     {
-      url: "https://www.zwijsen.net/wp-content/uploads/2022/10/interieur-architect-villa-aan-zee.jpg",
+      url: "https://www.zwijsen.net/wp-content/uploads/2022/10/duinvilla-zandvoort-modern-duinen-architect-12.jpg",
       alt: "Interieur – natuurlijke materialen en maatwerkdetails"
     }
   ],

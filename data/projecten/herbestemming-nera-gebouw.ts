@@ -144,7 +144,7 @@ export const herbestemmingNeraGebouw: ProjectDetail = {
 
     {
       type: "gallery",
-      layout: "grid",
+      layout: "horizontal",
       gallery: [
         {
           url: "https://www.zwijsen.net/wp-content/uploads/2018/04/nera-nederhorst-architect-verbouw-erfgoed-wijdemeren.jpg",
@@ -176,7 +176,7 @@ export const herbestemmingNeraGebouw: ProjectDetail = {
     {
       type: "split",
       layout: "image-right",
-      fullWidth: false,
+      fullWidth: true,
       title: "Licht Atrium in het Hoofdgebouw: ‘Kelder’ en Lantaarn Hersteld",
       content:
         "In het bestaande gebouw wordt de op dit moment wat sombere ‘kelder’ en lantaarn in ere hersteld. Door strategisch een sparing in de vloer te maken, kan een licht atrium ontstaan met daglicht van boven en ruimte voor een binnentuin.\n\nDit atrium kan functioneren als een aangenaam hart voor het zorgcentrum: helder, oriënterend en met een rustige binnenwereld die past bij zorg en verblijf.",

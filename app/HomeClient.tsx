@@ -35,6 +35,17 @@ export const HomeClient: React.FC<HomeClientProps> = ({ initialConfig }) => {
     const [isInquiryOpen, setIsInquiryOpen] = useState(false);
     const [dockMode, setDockMode] = useState<'process' | 'dream'>('process');
 
+    // Debug log for project selection
+    const handleProjectClick = (project: any) => {
+        console.log('[HomeClient] Project clicked:', {
+            title: project?.title,
+            slug: project?.slug,
+            openMode: project?.openMode,
+            hasSnapshot: !!project?.snapshot
+        });
+        setSelectedProject(project);
+    };
+
     // Use config passed from server
     const pageConfig = initialConfig;
 
@@ -145,7 +156,7 @@ export const HomeClient: React.FC<HomeClientProps> = ({ initialConfig }) => {
                     {/* Portfolio Section */}
                     <PortfolioSection
                         projects={pageConfig.projects || []}
-                        onProjectClick={setSelectedProject}
+                        onProjectClick={handleProjectClick}
                     />
 
                     {/* Testimonials Section */}

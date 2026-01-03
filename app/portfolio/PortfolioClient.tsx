@@ -101,10 +101,10 @@ export const PortfolioClient: React.FC = () => {
     const footerParallaxText = useTransform(footerScroll, [0, 1], [0, -1500]);
     const footerOpacity = useTransform(footerScroll, [0, 0.4], [0, 1]);
 
-    const allCategories = ['all', ...Array.from(new Set(PROJECTS_DETAIL.flatMap(p => 'categories' in p ? p.categories || [] : [])))];
+    const allCategories = ['all', ...Array.from(new Set(PROJECTS_DETAIL.flatMap(p => p && 'categories' in p ? p.categories || [] : [])))];
     const filteredProjects = filter === 'all'
-        ? PROJECTS_DETAIL
-        : PROJECTS_DETAIL.filter(p => 'categories' in p && p.categories?.includes(filter as ProjectCategory));
+        ? PROJECTS_DETAIL.filter(p => p)
+        : PROJECTS_DETAIL.filter(p => p && 'categories' in p && p.categories?.includes(filter as ProjectCategory));
 
     const toOverlayProject = (p: any, idx: number) => {
         // Support both "light" projects (with image/gallery) and full projects (with featuredImage/heroImages)

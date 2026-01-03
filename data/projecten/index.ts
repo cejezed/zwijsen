@@ -34,7 +34,14 @@ export { torenwoningCronenburghLoenen } from './architect-loenen-aan-de-vecht-to
 export { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht';
 export { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
 export { verbouwMetModerneAanbouwWoningLoenenAanDeVecht } from './verbouw-met-moderne-aanbouw-woning-loenen-aan-de-vecht';
+export { villaBlaricummermeent } from './villa-blaricummermeent-architect';
 export { herbestemmingNeraGebouw } from './herbestemming-nera-gebouw';
+export { bijgebouwWoningAanDeVechtLoenen } from './bijgebouw-woning-aan-de-vecht-loenen-aan-de-vecht';
+export { verbouwBegraafplaatsBuitenveldert } from './architect-amsterdam-verbouw-aanbouw-begraafplaats-buitenveldert';
+export { villaAanHetWaterWaterrijkWoerden } from './villa-aan-het-water-waterrijk-woerden-special';
+export { villaKortenhoefModerneVillaMetRietenKap } from './architect-villa-kortenhoef-moderne-villa-met-rieten-kap';
+export { woningAnkeveenseStillePlas } from './woning-ankeveense-stille-plas-circulair-energieneutraal';
+export { villaAanHetWaterBlaricummermeent } from './villa-aan-het-water-blaricum-architect-kavel';
 
 // Light exports
 export { villavleuten } from './light-vleuten-villa.ts';
@@ -82,6 +89,13 @@ import { moderneRecreatiewoningVecht } from './architect-loenen-aan-de-vecht-mod
 import { villaKasteelparkDeCloese } from './architect-loenen-aan-de-vecht-villa-kasteelpark-de-cloese';
 import { verbouwMetModerneAanbouwWoningLoenenAanDeVecht } from './verbouw-met-moderne-aanbouw-woning-loenen-aan-de-vecht';
 import { herbestemmingNeraGebouw } from './herbestemming-nera-gebouw';
+import { villaBlaricummermeent } from './villa-blaricummermeent-architect';
+import { bijgebouwWoningAanDeVechtLoenen } from './bijgebouw-woning-aan-de-vecht-loenen-aan-de-vecht';
+import { verbouwBegraafplaatsBuitenveldert } from './architect-amsterdam-verbouw-aanbouw-begraafplaats-buitenveldert';
+import { villaAanHetWaterWaterrijkWoerden } from './villa-aan-het-water-waterrijk-woerden-special';
+import { villaKortenhoefModerneVillaMetRietenKap } from './architect-villa-kortenhoef-moderne-villa-met-rieten-kap';
+import { woningAnkeveenseStillePlas } from './woning-ankeveense-stille-plas-circulair-energieneutraal';
+import { villaAanHetWaterBlaricummermeent } from './villa-aan-het-water-blaricum-architect-kavel';
 
 // Light imports
 import { villavleuten } from './light-vleuten-villa.ts';
@@ -131,8 +145,15 @@ export const PROJECTS_DETAIL: AnyProject[] = [
   torenwoningCronenburghLoenen,
   moderneRecreatiewoningVecht,
   villaKasteelparkDeCloese,
-  herbestemmingNeraGebouw,
   verbouwMetModerneAanbouwWoningLoenenAanDeVecht,
+  villaBlaricummermeent,
+  herbestemmingNeraGebouw,
+  bijgebouwWoningAanDeVechtLoenen,
+  verbouwBegraafplaatsBuitenveldert,
+  villaAanHetWaterWaterrijkWoerden,
+  villaKortenhoefModerneVillaMetRietenKap,
+  woningAnkeveenseStillePlas,
+  villaAanHetWaterBlaricummermeent,
 
   // light
   villavleuten,
@@ -156,6 +177,9 @@ export const PROJECTS_UNIQUE: AnyProject[] = (() => {
   const seen = new Set<string>();
   const out: AnyProject[] = [];
   for (const p of PROJECTS_DETAIL) {
+    // Skip undefined/null projects
+    if (!p) continue;
+
     const key =
       (p as any).slug ||
       `${(p as any).title || ''}__${(p as any).location || (p as any).locationLabel || ''}`;

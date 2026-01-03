@@ -726,7 +726,7 @@ const ProjectPage: React.FC<{ project: ProjectDetail; onBack: () => void }> = ({
 
 // Wrapper component that matches the expected interface from App.tsx
 export const ProjectTemplate: React.FC<{ slug: string; onClose?: () => void }> = ({ slug, onClose }) => {
-  const project = PROJECTS_DETAIL.find(p => p.slug === slug);
+  const project = PROJECTS_DETAIL.find(p => p && p.slug === slug);
 
   if (!project) {
     console.error(`Project with slug "${slug}" not found`);

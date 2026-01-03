@@ -11,6 +11,7 @@ export const ADDRESS = {
 };
 
 import type { HeroSlide } from './types';
+import { PROJECTS_UNIQUE } from './projecten';
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
@@ -188,7 +189,11 @@ export const imageLocal = (value: string) => {
   }
 };
 
-export const PROJECTS = [
+// Use PROJECTS_UNIQUE for homepage display (includes light projects with overlay mode)
+export const PROJECTS = PROJECTS_UNIQUE;
+
+// Legacy hardcoded projects (keeping for reference but not exported)
+const LEGACY_PROJECTS = [
   {
     id: 3,
     title: "Moderne Rietkapvilla",

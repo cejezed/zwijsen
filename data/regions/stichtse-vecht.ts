@@ -3,13 +3,13 @@ import { PROJECTS_DETAIL } from '../projecten';
 
 // Converteer relevante projecten naar Project format voor de portfolio grid
 const stichtseVechtProjects = PROJECTS_DETAIL
-  .filter(p =>
+  .filter(p => p && (
     p.slug === 'architect-loenen-aan-de-vecht-torenwoning-cronenburgh' ||
     p.slug === 'architect-loenen-aan-de-vecht-verbouw-villa-kickestein' ||
     p.slug === 'architect-loenen-aan-de-vecht-moderne-recreatiewoning-vecht' ||
     p.slug === 'architect-poortwoning-cronenburgh-loenen-aan-de-vecht' ||
     p.slug === 'architect-loenen-aan-de-vecht-hofwoning-cronenburgh'
-  )
+  ))
   .map((p, index) => {
     const sizes = ['wide', 'portrait', 'landscape', 'square'] as const;
     const size = sizes[index % 4];

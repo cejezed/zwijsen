@@ -213,7 +213,7 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
                     <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
                       <Instagram size={20} className="group-hover:scale-110 transition-transform" />
                     </a>
-                    <a href="#" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
+                    <a href="https://www.linkedin.com/in/jules-zwijsen-22450a4/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
                       <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
                     </a>
                   </div>

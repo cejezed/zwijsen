@@ -3,12 +3,12 @@ import { PROJECTS_DETAIL } from '../projecten';
 
 // Converteer relevante projecten naar Project format voor de portfolio grid
 const utrechtProjects = PROJECTS_DETAIL
-    .filter(p =>
+    .filter(p => p && (
         p.slug === 'moderne-villa-gebogen-gevel-gooi-en-vechtstreek' ||
         p.slug === 'herbestemming-boerderij-laag-keppel-achterhoek' ||
         p.slug === 'moderne-rietkapvilla-het-gooi' ||
         p.slug === 'modern-paviljoen-water-reeuwijk'
-    )
+    ))
     .map((p, index) => {
         const sizes = ['wide', 'portrait', 'landscape', 'square'] as const;
         const size = sizes[index % 4];

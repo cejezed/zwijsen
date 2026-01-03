@@ -77,9 +77,9 @@ export const RegioDetailClient: React.FC<RegioDetailClientProps> = ({ slug, conf
         return { url: img.url, alt: img.alt };
     };
 
-    // Toon alle projecten in de scroller door PROJECTS_DETAIL te normaliseren naar het portfolio formaat
+    // Toon alleen volledige projecten in de scroller (filter light projects met openMode: 'overlay' eruit)
     const portfolioProjects = useMemo(() => {
-        return PROJECTS_DETAIL.map((p, index) => {
+        return PROJECTS_DETAIL.filter(p => p && (!('openMode' in p) || p.openMode !== 'overlay')).map((p, index) => {
             const heroImages = 'heroImages' in p ? p.heroImages || [] : [];
             const gallery = heroImages.map(img => img.url).filter(Boolean);
             const featuredImage = 'featuredImage' in p ? p.featuredImage : undefined;

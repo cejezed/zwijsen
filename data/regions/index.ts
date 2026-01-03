@@ -8,11 +8,12 @@ export { bilthovenConfig } from './bilthoven';
 export { utrechtConfig } from './utrecht';
 export { stichtseVechtConfig } from './stichtse-vecht';
 export { vinkeveenConfig } from './vinkeveen';
+export { blaricumConfig } from './blaricum';
 
 // Import andere regio's (nog toe te voegen)
 // export { vreelandConfig } from './vreeland';
 // export { kortenhoefConfig } from './kortenhoef';
-// export { blaricumConfig } from './blaricum';
+
 // export { larenConfig } from './laren';
 // export { wijdemerenConfig } from './wijdemeren';
 // export { hetGooiConfig } from './het-gooi';
