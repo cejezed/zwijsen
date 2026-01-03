@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Instagram, Linkedin, Pinterest, Phone, Mail, ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
+import { MapPin, Instagram, Linkedin, Phone, Mail, ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
 import { BRAND_NAME, ADDRESS, EMAIL, PHONE_NUMBER, PHONE_LINK } from '../data';
 import { InquiryForm } from './Overlays';
 import { SafeImage } from './SafeImage';
@@ -77,6 +77,18 @@ const FOOTER_LINKS = {
     ]
   }
 };
+
+const PinterestIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    className={className}
+  >
+    <path d="M12 2C6.58 2 3 5.74 3 10.08c0 3.03 1.69 4.75 2.82 4.75.44 0 .69-1.24.69-1.59 0-.42-1.1-1.36-1.1-3.18 0-3.76 2.87-6.39 6.59-6.39 3.2 0 5.55 1.8 5.55 5.1 0 2.47-.99 7.11-4.2 7.11-1.16 0-2.16-.84-2.16-2.05 0-1.77 1.25-3.48 1.25-5.3 0-3.08-4.38-2.53-4.38 1.2 0 .78.1 1.64.46 2.35-.66 2.8-1.99 6.98-1.99 9.87 0 .89.12 1.76.2 2.65.15.17.08.15.31.07 2.28-3.33 2.19-4 3.22-8.39.56 1.07 2.02 1.65 3.16 1.65 4.8 0 6.96-4.82 6.96-9.2C21 5.4 17.2 2 12 2Z" />
+  </svg>
+);
 
 export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity, regionFooterIntro, regionFooterImage }) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -214,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({ footerRef, parallaxText, opacity
                       <Instagram size={20} className="group-hover:scale-110 transition-transform" />
                     </a>
                     <a href="https://nl.pinterest.com/architectz/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
-                      <Pinterest size={20} className="group-hover:scale-110 transition-transform" />
+                      <PinterestIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     </a>
                     <a href="https://www.linkedin.com/in/jules-zwijsen-22450a4/" target="_blank" rel="noopener noreferrer" className="p-5 border border-stone-200 rounded-full hover:bg-black hover:text-white transition-all group shadow-sm bg-white">
                       <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
