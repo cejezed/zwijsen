@@ -71,6 +71,12 @@ export default async function Page({ params }: RouteProps<ProjectParams>) {
         notFound();
     }
 
+    // Light projects (openMode: 'overlay') should only be viewed in overlay, not as standalone pages
+    // Redirect to portfolio page if someone tries to access them directly
+    if ('openMode' in project && project.openMode === 'overlay') {
+        notFound();
+    }
+
     // Extract project data
     const subtitle = 'subtitle' in project ? project.subtitle : ('description' in project ? project.description : '');
     const locationLabel = 'locationLabel' in project ? project.locationLabel?.replace('Locatie: ', '') : ('location' in project ? project.location : '');
