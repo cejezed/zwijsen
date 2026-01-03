@@ -25,6 +25,7 @@ export const villareo16: Project = {
 
   openMode: 'overlay',
   typology: 'Nieuwbouw villa',
+  categories: ['nieuwbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/IMG_3923_resize.jpg',
   size: 'landscape',

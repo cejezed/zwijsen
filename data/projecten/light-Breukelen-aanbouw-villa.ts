@@ -25,6 +25,7 @@ export const Breukelenaanbouw: Project = {
 
   openMode: 'overlay',
   typology: 'Aanbouw / verbouw',
+  categories: ['verbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-aanbouw-villa-04.jpg',
   size: 'landscape',

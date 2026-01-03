@@ -65,6 +65,9 @@ export interface Project {
 
   // Optioneel: typologie label voor overlay footer
   typology?: string;
+
+  // Optioneel: categorieën voor filtering
+  categories?: string[];
 }
 
 // Regional project type (kleine project cards in RegionSection)

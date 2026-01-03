@@ -25,6 +25,7 @@ export const Bilthovenveranda: Project = {
 
   openMode: 'overlay',
   typology: 'Tuinkamer / veranda',
+  categories: ['aanbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2015/04/veranda_resize.jpg',
   size: 'landscape',

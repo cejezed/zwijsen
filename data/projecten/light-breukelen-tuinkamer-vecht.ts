@@ -25,6 +25,7 @@ export const Breukelentuinkamer: Project = {
 
   openMode: 'overlay',
   typology: 'Tuinkamer / aanbouw',
+  categories: ['aanbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2021/10/20220120_125203_resize.jpg',
   size: 'portrait',

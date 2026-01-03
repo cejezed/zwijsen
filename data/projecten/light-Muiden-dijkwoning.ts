@@ -25,6 +25,7 @@ export const Muidendijkwoning: Project = {
 
   openMode: 'overlay',
   typology: 'Nieuwbouw dijkwoning',
+  categories: ['nieuwbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2014/11/2018-04-26-16.08.38_resize.jpg',
   size: 'landscape',

@@ -25,6 +25,7 @@ export const Bilthovenjaren30aanbouw: Project = {
 
   openMode: 'overlay',
   typology: 'Verbouw & aanbouw',
+  categories: ['verbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2020/03/Bilthoven-10.jpg',
   size: 'landscape',

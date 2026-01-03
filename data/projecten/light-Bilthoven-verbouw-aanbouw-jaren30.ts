@@ -25,6 +25,7 @@ export const Bilthovenjaren30: Project = {
 
   openMode: 'overlay',
   typology: 'Verbouw & aanbouw',
+  categories: ['verbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/moderne-verbouw-en-aanbouw-jaren-dertig-woning-10.jpg',
   size: 'landscape',

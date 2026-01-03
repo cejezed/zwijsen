@@ -25,6 +25,7 @@ export const warmehand: Project = {
 
   openMode: 'overlay',
   typology: 'Verbouw & uitbouw',
+  categories: ['verbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2021/11/2024-10-22-08.53.51_resize.jpg',
   size: 'landscape',

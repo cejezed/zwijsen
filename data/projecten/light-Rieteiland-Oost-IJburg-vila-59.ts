@@ -25,6 +25,7 @@ export const villareo59: Project = {
 
   openMode: 'overlay',
   typology: 'Nieuwbouw villa',
+  categories: ['nieuwbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2015/04/Rieteiland-oost-kavel-architect-moderne-woning.jpg',
   size: 'landscape',

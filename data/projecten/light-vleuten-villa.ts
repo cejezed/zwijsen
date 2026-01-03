@@ -4,6 +4,7 @@ export const villavleuten: Project & {
   openMode: 'overlay';
   snapshot: ProjectSnapshot;
   typology?: string;
+  categories?: string[];
 } = {
   id: 9001,
 
@@ -13,6 +14,7 @@ export const villavleuten: Project & {
 
   openMode: 'overlay',
   typology: 'Nieuwbouw villa',
+  categories: ['nieuwbouw'],
 
   // Portfolio/kaart velden
   image: '/images/projecten/modene-wit-villa-vleuten-de-meern-architect-jules-zwijsen-bouwgrond.webp',
@@ -21,7 +23,7 @@ export const villavleuten: Project & {
   area: '245 m²',
   tag: 'Nieuwbouw',
   description:
-    'Slimme inzet van regelgeving en uitbouwen: de woning werkt als “schild” tussen straat en tuin, met maximale licht- en zichtlijnen binnen.',
+    'Slimme inzet van regelgeving en uitbouwen: de woning werkt als "schild" tussen straat en tuin, met maximale licht- en zichtlijnen binnen.',
 
   // Overlay gebruikt dit als detailbeelden
   gallery: [

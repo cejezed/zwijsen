@@ -38,6 +38,7 @@ export const villaabcoude: Project = {
 
   openMode: 'overlay',
   typology: 'Nieuwbouw villa',
+  categories: ['nieuwbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2015/05/abcoude-kavel-architect-moderne-woning_resize.jpg',
   size: 'wide',

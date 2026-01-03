@@ -25,6 +25,7 @@ export const villareo36: Project = {
 
   openMode: 'overlay',
   typology: 'Houtbouw / nieuwbouw',
+  categories: ['nieuwbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2013/11/modern-houten-huis-klh-11.jpg',
   size: 'portrait',

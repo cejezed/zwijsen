@@ -25,6 +25,7 @@ export const Muidenstal: Project = {
 
   openMode: 'overlay',
   typology: 'Verbouw boerderij',
+  categories: ['verbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2014/05/WP_20170831_001.jpg',
   size: 'landscape',

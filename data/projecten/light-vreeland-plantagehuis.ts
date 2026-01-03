@@ -25,6 +25,7 @@ export const plantagehuis: Project = {
 
   openMode: 'overlay',
   typology: 'Aanbouw / tuinkamer',
+  categories: ['aanbouw'],
 
   image: 'https://www.zwijsen.net/wp-content/uploads/2024/08/2024-06-29-16.23.24.jpg',
   size: 'portrait',
